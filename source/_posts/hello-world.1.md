@@ -9,7 +9,6 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 
 ### Create a new post
 
-![tupian](https://img.ithome.com/newsuploadfiles/2019/6/20190610072743_8119.jpg)
 
 ``` bash
 $ hexo new "My New Post"
