@@ -1,0 +1,96 @@
+<%- partial('_partial/header', { 
+    title: '', 
+    bgColor: 'bg-grey'
+}) %>
+<div class="main-content index-page clearfix <% if (theme.postListSwitch == 'one') { %>onlist-page<% } %>">
+	<div class="post-lists">
+		<div class="post-lists-body">
+        <% page.posts.forEach(function(post) { %>
+			<% if (theme.postListSwitch === 'three' || theme.postListSwitch !== 'one') { %>
+            <div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-thumb <%= getPostBgColor(theme.colorBgPosts, post.color, 'deepgrey') %>" style="background-image:url(<%= getPostThumb(post, theme) %>);"></div>
+					<a href="<%- url_for(post.path) %>">
+                        <div class="item-desc">
+                            <% if (post.excerpt) { %>
+                            <p><%- truncate(strip_html(post.excerpt), { length: 75 }) %></p>
+                            <% } else { %>
+                            <p><%- truncate(strip_html(post.content), { length: 75 }) %></p>
+                            <% } %>
+						</div>
+					</a>
+					<div class="item-slant reverse-slant <%= getPostBgColor(theme.colorBgPosts, post.color, 'deepgrey') %>"></div>
+					<div class="item-slant"></div>
+					<div class="item-label">
+						<div class="item-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></div>
+						<div class="item-meta clearfix">
+						<!--
+							<% if (theme.valine.enable && theme.valine.visitor) { %>
+							<div class="item-meta-date" style="color: #313131; padding-top: 10px; font-size: 13px;">
+								<span id="<%- url_for(post.path) %>" class="leancloud-visitors" data-flag-title="<%= post.title %>">
+									<span class="leancloud-visitors-count">0</span> Views 
+								</span>
+							</div>
+							<% } else { %>
+							<div class="item-meta-date" style="color: #313131; padding-top: 12px;">
+								<%= post.date.format('MMM DD, YYYY') %>
+							</div>
+							<% } %>
+						-->
+                            <div class="item-meta-ico <%= getPostIcon(post.icon) %>" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                <% post.categories.reverse().forEach(function(category) { %>
+                                <a href="<%- url_for(category.path) %>"><%= category.name %></a>
+								<% }); %>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% } %>
+			<% if (theme.postListSwitch == 'one') { %>
+			<div class="post-onelist-item">
+				<div class="post-onelist-item-container">
+					<a href="<%- url_for(post.path) %>">
+						<div class="onelist-item-thumb <%= getPostBgColor(theme.colorBgPosts, post.color, 'deepgrey') %>" style="background-image:url(<%= getPostThumb(post, theme) %>);"></div>
+					</a>
+					<div class="onelist-item-info">
+						<div class="item-title">
+							<a href="<%- url_for(post.path) %>"><%= post.title %></a>
+						</div>
+						<div class="item-meta">
+						<!--
+							<% if (theme.valine.enable && theme.valine.visitor) { %>
+							<span id="<%- url_for(post.path) %>" class="leancloud-visitors" data-flag-title="<%= post.title %>">
+								<span class="leancloud-visitors-count">0</span> Views 
+							</span>
+							<% } %>
+						-->
+							<time datetime="<%= post.date.unix() %>" itemprop="datePublished">Published on <%- post.date.format('MMM DD, YYYY') %><% if (post.categories.length != 0) { %> in <% } %></time><% post.categories.forEach(function(category, index) { %><a href="<%- url_for(category.path) %>"><%= category.name %><% if (index !== post.categories.length - 1) { %> / <% } %></a><% }); %>
+						</div>
+						<div class="item-meta-hr <%= getPostBgColor(theme.colorBgPosts, post.color, 'deepgrey') %>"></div>
+						<div class="item-content">
+                            <% if (post.excerpt) { %>
+                            <p><%- truncate(strip_html(post.excerpt), { length: 150 }) %></p>
+                            <% } else { %>
+                            <p><%- truncate(strip_html(post.content), { length: 150 }) %></p>
+                            <% } %>
+						</div>
+						<div class="item-readmore">
+							<a href="<%- url_for(post.path) %>"> <%= __('index.readMore') %> → </a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% } %>
+        <% }); %>
+		</div>
+	</div>
+    <% if (page.total > 1) { %>
+    <div class="lists-navigator clearfix">
+    <%- partial('_partial/pagination') %>
+    </div>
+    <% } %>
+</div>
+
+<%- partial('_partial/footer') %>
