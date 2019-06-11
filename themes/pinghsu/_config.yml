@@ -5,7 +5,8 @@
 # 网站基础设置
 # 图片需要放置在 themes/pinghsu/source/imagse 下
 headerLogoUrl: # 头部右上角logo图片地址，留空则取网站标题 
-footerLogoUrl: # 底部左下角logo图片地址，留空则取网站标题
+footerLogoUrl: 
+lowerleftLogoUrl: /images/lowerleft_2.png
 favicon: /images/favicon.png # favicon地址，留空则不设favicon
 iosicon: /images/apple-touch-icon.png # apple touch icon 地址，留空则不设 apple touch icon
 since: 2019 # 站点起始时间

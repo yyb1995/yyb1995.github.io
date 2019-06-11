@@ -12,6 +12,10 @@
 		<div class="footer-container">
             <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
             <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+            <% if (theme.lowerleftLogoUrl) { %>
+                <div class="girl-fixed"> <img src="<%= theme.lowerleftLogoUrl %>"> </div>
+                <% }
+            %>
             <% if (theme.recentlyPosts.enable) { %>
             <div class="meta-item meta-posts">
                 <h3 class="meta-title"><%= __('recentlyPosts') %></h3>
@@ -26,16 +30,15 @@
             <% } %>
             			<div class="meta-item meta-copyright">
 				<div class="meta-copyright-info">
-                    <!--
+                    
                         <a href="<%= config.url %>" class="info-logo">
                         <% if (theme.footerLogoUrl) { %>
                         <img src="<%= theme.footerLogoUrl %>" alt="<%= config.title %>" />
-                        <% } else 
-                        { %>
-                        <%= config.title %>
+                        <% } else { %>
+                        <%# config.title %>
                         <% } %>
                     </a>
-                    -->
+                    
                     <%- "站点信息" %>
 					<div class="info-text">
                         <p id="chakhsu"></p>
@@ -49,8 +52,8 @@
                         <% if (theme.beian) { %>
                         <p style="margin-top: 10px"><a href="http://www.miibeian.gov.cn"><%= theme.beian %></a></p>
                         <% } %>
-                        <p style="margin-top: 10px">&copy; <%= theme.since %> - <%- date(Date.now(), 'YYYY') %> 
-                        <i class="fa fa-heart animated infinite pulse"></i> <a href="<%= config.url %>"><%= config.title %></a></p>
+                        <p style="margin-top: 10px">&copy; <%= theme.since %> - <%- date(Date.now(), 'YYYY') %> with 
+                        <i class="fa fa-heart animated infinite pulse"></i> <a href="<%= config.url %>"> by <%= config.author %></a></p>
                     </div>
 				</div>
             </div>

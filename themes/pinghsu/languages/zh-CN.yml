@@ -17,8 +17,8 @@ tags:
   count: 目前共计%d标签
 
 archives:
-  title: 嗯..! 目前共计 %d 篇日志。 继续努力~
-  empty: 你还没有书写文章哦，赶紧去写一篇吧~
+  title: 嗯..! 目前共有 %d 篇文章，继续努力(ง •_•)ง
+  empty: 主人去拯救世界了>_<
 
 categories:
   empty: 你还没有分类哦，赶紧去给你的文章加上分类吧~

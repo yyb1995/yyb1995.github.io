@@ -1,4 +1,4 @@
-const arr = [ 'blue', 'purple', 'green', 'yellow', 'red', 'orange' ];
+const arr = [ 'blue', 'purple', 'green', 'yellow', 'red', 'orange'];
 
 var getPostBgColor = function(colorBgPosts, color, defaultColor = 'deepgrey') {
   if (colorBgPosts) {

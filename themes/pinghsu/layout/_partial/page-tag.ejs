@@ -1,5 +1,5 @@
 <%- partial('_partial/header', { 
-    title: '标签', 
+    title: 'æ ‡ç­¾', 
     bgColor: 'bg-grey'
 }) %>
 
@@ -15,7 +15,7 @@
             <a href="<%- url_for(tag.path) %>" class="<% if (theme.colorBgPosts) { %>text-white <% } %><%= getPostBgColor(theme.colorBgPosts, tag.color, 'white') %>"># <%= tag.name %>(<%= tag.posts.count() %>)</a>
             <% }); %>
         <% } else { %>
-            <p> Nothing here ! </p>
+            <p> 主人还木有添加过标签哦_(:з」∠)_</p>
         <% } %>
             <div class="search-tags-hr <%= getPostBgColor(theme.colorBgPosts, '', 'deepgrey') %>"></div>
         </div>
