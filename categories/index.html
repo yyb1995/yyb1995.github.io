@@ -11,9 +11,6 @@
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
     
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
-    <script src="/plugins/live2d-widget/autoload.js"></script>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
@@ -69,7 +66,7 @@
             
             <a href="/archives" class>归档</a>
             
-            <a href="/links" class>友情链接</a>
+            <a href="/links" class>友人帐</a>
             
             <a href="/about" class>关于我</a>
             
@@ -84,7 +81,7 @@
                 
                 <li><a href="/archives" class>归档</a></li>
                 
-                <li><a href="/links" class>友情链接</a></li>
+                <li><a href="/links" class>友人帐</a></li>
                 
                 <li><a href="/about" class>关于我</a></li>
                 
@@ -133,6 +130,37 @@
 </div>
 
 <footer id="footer" class="footer bg-white">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget-2/waifu.css">
+
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+    
+    <script src="/plugins/live2d-widget-2/waifu-tips.js"></script>
+    <script src="/plugins/live2d-widget-2/live2d.js"></script>
+    
+    <script type="text/javascript">
+        live2d_settings['modelId'] = 1;
+        live2d_settings['modelTexturesId'] = 9;
+    	initModel("/plugins/live2d-widget-2/waifu-tips.json")
+    </script>
+
 	<div class="footer-social">
 		<div class="footer-container clearfix">
 			<div class="social-list">
@@ -148,7 +176,6 @@
 	</div>
 	<div class="footer-meta">
 		<div class="footer-container">
-            
             <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
             
                 <div class="girl-fixed"> <img src="/images/lowerleft_2.png"> </div>

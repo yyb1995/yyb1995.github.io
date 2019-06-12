@@ -50,7 +50,7 @@
 	color: #aaa;
 	top: 70px;
 	right: 5px;
-	position: absolute;
+	position: absolute; 
 	opacity: 0;
 	transition: opacity 1s;
 }
