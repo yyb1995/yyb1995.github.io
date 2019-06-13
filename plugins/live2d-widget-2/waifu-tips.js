@@ -39,7 +39,7 @@ live2d_settings['canTurnToHomePage']    = true;         // 显示 返回首页  
 live2d_settings['canTurnToAboutPage']   = true;         // 显示 跳转关于页  按钮，可选 true(真), false(假)
 
 // 模型切换模式
-live2d_settings['modelStorage']         = true;         // 记录 ID (刷新后恢复)，可选 true(真), false(假)
+live2d_settings['modelStorage']         = false;         // 记录 ID (刷新后恢复)，可选 true(真), false(假)
 live2d_settings['modelRandMode']        = 'switch';     // 模型切换，可选 'rand'(随机), 'switch'(顺序)
 live2d_settings['modelTexturesRandMode']= 'rand';       // 材质切换，可选 'rand'(随机), 'switch'(顺序)
 
@@ -52,12 +52,12 @@ live2d_settings['showCopyMessage']      = true;         // 显示 复制内容 �
 live2d_settings['showWelcomeMessage']   = true;         // 显示进入面页欢迎词
 
 //看板娘样式设置
-live2d_settings['waifuSize']            = '200x200';    // 看板娘大小，例如 '280x250', '600x535'
-live2d_settings['waifuTipsSize']        = '140x70';     // 提示框大小，例如 '250x70', '570x150'
+live2d_settings['waifuSize']            = '240x240';    // 看板娘大小，例如 '280x250', '600x535'
+live2d_settings['waifuTipsSize']        = '180x70';     // 提示框大小，例如 '250x70', '570x150'
 live2d_settings['waifuFontSize']        = '13px';       // 提示框字体，例如 '12px', '30px'
 live2d_settings['waifuToolFont']        = '13px';       // 工具栏字体，例如 '14px', '36px'
 live2d_settings['waifuToolLine']        = '20px';       // 工具栏行高，例如 '20px', '36px'
-live2d_settings['waifuToolTop']         = '-30px'         // 工具栏顶部边距，例如 '0px', '-60px'
+live2d_settings['waifuToolTop']         = '-40px'         // 工具栏顶部边距，例如 '0px', '-60px'
 live2d_settings['waifuMinWidth']        = '768px';      // 面页小于 指定宽度 隐藏看板娘，例如 'disable'(禁用), '768px'
 live2d_settings['waifuEdgeSide']        = 'right:0';     // 看板娘贴边方向，例如 'left:0'(靠左 0px), 'right:30'(靠右 30px)
 live2d_settings['waifuDraggable']       = 'unlimited';    // 拖拽样式，例如 'disable'(禁用), 'axis-x'(只能水平拖拽), 'unlimited'(自由拖拽)
@@ -205,11 +205,11 @@ function loadModel(modelId, modelTexturesId=0) {
 function loadTipsMessage(result) {
     window.waifu_tips = result;
     
-    $.each(result.mouseover, function (index, tips){
-        $(document).on("mouseover", tips.selector, function (){
+    $.each(result.mouseenter, function (index, tips){
+        $(document).on("mouseenter", tips.selector, function (){
             var text = getRandText(tips.text);
             text = text.render({text: $(this).text()});
-            showMessage(text, 3000);
+            showMessage(text, 2000);
         });
     });
     $.each(result.click, function (index, tips){
@@ -334,7 +334,9 @@ function loadTipsMessage(result) {
     
     /* 检测用户活动状态，并在空闲时显示一言 */
     if (live2d_settings.showHitokoto) {
-        window.getActed = false; window.hitokotoTimer = 0; window.hitokotoInterval = false;
+        window.getActed = false; 
+        window.hitokotoTimer = 0; 
+        window.hitokotoInterval = false;
         $(document).mousemove(function(e){getActed = true;}).keydown(function(){getActed = true;});
         setInterval(function(){ if (!getActed) ifActed(); else elseActed(); }, 1000);
     }
