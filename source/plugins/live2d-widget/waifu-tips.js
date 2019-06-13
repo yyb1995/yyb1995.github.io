@@ -43,14 +43,20 @@ function initWidget(waifuPath, apiPath) {
 			$("#waifu").hide();
 		});
 	});
-	var re = /x/;
-	console.log(re);
-	re.toString = function() {
-		showMessage("哈哈，你打开了控制台，是想要看看我的秘密吗？", 6000, 9);
+	function consoleOpenCallback(){
+        showMessage("我看到了你在打开控制台，不许随便偷看人家的秘密，哼哼(￣^￣)", 6000, 9);
 		return "";
-	};
+	}
+	!function () {
+        // 创建一个对象
+        let foo = /./;
+        // 将其打印到控制台上，实际上是一个指针
+        console.log(foo);
+        // 要在第一次打印完之后再重写toString方法
+        foo.toString = consoleOpenCallback;
+    }()
 	$(document).on("copy", function() {
-		showMessage("你都复制了些什么呀，转载要记得加上出处哦！", 6000, 9);
+		showMessage("你都复制了些什么呀，我也想看~", 6000, 9);
 	});
 	$(document).on("visibilitychange", function() {
 		if (!document.hidden) showMessage("哇，你终于回来了～", 6000, 9);
@@ -59,15 +65,15 @@ function initWidget(waifuPath, apiPath) {
 		var SiteIndexUrl = location.port ? `${location.protocol}//${location.hostname}:${location.port}/` : `${location.protocol}//${location.hostname}/`, text; //自动获取主页
 		if (location.href == SiteIndexUrl) { //如果是主页
 			var now = new Date().getHours();
-			if (now > 23 || now <= 5) text = "你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？";
+			if (now > 23 || now <= 5) text = ["你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？", "我会一直陪着你进入梦乡哦~"];
 			else if (now > 5 && now <= 7) text = "早上好！一日之计在于晨，美好的一天就要开始了。";
-			else if (now > 7 && now <= 11) text = "上午好！工作顺利嘛，不要久坐，多起来走动走动哦！";
-			else if (now > 11 && now <= 14) text = "中午了，工作了一个上午，现在是午餐时间！";
-			else if (now > 14 && now <= 17) text = "午后很容易犯困呢，今天的运动目标完成了吗？";
-			else if (now > 17 && now <= 19) text = "傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红～";
+			else if (now > 7 && now <= 11) text = "上午好！工作顺利吗，不要久坐，多起来走动走动哦！";
+			else if (now > 11 && now <= 14) text = "中午了，工作了一个上午，肯定饿了吧，赶紧去饱餐一顿吧~";
+			else if (now > 14 && now <= 17) text = "到下午了，为了早点回家继续加油吧(ง •_•)ง";
+			else if (now > 17 && now <= 19) text = "傍晚了！窗外夕阳的景色很美丽呢，该回家吃饭啦";
 			else if (now > 19 && now <= 21) text = "晚上好，今天过得怎么样？";
-			else if (now > 21 && now <= 23) text = ["已经这么晚了呀，早点休息吧，晚安～", "深夜时要爱护眼睛呀！"];
-			else text = "好久不见，日子过得好快呢……";
+			else if (now > 21 && now <= 23) text = ["已经这么晚了呀，早点休息吧，晚安～", "深夜时要爱护眼睛呀！", "要劳逸结合哦，身体是coding的本钱( ﾟ▽ﾟ)/ "];
+			else text = "好久不见，日子过得好快呢，快说有没有在偷偷地想我(〃'▽'〃)";
 		}
 		else if (document.referrer !== "") {
 			var referrer = document.createElement("a");
@@ -192,8 +198,8 @@ function initWidget(waifuPath, apiPath) {
 			url: `${apiURL}/rand_textures/?id=${modelId}-${modelTexturesId}`,
 			dataType: "json",
 			success: function(result) {
-				if (result.textures["id"] == 1 && (modelTexturesId == 1 || modelTexturesId == 0)) showMessage("我还没有其他衣服呢！", 4000, 10);
-				else showMessage("我的新衣服好看嘛？", 4000, 10);
+				if (result.textures["id"] == 1 && (modelTexturesId == 1 || modelTexturesId == 0)) showMessage("呜呜呜，我现在只有这一件衣服QAQ", 4000, 10);
+				else showMessage(["我的新衣服好看嘛？", "我超喜欢你<br><br>给我换的这身衣服呢~"], 4000, 10);
 				loadModel(modelId, result.textures["id"]);
 			}
 		});

@@ -1,12 +1,13 @@
-const live2d_path = "./live2d-widget/";
-//const live2d_path = "./";
+//const live2d_path = "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/";
+// const live2d_path = "https://github.com/yyb1995/yyb1995.github.io/tree/master/live2d-widget/"
+const live2d_path = "/plugins/live2d-widget/";
 
 $("<link>").attr({href: live2d_path + "waifu.css", rel: "stylesheet", type: "text/css"}).appendTo("head");
 //waifu.css的绝对路径
 
 $.ajax({
-	url: "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@master/live2d.min.js",
-	//url: live2d_path + "live2d.min.js",
+	url: live2d_path + "live2d.min.js",
+	// url: "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/live2d.min.js",
 	dataType: "script",
 	cache: true,
 	async: false
@@ -14,8 +15,8 @@ $.ajax({
 //live2d.min.js的绝对路径
 
 $.ajax({
-	url: "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@master/waifu-tips.js",
-	//url: live2d_path + "waifu-tips.js",
+	url: live2d_path + "waifu-tips.js",
+	// url: "https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/waifu-tips.js",
 	dataType: "script",
 	cache: true,
 	async: false

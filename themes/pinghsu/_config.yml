@@ -6,8 +6,8 @@
 # 图片需要放置在 themes/pinghsu/source/imagse 下
 headerLogoUrl: # 头部右上角logo图片地址，留空则取网站标题 
 footerLogoUrl: 
-lowerleftLogoUrl: /images/lowerleft_2.png
-favicon: /images/favicon.png # favicon地址，留空则不设favicon
+lowerleftLogo: /images/lowerleft_2.png # 左下角图片，留空则不设 lowerleftLogo
+favicon: /images/favicon.png # favicon(即chrome标签页图标)，留空则不设favicon
 iosicon: /images/apple-touch-icon.png # apple touch icon 地址，留空则不设 apple touch icon
 since: 2019 # 站点起始时间
 
@@ -25,8 +25,9 @@ archive: month
 
 # Social Setting 社交设置
 social:
-  Github: https://github.com/yyb1995
-  微博: https://weibo.com/yyb1015
+  GITHUB: https://github.com/yyb1995
+  WEIBO: https://weibo.com/yyb1015
+  EMAIL: mailto:yyb19951015@163.com
   RSS: /atom.xml
 
 # ===========================================
@@ -69,7 +70,7 @@ recentlyPosts:
 # limit：显示数量，建议设置不超过8条
 recentlyComments:
   enable: true
-  limit: 8
+  limit: 5
 
 # ===========================================
 # Appearance Setting 外观设置
@@ -159,7 +160,7 @@ music:
 # Main page 
 index_generator:
   path: ''
-  per_page: 12
+  per_page: 18
   order_by: -date
 
 # Archive page

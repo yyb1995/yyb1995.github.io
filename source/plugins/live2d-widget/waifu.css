@@ -1,13 +1,14 @@
 #waifu {
 	position: fixed;
-	bottom: -3px;
-	left: 0;
+	bottom: -5px;
+	/* left: 0; */
+	right: 3px;
 	z-index: 1;
 	line-height: 0;
 	transition: bottom .3s ease-in-out;
 }
 #waifu:hover {
-	bottom: 0;
+	bottom: -5px;
 }
 @media (max-width: 768px) {
 	#waifu {
@@ -48,8 +49,8 @@
 #waifu-tool {
 	color: #aaa;
 	top: 70px;
-	right: -10px;
-	position: absolute;
+	right: 5px;
+	position: absolute; 
 	opacity: 0;
 	transition: opacity 1s;
 }
