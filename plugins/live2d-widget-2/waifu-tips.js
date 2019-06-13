@@ -52,21 +52,21 @@ live2d_settings['showCopyMessage']      = true;         // 显示 复制内容 �
 live2d_settings['showWelcomeMessage']   = true;         // 显示进入面页欢迎词
 
 //看板娘样式设置
-live2d_settings['waifuSize']            = '280x250';    // 看板娘大小，例如 '280x250', '600x535'
-live2d_settings['waifuTipsSize']        = '250x70';     // 提示框大小，例如 '250x70', '570x150'
-live2d_settings['waifuFontSize']        = '12px';       // 提示框字体，例如 '12px', '30px'
-live2d_settings['waifuToolFont']        = '14px';       // 工具栏字体，例如 '14px', '36px'
+live2d_settings['waifuSize']            = '200x200';    // 看板娘大小，例如 '280x250', '600x535'
+live2d_settings['waifuTipsSize']        = '140x70';     // 提示框大小，例如 '250x70', '570x150'
+live2d_settings['waifuFontSize']        = '13px';       // 提示框字体，例如 '12px', '30px'
+live2d_settings['waifuToolFont']        = '13px';       // 工具栏字体，例如 '14px', '36px'
 live2d_settings['waifuToolLine']        = '20px';       // 工具栏行高，例如 '20px', '36px'
-live2d_settings['waifuToolTop']         = '0px'         // 工具栏顶部边距，例如 '0px', '-60px'
+live2d_settings['waifuToolTop']         = '-30px'         // 工具栏顶部边距，例如 '0px', '-60px'
 live2d_settings['waifuMinWidth']        = '768px';      // 面页小于 指定宽度 隐藏看板娘，例如 'disable'(禁用), '768px'
-live2d_settings['waifuEdgeSide']        = 'left:0';     // 看板娘贴边方向，例如 'left:0'(靠左 0px), 'right:30'(靠右 30px)
-live2d_settings['waifuDraggable']       = 'disable';    // 拖拽样式，例如 'disable'(禁用), 'axis-x'(只能水平拖拽), 'unlimited'(自由拖拽)
-live2d_settings['waifuDraggableRevert'] = true;         // 松开鼠标还原拖拽位置，可选 true(真), false(假)
+live2d_settings['waifuEdgeSide']        = 'right:0';     // 看板娘贴边方向，例如 'left:0'(靠左 0px), 'right:30'(靠右 30px)
+live2d_settings['waifuDraggable']       = 'unlimited';    // 拖拽样式，例如 'disable'(禁用), 'axis-x'(只能水平拖拽), 'unlimited'(自由拖拽)
+live2d_settings['waifuDraggableRevert'] = false;         // 松开鼠标还原拖拽位置，可选 true(真), false(假)
 
 // 其他杂项设置
 live2d_settings['l2dVersion']           = '1.4.2';        // 当前版本
 live2d_settings['l2dVerDate']           = '2018.11.12'; // 版本更新日期
-live2d_settings['homePageUrl']          = 'auto';       // 主页地址，可选 'auto'(自动), '{URL 网址}'
+live2d_settings['homePageUrl']          = 'http://localhost:4000/';   // 主页地址，可选 'auto'(自动), '{URL 网址}'
 live2d_settings['aboutPageUrl']         = 'https://www.fghrsh.net/post/123.html';   // 关于页地址, '{URL 网址}'
 live2d_settings['screenshotCaptureName']= 'live2d.png'; // 看板娘截图文件名，例如 'live2d.png'
 
@@ -151,7 +151,7 @@ function initModel(waifuPath, type) {
         else $(".waifu").css("transition", 'all .3s ease-in-out');
     } catch(err) { console.log('[Error] JQuery UI is not defined.') }
     
-    live2d_settings.homePageUrl == 'auto' ? window.location.protocol+'//'+window.location.hostname+'/' : live2d_settings.homePageUrl;
+    live2d_settings.homePageUrl = live2d_settings.homePageUrl == 'auto' ? window.location.protocol+'//'+window.location.hostname+'/' : live2d_settings.homePageUrl;
     if (window.location.protocol == 'file:' && live2d_settings.modelAPI.substr(0,2) == '//') live2d_settings.modelAPI = 'http:'+live2d_settings.modelAPI;
     
     $('.waifu-tool .fui-home').click(function (){
@@ -261,14 +261,14 @@ function loadTipsMessage(result) {
         var text;
         if (window.location.href == live2d_settings.homePageUrl) {
             var now = (new Date()).getHours();
-            if (now > 23 || now <= 5) text = getRandText(result.waifu.hour_tips.t23-5);
-            else if (now > 5 && now <= 7) text = getRandText(result.waifu.hour_tips.t5-7);
-            else if (now > 7 && now <= 11) text = getRandText(result.waifu.hour_tips.t7-11);
-            else if (now > 11 && now <= 14) text = getRandText(result.waifu.hour_tips.t11-14);
-            else if (now > 14 && now <= 17) text = getRandText(result.waifu.hour_tips.t14-17);
-            else if (now > 17 && now <= 19) text = getRandText(result.waifu.hour_tips.t17-19);
-            else if (now > 19 && now <= 21) text = getRandText(result.waifu.hour_tips.t19-21);
-            else if (now > 21 && now <= 23) text = getRandText(result.waifu.hour_tips.t21-23);
+            if (now > 23 || now <= 5) text = getRandText(result.waifu.hour_tips.t23_5);
+            else if (now > 5 && now <= 7) text = getRandText(result.waifu.hour_tips.t5_7);
+            else if (now > 7 && now <= 11) text = getRandText(result.waifu.hour_tips.t7_11);
+            else if (now > 11 && now <= 14) text = getRandText(result.waifu.hour_tips.t11_14);
+            else if (now > 14 && now <= 17) text = getRandText(result.waifu.hour_tips.t14_17);
+            else if (now > 17 && now <= 19) text = getRandText(result.waifu.hour_tips.t17_19);
+            else if (now > 19 && now <= 21) text = getRandText(result.waifu.hour_tips.t19_21);
+            else if (now > 21 && now <= 23) text = getRandText(result.waifu.hour_tips.t21_23);
             else text = getRandText(result.waifu.hour_tips.default);
         } else {
             var referrer_message = result.waifu.referrer_message;
@@ -290,7 +290,7 @@ function loadTipsMessage(result) {
                 }
             } else text = referrer_message.none[0] + document.title.split(referrer_message.none[2])[0] + referrer_message.none[1];
         }
-        showMessage(text, 3000);
+        showMessage(text, 5000);
     }; if (live2d_settings.showWelcomeMessage) showWelcomeMessage(result);
     
     var waifu_tips = result.waifu;
@@ -342,7 +342,7 @@ function loadTipsMessage(result) {
     function ifActed() {
         if (!hitokotoInterval) {
             hitokotoInterval = true;
-            hitokotoTimer = window.setInterval(showHitokotoActed, 30000);
+            hitokotoTimer = window.setInterval(showHitokotoActed, 25000);
         }
     }
     

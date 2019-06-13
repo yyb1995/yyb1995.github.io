@@ -99,12 +99,12 @@
         <div class="search-tags">
         
             
-            <a href="/tags/tex/" class="text-white bg-purple"># tex(1)</a>
+            <a href="/tags/te/" class="text-white bg-purple"># te(1)</a>
             
-            <a href="/tags/te/" class="text-white bg-yellow"># te(1)</a>
+            <a href="/tags/tex/" class="text-white bg-yellow"># tex(1)</a>
             
         
-            <div class="search-tags-hr bg-purple"></div>
+            <div class="search-tags-hr bg-blue"></div>
         </div>
     </div>
 </div>
@@ -116,8 +116,9 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget-2/waifu.css">
 
+    
+    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget-2/waifu.css">
     <div class="waifu">
         <div class="waifu-tips"></div>
         <canvas id="live2d" class="live2d"></canvas>
@@ -141,6 +142,8 @@
     	initModel("/plugins/live2d-widget-2/waifu-tips.json")
     </script>
 
+    
+
 	<div class="footer-social">
 		<div class="footer-container clearfix">
 			<div class="social-list">
@@ -150,6 +153,8 @@
                     <a class="social" target="blank" href="https://weibo.com/yyb1015">微博</a>
                 
                     <a class="social" target="blank" href="/atom.xml">RSS</a>
+                
+                    <a class="social" target="blank" href="yyb19951015@163.com">邮箱</a>
                 
             </div>
 		</div>
@@ -288,7 +293,7 @@ MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
 var query2 = new AV.Query('Comment');
 query2.doesNotExist('pid');
 query2.descending('createdAt');
-query2.limit(8);
+query2.limit(5);
 query2.find().then(function (data) {
     var _dom = '<h3 class="meta-title">最近评论</h3>';
     data.forEach(function(comment) {
