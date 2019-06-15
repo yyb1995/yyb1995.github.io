@@ -197,4 +197,4 @@ click_love:
 
 # 超链接平滑移动
 smooth_scroll:
-  enable: true
+  enable: false
