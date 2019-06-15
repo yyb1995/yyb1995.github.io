@@ -147,10 +147,10 @@ reward:
 # 文章页音乐播放器设置
 # 配置详情参考：https://github.com/metowolf/MetingJS
 music:
-  enable: false # 是否启用
-  id: # song id / playlist id / album id / search keyword
-  server: # music platform: netease, tencent, kugou, xiami, baidu
-  type: # song, playlist, album, search, artist
+  enable: true # 是否启用
+  id: 60519192 # song id / playlist id / album id / search keyword
+  server: netese # music platform: netease, tencent, kugou, xiami, baidu
+  type: playlist # song, playlist, album, search, artist
   auto: # music link, support: netease, tencent, xiami
   autoplay: false # 是否自动播放
 
@@ -183,7 +183,6 @@ live2d:
 
 # 本地搜索
 local_search:
-  enable: true  #搜索开关
   address: /search
 
 # 点击烟花爆炸效果

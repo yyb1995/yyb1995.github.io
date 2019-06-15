@@ -2,10 +2,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
-        <script src="/js/load.js"></script>
+    <script src="/js/load.js"></script>
     <script src="/js/search.js"></script>
     <%# href smooth scroll %>
+    <% if (theme.smooth_scroll.enable) {%>
     <script src="https://cdn.jsdelivr.net/npm/smoothscroll@0.4.0/smoothscroll.min.js"></script>
+    <% } %>
+    
 
     <%# live2d setting %>
     <% if (theme.live2d.enable) {%>
