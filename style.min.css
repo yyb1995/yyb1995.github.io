@@ -2323,7 +2323,7 @@ textarea:-ms-input-placeholder {
 
 .local-search-result-cls {
   width: 75%;
-  max-height: 90%;
+  max-height: 313px;
   overflow-y: scroll;
   word-break: break-all; 
   margin: 0 auto;
