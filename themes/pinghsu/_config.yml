@@ -6,7 +6,7 @@
 # 图片需要放置在 themes/pinghsu/source/imagse 下
 headerLogoUrl: # 头部右上角logo图片地址，留空则取网站标题 
 footerLogoUrl: 
-lowerleftLogo: /images/lowerleft_2.png # 左下角图片，留空则不设 lowerleftLogo
+lowerleftLogo: # /images/lowerleft_2.png # 左下角图片，留空则不设 lowerleftLogo
 favicon: /images/favicon.png # favicon(即chrome标签页图标)，留空则不设favicon
 iosicon: /images/apple-touch-icon.png # apple touch icon 地址，留空则不设 apple touch icon
 since: 2019 # 站点起始时间
@@ -151,8 +151,10 @@ music:
   id: 60519192 # song id / playlist id / album id / search keyword
   server: netese # music platform: netease, tencent, kugou, xiami, baidu
   type: playlist # song, playlist, album, search, artist
-  auto: # music link, support: netease, tencent, xiami
-  autoplay: false # 是否自动播放
+  autoplay: false # 是否使用自动播放
+  fixed: true  # 是否使用固定模式
+  mini: false # 是否使用迷你模式
+  order: list # list: 顺序播放 random: 随机播放
 
 # Main page 
 index_generator:

@@ -2258,6 +2258,10 @@ textarea:-ms-input-placeholder {
   color: #313131;
   font-size: 1em;
 }
+.fa.fa-share-square-o {
+  color: #313131;
+  font-size: 1em;
+}
 
 .girl-fixed {
     position: fixed;

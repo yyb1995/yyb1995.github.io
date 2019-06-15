@@ -123,25 +123,28 @@
 			</div>
 		</div>
 		<% } %>
+		<p class="post-info">
+			本文由 <a href="<%= config.url %>"><%= config.author %></a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>
+		</p>
 		<% if (theme.music.enable) { %>
 		<meting-js
 			id="<%= theme.music.id %>"
+			fixed="true"
 			server="<%= theme.music.server %>"
 			type="<%= theme.music.type %>"
 			auto="<%= theme.music.auto %>"
 			autoplay="<%= theme.music.autoplay %>"
+			order="<%= theme.music.order %>"
+			lrc-type="0"
 			>
 		</meting-js>
 		<% } %>
-		<p class="post-info">
-			本文由 <a href="<%= config.url %>"><%= config.author %></a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>
-		</p>
 	</div>
 </article>
 <div id="post-bottom-bar" class="post-bottom-bar">
 	<div class="bottom-bar-inner">
 		<div class="bottom-bar-items social-share left">
-			<span class="bottom-bar-item">分享</span>
+			<span class="bottom-bar-item"><i class="fa fa-share-square-o" aria-hidden="true"></i></span>
 			<span class="bottom-bar-item bottom-bar-qq"><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<%= url %>&amp;sharesource=qzone&amp;title=<%= page.title %>" target="_blank" title="<%= page.title %>" rel="nofollow">Qzone</a></span>
 			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=<%= url %>&amp;title=<%= page.title %>" target="_blank" title="<%= page.title %>" rel="nofollow">Weibo</a></span>
 			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<%= url %>" target="_blank" title="<%= page.title %>" rel="nofollow">Facebook</a></span>
