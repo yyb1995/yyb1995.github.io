@@ -82,3 +82,7 @@ deploy:
   type: git
   repository: git@github.com:yyb1995/yyb1995.github.io.git
   branch: master
+
+search:
+  path: search.xml
+  field: post

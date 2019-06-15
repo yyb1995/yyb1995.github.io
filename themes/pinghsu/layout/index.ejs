@@ -1,7 +1,10 @@
 <%- partial('_partial/header', { 
-    title: '', 
+    title: config.title, 
     bgColor: 'bg-grey'
 }) %>
+
+<a id="top" class="anchor-top"></a>
+
 <div class="main-content index-page clearfix <% if (theme.postListSwitch == 'one') { %>onlist-page<% } %>">
 	<div class="post-lists">
 		<div class="post-lists-body">
@@ -91,6 +94,29 @@
     <%- partial('_partial/pagination') %>
     </div>
     <% } %>
+</div>
+
+<div id="index-bottom-bar" class="post-bottom-bar">
+	<div class="bottom-bar-inner">
+		<div class="bottom-bar-items social-share left">
+			<span class="bottom-bar-item">分享</span>
+			<span class="bottom-bar-item bottom-bar-qq"><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<%= url %>&amp;sharesource=qzone&amp;title=<%= config.title %>" target="_blank" title="<%= config.title %>" rel="nofollow">Qzone</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=<%= url %>&amp;title=<%= config.title %>" target="_blank" title="<%= config.title %>" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<%= url %>" target="_blank" title="<%= config.title %>" rel="nofollow">Facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=<%= page.permalink %>&amp;text=<%= config.title %>" target="_blank" title="<%= config.title %>" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="https://cli.im/api/qrcode/code?text=<%= url %>" target="_blank" rel="nofollow">QRcode</a></span>
+		</div>
+		<div class="bottom-bar-items right">
+            <% if (page.prev) { %>
+            <span class="bottom-bar-item"><a href="<%- url_for(page.prev.path) %>"><i class="fa fa-arrow-left"></i></a></span>
+            <% } %>
+            <% if (page.next) { %>
+            <span class="bottom-bar-item"><a href="<%- url_for(page.next.path) %>"><i class="fa fa-arrow-right"></i></a></span>
+            <% } %>
+			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
+			<span class="bottom-bar-item"><a href="#"><i class="fa fa-arrow-up"></i></a></span>
+		</div>
+	</div>
 </div>
 
 <%- partial('_partial/footer') %>

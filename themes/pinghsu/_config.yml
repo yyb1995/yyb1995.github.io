@@ -25,9 +25,9 @@ archive: month
 
 # Social Setting 社交设置
 social:
-  GITHUB: https://github.com/yyb1995
-  WEIBO: https://weibo.com/yyb1015
-  EMAIL: mailto:yyb19951015@163.com
+  Github: https://github.com/yyb1995
+  Weibo: https://weibo.com/yyb1015
+  Email: mailto:yyb19951015@163.com
   RSS: /atom.xml
 
 # ===========================================
@@ -118,9 +118,6 @@ animateWords:
 # 不蒜子网站统计
 busuanzi: true
 
-# 网站点击红心效果
-clickLove: true
-
 # 百度统计id，填写复 hm.js? 后面那串统计脚本 id
 baiduAnalytics:
 
@@ -179,6 +176,24 @@ category_generator:
 tag_generator:
   per_page: 12
 
-# Show kanban
+# 插件及特效设置
+# 显示看板娘
 live2d:
+  enable: true
+
+# 本地搜索
+local_search:
+  enable: true  #搜索开关
+  address: /search
+
+# 点击烟花爆炸效果
+click_fireworks:
+  enable: true
+
+# 网站点击红心效果
+click_love: 
+  enable: false
+
+# 超链接平滑移动
+smooth_scroll:
   enable: true

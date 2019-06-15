@@ -1,6 +1,6 @@
 Jun. 11th, 2019
-- [ ] add search bar 
+- [x] add search bar 
 - [x] add kanban
-- [ ] change mouse style
-- [ ] change website icon
+- [x] change mouse style
+- [x] change website icon
 - [ ] scroll effect

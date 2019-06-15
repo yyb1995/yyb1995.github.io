@@ -9,6 +9,7 @@
             <h1><%= __('tags.title') %></h1>
             <h4><%= __('tags.count', site.tags.count()) %></h4>
         </div>
+
         <div class="search-tags">
         <% if (site.tags.length !== 0) { %>
             <% site.tags.sort('-posts.length').forEach(function(tag) { %>

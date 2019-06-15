@@ -1,7 +1,8 @@
 <%- partial('_partial/header', { 
-    title: page.title, 
+	title: page.title, 
     bgColor: 'bg-white'
 }) %>
+<a id="top" class="anchor-top"></a>
 
 <% if (theme.showPostThumb) { %>
 <% if (page.thumb) { %>
@@ -73,6 +74,7 @@
 </div>
 <% } %>
 <% } %>
+
 <article class="main-content <% if (theme.showPostThumb) { %>post-page<% } else { %>page-page<% } %>" itemscope itemtype="http://schema.org/Article">
 	<div class="post-header">
 		<h1 class="post-title" itemprop="name headline">
@@ -139,21 +141,22 @@
 <div id="post-bottom-bar" class="post-bottom-bar">
 	<div class="bottom-bar-inner">
 		<div class="bottom-bar-items social-share left">
-			<span class="bottom-bar-item">Share : </span>
-			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<%= url %>" target="_blank" title="<%= page.title %>" rel="nofollow">facebook</a></span>
-			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=<%= page.permalink %>&text=<%= page.title %>" target="_blank" title="<%= page.title %>" rel="nofollow">Twitter</a></span>
-			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=<%= page.link %>&amp;title=<%= page.title %>" target="_blank" title="<%= page.title %>" rel="nofollow">Weibo</a></span>
-			<span class="bottom-bar-item bottom-bar-qrcode"><a href="//pan.baidu.com/share/qrcode?w=300&amp;h=300&amp;url=<%= url %>" target="_blank" rel="nofollow">QRcode</a></span>
+			<span class="bottom-bar-item">分享</span>
+			<span class="bottom-bar-item bottom-bar-qq"><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<%= url %>&amp;sharesource=qzone&amp;title=<%= page.title %>" target="_blank" title="<%= page.title %>" rel="nofollow">Qzone</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=<%= url %>&amp;title=<%= page.title %>" target="_blank" title="<%= page.title %>" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<%= url %>" target="_blank" title="<%= page.title %>" rel="nofollow">Facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=<%= page.permalink %>&amp;text=<%= page.title %>" target="_blank" title="<%= page.title %>" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="https://cli.im/api/qrcode/code?text=<%= url %>" target="_blank" rel="nofollow">QRcode</a></span>
 		</div>
 		<div class="bottom-bar-items right">
             <% if (page.prev) { %>
-            <span class="bottom-bar-item"><a href="<%- url_for(page.prev.path) %>">←</a></span>
+            <span class="bottom-bar-item"><a href="<%- url_for(page.prev.path) %>"><i class="fa fa-arrow-left"></i></a></span>
             <% } %>
             <% if (page.next) { %>
-            <span class="bottom-bar-item"><a href="<%- url_for(page.next.path) %>">→</a></span>
+            <span class="bottom-bar-item"><a href="<%- url_for(page.next.path) %>"><i class="fa fa-arrow-right"></i></a></span>
             <% } %>
-			<span class="bottom-bar-item"><a href="#footer">↓</a></span>
-			<span class="bottom-bar-item"><a href="#">↑</a></span>
+			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
+			<span class="bottom-bar-item"><a href="#top" scrollTo="" class="scrollOnClick"><i class="fa fa-arrow-up"></i></a></span>
 		</div>
 	</div>
 </div>

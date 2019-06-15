@@ -1,13 +1,15 @@
 <footer id="footer" class="footer bg-white">
-    <%# live2d setting %>
-    
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script src="/js/load.js"></script>
+    <script src="/js/search.js"></script>
+    <%# href smooth scroll %>
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll@0.4.0/smoothscroll.min.js"></script>
 
-
+    <%# live2d setting %>
     <% if (theme.live2d.enable) {%>
-    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget-2/waifu.css"/>
+    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget/waifu.css"/>
     <div class="waifu">
         <div class="waifu-tips"></div>
         <canvas id="live2d" class="live2d"></canvas>
@@ -22,13 +24,19 @@
         </div>
     </div>
     
-    <script src="/plugins/live2d-widget-2/waifu-tips.js"></script>
-    <script src="/plugins/live2d-widget-2/live2d.js"></script>
+    <script src="/plugins/live2d-widget/waifu-tips.js"></script>
+    <script src="/plugins/live2d-widget/live2d.js"></script>
     
     <script type="text/javascript">
-    	initModel("/plugins/live2d-widget-2/waifu-tips.json")
+    	initModel("/plugins/live2d-widget/waifu-tips.json")
     </script>
 
+    <% } %>
+
+    <% if (theme.click_fireworks.enable) {%>
+        <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script> 
+        <script type="text/javascript" src="/js/fireworks.js"></script>
     <% } %>
 
 	<div class="footer-social">
@@ -74,6 +82,7 @@
                     	<p>主题 — <a href="https://github.com/cccyb/hexo-theme-pinghsu" target="_blank">Pinghsu</a></p>
                         <p>由<a href="https://hexo.io/" target="_blank" rel="nofollow">Hexo</a>强力驱动</p>
                     </div>
+
                     <div class="site-statistics">
                         <p style="margin-top: 10px"><%- __('sitecount.text') %> <%= totalcount(site) %></p>
                         <% if (theme.busuanzi) { %>
@@ -237,6 +246,22 @@ var header = new Headroom(document.getElementById("header"), {
     }
 });
 header.init();
+
+
+<% if (is_home()) { %>
+var indexSharer = new Headroom(document.getElementById("index-bottom-bar"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+        initial: "animated",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+indexSharer.init();
+<% } %>
+
+
 <% if (!theme.enablePjax && theme.highlight.enable && is_post()) { %>
 hljs.initHighlightingOnLoad();
 <% } %> 

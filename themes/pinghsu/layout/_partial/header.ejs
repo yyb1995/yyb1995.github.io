@@ -11,7 +11,8 @@
     <link rel="dns-prefetch" href="//secure.gravatar.com" />
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
     <% } %>
-
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
     <meta name="renderer" content="webkit">
@@ -19,6 +20,8 @@
     <meta http-equiv="Cache-Control" content="no-transform"/>
     <meta http-equiv="Cache-Control" content="no-siteapp"/>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
     <% if (theme.favicon) { %>
     <link rel="shortcut icon" href="<%= theme.favicon %>">
     <% } %>
@@ -54,7 +57,7 @@
     <% } %>
     <% if (theme.valine.enable) { %>
     <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <script src='https://cdn.jsdelivr.net/npm/valine@1.3.6/dist/Valine.min.js'></script>
     <% } %>
 
 </head>
@@ -77,6 +80,11 @@
             <% _.forIn(theme.menu, function(value, key) { %>
             <a href="<%- url_for(value) %>" class="<% if (is_current(value)) { %>current<% } %>"><%= __('menu.' + key) %></a>
             <% }); %>
+        
+        <a href="<%= url_for('/search') %>" class="navbar-search">
+            <span class="icon-search"></span>
+        </a>
+
         </div>
         <div class="navbar-mobile-menu" onclick="">
             <span class="icon-menu cross"><span class="middle"></span></span>
@@ -84,6 +92,11 @@
                 <% _.forIn(theme.menu, function(value, key) { %>
                 <li><a href="<%- url_for(value) %>" class="<% if (is_current(value)) { %>current<% } %>"><%= __('menu.' + key) %></a></li>
                 <% }); %>
+
+                <a href="<%= url_for('/search') %>" class="navbar-search">
+                <span class="icon-search"></span>
+        </a>
+
             </ul>
         </div>
     </div>

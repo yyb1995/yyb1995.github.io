@@ -430,14 +430,19 @@ textarea:-ms-input-placeholder {
 .bg-ico-lock {
   background-position: 0 -360px !important;
 }
+.anchor-top{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
 .header {
-  line-height: 68px;
+  line-height: 52px;
   position: fixed;
   z-index: 10;
   top: 0;
   display: block;
   width: 100%;
-  height: 70px;
+  height: 52px;
   padding: 0;
   text-align: right;
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
@@ -462,20 +467,20 @@ textarea:-ms-input-placeholder {
   position: relative;
   width: 1040px;
   max-width: 100%;
-  height: 70px;
+  height: 52px;
   margin: 0 auto;
 }
 .navbar-logo {
   font-size: 22px;
-  line-height: 22px;
+  /* line-height: 22px; */
   position: absolute;
-  top: 50%;
+  /* top: 50%; */
   left: 0;
   display: block;
   width: auto;
   max-width: 50%;
-  height: 22px;
-  margin-top: -10px;
+  /* height: 22px; */
+  /* margin-top: -10px; */
   margin-left: 25px;
   text-decoration: none;
 }
@@ -498,7 +503,7 @@ textarea:-ms-input-placeholder {
   color: #eb5055;
 }
 .navbar-mobile-menu {
-  line-height: 70px;
+  line-height: 52px;
   z-index: 1;
   display: none;
   width: 28px;
@@ -593,7 +598,7 @@ textarea:-ms-input-placeholder {
   background-color: #eee;
 }
 .navbar-search {
-  line-height: 70px;
+  line-height: 52px;
   display: inline-block;
   width: 20px;
   padding: 0 40px 0 0;
@@ -815,7 +820,7 @@ textarea:-ms-input-placeholder {
 .onelist-page {
   max-width: 100%;
   margin: 0;
-  padding: 70px 0 0;
+  padding: 52px 0 0;
 }
 .post-onelist-item {
   display: inline-block;
@@ -832,7 +837,7 @@ textarea:-ms-input-placeholder {
   position: relative;
   max-width: 680px;
   margin: 0 auto;
-  padding: 70px 20px 65px;
+  padding: 52px 20px 65px;
 }
 .post-onelist-item-container .onelist-item-thumb {
   min-height: 260px;
@@ -886,7 +891,7 @@ textarea:-ms-input-placeholder {
   position: relative;
   width: 100%;
   height: 300px;
-  margin-top: 70px;
+  margin-top: 52px;
 }
 .post-header-thumb-op {
   position: absolute;
@@ -903,7 +908,7 @@ textarea:-ms-input-placeholder {
   position: relative;
   width: 100%;
   height: 300px;
-  margin-top: 70px;
+  margin-top: 52px;
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
@@ -1433,7 +1438,7 @@ textarea:-ms-input-placeholder {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 48px;
+  height: 41px;
   border-top: 1px solid #e0e0e0;
   background-color: #fff;
 }
@@ -1444,13 +1449,13 @@ textarea:-ms-input-placeholder {
 }
 .post-bottom-bar .social-share {
   font-size: 14px;
-  line-height: 48px;
+  line-height: 41px;
   margin: 0 0 0 10px;
   color: #313131;
 }
 .post-bottom-bar .bottom-bar-item a {
   font-size: 14px;
-  line-height: 48px;
+  line-height: 41px;
   margin: 0;
   padding: 12px;
   cursor: pointer;
@@ -1484,6 +1489,10 @@ textarea:-ms-input-placeholder {
   background-color: #1b95e0;
 }
 .post-bottom-bar .bottom-bar-item.bottom-bar-weibo a {
+  color: #fff;
+  background-color: #f9bb3c;
+}
+.post-bottom-bar .bottom-bar-item.bottom-bar-qq a {
   color: #fff;
   background-color: #db4437;
 }
@@ -1838,7 +1847,7 @@ textarea:-ms-input-placeholder {
     height: 280px;
   }
   .post-header-thumb-container {
-    top: 70px;
+    top: 52px;
   }
 }
 @media (max-width: 880px) {
@@ -1964,7 +1973,7 @@ textarea:-ms-input-placeholder {
     display: none;
   }
   .footer-meta .footer-container {
-    height: 70px;
+    height: 52px;
     padding: 0 15px;
   }
   .footer-meta .meta-item {
@@ -2009,13 +2018,13 @@ textarea:-ms-input-placeholder {
     width: 150px;
   }
   .index-page {
-    padding: 70px 0 0;
+    padding: 52px 0 0;
   }
   .archive-page {
-    padding: 70px 0 20px;
+    padding: 52px 0 20px;
   }
   .common-page {
-    padding: 70px 0 0;
+    padding: 52px 0 0;
   }
   .post-list-item {
     width: 100%;
@@ -2095,7 +2104,7 @@ textarea:-ms-input-placeholder {
 }
 @-webkit-keyframes slideDown {
   0% {
-    -webkit-transform: translateY(-70px);
+    -webkit-transform: translateY(-52px);
   }
   100% {
     -webkit-transform: translateY(0);
@@ -2103,8 +2112,8 @@ textarea:-ms-input-placeholder {
 }
 @keyframes slideDown {
   0% {
-    -webkit-transform: translateY(-70px);
-    transform: translateY(-70px);
+    -webkit-transform: translateY(-52px);
+    transform: translateY(-52px);
   }
   100% {
     -webkit-transform: translateY(0);
@@ -2116,7 +2125,7 @@ textarea:-ms-input-placeholder {
     -webkit-transform: translateY(0);
   }
   100% {
-    -webkit-transform: translateY(-70px);
+    -webkit-transform: translateY(-52px);
   }
 }
 @keyframes slideUp {
@@ -2125,8 +2134,8 @@ textarea:-ms-input-placeholder {
     transform: translateY(0);
   }
   100% {
-    -webkit-transform: translateY(-70px);
-    transform: translateY(-70px);
+    -webkit-transform: translateY(-52px);
+    transform: translateY(-52px);
   }
 }
 @keyframes fade-in {
@@ -2245,6 +2254,11 @@ textarea:-ms-input-placeholder {
   font-size: 1em;
 }
 
+.fa.fa-arrow-left, .fa.fa-arrow-right, .fa.fa-arrow-up, .fa.fa-arrow-down {
+  color: #313131;
+  font-size: 1em;
+}
+
 .girl-fixed {
     position: fixed;
     bottom: 0px;
@@ -2268,4 +2282,55 @@ textarea:-ms-input-placeholder {
   max-width: 35%;
   height: auto;
   margin: 0;
+}
+
+/**
+* 本地搜索器样式配置
+*/
+.search-form{
+  text-align: center
+}
+
+.local-search-input-cls {
+  width: 75%;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #CCC;
+  color: #767676;
+  background: #ffffff;
+  font-size: 14px;
+  opacity: 0.75;
+}
+
+.local-search-input-cls:hover{
+  opacity: 1;
+  box-shadow: 0 0 15px #ccc;
+}
+
+.local-search-input-cls:focus{
+  opacity: 1;
+  box-shadow: 0 0 15px #ccc;
+}
+
+.-webkit-search-cancel-button {
+    cursor: pointer;
+  }
+
+.local-search-result-cls {
+  width: 75%;
+  max-height: 90%;
+  overflow-y: auto;
+  word-break: break-all; 
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #CCC;
+  border-radius: 20px;
+  box-shadow: 0 0 15px #ccc;
+  padding:8px 10px 8px 0px;
+}
+
+.local-search-plugin {
+  position: relative; z-index: 2;
 }
