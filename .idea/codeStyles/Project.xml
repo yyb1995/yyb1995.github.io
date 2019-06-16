@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
     <option name="RIGHT_MARGIN" value="80" />
@@ -8,4 +9,16 @@
       </indentOptions>
     </codeStyleSettings>
   </code_scheme>
+=======
+<component name="ProjectCodeStyleConfiguration">
+  <code_scheme name="Project" version="173">
+    <option name="RIGHT_MARGIN" value="80" />
+    <option name="ALIGN_MULTILINE_PARAMETERS_IN_CALLS" value="true" />
+    <codeStyleSettings language="Python">
+      <indentOptions>
+        <option name="SMART_TABS" value="true" />
+      </indentOptions>
+    </codeStyleSettings>
+  </code_scheme>
+>>>>>>> remote
 </component>
