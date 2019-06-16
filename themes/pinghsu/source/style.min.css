@@ -1752,7 +1752,7 @@ textarea:-ms-input-placeholder {
 }
 .footer-meta .footer-container {
   width: 100%;
-  max-width: 960px;
+  max-width: 1060px;
   height: 250px;
   margin: 0 auto;
   padding: 0 80px;
@@ -2323,8 +2323,8 @@ textarea:-ms-input-placeholder {
 
 .local-search-result-cls {
   width: 75%;
-  max-height: 90%;
-  overflow-y: auto;
+  max-height: 313px;
+  overflow-y: scroll;
   word-break: break-all; 
   margin: 0 auto;
   background: #fff;
