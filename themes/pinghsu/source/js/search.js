@@ -116,13 +116,15 @@ var searchFunc = function(path, search_id, content_id)
                 end = content.length;
               }
 
-              var match_content = content.substr(start, end);
+              var match_content = content.substr(start, end - start);
+              console.log(start)
+              console.log(end)
 
               keywords.forEach(function(keyword)
               {
                 // 修改内容关键词高亮
                 var regS = new RegExp(keyword + "(?![^<>]*>)", "gi");
-                match_content = match_content.replace(regS, "<abbr style='border-bottom:1px dotted #eb5055'><font style='color:#eb5055;'>" + keyword + "</font></abbr>");
+                match_content = match_content.replace(regS, "<font style='color:#eb5055;'>" + keyword + "</font>");
               });
               str += "<p class=\"search-result\">" + match_content + "...</p>"
             }

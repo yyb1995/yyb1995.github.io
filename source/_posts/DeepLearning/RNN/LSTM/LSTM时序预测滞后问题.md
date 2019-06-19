@@ -1,5 +1,11 @@
-LSTM时序预测滞后问题
-===
+---
+title: LSTM时序预测滞后现象
+categories: LSTM
+tags: 深度学习
+icon: note
+---
+
+在使用LSTM进行时间序列预测时，有时会遇到预测滞后问题，也就是LSTM的预测值滞后于真实值的变化。出现滞后现象的一些文章和可能解释收集如下
 1. [用 LSTM 做时间序列预测的一个小例子](https://blog.csdn.net/aliceyangxi1987/article/details/73420583)
 2. [时间序列预测----预测的结果跟实际的时间序列值存在滞后](http://www.ilovematlab.cn/thread-165451-1-1.html)
 3. [代码干货 | 基于Keras的LSTM多变量时间序列预测](https://blog.csdn.net/CS13522431352/article/details/77369300?locationNum=7)
@@ -29,6 +35,7 @@ LSTM时序预测滞后问题
 	3. extract some features from the input time series
 	4. manually limit the weight of x_{t-1}, x_{t-2}
 
-25. [https://www.datacamp.com/community/tutorials/lstm-python-stock-market](https://www.datacamp.com/community/tutorials/lstm-python-stock-market)
+
+ght of x_{t-1}, x_{t-2}
 
 

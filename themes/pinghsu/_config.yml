@@ -95,7 +95,7 @@ defaultThumb:
 # 随机缩略图设置
 # 设为 0 则不使用主题自带的缩略图，转而使用个性化色块
 # 不为 0 时表示默认随机缩略图的数量
-randomThumb: 0
+randomThumb: 18
 
 # 文章目录设置
 # 文章页右边目录生成，仅在网页宽度大于1000px时显示
@@ -165,7 +165,7 @@ index_generator:
 # Archive page
 archive_generator:
   enabled: true
-  per_page: 0
+  per_page: 18
   yearly: true
   monthly: true
   daily: false
@@ -197,4 +197,4 @@ click_love:
 
 # 超链接平滑移动
 smooth_scroll:
-  enable: false
+  enable: true

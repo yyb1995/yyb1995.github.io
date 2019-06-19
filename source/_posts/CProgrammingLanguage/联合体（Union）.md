@@ -1,7 +1,13 @@
-﻿# 联合体（Union）
-Tags：C语言
+---
+title: 联合体（Union）
+categories: C语言
+tags: 编程语言
+icon: note
+---
+
 原文地址：[http://c.biancheng.net/cpp/html/2932.html](http://c.biancheng.net/cpp/html/2932.html)
-##1. 共用体的简介
+
+## 1. 共用体的简介
 在C语言中，还有另外一种和结构体非常类似的语法，叫做共用体（Union），它的定义格式为：
 ``` c
 union 共用体名{
@@ -76,7 +82,7 @@ int main(){
 
 为什么不同的机器会有不同的分布情况呢？这跟机器的存储模式有关。
 
-##2. 共用体的应用
+## 2. 共用体的应用
 共用体在一般的编程中应用较少，在单片机中应用较多。对于PC机，经常使用到的一个实例是：现有一张关于学生信息和教师信息的表格。学生信息包括姓名、编号、性别、职业、分数，教师的信息包括姓名、编号、性别、职业、教学科目。请看下面的表格：
 |Name|Num|Sex|Profession|Score / Course|
 |:----------|:----------|:------|:------|:------|
@@ -138,6 +144,3 @@ HanXiaoXiao     501     f       s               89.500000
 YanWeiMin       1011    m       t               math
 LiuZhenTao      109     f       t               English
 ZhaoFeiYan      982     m       s               95.000000
-
-
-

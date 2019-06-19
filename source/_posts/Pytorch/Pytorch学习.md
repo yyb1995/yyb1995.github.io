@@ -1,8 +1,14 @@
-# Pytorch学习
-## torch.nn和torch.nn.functional中神经网络层的区别
+---
+title: Pytorch知识点学习
+categories: Pytorch
+tags: Pytorch
+icon: note
+---
+
+## 1 torch.nn和torch.nn.functional中神经网络层的区别
 torch.nn中的层是类，torch.nn.functional中的层是函数。torch.nn中的forward()方法是调用torch.nn.functional实现。因此两者从原理上等价。torch.nn一般用于较复杂层的实现，torch.nn.functional一般用于简单层的实现
 
-## Pytorch的层建立方式
+## 2 Pytorch的层建立方式
 1. nn.Sequential().add_module(layer)
 ```python
 net1 = nn.Sequential()
@@ -37,7 +43,7 @@ model1 = nn.ModuleList(
 )
 ```
 
-## Pytorch自定义层的编写
+## 3 Pytorch自定义层的编写
 下面是一个典型的Pytorch自定义层的实现方法
 ```python
 class ScaledDotProductAttention(nn.Module):
@@ -81,7 +87,7 @@ class ScaledDotProductAttention(nn.Module):
 
 在`self.forward()`方法中，完成对调用该层时完成的功能的编写。层的输出写在return行。
 
-## Pytorch中常见的层
+## 4 Pytorch中常见的层
 1. LayerNorm
 LayerNorm层是对数据的最后一维进行归一化。多用在深层RNN中。
 
@@ -114,10 +120,10 @@ print(m.weight.size)
 ```
 输出为torch.Size([16, 33, 48, 97])和torch.Size([33, 16, 3, 4])。原理为：Conv2d的in_channels和out_channels与Conv1d保持一致，不同的是kernel_size可以是两维的，也就是同时对input的最后两维进行卷积。其他部分与Conv1d相同。因此由Conv1d不难推出Conv2d的维数变换规律。
 
-## Pytorch中的数据处理
+## 5 Pytorch中的数据处理
 reference:[Pytorch数据读取(Dataset, DataLoader, DataLoaderIter)](https://zhuanlan.zhihu.com/p/30934236)
 
-### `torch.utils.data.Dataset`
+### 5.1 `torch.utils.data.Dataset`
 reference: [Pytorch cn doc](http://pytorch.apachecn.org/cn/docs/0.3.0/data.html?highlight=dataloader#torch.utils.data.Dataset)
 Dataset是一个抽象类，用于将数据封装成Dataset类。它是一个抽象类。在具体使用时需要继承Dataset类并实现其中的2个方法：
 - `__getitem__(self, index)`
@@ -144,7 +150,7 @@ class DealDataset(Dataset):
         return self.len
 ```
 
-### `torch.utils.data.DataLoader`
+### 5.2 `torch.utils.data.DataLoader`
 
 reference:[Pytorch cn doc](http://pytorch.apachecn.org/cn/docs/0.3.0/data.html?highlight=dataloader#torch.utils.data.DataLoader)
 
@@ -160,7 +166,7 @@ class torch.utils.data.DataLoader(dataset, batch_size=1, shuffle=False, sampler=
 ```python
 train_loader = DataLoader(dataset=dealDataset, batch_size=32, shuffle=True)
 ```
-### 训练过程
+### 5.3 训练过程
 ```python
 for epoch in epochs:
     for i, batch in enumerate(train_loader):
@@ -168,7 +174,7 @@ for epoch in epochs:
 ```
 **注意:**如果在dataloader中定义了多个返回值，那么在训练过程中每个batch都是一个list，使用batch[i]或者(train, test)来调用每个batch中的参数
 
-## Pytorch中的数据类型及相互转换
+## 6 Pytorch中的数据类型及相互转换
 Pytorch中dtype是tensor的一个属性，使用`tensor.dtype`获取一个张量的数据类型。主要包括以下几类：
 
 | Data type | dtype | Tensor types |
@@ -194,18 +200,18 @@ print(a.dtype)
 
 
 
-## Pytorch中的数据运算位置及相互转换
+## 7 Pytorch中的数据运算位置及相互转换
 Pytorch中device是tensor的一个属性，使用`tensor.device`获取一个张量的运算位置。
 - 从cpu转换到gpu：`tensor.to('cuda')`或`tensor.cuda()`
 - 从gpu转换到cpu：`tensor.to('cpu')`或`tensor.cpu()`
 
 此外，还要注意tensor和numpy数组之间的转换只能在cpu上完成。即要先使用`tensor.to('cpu')`后才能使用`tensor.numpy()`
 
-## Pytorch展示模型结构
+## 8 Pytorch展示模型结构
 1. 展示模型所有层：`print(modelname)`
 2. 展示模型所有参数：`print(list(model.named_parameters()))`
 
-## Pytorch学习率调整
+## 9 Pytorch学习率调整
 使用的类：torch.optim.lr_scheduler。这个类的optimizer为常用的优化方法。如果使用scheduler，则在训练过程中只需写scheduler.step()而不需写optimizer.step()。
 
 常用的学习率调整方法：
@@ -231,7 +237,7 @@ Pytorch中device是tensor的一个属性，使用`tensor.device`获取一个张�
 
    verbose: 每次更新学习率时是否打印信息
 
-## Pytorch设置随机数种子
+## 10 Pytorch设置随机数种子
 
 ```python
 torch.manual_seed(args.seed)

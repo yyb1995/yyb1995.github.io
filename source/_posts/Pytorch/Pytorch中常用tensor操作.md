@@ -1,4 +1,11 @@
-# 1 torch.cat
+---
+title: Pytorch常用tensor操作
+categories: Pytorch
+tags: Pytorch
+icon: code
+---
+
+## 1 torch.cat
 cat指的是对多个Tensor在**原有某一维度**进行拼接，拼接的结果是Tensor的总维数不变，其中用于拼接的那一维等于各分量维数之和。示例：
 ```python
 x = torch.rand(2, 3)
@@ -11,7 +18,7 @@ z = torch.cat((x, y), 0)
 2. `torch.cat([torch.rand(3, 4), torch.rand(5, 4)], dim=0)` 
 
 
-# 2 torch.chunk
+## 2 torch.chunk
 `torch.chunk(tensor, chunks, dim=0)`
 chunk可以看成cat的逆操作，即将一个矩阵沿着某一维分割开。chunks为分割的份数， dim为分割的维度。例子：
 ```python
@@ -22,7 +29,7 @@ y = torch.chunk(x, 3, 1)
 还可使用Tensor.chunks(chunks, dim=0)效果与上相同。
 
 
-# 3 torch.stack
+## 3 torch.stack
 stack指的是在**新的维度上**进行拼接，这个操作会增加维度。示例：
 ```python
 x = torch.ones(1, 3)
@@ -35,7 +42,7 @@ z3 = torch.stack((x, y), 2)
 z1:(2, 1, 3), z2:(1, 2, 3), z3:(1, 3, 2)。
 **注意：** torch.stack的输入tensor的维数必须一致，这样才能保证在能够在新的维度进行拼接操作。
 
-# 4 torch.transpose
+## 4 torch.transpose
 transpose指的是将Tensor的某两个维度进行交换。示例：
 ```python
 x = torch.zeros(2, 3)
@@ -43,7 +50,7 @@ y = torch.transpose(x, 0, 1)
 ```
 
 
-# 5 permute & reshape
+## 5 permute & reshape
 permute是适合于多维度的维数交换。使用方法：输入希望产生的维度即可。例子：
 ```python
 x = torch.zeros(2, 3, 4)
@@ -58,7 +65,7 @@ y = x.reshape(2, 6, 2)
 ```
 如果用于reshape的维度不是连续的，会出现数据改变的情况。
 
-# 6 squeeze
+## 6 squeeze
 squeeze是将某一个维度为1的维去除。使用方法：x.squeeze()。
 例子：
 ```python
@@ -67,7 +74,7 @@ y = x.squeeze(1)
 ```
 得到的y的维度为(3, 2)。如果选择的维数不为1，那么得到的结果的维数与原Tensor的维数一致
 
-# 7 unsqueeze
+## 7 unsqueeze
 unsqueeze是增加一个维度，维度位置为dim。使用方法：a.unsqueeze(dim)。
 例子：
 ```python
@@ -79,16 +86,16 @@ use repeat – this will copy each vector 28 times.
 
 X = torch.randn(100, 700)
 X = X.unsqueeze(2).repeat(1, 1, 28)
-# 8 torch.masked_fill
+## 8 torch.masked_fill
 masked_fill将一个tensor中为1的元素用指定的值填充。例如：
 ```python
 a = torch.ones(3, 3)
 ```
 
-# 9 torch.view
+## 9 torch.view
 view将一个tensor变换维度，但其中的数值保持不变
 
-# 10 torch.bmm
+## 10 torch.bmm
 bmm即batch_matmul，作用是不考虑batch维度将两个矩阵相乘。
 ```python
 a = torch.ones(128, 4, 3)
@@ -98,25 +105,22 @@ print(result.shape)
 >>> (128, 4, 10)
 ```
 
-# 11 expand&repeat
+## 11 expand&repeat
 expand和repeat都用于扩展Tensor的维度。**使用前提：原矩阵的维度和扩展后矩阵后的维度一致。因此通常先进行squeeze(dim)或unsqueeze(dim)操作**。expand的输入参数是扩展后Tensor的维度，repeat的输入参数是扩展后Tensor相对于原Tensor扩展的倍数。**此外，注意expand仅限于维数为1的扩展，否则会报类型不匹配错误。** 例如：
 ```python
 a = torch.Tensor([1, 2, 3])
-# 最终维数为(3,12 )
+# 最终维数为(3, 5)
 b = a.unsqueeze(1).expand(3, 5)
-# 13 在第一维扩展1次，在第二维扩展5次
+# 在第一维扩展1次，在第二维扩展5次
 c = a.unsqueeze(1).repeat(1, 5)
 
-# 14 output:
+# output:
 tensor([[1., 1., 1., 1., 1.],
         [2., 2., 2., 2., 2.],
         [3., 3., 3., 3., 3.]])
 
-# RuntimeError: The expanded size of the tensor (6) must match the existing size (3) at non-singleton dimension15 Target sizes: [1,15 ,15 ].  Tensor sizes: [1,15 ,15 ]
+# RuntimeError: The expanded size of the tensor (6) must match the existing size (3) at non-singleton dimension 2.  Target sizes: [1, 4, 6].  Tensor sizes: [1, 2, 3]
 a.expand(1, 4, 6)
 
 ```
-
 expand不会复制数组内存，节省空间。repeat会复制所有数据
-
-

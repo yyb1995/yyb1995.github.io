@@ -21,6 +21,7 @@ html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+
 ::-moz-selection {
   color: #fff;
   background-color: #eb5055;
@@ -38,7 +39,9 @@ body {
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor:url('https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/normal.cur'), auto;
 }
+
 body > :first-child {
   margin-top: 0 !important;
 }
@@ -933,6 +936,7 @@ textarea:-ms-input-placeholder {
 }
 .post-header-thumb-meta a {
   color: #fff;
+  border-bottom: 1px solid #fff;
 }
 
 .post-header-thumb-meta a:hover {
@@ -956,6 +960,25 @@ textarea:-ms-input-placeholder {
   max-width: 700px;
   padding: 130px 25px 20px;
 }
+.post-content ol a {
+  color: #313131;
+  border-bottom: 1px solid #ccc;
+}
+
+.post-content ol a:hover {
+  color: #eb5055;
+  border-bottom: 1px solid #eb5055;
+}
+
+.local-search-result-cls ul a{
+  color: #313131;
+  border-bottom: 1px dotted #ccc;
+}
+.local-search-result-cls ul a:hover{
+  color: #eb5055;
+  border-bottom: 1px dotted #eb5055;
+}
+
 .post-content p {
   font-size: 14px;
   word-wrap: break-word;
@@ -998,7 +1021,7 @@ textarea:-ms-input-placeholder {
 }
 .post-content p a {
   color: #313131;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px 
 }
 .post-content p a:hover {
   color: #eb5055;
