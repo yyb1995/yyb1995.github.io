@@ -117,8 +117,6 @@ var searchFunc = function(path, search_id, content_id)
               }
 
               var match_content = content.substr(start, end - start);
-              console.log(start)
-              console.log(end)
 
               keywords.forEach(function(keyword)
               {

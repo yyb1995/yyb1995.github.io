@@ -159,14 +159,14 @@ music:
 # Main page 
 index_generator:
   path: ''
-  per_page: 18
+  per_page: 12
   order_by: -date
 
 # Archive page
 archive_generator:
   enabled: true
-  per_page: 18
-  yearly: true
+  per_page: 12
+  yearly: false
   monthly: true
   daily: false
   order_by: -date
@@ -174,14 +174,14 @@ archive_generator:
 # Categories and detail
 category_generator:
   per_page: 12
-  
+
 tag_generator:
   per_page: 12
 
 # 插件及特效设置
 # 显示看板娘
 live2d:
-  enable: true
+  enable: false
 
 # 本地搜索
 local_search:

@@ -1,3 +1,5 @@
+<!--Category page for each category soruce code-->
+
 <%- partial('_partial/header', { 
     title: __('menu.categories'), 
     bgColor: 'bg-grey'
@@ -9,7 +11,7 @@
     <div class="categorys-item">
         <div class="categorys-title">
             <a href="<%- url_for(category.path) %>"><%= category.name %></a><span> ：<%= category.posts.count() %></span>
-        </div>
+        <!--
         <div class="post-lists">
             <div class="post-lists-body">
                 <% category.posts.forEach(function(post) { %>
@@ -18,7 +20,7 @@
                         <div class="item-label">
                             <div class="item-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></div>
                             <div class="item-meta clearfix">
-                                <div class="item-meta-date"> <%= post.date.format('MMM DD, YYYY') %> </div>
+                                <div class="item-meta-date"> <%= post.date.format(config.date_format) %> </div>
                             </div>
                         </div>
                     </div>
@@ -26,6 +28,7 @@
                 <%});%>
             </div>
         </div>
+        -->
     </div>
     <%});%>
     <% } else { %>
