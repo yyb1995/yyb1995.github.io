@@ -91,7 +91,8 @@ var searchFunc = function(path, search_id, content_id)
             {
               // 修改标题关键词高亮
               var regS = new RegExp(keyword + "(?![^<>]*>)", "gi");
-              data_title = data_title.replace(regS, "<strong><abbr style='border-bottom:1px dotted #eb5055'><font style='color:#eb5055;'>" + keyword + "</font></abbr></strong>");
+              // <abbr style='border-bottom:1px dotted #eb5055'></abbr>
+              data_title = data_title.replace(regS, "<strong><font style='color:#eb5055;'>" + keyword + "</font></abbr></strong>");
             });
 
             str += "<li><a href='" + unescape(decodeURI(data_url)) + "'>" + data_title + "</a>";

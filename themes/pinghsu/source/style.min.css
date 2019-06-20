@@ -973,10 +973,15 @@ textarea:-ms-input-placeholder {
 .local-search-result-cls ul a{
   color: #313131;
   border-bottom: 1px dotted #ccc;
+  font-weight:bold;
 }
 .local-search-result-cls ul a:hover{
   color: #eb5055;
   border-bottom: 1px dotted #eb5055;
+}
+
+.local-search-result-cls ul p{
+text-align: left;
 }
 
 .post-content p {

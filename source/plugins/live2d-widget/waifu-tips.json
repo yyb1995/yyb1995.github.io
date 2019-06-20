@@ -149,7 +149,7 @@
     },
     {
       "selector": ".local-search-input-cls",
-      "text": ["在这里输入搜索内容哦~", "结果会实时显示的呢~", "找到想要的东西了吗？"]
+      "text": ["在这里输入搜索内容哦~", "结果会实时显示的呢~", "找到想要的东西了吗？", "首次搜索需要稍微等一会儿才会有结果哦~"]
     },
     {
       "selector": ".cc-opacity, .post-copyright-author",

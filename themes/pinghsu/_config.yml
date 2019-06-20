@@ -181,7 +181,7 @@ tag_generator:
 # 插件及特效设置
 # 显示看板娘
 live2d:
-  enable: false
+  enable: true
 
 # 本地搜索
 local_search:
