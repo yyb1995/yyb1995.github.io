@@ -7,5 +7,6 @@ This is a Hexo blog theme named Pinghsu. [Pinghsu](https://github.com/chakhsu/pi
    - smooth_scroll
 4. Modified and add share links
 5. Add some icons
+6. Fix some bugs.
 
 My blog is [Eric_fish's blog](https://yyb1995.github.io/). Welcome to use this theme and help improve it. A more detailed introduction can be found at [README.md](./themes/pinghsu/README.md). Have fun with Hexo and Pinghsu!
