@@ -14,7 +14,7 @@ index:
 
 tags:
   title: 所有标签
-  count: 目前共计%d标签
+  count: 目前共计%d个标签
 
 archives:
   title: 嗯..! 目前共有 %d 篇文章，继续努力(ง •_•)ง
@@ -22,6 +22,8 @@ archives:
 
 categories:
   empty: 你还没有分类哦，赶紧去给你的文章加上分类吧~
+  title: 所有分类
+  count: 目前共有%d个分类
 
 archive:
   empty: 没有找到内容，请换别的关键字进行检索~

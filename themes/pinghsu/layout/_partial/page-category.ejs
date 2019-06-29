@@ -1,39 +1,26 @@
-<!--Category page for each category soruce code-->
-
 <%- partial('_partial/header', { 
-    title: __('menu.categories'), 
+    title:  __('menu.categories') , 
     bgColor: 'bg-grey'
 }) %>
 
-<div class="main-content archive-page clearfix">
-    <% if (site.categories.length > 0) { %>
-    <% site.categories.forEach(function(category) { %>
-    <div class="categorys-item">
-        <div class="categorys-title">
-            <a href="<%- url_for(category.path) %>"><%= category.name %></a><span> ：<%= category.posts.count() %></span>
-        <!--
-        <div class="post-lists">
-            <div class="post-lists-body">
-                <% category.posts.forEach(function(post) { %>
-                <div class="post-list-item">
-                    <div class="post-list-item-container">
-                        <div class="item-label">
-                            <div class="item-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></div>
-                            <div class="item-meta clearfix">
-                                <div class="item-meta-date"> <%= post.date.format(config.date_format) %> </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <%});%>
-            </div>
+<div class="main-content page-page">
+    <div class="search-page">
+        <div class="search-title">
+            <h1><%= __('categories.title') %></h1>
+            <h4><%= __('categories.count', site.categories.count()) %></h4>
         </div>
-        -->
+
+        <div class="search-tags">
+        <% if (site.categories.length !== 0) { %>
+            <% site.categories.sort('-posts.length').forEach(function(category, tag) { %>
+            <a href="<%- url_for(category.path) %>" class="<% if (theme.colorBgPosts) { %>text-white <% } %><%= getPostBgColor(theme.colorBgPosts, tag.color, 'white') %>"><%= category.name %>(<%= category.posts.count() %>)</a>
+            <% }); %>
+        <% } else { %>
+            <p> 主人还木有添加过分类哦_(:з」∠)_</p>
+        <% } %>
+            <div class="search-tags-hr <%= getPostBgColor(theme.colorBgPosts, '', 'deepgrey') %>"></div>
+        </div>
     </div>
-    <%});%>
-    <% } else { %>
-    <p><%= __('categories.empty') %></p>
-    <% } %>
 </div>
 
 <%- partial('_partial/footer') %>

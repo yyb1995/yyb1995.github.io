@@ -11,13 +11,13 @@ favicon: /images/favicon.png # favicon(即chrome标签页图标)，留空则不�
 iosicon: /images/apple-touch-icon.png # apple touch icon 地址，留空则不设 apple touch icon
 since: 2019 # 站点起始时间
 
-# Menu Setting 菜单设置
+# Menu Setting 菜单设置。由于标签和分类重复，所以默认关闭标签页。
 menu:
   categories: /categories
-  tags: /tags
   archives: /archives
   links: /links
   about: /about
+  # tags: /tags
 
 # Archive Setting 归档页设置
 # month: 按月份归档，year: 按年份归档，默认按月份归档

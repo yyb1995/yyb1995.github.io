@@ -223,3 +223,14 @@ counter = Counter(a)
 count_list = dict(counter)
 print(counter.most_common(3))
 ```
+
+## 20 isinstance()方法
+Python中`isinstance(object, classinfo)`方法用于判断一个对象是否是一个已知的类型，与`type()`类似。它们的区别在于
+>type() 不会认为子类是一种父类类型，不考虑继承关系。
+>
+>isinstance() 会认为子类是一种父类类型，考虑继承关系。
+>
+>如果要判断两个类型是否相同推荐使用 isinstance()。
+
+对于classinfo的选择，可以是
+`int`，`float`，`bool`，`complex`，`str`，`list`，`dict`，`set`，`tuple`。

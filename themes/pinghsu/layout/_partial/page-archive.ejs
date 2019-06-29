@@ -1,4 +1,6 @@
 <!--Archive page source code-->
+<%if (typeof theme.menu.tags != 'undefined') {%>
+
 <div class="main-content common-page clearfix">
     <div class="common-item">
         <div class="common-title">
@@ -9,6 +11,7 @@
                     commonTitle = page.tag;
                 }
             %>
+        <%= commonTitle %>
         </div>
         <div class="post-lists">
 			<div class="post-lists-body">
@@ -32,3 +35,4 @@
 		</div>
     </div>
 </div>
+<% }%>

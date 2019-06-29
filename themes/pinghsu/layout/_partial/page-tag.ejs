@@ -1,3 +1,6 @@
+<%if (typeof theme.menu.tags != 'undefined') {%>
+
+
 <%- partial('_partial/header', { 
     title:  __('menu.tags') , 
     bgColor: 'bg-grey'
@@ -24,3 +27,5 @@
 </div>
 
 <%- partial('_partial/footer') %>
+
+<% }%>
