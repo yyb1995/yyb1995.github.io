@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    <link rel="dns-prefetch" href="//cdn.bootcss.com">
+    <link rel="dns-prefetch" href="//secure.gravatar.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+    
+    <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    
+    <title>
+    
+        Python 迭代器(iterator) 生成器(generator) - Eric_fish&#39;s Blog
+    
+    </title>
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <link rel="stylesheet" href="/style.min.css">
+    <link href="//cdn.bootcss.com/highlight.js/9.10.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/valine@1.3.6/dist/Valine.min.js"></script>
+    
+
+</head>
+<body class="bg-white" gtools_scp_screen_capture_injected="true">
+<!--[if lt IE 8]>
+<div class="browsehappy" role="dialog">
+    当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级你的浏览器</a>。
+</div>
+<![endif]-->
+<header id="header" class="header bg-white">
+    <div class="navbar-container">
+        <a href="/" class="navbar-logo">
+            
+            Eric_fish&#39;s Blog
+            
+        </a>
+        <div class="navbar-menu">
+            
+            <a href="/categories" class>分类</a>
+            
+            <a href="/archives" class>归档</a>
+            
+            <a href="/links" class>友人帐</a>
+            
+            <a href="/about" class>关于我</a>
+            
+        
+        <a href="/search" class="navbar-search">
+            <span class="icon-search"></span>
+        </a>
+
+        </div>
+        <div class="navbar-mobile-menu" onclick>
+            <span class="icon-menu cross"><span class="middle"></span></span>
+            <ul>
+                
+                <li><a href="/categories" class>分类</a></li>
+                
+                <li><a href="/archives" class>归档</a></li>
+                
+                <li><a href="/links" class>友人帐</a></li>
+                
+                <li><a href="/about" class>关于我</a></li>
+                
+
+                <a href="/search" class="navbar-search">
+                <span class="icon-search"></span>
+        </a>
+
+            </ul>
+        </div>
+    </div>
+</header></body></html>
+<a id="top" class="anchor-top"></a>
+
+
+
+<div class="post-header-thumb">
+	<div class="post-header-thumb-op" style="background-image:url(https://i.loli.net/2017/05/06/590d99e937114.png);"></div>
+	<div class="post-header-thumb-cover">
+		<div class="post-header-thumb-container">
+			<div class="post-header-thumb-title">
+				Python 迭代器(iterator) 生成器(generator)
+			</div>
+			<div class="post-header-thumb-meta">
+				<time datetime="1562641639" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-07-09</time> | 
+				<time datetime="1562641639" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-07-09</time> | 
+				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Python/"> Python</a>
+				<div class="post-header-thumb-meta">
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:744字</span>
+					<span>|</span>
+					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:2 分钟</span>
+								<div class="post-header-thumb-meta">
+				
+					<span id="/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/" class="leancloud-visitors" data-flag-title="Python 迭代器(iterator) 生成器(generator)">
+						<i class="fa fa-eye"></i> 阅读量: <span class="leancloud-visitors-count">0</span> | 
+					</span>
+					
+				
+				<i class="fa fa-comment-o"></i> 评论量: <a id="page-title-comment" href="#vcomments"></a>
+				
+				</div>
+			</div>
+			<div class="post-tags">
+				
+				
+                <a href="/tags/Python/">Python</a>
+                
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<article class="main-content post-page" itemscope itemtype="http://schema.org/Article">
+	<div class="post-header">
+		<h1 class="post-title" itemprop="name headline">
+			Python 迭代器(iterator) 生成器(generator)
+		</h1>
+		<div class="post-data">
+			
+			<span id="/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/" class="leancloud-visitors" data-flag-title="Python 迭代器(iterator) 生成器(generator)">
+				<span class="leancloud-visitors-count">0</span> Views 
+			</span>
+			
+            <time datetime="1562641639" itemprop="datePublished">Published on 2019-07-09 in </time><a href="/categories/Python/">Python</a>
+			
+			with <a id="page-title-comment" href="#vcomments"></a>
+			
+
+			<div>
+				<span class="post-count">本文字数：744 字</span>
+				<span>|</span>
+				<span class="post-count">阅读时长 ≈ 2 min</span>
+			</div>
+		</div>
+	</div>
+	<div id="post-content" class="post-content" itemprop="articleBody">
+		<p class="post-tags">
+            
+            
+            <a href="/tags/Python/">Python</a>
+            
+            
+        </p>
+		<h2 id="可迭代对象-iterable"><a href="#可迭代对象-iterable" class="headerlink" title="可迭代对象(iterable)"></a>可迭代对象(iterable)</h2><ul>
+<li><p>定义</p>
+<p> iterable又称为可迭代对象。在Python中，如果一个对象（又称为container object）实现了<code>__iter__()</code>方法或者可以支持下标索引的<code>__getitem__()</code>方法，就称为一个可迭代对象。</p>
+</li>
+<li><p><code>__iter__()</code>方法</p>
+<p> 调用一个可迭代对象的<code>__iter__()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。这个在下一章会提到。</p>
+</li>
+<li><p><code>iter()</code>方法</p>
+<p> 调用一个可迭代对象的<code>iter()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。</p>
+</li>
+<li><p>判断方法<br>在Python中，我们常用到的集合数据类型都是iterable的。如列表(list)，元组(tuple)，字典(dict)，集合(set)，字符串(str)等。在程序中判断一个对象是否是iterable的方法为</p>
+<pre><code class="python"># Method1: use isinstance
+from collections import Iterable
+isinstance([1, 2, 3], Iterable)
+
+# Method2: use for loop
+for i in [1, 2, 3]:
+    print(i)</code></pre>
+</li>
+</ul>
+<h2 id="迭代器-iterator"><a href="#迭代器-iterator" class="headerlink" title="迭代器(iterator)"></a>迭代器(iterator)</h2><ul>
+<li><p>定义</p>
+<p> 借用<a href="https://docs.python.org/dev/howto/functional.html#iterators" target="_blank" rel="noopener">Python文档</a>中对迭代器的定义，一个迭代器指的是一个包含着数据流的对象，它每次返回数据中的一个元素。一个可迭代对象本身也可以是迭代器，但是这样在迭代一次之后数据本身将无法使用，除非将迭代器重置。在Python中大部分迭代器和可迭代对象是分离的，这样就保证了能够重复产生迭代器。</p>
+</li>
+<li><p><code>__next__()</code>方法</p>
+<p> 一个迭代器必须实现<code>__next__()</code>方法。在每次调用<strong>迭代器</strong>（注意，不是可迭代对象）的<code>__next__()</code>方法时顺序返回数据的一个元素。当遍历完数据后抛出<code>StopIteration</code>异常，表示迭代完成。这时迭代器也就完成了它的使命。</p>
+</li>
+<li><p><code>__iter__()</code>方法</p>
+<p> 调用一个迭代器的<code>__iter__()</code>方法会返回迭代器对象本身，注意每次调用产生一个新的迭代器对象。</p>
+</li>
+<li><p><code>next()</code>方法</p>
+<p> 在<code>next()</code>内传入一个迭代器，可以得到迭代器的下一个值。</p>
+</li>
+</ul>
+<h2 id="生成器-generator"><a href="#生成器-generator" class="headerlink" title="生成器(generator)"></a>生成器(generator)</h2><ul>
+<li><p>定义</p>
+<p> 生成器可以看成是迭代器的简化版。生成器只需要定义一个函数，并将普通函数的<code>return</code>改为<code>yield</code>即可。</p>
+</li>
+</ul>
+<ul>
+<li><p>使用<br> 在使用生成器时，可以像一个普通的迭代器一样，使用<code>for in</code>或者<code>next()</code>方法获取其中的值。</p>
+<pre><code class="python"> # Define a generator
+ def range_like(n):
+     i = 0
+     while i &lt; n:
+         yield i
+         i += 1
+
+ # Create a generator object
+ a = range_like(5)
+ a.__next__()
+
+ for i in range_like(n):
+     print(i)</code></pre>
+</li>
+</ul>
+<h2 id="迭代器、生成器的关系"><a href="#迭代器、生成器的关系" class="headerlink" title="迭代器、生成器的关系"></a>迭代器、生成器的关系</h2><p>迭代器、生成器、可迭代对象的关系可用下图表示<br><a data-fancybox="gallery" href="https://i.loli.net/2017/05/06/590d99e937114.png" data-height="800"><img src="https://i.loli.net/2017/05/06/590d99e937114.png"></a></p>
+<h2 id="for语句的执行顺序"><a href="#for语句的执行顺序" class="headerlink" title="for语句的执行顺序"></a>for语句的执行顺序</h2><p>在对一个iterable对象使用<code>for</code>语句时，实际上先调用了<code>iter()</code>方法返回一个iterator，然后再依次调用<code>__next__()</code>方法获得每一个值。当抛出<code>StopIteration</code>异常时意味着<code>for</code>语句的结束。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li><p><a href="https://stackoverflow.com/questions/9884132/what-exactly-are-iterator-iterable-and-iteration" target="_blank" rel="noopener">What exactly are iterator, iterable and iteration</a></p>
+</li>
+<li><p><a href="https://docs.python.org/3/tutorial/classes.html#iterators" target="_blank" rel="noopener">9.8. Iterators</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/24876cf14a5c" target="_blank" rel="noopener">彻底理解Iterable, Iterator, generator</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/dawningblue/article/details/72629362" target="_blank" rel="noopener">Python中iteration(迭代)、iterator(迭代器)、generator(生成器)等相关概念的理解</a></p>
+</li>
+</ol>
+
+		
+		<p class="post-info">
+			本文由 <a href="https://yyb1995.github.io">Eric_fish</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>
+		</p>
+		
+		<meting-js
+			id="60519192"
+			fixed="true"
+			server="netese"
+			type="playlist"
+			auto=""
+			autoplay="false"
+			order="list"
+			lrc-type="0"
+			>
+		</meting-js>
+		
+	</div>
+</article>
+<div id="post-bottom-bar" class="post-bottom-bar">
+	<div class="bottom-bar-inner">
+		<div class="bottom-bar-items social-share left">
+			<span class="bottom-bar-item"><i class="fa fa-share-square-o" aria-hidden="true"></i></span>
+			<span class="bottom-bar-item bottom-bar-qq"><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/index.html&amp;sharesource=qzone&amp;title=Python 迭代器(iterator) 生成器(generator)" target="_blank" title="Python 迭代器(iterator) 生成器(generator)" rel="nofollow">Qzone</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/index.html&amp;title=Python 迭代器(iterator) 生成器(generator)" target="_blank" title="Python 迭代器(iterator) 生成器(generator)" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/index.html" target="_blank" title="Python 迭代器(iterator) 生成器(generator)" rel="nofollow">Facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/&amp;text=Python 迭代器(iterator) 生成器(generator)" target="_blank" title="Python 迭代器(iterator) 生成器(generator)" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="https://cli.im/api/qrcode/code?text=https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/index.html" target="_blank" rel="nofollow">QRcode</a></span>
+		</div>
+		<div class="bottom-bar-items right">
+            
+            <span class="bottom-bar-item"><a href="/2019/07/09/Python/Python技巧/"><i class="fa fa-arrow-left"></i></a></span>
+            
+            
+            <span class="bottom-bar-item"><a href="/2019/07/09/Others/常用颜色收集/"><i class="fa fa-arrow-right"></i></a></span>
+            
+			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
+			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
+		</div>
+	</div>
+</div>
+
+
+<div class="related-post-lists">
+	<div class="post-lists">
+		<div class="post-lists-body">
+		
+			<div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-label">
+						<div class="item-title"><a href="/2019/07/09/Python/simpread-styleguide _ Style guides for Google-originated open-source projects/">Google Python Style Guide</a></div>
+						<div class="item-meta clearfix">
+							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
+							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                
+                                <a href="/categories/Python/">Python</a>
+                                
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-label">
+						<div class="item-title"><a href="/2019/07/09/Python/Python常用文件及目录操作/">Python常用文件及目录操作</a></div>
+						<div class="item-meta clearfix">
+							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
+							<div class="item-meta-ico bg-ico-code" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                
+                                <a href="/categories/Python/">Python</a>
+                                
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-label">
+						<div class="item-title"><a href="/2019/07/09/Python/Python技巧/">Python常见问题和技巧</a></div>
+						<div class="item-meta clearfix">
+							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
+							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                
+                                <a href="/categories/Python/">Python</a>
+                                
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+
+
+<div class="comment-container">
+	<div id="vcomments"></div>
+</div>
+
+
+<footer id="footer" class="footer bg-white">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/load.js"></script>
+    <script src="/js/search.js"></script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll@0.4.0/smoothscroll.min.js"></script>
+    
+
+    
+    
+    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget/waifu.css"/>
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+    
+    <script src="/plugins/live2d-widget/waifu-tips.js"></script>
+    <script src="/plugins/live2d-widget/live2d.js"></script>
+    
+    <script type="text/javascript">
+    	initModel("/plugins/live2d-widget/waifu-tips.json")
+    </script>
+
+    
+
+    
+        <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script> 
+        <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+
+	<div class="footer-social">
+		<div class="footer-container clearfix">
+			<div class="social-list">
+                
+                    <a class="social" target="blank" title="Github" href="https://github.com/yyb1995">Github</a>
+                
+                    <a class="social" target="blank" title="Weibo" href="https://weibo.com/yyb1015">Weibo</a>
+                
+                    <a class="social" target="blank" title="Email" href="mailto:yyb19951015@163.com">Email</a>
+                
+                    <a class="social" target="blank" title="RSS" href="/atom.xml">RSS</a>
+                
+            </div>
+		</div>
+	</div>
+	<div class="footer-meta">
+		<div class="footer-container">
+            <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+            
+            
+            <div class="meta-item meta-posts">
+                <h3 class="meta-title">最近文章</h3>
+                
+                <li><a href="/2019/07/09/Regex/常用查询网站/">正则表达式学习和查询网站</a></li>
+                
+                <li><a href="/2019/07/09/Regex/常用正则表达式/">正则表达式一些知识点</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch遇到的问题/">Pytorch使用过程中遇到的问题</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch学习/">Pytorch知识点学习</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch入门/">Pytorch入门</a></li>
+                
+            </div>
+            
+            
+            <div class="meta-item meta-comments">
+            </div>
+            
+            <div class="meta-item meta-copyright">
+				<div class="meta-copyright-info">
+                        <a href="https://yyb1995.github.io" class="info-logo">
+                        
+                        
+                        
+                    </a>
+                    
+                    站点信息
+					<div class="info-text">
+                        <p id="chakhsu"></p>
+                    	<p>Theme — <a href="https://github.com/cccyb/hexo-theme-pinghsu" target="_blank">Pinghsu</a></p>
+                        <p>Powered by <a href="https://hexo.io/" target="_blank" rel="nofollow">Hexo</a></p>
+                        <p>Hosted on <a href="https://pages.github.com/" target="_blank" rel="nofollow">Github Pages</a></p>
+                    </div>
+
+                    <div class="site-statistics">
+                        <p style="margin-top: 10px">总字数 49.3k</p>
+                        
+                        <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
+                        <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
+                        
+                    </div>
+                    <div class="site-copyright">
+                        
+                        <p style="margin-top: 10px">&copy; 2019 - 2019 with 
+                        <i class="fa fa-heart animated infinite pulse"></i> <a href="https://yyb1995.github.io"> by Eric_fish</a></p>
+                    </div>
+				</div>
+            </div>
+		</div>
+	</div>
+</footer>
+
+
+<div id="directory-content" class="directory-content">
+    <div id="directory"></div>
+</div>
+<script>
+var postDirectoryBuild = function() {
+    var postChildren = function children(childNodes, reg) {
+        var result = [],
+            isReg = typeof reg === 'object',
+            isStr = typeof reg === 'string',
+            node, i, len;
+        for (i = 0, len = childNodes.length; i < len; i++) {
+            node = childNodes[i];
+            if ((node.nodeType === 1 || node.nodeType === 9) &&
+                (!reg ||
+                isReg && reg.test(node.tagName.toLowerCase()) ||
+                isStr && node.tagName.toLowerCase() === reg)) {
+                result.push(node);
+            }
+        }
+        return result;
+    },
+    createPostDirectory = function(article, directory, isDirNum) {
+        var contentArr = [],
+            titleId = [],
+            levelArr, root, level,
+            currentList, list, li, link, i, len;
+        levelArr = (function(article, contentArr, titleId) {
+            var titleElem = postChildren(article.childNodes, /^h\d$/),
+                levelArr = [],
+                lastNum = 1,
+                lastRevNum = 1,
+                count = 0,
+                guid = 1,
+                id = 'directory' + (Math.random() + '').replace(/\D/, ''),
+                lastRevNum, num, elem;
+            while (titleElem.length) {
+                elem = titleElem.shift();
+                contentArr.push(elem.innerHTML);
+                num = +elem.tagName.match(/\d/)[0];
+                if (num > lastNum) {
+                    levelArr.push(1);
+                    lastRevNum += 1;
+                } else if (num === lastRevNum ||
+                    num > lastRevNum && num <= lastNum) {
+                    levelArr.push(0);
+                    lastRevNum = lastRevNum;
+                } else if (num < lastRevNum) {
+                    levelArr.push(num - lastRevNum);
+                    lastRevNum = num;
+                }
+                count += levelArr[levelArr.length - 1];
+                lastNum = num;
+                elem.id = id + guid++;
+                titleId.push(elem.id);
+            }
+            if (count !== 0 && levelArr[0] === 1) levelArr[0] = 0;
+            return levelArr;
+        })(article, contentArr, titleId);
+        currentList = root = document.createElement('ul');
+        dirNum = [0];
+        for (i = 0, len = levelArr.length; i < len; i++) {
+            level = levelArr[i];
+            if (level === 1) {
+                list = document.createElement('ul');
+                if (!currentList.lastElementChild) {
+                    currentList.appendChild(document.createElement('li'));
+                }
+                currentList.lastElementChild.appendChild(list);
+                currentList = list;
+                dirNum.push(0);
+            } else if (level < 0) {
+                level *= 2;
+                while (level++) {
+                    if (level % 2) dirNum.pop();
+                    currentList = currentList.parentNode;
+                }
+            }
+            dirNum[dirNum.length - 1]++;
+            li = document.createElement('li');
+            link = document.createElement('a');
+            link.href = '#' + titleId[i];
+            link.innerHTML = !isDirNum ? contentArr[i] :
+                dirNum.join('.') + ' ' + contentArr[i] ;
+            li.appendChild(link);
+            currentList.appendChild(li);
+        }
+        directory.appendChild(root);
+    };
+    createPostDirectory(document.getElementById('post-content'),document.getElementById('directory'), true);
+};
+postDirectoryBuild();
+</script>
+
+<script src="//cdn.bootcss.com/headroom/0.9.1/headroom.min.js"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+<script>
+
+var postDirectory = new Headroom(document.getElementById("directory-content"), {
+    tolerance: 0,
+    
+    offset : 280,
+    
+    classes: {
+        initial: "initial",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postDirectory.init();
+
+
+var postSharer = new Headroom(document.getElementById("post-bottom-bar"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+        initial: "animated",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postSharer.init();
+
+var header = new Headroom(document.getElementById("header"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+      initial: "animated",
+      pinned: "slideDown",
+      unpinned: "slideUp"
+    }
+});
+header.init();
+
+
+
+
+
+
+hljs.initHighlightingOnLoad();
+ 
+
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+}
+
+</script>
+<script>
+var words = 'Python,Pytorch,Hexo'.split(',').map(item => item.trim());
+var chakhsu = function(r){function t(){return b[Math.floor(Math.random()*b.length)]}function e(){return String.fromCharCode(94*Math.random()+33)}function n(r){for(var n=document.createDocumentFragment(),i=0;r>i;i++){var l=document.createElement("span");l.textContent=e(),l.style.color=t(),n.appendChild(l)}return n}function i(){var t=o[c.skillI];c.step?c.step--:(c.step=g,c.prefixP<l.length?(c.prefixP>=0&&(c.text+=l[c.prefixP]),c.prefixP++):"forward"===c.direction?c.skillP<t.length?(c.text+=t[c.skillP],c.skillP++):c.delay?c.delay--:(c.direction="backward",c.delay=a):c.skillP>0?(c.text=c.text.slice(0,-1),c.skillP--):(c.skillI=(c.skillI+1)%o.length,c.direction="forward")),r.textContent=c.text,r.appendChild(n(c.prefixP<l.length?Math.min(s,s+c.prefixP):Math.min(s,t.length-c.skillP))),setTimeout(i,d)}var l="人生苦短，我用",o=words.map(function(r){return r}),a=2,g=1,s=5,d=75,b=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],c={text:"",prefixP:-s,skillI:0,skillP:0,direction:"forward",delay:a,step:g};i()};chakhsu(document.getElementById('chakhsu')); if ('addEventListener' in document) { document.addEventListener('DOMContentLoaded', function() { FastClick.attach(document.body); }, false); }
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    showProcessingMessages: false,
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+        ignoreClass:"comment-content"
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"],
+        showMathMenu: false
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'gNin085Y3zygw7jX5FDWtWjN-gzGzoHsz',
+        appKey: 'z7bSyY0HsudrXcfCzuEluvEI',
+        placeholder: '说点什么吧~' || 'Your commnet here. Be cool.',
+        avatar: 'mp' || 'mp',
+        pageSize: 10 || 10,
+        visitor: true,
+    })
+</script>
+
+
+<script>
+
+// 获取文章评论数
+var query1 = new AV.Query('Comment');
+query1.equalTo('url', '/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/');
+query1.doesNotExist('pid');
+query1.count().then(function (count) {
+    document.getElementById('page-title-comment').innerText = count;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+
+
+// 获取最近评论
+var query2 = new AV.Query('Comment');
+query2.doesNotExist('pid');
+query2.descending('createdAt');
+query2.limit(5);
+query2.find().then(function (data) {
+    var _dom = '<h3 class="meta-title">最近评论</h3>';
+    data.forEach(function(comment) {
+        const plainComment = comment.get('comment').replace(/<[^>]+>/gim, '');
+        const href = `${comment.get('url')}#${comment.get('objectId')}`;
+        _dom += `<li><a href="${href}">${comment.get('nick')} : ${plainComment}</a></li>`
+    })
+    document.getElementsByClassName('meta-comments')[0].innerHTML = _dom;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+</body>
+</html>

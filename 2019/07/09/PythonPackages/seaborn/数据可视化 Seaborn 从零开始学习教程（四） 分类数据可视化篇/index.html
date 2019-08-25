@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    <link rel="dns-prefetch" href="//cdn.bootcss.com">
+    <link rel="dns-prefetch" href="//secure.gravatar.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+    
+    <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    
+    <title>
+    
+        数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇 - Eric_fish&#39;s Blog
+    
+    </title>
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <link rel="stylesheet" href="/style.min.css">
+    <link href="//cdn.bootcss.com/highlight.js/9.10.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/valine@1.3.6/dist/Valine.min.js"></script>
+    
+
+</head>
+<body class="bg-white" gtools_scp_screen_capture_injected="true">
+<!--[if lt IE 8]>
+<div class="browsehappy" role="dialog">
+    当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级你的浏览器</a>。
+</div>
+<![endif]-->
+<header id="header" class="header bg-white">
+    <div class="navbar-container">
+        <a href="/" class="navbar-logo">
+            
+            Eric_fish&#39;s Blog
+            
+        </a>
+        <div class="navbar-menu">
+            
+            <a href="/categories" class>分类</a>
+            
+            <a href="/archives" class>归档</a>
+            
+            <a href="/links" class>友人帐</a>
+            
+            <a href="/about" class>关于我</a>
+            
+        
+        <a href="/search" class="navbar-search">
+            <span class="icon-search"></span>
+        </a>
+
+        </div>
+        <div class="navbar-mobile-menu" onclick>
+            <span class="icon-menu cross"><span class="middle"></span></span>
+            <ul>
+                
+                <li><a href="/categories" class>分类</a></li>
+                
+                <li><a href="/archives" class>归档</a></li>
+                
+                <li><a href="/links" class>友人帐</a></li>
+                
+                <li><a href="/about" class>关于我</a></li>
+                
+
+                <a href="/search" class="navbar-search">
+                <span class="icon-search"></span>
+        </a>
+
+            </ul>
+        </div>
+    </div>
+</header></body></html>
+<a id="top" class="anchor-top"></a>
+
+
+
+<div class="post-header-thumb">
+	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/5.jpg);"></div>
+	<div class="post-header-thumb-cover">
+		<div class="post-header-thumb-container">
+			<div class="post-header-thumb-title">
+				数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇
+			</div>
+			<div class="post-header-thumb-meta">
+				<time datetime="1562641639" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-07-09</time> | 
+				<time datetime="1562641639" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-07-09</time> | 
+				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Python-Packages/"> Python Packages</a>
+				<div class="post-header-thumb-meta">
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:2.7k字</span>
+					<span>|</span>
+					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:11 分钟</span>
+								<div class="post-header-thumb-meta">
+				
+					<span id="/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（四） 分类数据可视化篇/" class="leancloud-visitors" data-flag-title="数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇">
+						<i class="fa fa-eye"></i> 阅读量: <span class="leancloud-visitors-count">0</span> | 
+					</span>
+					
+				
+				<i class="fa fa-comment-o"></i> 评论量: <a id="page-title-comment" href="#vcomments"></a>
+				
+				</div>
+			</div>
+			<div class="post-tags">
+				
+				
+                <a href="/tags/seaborn/">seaborn</a>
+                
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<article class="main-content post-page" itemscope itemtype="http://schema.org/Article">
+	<div class="post-header">
+		<h1 class="post-title" itemprop="name headline">
+			数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇
+		</h1>
+		<div class="post-data">
+			
+			<span id="/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（四） 分类数据可视化篇/" class="leancloud-visitors" data-flag-title="数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇">
+				<span class="leancloud-visitors-count">0</span> Views 
+			</span>
+			
+            <time datetime="1562641639" itemprop="datePublished">Published on 2019-07-09 in </time><a href="/categories/Python-Packages/">Python Packages</a>
+			
+			with <a id="page-title-comment" href="#vcomments"></a>
+			
+
+			<div>
+				<span class="post-count">本文字数：2.7k 字</span>
+				<span>|</span>
+				<span class="post-count">阅读时长 ≈ 11 min</span>
+			</div>
+		</div>
+	</div>
+	<div id="post-content" class="post-content" itemprop="articleBody">
+		<p class="post-tags">
+            
+            
+            <a href="/tags/seaborn/">seaborn</a>
+            
+            
+        </p>
+		<blockquote>
+<p>本文转载自<a href="https://segmentfault.com/a/1190000015310299" target="_blank" rel="noopener">数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇</a></p>
+</blockquote>
+<h2 id="Seaborn-学习大纲"><a href="#Seaborn-学习大纲" class="headerlink" title="Seaborn 学习大纲"></a>Seaborn 学习大纲</h2><p><code>seaborn</code>的学习内容主要包含以下几个部分：</p>
+<ol>
+<li><p><strong>风格管理</strong></p>
+<ul>
+<li>绘图风格设置</li>
+<li>颜色风格设置</li>
+</ul>
+</li>
+<li><p><strong>绘图方法</strong></p>
+<ul>
+<li>数据集的分布可视化</li>
+<li>分类数据可视化</li>
+<li>线性关系可视化</li>
+</ul>
+</li>
+<li><p><strong>结构网格</strong></p>
+<ul>
+<li>数据识别网格绘图</li>
+</ul>
+</li>
+</ol>
+<p>本次将主要介绍分类数据可视化的使用。</p>
+<h2 id="分类数据可视化"><a href="#分类数据可视化" class="headerlink" title="分类数据可视化"></a>分类数据可视化</h2><p>数据集中的数据类型有很多种，除了连续的特征变量之外，最常见的就是类目型的数据类型了，常见的比如人的性别，学历，爱好等。这些数据类型都不能用连续的变量来表示，而是用分类的数据来表示。</p>
+<p><code>seaborn</code>针对分类型的数据有专门的可视化函数，这些函数可大致分为三种：</p>
+<ul>
+<li><strong>分类数据散点图：</strong> swarmplot(), stripplot()</li>
+<li><strong>分类数据的分布图：</strong> boxplot(), violinplot()</li>
+<li><strong>分类数据的统计估算图 ：</strong> barplot(), pointplot()</li>
+</ul>
+<p>这三类函数可有特点，可以从各个方面展示分类数据的可视化效果，下面我们一一介绍。<br>首先的首先还是先导入需要的模块和数据集。</p>
+<pre><code>%matplotlib inline
+import numpy as np
+import pandas as pd
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set(style=&quot;whitegrid&quot;, color_codes=True)
+np.random.seed(sum(map(ord, &quot;categorical&quot;)))
+titanic = sns.load_dataset(&quot;titanic&quot;)
+tips = sns.load_dataset(&quot;tips&quot;)
+iris = sns.load_dataset(&quot;iris&quot;)</code></pre><h4 id="分类数据散点图"><a href="#分类数据散点图" class="headerlink" title="分类数据散点图"></a>分类数据散点图</h4><p>在分类数据的基础上展示定量数据的最简单函数就是 stripplot()。</p>
+<pre><code>sns.stripplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, data=tips);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco27?w=571&h=342" data-height="800"><img src="https://segmentfault.com/img/bVbco27?w=571&h=342"></a></p>
+<p>这看上去类似散点图，但不同的是，横坐标是分类的数据，只不过一些数据点上会互相重叠，不便于观察。所以一个简单的解决办法是加入<code>jitter</code>参数，调整横坐标位置。</p>
+<pre><code>sns.stripplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, data=tips, jitter=True);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3a?w=563&h=346" data-height="800"><img src="https://segmentfault.com/img/bVbco3a?w=563&h=346"></a></p>
+<p>当然，还有一个不同的方法就是使用 swarmplot() 函数，这个函数的好处就是所有的点都不会重叠，这样可以很清晰的观察到数据的分布。</p>
+<pre><code>sns.swarmplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, data=tips);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3b?w=559&h=346" data-height="800"><img src="https://segmentfault.com/img/bVbco3b?w=559&h=346"></a></p>
+<p>在这基础上，也可以通过 hue 参数加入另一个嵌套的分类变量，而且嵌套的分类变量可以以不同的颜色区别，十分方便。</p>
+<pre><code>sns.swarmplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, hue=&quot;sex&quot;, data=tips);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3d?w=563&h=344" data-height="800"><img src="https://segmentfault.com/img/bVbco3d?w=563&h=344"></a></p>
+<p>通常情况下，seaborn 还会尝试推断出分类变量的顺序。如果你的数据是 pandas 的分类数据类型，那么就是使用默认的分类数据顺序，如果是其他的数据类型，字符串类型的类别将按照它们在 DataFrame 中显示的顺序进行绘制，但是数组类别将被排序：</p>
+<pre><code>sns.swarmplot(x=&quot;size&quot;, y=&quot;total_bill&quot;, data=tips);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3f?w=563&h=351" data-height="800"><img src="https://segmentfault.com/img/bVbco3f?w=563&h=351"></a></p>
+<p>有时候将分类变量放在垂直轴上是非常有用的（当类别名称相对较长或有很多类别时，这一点特别有用）。 可以使用 orient 关键字强制定向，但通常可以互换 x 和 y 的变量的数据类型来完成：</p>
+<pre><code>sns.swarmplot(x=&quot;total_bill&quot;, y=&quot;day&quot;, hue=&quot;time&quot;, data=tips);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3g?w=589&h=351" data-height="800"><img src="https://segmentfault.com/img/bVbco3g?w=589&h=351"></a></p>
+<h4 id="分类数据分布图"><a href="#分类数据分布图" class="headerlink" title="分类数据分布图"></a>分类数据分布图</h4><p>虽然分类的散点图很有用，但有时候想要快速查看各分类下的数据分布就不是很直观了。为此，第二种函数解决了这个问题。</p>
+<p><strong>箱型图</strong><br>通过箱型图可以很直观的观察到数据的四分位分布（1/4 分位，中位数，3/4 分位，以及四分位距），这种可视化对于在机器学习的预处理阶段（尤其是发现数据异常离散值）十分有效。</p>
+<pre><code>sns.boxplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, hue=&quot;time&quot;, data=tips);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3j?w=561&h=348" data-height="800"><img src="https://segmentfault.com/img/bVbco3j?w=561&h=348"></a></p>
+<p>对于箱型图来说，使用 hue 参数的假设是这个变量嵌套在 x 或者 y 轴内。所以默认的情况下，hue 变量的不同类型值会保持偏置状态（两类或几类数据共同在 x 轴数据类型的一个类中），就像上面那个图所示。但是如果 hue 所使用的变量不是嵌套的，那么你可以使用 dodge 参数来禁止这个默认的偏置状态。</p>
+<pre><code>tips[&quot;weekend&quot;] = tips[&quot;day&quot;].isin([&quot;Sat&quot;, &quot;Sun&quot;])
+sns.boxplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, hue=&quot;weekend&quot;, data=tips, dodge=False);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3k?w=563&h=350" data-height="800"><img src="https://segmentfault.com/img/bVbco3k?w=563&h=350"></a></p>
+<p><strong>提琴图</strong><br>另一种不同的方法是 violinplot() 函数，它结合了箱体图和分布教程中描述的核心密度估计过程：</p>
+<pre><code>sns.violinplot(x=&quot;total_bill&quot;, y=&quot;day&quot;, hue=&quot;time&quot;, data=tips);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3p?w=559&h=344" data-height="800"><img src="https://segmentfault.com/img/bVbco3p?w=559&h=344"></a></p>
+<p>这种方法使用核密度估计来更好地描述值的分布。此外，小提琴内还显示了箱体四分位数和四分位距。由于小提琴使用 KDE，还有一些其他可以调整的参数，相对于简单的 boxplot 增加了一些复杂性：</p>
+<pre><code>sns.violinplot(x=&quot;total_bill&quot;, y=&quot;day&quot;, hue=&quot;time&quot;, data=tips,
+               bw=.1, scale=&quot;count&quot;, scale_hue=False);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3q?w=552&h=348" data-height="800"><img src="https://segmentfault.com/img/bVbco3q?w=552&h=348"></a></p>
+<p>当 hue 的嵌套类型只有两类的时候，也可以使用 split 参数将小提琴分割：</p>
+<pre><code>sns.violinplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, hue=&quot;sex&quot;, data=tips, split=True);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3r?w=543&h=349" data-height="800"><img src="https://segmentfault.com/img/bVbco3r?w=543&h=349"></a></p>
+<p>在提琴图内，也可以使用 inner 参数以横线的形式来展示每个观察点的分布，来代替箱型的整体分布：</p>
+<pre><code>sns.violinplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, hue=&quot;sex&quot;, data=tips,
+               split=True, inner=&quot;stick&quot;, palette=&quot;Set3&quot;);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3s?w=543&h=350" data-height="800"><img src="https://segmentfault.com/img/bVbco3s?w=543&h=350"></a></p>
+<p>还有一点比较好的是，可以将 swarmplot()，violinplot()，或 boxplot() 混合使用，这样可以结合多种绘图的特点展示更完美的效果。</p>
+<pre><code>sns.violinplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, data=tips, inner=None)
+sns.swarmplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, data=tips, color=&quot;w&quot;, alpha=.5);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3u?w=548&h=354" data-height="800"><img src="https://segmentfault.com/img/bVbco3u?w=548&h=354"></a></p>
+<h4 id="分类数据统计估计图"><a href="#分类数据统计估计图" class="headerlink" title="分类数据统计估计图"></a>分类数据统计估计图</h4><p>有时候，我们不想展示分类数据下的分布，而是想展示每一类的集中趋势。seaborn 有两个主要的方法来展示这个，并且这些函数 api 与上面函数的用法是一样的。<br><strong>条形图</strong><br>我们最熟悉的方式就是使用一个条形图。 在 Seaborn 中 barplot() 函数会在整个数据集上显示估计，默认情况下使用均值进行估计。 当在每个类别中有多个类别时（使用了 hue），它可以使用引导来计算估计的置信区间，并使用误差条来表示置信区间：</p>
+<pre><code>sns.barplot(x=&quot;sex&quot;, y=&quot;survived&quot;, hue=&quot;class&quot;, data=titanic);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3w?w=569&h=345" data-height="800"><img src="https://segmentfault.com/img/bVbco3w?w=569&h=345"></a></p>
+<p>条形图的特殊情况是当您想要显示每个类别的数量，而不是计算统计量。这有点类似于一个分类而不是定量变量的直方图。在 Seaborn 中，使用 countplot() 函数很轻易的完成：</p>
+<pre><code>sns.countplot(x=&quot;deck&quot;, data=titanic, palette=&quot;Greens_d&quot;);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3x?w=546&h=345" data-height="800"><img src="https://segmentfault.com/img/bVbco3x?w=546&h=345"></a></p>
+<p>如果将要计数的变量移动到 y 轴上，那么条形就会横过来显示：</p>
+<pre><code>sns.countplot(y=&quot;deck&quot;, hue=&quot;class&quot;, data=titanic, palette=&quot;Greens_d&quot;);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3B?w=552&h=355" data-height="800"><img src="https://segmentfault.com/img/bVbco3B?w=552&h=355"></a></p>
+<p><strong>点图</strong></p>
+<p>pointplot() 函数提供了估计可视化的另一种风格。该函数会用高度估计值对数据进行描述，而不是显示一个完整的条形，它只绘制点估计和置信区间。另外，点图连接相同 hue 类别的点，比如 male 中的蓝色会连接 female 中的蓝色。这使得很容易看出主要关系如何随着第二个变量的变化而变化，因为你的眼睛可以很好地辨别斜率的差异：</p>
+<pre><code>sns.pointplot(x=&quot;sex&quot;, y=&quot;survived&quot;, hue=&quot;class&quot;, data=titanic);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3G?w=553&h=350" data-height="800"><img src="https://segmentfault.com/img/bVbco3G?w=553&h=350"></a></p>
+<p>为了使能够更好的显示，可以使用不同的标记和线条样式来展示不同 hue 类别的层次:</p>
+<pre><code>sns.pointplot(x=&quot;class&quot;, y=&quot;survived&quot;, hue=&quot;sex&quot;, data=titanic,
+              palette={&quot;male&quot;: &quot;g&quot;, &quot;female&quot;: &quot;m&quot;},
+              markers=[&quot;^&quot;, &quot;o&quot;], linestyles=[&quot;-&quot;, &quot;--&quot;]);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3H?w=546&h=352" data-height="800"><img src="https://segmentfault.com/img/bVbco3H?w=546&h=352"></a></p>
+<h4 id="绘制-“宽格式”-数据"><a href="#绘制-“宽格式”-数据" class="headerlink" title="绘制 “宽格式” 数据"></a>绘制 “宽格式” 数据</h4><p>虽然使用 “长格式” 或“整洁”数据是优选的，但是这些函数也可以应用于各种格式的 “宽格式” 数据，包括 pandas DataFrame 或二维 numpy 数组阵列。这些对象应该直接传递给数据参数：</p>
+<pre><code>sns.boxplot(data=iris, orient=&quot;h&quot;);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3O?w=606&h=334" data-height="800"><img src="https://segmentfault.com/img/bVbco3O?w=606&h=334"></a></p>
+<p>此外，这些函数也接受 Pandas 或 numpy 对象的向量，而不仅仅是 DataFrame 中的变量：</p>
+<pre><code>sns.violinplot(x=iris.species, y=iris.sepal_length);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3Q?w=557&h=344" data-height="800"><img src="https://segmentfault.com/img/bVbco3Q?w=557&h=344"></a></p>
+<p>为了控制由上述函数制作的图形的大小和形状，你必须使用 matplotlib 命令自己设置图形。 当然，这也意味着这些图块可以和其他种类的图块一起在一个多面板的绘制中共存：</p>
+<pre><code>f, ax = plt.subplots(figsize=(7, 3))
+sns.countplot(y=&quot;deck&quot;, data=titanic, color=&quot;c&quot;);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3S?w=610&h=281" data-height="800"><img src="https://segmentfault.com/img/bVbco3S?w=610&h=281"></a></p>
+<h4 id="绘制多层面板分类图"><a href="#绘制多层面板分类图" class="headerlink" title="绘制多层面板分类图"></a>绘制多层面板分类图</h4><p>正如我们上面提到的，有两种方法可以在 Seaborn 中绘制分类图。与回归图中的二元性相似，您可以使用上面介绍的函数，也可以使用更高级别的函数 factorplot()，将这些函数与 FacetGrid() 相结合，通过这个图形的更大的结构来增加展示其他类别的能力。 默认情况下，factorplot() 产生一个 pairplot()：</p>
+<pre><code>sns.factorplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, hue=&quot;smoker&quot;, data=tips);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3T?w=502&h=365" data-height="800"><img src="https://segmentfault.com/img/bVbco3T?w=502&h=365"></a></p>
+<p>但是，kind 参数可以让你选择以上讨论的任何种类的图：</p>
+<pre><code>sns.factorplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, hue=&quot;smoker&quot;, data=tips, kind=&quot;bar&quot;);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3U?w=501&h=367" data-height="800"><img src="https://segmentfault.com/img/bVbco3U?w=501&h=367"></a></p>
+<p>使用 factorplot() 的主要优点是可以很容易使用 “facet” 绘制多面图，展示更多其他分类变量：</p>
+<pre><code>sns.factorplot(x=&quot;day&quot;, y=&quot;total_bill&quot;, hue=&quot;smoker&quot;,
+               col=&quot;time&quot;, data=tips, kind=&quot;swarm&quot;);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco3V?w=850&h=370" data-height="800"><img src="https://segmentfault.com/img/bVbco3V?w=850&h=370"></a></p>
+<p>任何一种图形都可以画出来。由于 FacetGrid 的工作原理，要更改图形的大小和形状，需要指定适用于每个图的 size 和 aspect 参数：</p>
+<pre><code>sns.factorplot(x=&quot;time&quot;, y=&quot;total_bill&quot;, hue=&quot;smoker&quot;,
+               col=&quot;day&quot;, data=tips, kind=&quot;box&quot;, size=4, aspect=.5);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco31?w=863&h=365" data-height="800"><img src="https://segmentfault.com/img/bVbco31?w=863&h=365"></a></p>
+<p>你也可以直接使用 boxplot() 和 FacetGrid 来制作这个图。但是，必须特别注意确保每个图的分类变量的顺序需要被强制，或者是使用具有 Categorical 数据类型的数据或通过命令和 hue_order。</p>
+<pre><code>sns.factorplot(x=&quot;time&quot;, y=&quot;total_bill&quot;, hue=&quot;smoker&quot;,hue_order=[&quot;No&quot;,&quot;Yes&quot;]
+               ,col=&quot;day&quot;, data=tips, kind=&quot;box&quot;, size=4, aspect=.5,
+              palette=&quot;Set3&quot;);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco33?w=581&h=259" data-height="800"><img src="https://segmentfault.com/img/bVbco33?w=581&h=259"></a></p>
+<p>由于广义 API 函数的存在，分类数据也可以很容易应用于其他更复杂的上下文。 例如，它们可以轻松地与 PairGrid 结合，以显示多个不同变量之间的分类关系：</p>
+<pre><code>g = sns.PairGrid(tips,
+                 x_vars=[&quot;smoker&quot;, &quot;time&quot;, &quot;sex&quot;],
+                 y_vars=[&quot;total_bill&quot;, &quot;tip&quot;],
+                 aspect=.75, size=3.5)
+g.map(sns.violinplot, palette=&quot;pastel&quot;);</code></pre><p><a data-fancybox="gallery" href="https://segmentfault.com/img/bVbco34?w=540&h=455" data-height="800"><img src="https://segmentfault.com/img/bVbco34?w=540&h=455"></a></p>
+<blockquote>
+<p>参考：<a href="http://seaborn.pydata.org/tutorial.html" target="_blank" rel="noopener">http://seaborn.pydata.org/tut…</a></p>
+</blockquote>
+<hr>
+<p>关注微信公众号 <strong>Python 数据科学</strong>，获取 <code>120G</code> 人工智能 学习资料。</p>
+<p><a data-fancybox="gallery" href="https://segmentfault.com/img/bV7oO9?w=344&h=344" data-height="800"><img src="https://segmentfault.com/img/bV7oO9?w=344&h=344"></a></p>
+<p><a data-fancybox="gallery" href="https://segmentfault.com/img/bV93KE?w=572&h=367" data-height="800"><img src="https://segmentfault.com/img/bV93KE?w=572&h=367"></a></p>
+
+		
+		<p class="post-info">
+			本文由 <a href="https://yyb1995.github.io">Eric_fish</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>
+		</p>
+		
+		<meting-js
+			id="60519192"
+			fixed="true"
+			server="netese"
+			type="playlist"
+			auto=""
+			autoplay="false"
+			order="list"
+			lrc-type="0"
+			>
+		</meting-js>
+		
+	</div>
+</article>
+<div id="post-bottom-bar" class="post-bottom-bar">
+	<div class="bottom-bar-inner">
+		<div class="bottom-bar-items social-share left">
+			<span class="bottom-bar-item"><i class="fa fa-share-square-o" aria-hidden="true"></i></span>
+			<span class="bottom-bar-item bottom-bar-qq"><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yyb1995.github.io/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（四） 分类数据可视化篇/index.html&amp;sharesource=qzone&amp;title=数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇" target="_blank" title="数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇" rel="nofollow">Qzone</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=https://yyb1995.github.io/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（四） 分类数据可视化篇/index.html&amp;title=数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇" target="_blank" title="数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://yyb1995.github.io/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（四） 分类数据可视化篇/index.html" target="_blank" title="数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇" rel="nofollow">Facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=https://yyb1995.github.io/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（四） 分类数据可视化篇/&amp;text=数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇" target="_blank" title="数据可视化Seaborn从零开始学习教程（四） 分类数据可视化篇" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="https://cli.im/api/qrcode/code?text=https://yyb1995.github.io/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（四） 分类数据可视化篇/index.html" target="_blank" rel="nofollow">QRcode</a></span>
+		</div>
+		<div class="bottom-bar-items right">
+            
+            <span class="bottom-bar-item"><a href="/2019/07/09/Pytorch/Pytorch中常用tensor操作/"><i class="fa fa-arrow-left"></i></a></span>
+            
+            
+            <span class="bottom-bar-item"><a href="/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（二） 颜色调控篇/"><i class="fa fa-arrow-right"></i></a></span>
+            
+			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
+			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
+		</div>
+	</div>
+</div>
+
+
+<div class="related-post-lists">
+	<div class="post-lists">
+		<div class="post-lists-body">
+		
+			<div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-label">
+						<div class="item-title"><a href="/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（一） 风格选择/">数据可视化Seaborn从零开始学习教程（一） 风格选择</a></div>
+						<div class="item-meta clearfix">
+							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
+							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                
+                                <a href="/categories/Python-Packages/">Python Packages</a>
+                                
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-label">
+						<div class="item-title"><a href="/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（三） 数据分布可视化篇/">数据可视化Seaborn从零开始学习教程（三） 数据分布可视化篇</a></div>
+						<div class="item-meta clearfix">
+							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
+							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                
+                                <a href="/categories/Python-Packages/">Python Packages</a>
+                                
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-label">
+						<div class="item-title"><a href="/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（二） 颜色调控篇/">数据可视化Seaborn从零开始学习教程（二） 颜色调控篇</a></div>
+						<div class="item-meta clearfix">
+							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
+							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                
+                                <a href="/categories/Python-Packages/">Python Packages</a>
+                                
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+
+
+<div class="comment-container">
+	<div id="vcomments"></div>
+</div>
+
+
+<footer id="footer" class="footer bg-white">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/load.js"></script>
+    <script src="/js/search.js"></script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll@0.4.0/smoothscroll.min.js"></script>
+    
+
+    
+    
+    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget/waifu.css"/>
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+    
+    <script src="/plugins/live2d-widget/waifu-tips.js"></script>
+    <script src="/plugins/live2d-widget/live2d.js"></script>
+    
+    <script type="text/javascript">
+    	initModel("/plugins/live2d-widget/waifu-tips.json")
+    </script>
+
+    
+
+    
+        <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script> 
+        <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+
+	<div class="footer-social">
+		<div class="footer-container clearfix">
+			<div class="social-list">
+                
+                    <a class="social" target="blank" title="Github" href="https://github.com/yyb1995">Github</a>
+                
+                    <a class="social" target="blank" title="Weibo" href="https://weibo.com/yyb1015">Weibo</a>
+                
+                    <a class="social" target="blank" title="Email" href="mailto:yyb19951015@163.com">Email</a>
+                
+                    <a class="social" target="blank" title="RSS" href="/atom.xml">RSS</a>
+                
+            </div>
+		</div>
+	</div>
+	<div class="footer-meta">
+		<div class="footer-container">
+            <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+            
+            
+            <div class="meta-item meta-posts">
+                <h3 class="meta-title">最近文章</h3>
+                
+                <li><a href="/2019/07/09/Regex/常用查询网站/">正则表达式学习和查询网站</a></li>
+                
+                <li><a href="/2019/07/09/Regex/常用正则表达式/">正则表达式一些知识点</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch遇到的问题/">Pytorch使用过程中遇到的问题</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch学习/">Pytorch知识点学习</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch入门/">Pytorch入门</a></li>
+                
+            </div>
+            
+            
+            <div class="meta-item meta-comments">
+            </div>
+            
+            <div class="meta-item meta-copyright">
+				<div class="meta-copyright-info">
+                        <a href="https://yyb1995.github.io" class="info-logo">
+                        
+                        
+                        
+                    </a>
+                    
+                    站点信息
+					<div class="info-text">
+                        <p id="chakhsu"></p>
+                    	<p>Theme — <a href="https://github.com/cccyb/hexo-theme-pinghsu" target="_blank">Pinghsu</a></p>
+                        <p>Powered by <a href="https://hexo.io/" target="_blank" rel="nofollow">Hexo</a></p>
+                        <p>Hosted on <a href="https://pages.github.com/" target="_blank" rel="nofollow">Github Pages</a></p>
+                    </div>
+
+                    <div class="site-statistics">
+                        <p style="margin-top: 10px">总字数 49.3k</p>
+                        
+                        <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
+                        <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
+                        
+                    </div>
+                    <div class="site-copyright">
+                        
+                        <p style="margin-top: 10px">&copy; 2019 - 2019 with 
+                        <i class="fa fa-heart animated infinite pulse"></i> <a href="https://yyb1995.github.io"> by Eric_fish</a></p>
+                    </div>
+				</div>
+            </div>
+		</div>
+	</div>
+</footer>
+
+
+<div id="directory-content" class="directory-content">
+    <div id="directory"></div>
+</div>
+<script>
+var postDirectoryBuild = function() {
+    var postChildren = function children(childNodes, reg) {
+        var result = [],
+            isReg = typeof reg === 'object',
+            isStr = typeof reg === 'string',
+            node, i, len;
+        for (i = 0, len = childNodes.length; i < len; i++) {
+            node = childNodes[i];
+            if ((node.nodeType === 1 || node.nodeType === 9) &&
+                (!reg ||
+                isReg && reg.test(node.tagName.toLowerCase()) ||
+                isStr && node.tagName.toLowerCase() === reg)) {
+                result.push(node);
+            }
+        }
+        return result;
+    },
+    createPostDirectory = function(article, directory, isDirNum) {
+        var contentArr = [],
+            titleId = [],
+            levelArr, root, level,
+            currentList, list, li, link, i, len;
+        levelArr = (function(article, contentArr, titleId) {
+            var titleElem = postChildren(article.childNodes, /^h\d$/),
+                levelArr = [],
+                lastNum = 1,
+                lastRevNum = 1,
+                count = 0,
+                guid = 1,
+                id = 'directory' + (Math.random() + '').replace(/\D/, ''),
+                lastRevNum, num, elem;
+            while (titleElem.length) {
+                elem = titleElem.shift();
+                contentArr.push(elem.innerHTML);
+                num = +elem.tagName.match(/\d/)[0];
+                if (num > lastNum) {
+                    levelArr.push(1);
+                    lastRevNum += 1;
+                } else if (num === lastRevNum ||
+                    num > lastRevNum && num <= lastNum) {
+                    levelArr.push(0);
+                    lastRevNum = lastRevNum;
+                } else if (num < lastRevNum) {
+                    levelArr.push(num - lastRevNum);
+                    lastRevNum = num;
+                }
+                count += levelArr[levelArr.length - 1];
+                lastNum = num;
+                elem.id = id + guid++;
+                titleId.push(elem.id);
+            }
+            if (count !== 0 && levelArr[0] === 1) levelArr[0] = 0;
+            return levelArr;
+        })(article, contentArr, titleId);
+        currentList = root = document.createElement('ul');
+        dirNum = [0];
+        for (i = 0, len = levelArr.length; i < len; i++) {
+            level = levelArr[i];
+            if (level === 1) {
+                list = document.createElement('ul');
+                if (!currentList.lastElementChild) {
+                    currentList.appendChild(document.createElement('li'));
+                }
+                currentList.lastElementChild.appendChild(list);
+                currentList = list;
+                dirNum.push(0);
+            } else if (level < 0) {
+                level *= 2;
+                while (level++) {
+                    if (level % 2) dirNum.pop();
+                    currentList = currentList.parentNode;
+                }
+            }
+            dirNum[dirNum.length - 1]++;
+            li = document.createElement('li');
+            link = document.createElement('a');
+            link.href = '#' + titleId[i];
+            link.innerHTML = !isDirNum ? contentArr[i] :
+                dirNum.join('.') + ' ' + contentArr[i] ;
+            li.appendChild(link);
+            currentList.appendChild(li);
+        }
+        directory.appendChild(root);
+    };
+    createPostDirectory(document.getElementById('post-content'),document.getElementById('directory'), true);
+};
+postDirectoryBuild();
+</script>
+
+<script src="//cdn.bootcss.com/headroom/0.9.1/headroom.min.js"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+<script>
+
+var postDirectory = new Headroom(document.getElementById("directory-content"), {
+    tolerance: 0,
+    
+    offset : 280,
+    
+    classes: {
+        initial: "initial",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postDirectory.init();
+
+
+var postSharer = new Headroom(document.getElementById("post-bottom-bar"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+        initial: "animated",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postSharer.init();
+
+var header = new Headroom(document.getElementById("header"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+      initial: "animated",
+      pinned: "slideDown",
+      unpinned: "slideUp"
+    }
+});
+header.init();
+
+
+
+
+
+
+hljs.initHighlightingOnLoad();
+ 
+
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+}
+
+</script>
+<script>
+var words = 'Python,Pytorch,Hexo'.split(',').map(item => item.trim());
+var chakhsu = function(r){function t(){return b[Math.floor(Math.random()*b.length)]}function e(){return String.fromCharCode(94*Math.random()+33)}function n(r){for(var n=document.createDocumentFragment(),i=0;r>i;i++){var l=document.createElement("span");l.textContent=e(),l.style.color=t(),n.appendChild(l)}return n}function i(){var t=o[c.skillI];c.step?c.step--:(c.step=g,c.prefixP<l.length?(c.prefixP>=0&&(c.text+=l[c.prefixP]),c.prefixP++):"forward"===c.direction?c.skillP<t.length?(c.text+=t[c.skillP],c.skillP++):c.delay?c.delay--:(c.direction="backward",c.delay=a):c.skillP>0?(c.text=c.text.slice(0,-1),c.skillP--):(c.skillI=(c.skillI+1)%o.length,c.direction="forward")),r.textContent=c.text,r.appendChild(n(c.prefixP<l.length?Math.min(s,s+c.prefixP):Math.min(s,t.length-c.skillP))),setTimeout(i,d)}var l="人生苦短，我用",o=words.map(function(r){return r}),a=2,g=1,s=5,d=75,b=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],c={text:"",prefixP:-s,skillI:0,skillP:0,direction:"forward",delay:a,step:g};i()};chakhsu(document.getElementById('chakhsu')); if ('addEventListener' in document) { document.addEventListener('DOMContentLoaded', function() { FastClick.attach(document.body); }, false); }
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    showProcessingMessages: false,
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+        ignoreClass:"comment-content"
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"],
+        showMathMenu: false
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'gNin085Y3zygw7jX5FDWtWjN-gzGzoHsz',
+        appKey: 'z7bSyY0HsudrXcfCzuEluvEI',
+        placeholder: '说点什么吧~' || 'Your commnet here. Be cool.',
+        avatar: 'mp' || 'mp',
+        pageSize: 10 || 10,
+        visitor: true,
+    })
+</script>
+
+
+<script>
+
+// 获取文章评论数
+var query1 = new AV.Query('Comment');
+query1.equalTo('url', '/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（四） 分类数据可视化篇/');
+query1.doesNotExist('pid');
+query1.count().then(function (count) {
+    document.getElementById('page-title-comment').innerText = count;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+
+
+// 获取最近评论
+var query2 = new AV.Query('Comment');
+query2.doesNotExist('pid');
+query2.descending('createdAt');
+query2.limit(5);
+query2.find().then(function (data) {
+    var _dom = '<h3 class="meta-title">最近评论</h3>';
+    data.forEach(function(comment) {
+        const plainComment = comment.get('comment').replace(/<[^>]+>/gim, '');
+        const href = `${comment.get('url')}#${comment.get('objectId')}`;
+        _dom += `<li><a href="${href}">${comment.get('nick')} : ${plainComment}</a></li>`
+    })
+    document.getElementsByClassName('meta-comments')[0].innerHTML = _dom;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+</body>
+</html>

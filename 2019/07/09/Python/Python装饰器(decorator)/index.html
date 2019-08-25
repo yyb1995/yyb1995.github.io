@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    <link rel="dns-prefetch" href="//cdn.bootcss.com">
+    <link rel="dns-prefetch" href="//secure.gravatar.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+    
+    <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    
+    <title>
+    
+        python装饰器 - Eric_fish&#39;s Blog
+    
+    </title>
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <link rel="stylesheet" href="/style.min.css">
+    <link href="//cdn.bootcss.com/highlight.js/9.10.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/valine@1.3.6/dist/Valine.min.js"></script>
+    
+
+</head>
+<body class="bg-white" gtools_scp_screen_capture_injected="true">
+<!--[if lt IE 8]>
+<div class="browsehappy" role="dialog">
+    当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级你的浏览器</a>。
+</div>
+<![endif]-->
+<header id="header" class="header bg-white">
+    <div class="navbar-container">
+        <a href="/" class="navbar-logo">
+            
+            Eric_fish&#39;s Blog
+            
+        </a>
+        <div class="navbar-menu">
+            
+            <a href="/categories" class>分类</a>
+            
+            <a href="/archives" class>归档</a>
+            
+            <a href="/links" class>友人帐</a>
+            
+            <a href="/about" class>关于我</a>
+            
+        
+        <a href="/search" class="navbar-search">
+            <span class="icon-search"></span>
+        </a>
+
+        </div>
+        <div class="navbar-mobile-menu" onclick>
+            <span class="icon-menu cross"><span class="middle"></span></span>
+            <ul>
+                
+                <li><a href="/categories" class>分类</a></li>
+                
+                <li><a href="/archives" class>归档</a></li>
+                
+                <li><a href="/links" class>友人帐</a></li>
+                
+                <li><a href="/about" class>关于我</a></li>
+                
+
+                <a href="/search" class="navbar-search">
+                <span class="icon-search"></span>
+        </a>
+
+            </ul>
+        </div>
+    </div>
+</header></body></html>
+<a id="top" class="anchor-top"></a>
+
+
+
+<div class="post-header-thumb">
+	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/9.jpg);"></div>
+	<div class="post-header-thumb-cover">
+		<div class="post-header-thumb-container">
+			<div class="post-header-thumb-title">
+				python装饰器
+			</div>
+			<div class="post-header-thumb-meta">
+				<time datetime="1562641639" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-07-09</time> | 
+				<time datetime="1562641639" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-07-09</time> | 
+				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Python/"> Python</a>
+				<div class="post-header-thumb-meta">
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:2.7k字</span>
+					<span>|</span>
+					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:11 分钟</span>
+								<div class="post-header-thumb-meta">
+				
+					<span id="/2019/07/09/Python/Python装饰器(decorator)/" class="leancloud-visitors" data-flag-title="python装饰器">
+						<i class="fa fa-eye"></i> 阅读量: <span class="leancloud-visitors-count">0</span> | 
+					</span>
+					
+				
+				<i class="fa fa-comment-o"></i> 评论量: <a id="page-title-comment" href="#vcomments"></a>
+				
+				</div>
+			</div>
+			<div class="post-tags">
+				
+				
+                <a href="/tags/Python-装饰器/">Python 装饰器</a>
+                
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<article class="main-content post-page" itemscope itemtype="http://schema.org/Article">
+	<div class="post-header">
+		<h1 class="post-title" itemprop="name headline">
+			python装饰器
+		</h1>
+		<div class="post-data">
+			
+			<span id="/2019/07/09/Python/Python装饰器(decorator)/" class="leancloud-visitors" data-flag-title="python装饰器">
+				<span class="leancloud-visitors-count">0</span> Views 
+			</span>
+			
+            <time datetime="1562641639" itemprop="datePublished">Published on 2019-07-09 in </time><a href="/categories/Python/">Python</a>
+			
+			with <a id="page-title-comment" href="#vcomments"></a>
+			
+
+			<div>
+				<span class="post-count">本文字数：2.7k 字</span>
+				<span>|</span>
+				<span class="post-count">阅读时长 ≈ 11 min</span>
+			</div>
+		</div>
+	</div>
+	<div id="post-content" class="post-content" itemprop="articleBody">
+		<p class="post-tags">
+            
+            
+            <a href="/tags/Python-装饰器/">Python 装饰器</a>
+            
+            
+        </p>
+		<p>一般来说我们经常性会在工程性的代码里面经常性看到例如<code>@staticmethod</code>或是<code>@classmethod</code>等等，这就是装饰器，通常来说，装饰器的作用我们可以这样理解，它可以让其他函数在不需要做任何代码变动的前提下增加额外功能，概括的讲，装饰器的作用就是为已经存在的对象添加额外的功能。这样说着可能比较抽象，我们稍微接着看个很简单的例子就能很容易理解了。</p>
+<h2 id="1-关于装饰器"><a href="#1-关于装饰器" class="headerlink" title="1 关于装饰器"></a>1 关于装饰器</h2><p>直接看一个很简单的例子 比如说我有一个<code>func()</code>函数，</p>
+<pre><code class="python">    def func():
+        for i in xrange(100):
+            print &quot;bendawang&quot;</code></pre>
+<p>我现在想要记录这个函数的执行时间。一般我们可能会这样写</p>
+<pre><code class="python">    import time
+    def func():
+        a=time.time()
+        for i in xrange(100):
+            print &quot;bendawang&quot;
+        b=time.time()
+        print str((b-a))+&quot; s&quot;</code></pre>
+<p>即记录下前后的时间，然后做个减法。 那如果我有100个和<code>func()</code>一样的函数<code>func1(),func2(),func3()......</code>，我要对每一个都记录执行时间怎么办呢？ 这样一个一个加代码肯定不划算啊，而且考虑到以后万一我又不想统计它们的时间，又还得一个个注释掉。 这里我们先看一种写法，</p>
+<pre><code class="python">    import time
+    def get_time(myfunc):
+        a=time.time()
+        myfunc()
+        b=time.time()
+        print myfunc.__name__+&quot; cost &quot;+str((b-a))+&quot; s&quot;
+
+    def func():
+        for i in xrange(100):
+            print &quot;bendawang&quot;
+
+    get_time(func)</code></pre>
+<p>这样我通过一个<code>get_time()</code>来间接调用<code>func(),func1(),func2()......</code>就能够成功记录时间了。 好的，能够简单的记录所有时间的问题解决了。</p>
+<p>但是现在我们又面临了一个新的问题，比如我使用上面的方法，也就意味着我所有调用<code>func(),func1(),func2()......</code>的地方,现在都要换成<code>get_time(func),get_time(func1),get_time(func2)......</code>，但是我这是一个大的工程，要改那么多地方相当麻烦啊。</p>
+<p>这个时候我们突然想到了，之前第一篇文章里面说过<code>python</code>一切皆对象，函数也是，那么我们的返回值也可以是一个函数咯，所以可以这样子写：</p>
+<pre><code class="python">    import time
+    def get_time(myfunc):
+        def wrapper():
+            a=time.time()
+            myfunc()
+            b=time.time()
+            print myfunc.__name__+&quot; cost &quot;+str((b-a))+&quot; s&quot;
+        return wrapper
+    def func():
+        for i in xrange(100):
+            print &quot;bendawang&quot;
+    func=get_time(func)
+    func()</code></pre>
+<p>我们以一个函数为返回值覆盖原来的<code>func</code>，这样子我们就可以直接调用<code>func(),func1(),func2()......</code>，而且也能够记录时间也不用大动干戈去修改工程里面的其他代码。 这<code>get_time()</code>函数就可以叫做装饰器了，即装饰器的本质实际上就是一个函数而已，不过通常我们都通过<code>@</code>语法糖来简化装饰器的写法，上述代码可以这样子写：</p>
+<pre><code class="python">    import time
+    def get_time(myfunc):
+        def wrapper():
+            a=time.time()
+            myfunc()
+            b=time.time()
+            print myfunc.__name__+&quot; cost &quot;+str((b-a))+&quot; s&quot;
+        return wrapper
+
+    @get_time
+    def func():
+        for i in xrange(100):
+            print &quot;bendawang&quot;
+    func()
+</code></pre>
+<p>所以其实<code>@get_time</code>的本质就是<code>func=get_time(func)</code>。</p>
+<h2 id="2-关于参数问题"><a href="#2-关于参数问题" class="headerlink" title="2 关于参数问题"></a>2 关于参数问题</h2><p>装饰器基本理解了，那么如果我们需要往函数里面传递参数怎么办？ 那其实这个问题是一样的，如下：</p>
+<pre><code class="python">    import time
+    def get_time(myfunc):
+        def wrapper(count):
+            a=time.time()
+            myfunc(count)
+            b=time.time()
+            print myfunc.__name__+&quot; cost &quot;+str((b-a))+&quot; s&quot;
+        return wrapper
+
+    @get_time
+    def func(count):
+        for i in xrange(count):
+            print &quot;bendawang&quot;
+
+    func(10)</code></pre>
+<p>有一个就给<code>get_time</code>加一个参数，有两个就给它搞两个参数就好了。</p>
+<p>那么这样子又有新的问题了。刚才说了，我有100个<code>func</code>函数，那么如果这些函数传入的参数不一样怎么办？怎么共用这个装饰器<code>get_time</code>？</p>
+<p>那么我们通常装饰器的写法就出来了，利用<code>python</code>中的<code>*args, **kwargs</code>来引入可变参数 简单说一下这两兄弟的用法，<code>*args</code>表示任何多个无名参数，它是一个tuple；<code>**kwargs</code>表示关键字参数，它是一个 dict。并且同时使用<code>*args</code>和<code>**kwargs</code>时，必须<code>*args</code>参数列要在<code>**kwargs</code>前。 那么看一个例子就基本能理解了。</p>
+<pre><code class="python">    def foo(*args, **kwargs):
+        print &#39;args = &#39;, args
+        print &#39;kwargs = &#39;, kwargs
+        print &#39;---------------------------------------&#39;
+
+    if __name__ == &#39;__main__&#39;:
+        foo(1,2,3,4)
+        foo(a=1,b=2,c=3)
+        foo(1,2,3,4, a=1,b=2,c=3)
+        foo(&#39;a&#39;, 1, None, a=1, b=&#39;2&#39;, c=3)</code></pre>
+<pre><code class="python">    Result as follow:
+
+    args =  (1, 2, 3, 4)
+    kwargs =  {}
+    ---------------------------------------
+    args =  ()
+    kwargs =  {&#39;a&#39;: 1, &#39;c&#39;: 3, &#39;b&#39;: 2}
+    ---------------------------------------
+    args =  (1, 2, 3, 4)
+    kwargs =  {&#39;a&#39;: 1, &#39;c&#39;: 3, &#39;b&#39;: 2}
+    ---------------------------------------
+    args =  (&#39;a&#39;, 1, None)
+    kwargs =  {&#39;a&#39;: 1, &#39;c&#39;: 3, &#39;b&#39;: &#39;2&#39;}
+    ---------------------------------------</code></pre>
+<p>所以我们的装饰器可以这样写</p>
+<pre><code class="python">    import time
+    def get_time(myfunc):
+        def wrapper(*args,**kwargs):
+            a=time.time()
+            myfunc(*args,**kwargs)
+            b=time.time()
+            print myfunc.__name__+&quot; cost &quot;+str((b-a))+&quot; s&quot;
+        return wrapper
+
+    @get_time
+    def func(count):
+        for i in xrange(count):
+            print &quot;bendawang&quot;
+
+    func(10)</code></pre>
+<p>所以其实我们经常在一些工程的项目里面都会看到例如下面的一些代码</p>
+<pre><code class="python">    def handleException(func):
+        def _wrapper(args):
+            try:
+                out = Output()
+                return func(args, out)
+            except PenError as error:
+                out.error(str(error))
+            except ExploitError as error:
+                out.error(str(error))
+            except NotImplementError as error:
+                out.error(str(error))
+            except ORMError as error:
+                out.error(str(error))
+            except Exception as error:
+                out.error(u&quot;未知错误, &#39;{0}&#39;&quot;.format(error))
+            except KeyboardInterrupt:
+                out.error(u&quot;用户强制退出&quot;)
+            finally:
+                out.close()
+        return _wrapper</code></pre>
+<p>然后工程中的很多函数都会用<code>@handleException</code>，相信很好理解了，就是对这些函数统一进行出错处理避免代码冗杂。这是工程中必不可少的思维，虽然我还没怎么写过工程性的东西。</p>
+<h2 id="3-关于多个装饰器的问题"><a href="#3-关于多个装饰器的问题" class="headerlink" title="3 关于多个装饰器的问题"></a>3 关于多个装饰器的问题</h2><p>因为可以使用多个装饰器，那么执行顺序就是问题，如下：</p>
+<pre><code class="python">    @get_time
+    @test
+    def func(count):
+        for i in xrange(count):
+            print &quot;bendawang&quot;
+
+    func(10)</code></pre>
+<p>上述代码我用了<code>get_time</code>和<code>test</code>两个装饰器，执行顺序是先执行<code>test</code>在执行<code>get_time</code>。</p>
+<h2 id="4-python-内置装饰器"><a href="#4-python-内置装饰器" class="headerlink" title="4 python-内置装饰器"></a>4 python-内置装饰器</h2><p>这个算是本文的重要部分了，Python中有三个内置的装饰器，<code>staticmethod</code>、<code>classmethod</code> 和<code>property</code>。这些都是和类相关的，所以尽量看完第一篇再看这里。</p>
+<p>首先说说<code>staticmethod</code>、<code>classmethod</code>，用文字说起来可能比较绕，用<code>staticmethod</code>和<code>classmethod</code>装饰的类中的函数实际上和一个全局函数差不多，可以通过类或是类的实例来调用，而一般的函数是不能通过类本身来调用，只能通过类的实例来调用。而这两个装饰器的差别在于，<code>classmethod</code>会将类本身当作第一个参数传入,即可以获得当前类的属性和方法。看一个例子</p>
+<pre><code class="python">    class Foo:  
+        @staticmethod  
+        def bar1(hello):  
+            print &quot;this is the staticmethod===&gt;&quot;+hello+&quot;\n&quot;
+
+        @classmethod  
+        def bar2(cls,hello):  
+            print &quot;this is the classmethod ===&gt;&quot;+hello+&quot;\n&quot;
+
+        def bar3(self,hello):  
+            print &quot;this is a normal method ===&gt;&quot;+hello+&quot;\n&quot;    
+
+    Foo.bar1(&#39;test&#39;)
+    Foo.bar2(&#39;test&#39;)
+    Foo.bar3(&#39;test&#39;)</code></pre>
+<p>结果如下：</p>
+<pre><code class="python">    this is the staticmethod===&gt;test
+
+    this is the classmethod ===&gt;test
+
+    Traceback (most recent call last):
+      File &quot;a.py&quot;, line 15, in &lt;module&gt;
+        Foo.bar3(&#39;test&#39;)
+    TypeError: unbound method bar3() must be called with Foo instance as first argument (got str instance instead)</code></pre>
+<p>可以看出来第三个报错了，因为说过了普通函数只能用实例来调用，所以只能这样子写</p>
+<pre><code class="python">    class Foo:  
+        @staticmethod  
+        def bar1(hello):  
+            print &quot;this is the staticmethod===&gt;&quot;+hello+&quot;\n&quot;
+
+        @classmethod  
+        def bar2(cls,hello):  
+            print &quot;this is the classmethod ===&gt;&quot;+hello+&quot;\n&quot;
+
+        def bar3(self,hello):  
+            print &quot;this is a normal method ===&gt;&quot;+hello+&quot;\n&quot;    
+
+    Foo.bar1(&#39;test&#39;)
+    Foo.bar2(&#39;test&#39;)
+    foo=Foo()
+    foo.bar3(&#39;test&#39;)</code></pre>
+<p>接下来是<code>@property</code>，个人感觉这就是java程序员带过来的东西。。。先说这个装饰器吧，这里直接用了<a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386820062641f3bcc60a4b164f8d91df476445697b9e000" target="_blank" rel="noopener">廖雪峰官网关于@property的介绍</a>中的例子。</p>
+<p>在绑定类属性时，如果我们直接把属性暴露出去，虽然写起来很简单，但是，没办法检查参数，比如如下：</p>
+<pre><code class="python">    s = Student()
+    s.score = 9999</code></pre>
+<p>如果我们想要限制<code>s.score</code>在一个范围怎么办，作为半个曾经的java程序员，我必然是会用eclipse的右键对这个<code>score</code>属性创建一个<code>getter</code>和<code>setter</code>方法，即在调用的时候不直接<code>s.score</code>，而是用getter方法，在修改的时候不直接赋值，而是用<code>setter</code>方法，从而避免属性暴露。用python 写就是这样子：</p>
+<pre><code class="python">    class Student(object):
+
+        def get_score(self):
+            return self._score
+
+        def set_score(self, value):
+            if not isinstance(value, int):
+                raise ValueError(&#39;score must be an integer!&#39;)
+            if value &lt; 0 or value &gt; 100:
+                raise ValueError(&#39;score must between 0 ~ 100!&#39;)
+            self._score = value</code></pre>
+<p>但是这样子的话就很麻烦，每一次调用都要手动调用一次<code>get_score</code>函数，每次修改都要手动调用一次<code>set_score</code>函数，当然java这门语言本身就很麻烦所以再麻烦一点也没啥关系了，但是python不一样啊。所以有了这个<code>@property</code>，如下：</p>
+<pre><code class="python">    class Student(object):
+
+        @property
+        def score(self):
+            return self._score
+
+        @score.setter
+        def score(self, value):
+            if not isinstance(value, int):
+                raise ValueError(&#39;score must be an integer!&#39;)
+            if value &lt; 0 or value &gt; 100:
+                raise ValueError(&#39;score must between 0 ~ 100!&#39;)
+            self._score = value</code></pre>
+<p>把一个<code>getter</code>方法变成属性，只需要加上<code>@property</code>就可以了，此时，<code>@property</code>本身又创建了另一个装饰器<code>@score.setter</code>，负责把一个<code>setter</code>方法变成属性赋值。 当然如果这个变量不叫<code>score</code>，比如叫<code>point</code>，那么另一个装饰器自然就变成了<code>@point.setter</code>。 这样子我们就可以这样操作了：</p>
+<pre><code class="python">    &gt;&gt;&gt; s=Student()
+    &gt;&gt;&gt; s.score=50
+    &gt;&gt;&gt; s.score
+    50
+    &gt;&gt;&gt; s.score=1000
+    Traceback (most recent call last):
+      File &quot;&lt;input&gt;&quot;, line 1, in &lt;module&gt;
+        s.score=1000
+      File &quot;&lt;input&gt;&quot;, line 12, in score
+        raise ValueError(&#39;score must between 0 ~ 100!&#39;)
+    ValueError: score must between 0 ~ 100!</code></pre>
+<p>所以有了这个<code>@property</code>，我们在对实例属性操作的时候，就知道该属性很可能不是直接暴露的，而是通过getter和setter方法来实现的。</p>
+<p>当然python里面除了本文介绍的函数装饰器之外，还有类装饰器，但是个人遇到的较少所以此处不介绍了。</p>
+<h2 id="5-关于装饰器的其他内容"><a href="#5-关于装饰器的其他内容" class="headerlink" title="5 关于装饰器的其他内容"></a>5 关于装饰器的其他内容</h2><ol>
+<li>在使用装饰器后， 调用函数的<code>__name__</code>和<code>__doc__</code>属性，发现不再是原函数的名称和文档，而是装饰器函数wrapper的名称和文档。为了在装饰后保持原函数的名称和文档，需要在<code>def wrapper()</code>前加上另一个装饰器：<code>@wraps(func)</code>。具体使用方法为：<pre><code class="python">from functools import wraps   
+def my_decorator(func):
+ @wraps(func)
+ def wrapper(*args, **kwargs):
+     &#39;&#39;&#39;decorator&#39;&#39;&#39;
+     print(&#39;Calling decorated function...&#39;)
+     return func(*args, **kwargs)
+ return wrapper </code></pre>
+wrapper <pre><code></code></pre></li>
+</ol>
+
+		
+		<p class="post-info">
+			本文由 <a href="https://yyb1995.github.io">Eric_fish</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>
+		</p>
+		
+		<meting-js
+			id="60519192"
+			fixed="true"
+			server="netese"
+			type="playlist"
+			auto=""
+			autoplay="false"
+			order="list"
+			lrc-type="0"
+			>
+		</meting-js>
+		
+	</div>
+</article>
+<div id="post-bottom-bar" class="post-bottom-bar">
+	<div class="bottom-bar-inner">
+		<div class="bottom-bar-items social-share left">
+			<span class="bottom-bar-item"><i class="fa fa-share-square-o" aria-hidden="true"></i></span>
+			<span class="bottom-bar-item bottom-bar-qq"><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yyb1995.github.io/2019/07/09/Python/Python装饰器(decorator)/index.html&amp;sharesource=qzone&amp;title=python装饰器" target="_blank" title="python装饰器" rel="nofollow">Qzone</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=https://yyb1995.github.io/2019/07/09/Python/Python装饰器(decorator)/index.html&amp;title=python装饰器" target="_blank" title="python装饰器" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://yyb1995.github.io/2019/07/09/Python/Python装饰器(decorator)/index.html" target="_blank" title="python装饰器" rel="nofollow">Facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=https://yyb1995.github.io/2019/07/09/Python/Python装饰器(decorator)/&amp;text=python装饰器" target="_blank" title="python装饰器" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="https://cli.im/api/qrcode/code?text=https://yyb1995.github.io/2019/07/09/Python/Python装饰器(decorator)/index.html" target="_blank" rel="nofollow">QRcode</a></span>
+		</div>
+		<div class="bottom-bar-items right">
+            
+            <span class="bottom-bar-item"><a href="/2019/07/09/Python/simpread-styleguide _ Style guides for Google-originated open-source projects/"><i class="fa fa-arrow-left"></i></a></span>
+            
+            
+            <span class="bottom-bar-item"><a href="/2019/07/09/Python/Python常用文件及目录操作/"><i class="fa fa-arrow-right"></i></a></span>
+            
+			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
+			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="comment-container">
+	<div id="vcomments"></div>
+</div>
+
+
+<footer id="footer" class="footer bg-white">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/load.js"></script>
+    <script src="/js/search.js"></script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll@0.4.0/smoothscroll.min.js"></script>
+    
+
+    
+    
+    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget/waifu.css"/>
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+    
+    <script src="/plugins/live2d-widget/waifu-tips.js"></script>
+    <script src="/plugins/live2d-widget/live2d.js"></script>
+    
+    <script type="text/javascript">
+    	initModel("/plugins/live2d-widget/waifu-tips.json")
+    </script>
+
+    
+
+    
+        <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script> 
+        <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+
+	<div class="footer-social">
+		<div class="footer-container clearfix">
+			<div class="social-list">
+                
+                    <a class="social" target="blank" title="Github" href="https://github.com/yyb1995">Github</a>
+                
+                    <a class="social" target="blank" title="Weibo" href="https://weibo.com/yyb1015">Weibo</a>
+                
+                    <a class="social" target="blank" title="Email" href="mailto:yyb19951015@163.com">Email</a>
+                
+                    <a class="social" target="blank" title="RSS" href="/atom.xml">RSS</a>
+                
+            </div>
+		</div>
+	</div>
+	<div class="footer-meta">
+		<div class="footer-container">
+            <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+            
+            
+            <div class="meta-item meta-posts">
+                <h3 class="meta-title">最近文章</h3>
+                
+                <li><a href="/2019/07/09/Regex/常用查询网站/">正则表达式学习和查询网站</a></li>
+                
+                <li><a href="/2019/07/09/Regex/常用正则表达式/">正则表达式一些知识点</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch遇到的问题/">Pytorch使用过程中遇到的问题</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch学习/">Pytorch知识点学习</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch入门/">Pytorch入门</a></li>
+                
+            </div>
+            
+            
+            <div class="meta-item meta-comments">
+            </div>
+            
+            <div class="meta-item meta-copyright">
+				<div class="meta-copyright-info">
+                        <a href="https://yyb1995.github.io" class="info-logo">
+                        
+                        
+                        
+                    </a>
+                    
+                    站点信息
+					<div class="info-text">
+                        <p id="chakhsu"></p>
+                    	<p>Theme — <a href="https://github.com/cccyb/hexo-theme-pinghsu" target="_blank">Pinghsu</a></p>
+                        <p>Powered by <a href="https://hexo.io/" target="_blank" rel="nofollow">Hexo</a></p>
+                        <p>Hosted on <a href="https://pages.github.com/" target="_blank" rel="nofollow">Github Pages</a></p>
+                    </div>
+
+                    <div class="site-statistics">
+                        <p style="margin-top: 10px">总字数 49.3k</p>
+                        
+                        <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
+                        <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
+                        
+                    </div>
+                    <div class="site-copyright">
+                        
+                        <p style="margin-top: 10px">&copy; 2019 - 2019 with 
+                        <i class="fa fa-heart animated infinite pulse"></i> <a href="https://yyb1995.github.io"> by Eric_fish</a></p>
+                    </div>
+				</div>
+            </div>
+		</div>
+	</div>
+</footer>
+
+
+<div id="directory-content" class="directory-content">
+    <div id="directory"></div>
+</div>
+<script>
+var postDirectoryBuild = function() {
+    var postChildren = function children(childNodes, reg) {
+        var result = [],
+            isReg = typeof reg === 'object',
+            isStr = typeof reg === 'string',
+            node, i, len;
+        for (i = 0, len = childNodes.length; i < len; i++) {
+            node = childNodes[i];
+            if ((node.nodeType === 1 || node.nodeType === 9) &&
+                (!reg ||
+                isReg && reg.test(node.tagName.toLowerCase()) ||
+                isStr && node.tagName.toLowerCase() === reg)) {
+                result.push(node);
+            }
+        }
+        return result;
+    },
+    createPostDirectory = function(article, directory, isDirNum) {
+        var contentArr = [],
+            titleId = [],
+            levelArr, root, level,
+            currentList, list, li, link, i, len;
+        levelArr = (function(article, contentArr, titleId) {
+            var titleElem = postChildren(article.childNodes, /^h\d$/),
+                levelArr = [],
+                lastNum = 1,
+                lastRevNum = 1,
+                count = 0,
+                guid = 1,
+                id = 'directory' + (Math.random() + '').replace(/\D/, ''),
+                lastRevNum, num, elem;
+            while (titleElem.length) {
+                elem = titleElem.shift();
+                contentArr.push(elem.innerHTML);
+                num = +elem.tagName.match(/\d/)[0];
+                if (num > lastNum) {
+                    levelArr.push(1);
+                    lastRevNum += 1;
+                } else if (num === lastRevNum ||
+                    num > lastRevNum && num <= lastNum) {
+                    levelArr.push(0);
+                    lastRevNum = lastRevNum;
+                } else if (num < lastRevNum) {
+                    levelArr.push(num - lastRevNum);
+                    lastRevNum = num;
+                }
+                count += levelArr[levelArr.length - 1];
+                lastNum = num;
+                elem.id = id + guid++;
+                titleId.push(elem.id);
+            }
+            if (count !== 0 && levelArr[0] === 1) levelArr[0] = 0;
+            return levelArr;
+        })(article, contentArr, titleId);
+        currentList = root = document.createElement('ul');
+        dirNum = [0];
+        for (i = 0, len = levelArr.length; i < len; i++) {
+            level = levelArr[i];
+            if (level === 1) {
+                list = document.createElement('ul');
+                if (!currentList.lastElementChild) {
+                    currentList.appendChild(document.createElement('li'));
+                }
+                currentList.lastElementChild.appendChild(list);
+                currentList = list;
+                dirNum.push(0);
+            } else if (level < 0) {
+                level *= 2;
+                while (level++) {
+                    if (level % 2) dirNum.pop();
+                    currentList = currentList.parentNode;
+                }
+            }
+            dirNum[dirNum.length - 1]++;
+            li = document.createElement('li');
+            link = document.createElement('a');
+            link.href = '#' + titleId[i];
+            link.innerHTML = !isDirNum ? contentArr[i] :
+                dirNum.join('.') + ' ' + contentArr[i] ;
+            li.appendChild(link);
+            currentList.appendChild(li);
+        }
+        directory.appendChild(root);
+    };
+    createPostDirectory(document.getElementById('post-content'),document.getElementById('directory'), true);
+};
+postDirectoryBuild();
+</script>
+
+<script src="//cdn.bootcss.com/headroom/0.9.1/headroom.min.js"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+<script>
+
+var postDirectory = new Headroom(document.getElementById("directory-content"), {
+    tolerance: 0,
+    
+    offset : 280,
+    
+    classes: {
+        initial: "initial",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postDirectory.init();
+
+
+var postSharer = new Headroom(document.getElementById("post-bottom-bar"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+        initial: "animated",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postSharer.init();
+
+var header = new Headroom(document.getElementById("header"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+      initial: "animated",
+      pinned: "slideDown",
+      unpinned: "slideUp"
+    }
+});
+header.init();
+
+
+
+
+
+
+hljs.initHighlightingOnLoad();
+ 
+
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+}
+
+</script>
+<script>
+var words = 'Python,Pytorch,Hexo'.split(',').map(item => item.trim());
+var chakhsu = function(r){function t(){return b[Math.floor(Math.random()*b.length)]}function e(){return String.fromCharCode(94*Math.random()+33)}function n(r){for(var n=document.createDocumentFragment(),i=0;r>i;i++){var l=document.createElement("span");l.textContent=e(),l.style.color=t(),n.appendChild(l)}return n}function i(){var t=o[c.skillI];c.step?c.step--:(c.step=g,c.prefixP<l.length?(c.prefixP>=0&&(c.text+=l[c.prefixP]),c.prefixP++):"forward"===c.direction?c.skillP<t.length?(c.text+=t[c.skillP],c.skillP++):c.delay?c.delay--:(c.direction="backward",c.delay=a):c.skillP>0?(c.text=c.text.slice(0,-1),c.skillP--):(c.skillI=(c.skillI+1)%o.length,c.direction="forward")),r.textContent=c.text,r.appendChild(n(c.prefixP<l.length?Math.min(s,s+c.prefixP):Math.min(s,t.length-c.skillP))),setTimeout(i,d)}var l="人生苦短，我用",o=words.map(function(r){return r}),a=2,g=1,s=5,d=75,b=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],c={text:"",prefixP:-s,skillI:0,skillP:0,direction:"forward",delay:a,step:g};i()};chakhsu(document.getElementById('chakhsu')); if ('addEventListener' in document) { document.addEventListener('DOMContentLoaded', function() { FastClick.attach(document.body); }, false); }
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    showProcessingMessages: false,
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+        ignoreClass:"comment-content"
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"],
+        showMathMenu: false
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'gNin085Y3zygw7jX5FDWtWjN-gzGzoHsz',
+        appKey: 'z7bSyY0HsudrXcfCzuEluvEI',
+        placeholder: '说点什么吧~' || 'Your commnet here. Be cool.',
+        avatar: 'mp' || 'mp',
+        pageSize: 10 || 10,
+        visitor: true,
+    })
+</script>
+
+
+<script>
+
+// 获取文章评论数
+var query1 = new AV.Query('Comment');
+query1.equalTo('url', '/2019/07/09/Python/Python装饰器(decorator)/');
+query1.doesNotExist('pid');
+query1.count().then(function (count) {
+    document.getElementById('page-title-comment').innerText = count;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+
+
+// 获取最近评论
+var query2 = new AV.Query('Comment');
+query2.doesNotExist('pid');
+query2.descending('createdAt');
+query2.limit(5);
+query2.find().then(function (data) {
+    var _dom = '<h3 class="meta-title">最近评论</h3>';
+    data.forEach(function(comment) {
+        const plainComment = comment.get('comment').replace(/<[^>]+>/gim, '');
+        const href = `${comment.get('url')}#${comment.get('objectId')}`;
+        _dom += `<li><a href="${href}">${comment.get('nick')} : ${plainComment}</a></li>`
+    })
+    document.getElementsByClassName('meta-comments')[0].innerHTML = _dom;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+</body>
+</html>

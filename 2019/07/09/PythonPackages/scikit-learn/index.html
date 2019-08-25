@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    <link rel="dns-prefetch" href="//cdn.bootcss.com">
+    <link rel="dns-prefetch" href="//secure.gravatar.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+    
+    <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    
+    <title>
+    
+        scikit-learn - Eric_fish&#39;s Blog
+    
+    </title>
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <link rel="stylesheet" href="/style.min.css">
+    <link href="//cdn.bootcss.com/highlight.js/9.10.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/valine@1.3.6/dist/Valine.min.js"></script>
+    
+
+</head>
+<body class="bg-white" gtools_scp_screen_capture_injected="true">
+<!--[if lt IE 8]>
+<div class="browsehappy" role="dialog">
+    当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级你的浏览器</a>。
+</div>
+<![endif]-->
+<header id="header" class="header bg-white">
+    <div class="navbar-container">
+        <a href="/" class="navbar-logo">
+            
+            Eric_fish&#39;s Blog
+            
+        </a>
+        <div class="navbar-menu">
+            
+            <a href="/categories" class>分类</a>
+            
+            <a href="/archives" class>归档</a>
+            
+            <a href="/links" class>友人帐</a>
+            
+            <a href="/about" class>关于我</a>
+            
+        
+        <a href="/search" class="navbar-search">
+            <span class="icon-search"></span>
+        </a>
+
+        </div>
+        <div class="navbar-mobile-menu" onclick>
+            <span class="icon-menu cross"><span class="middle"></span></span>
+            <ul>
+                
+                <li><a href="/categories" class>分类</a></li>
+                
+                <li><a href="/archives" class>归档</a></li>
+                
+                <li><a href="/links" class>友人帐</a></li>
+                
+                <li><a href="/about" class>关于我</a></li>
+                
+
+                <a href="/search" class="navbar-search">
+                <span class="icon-search"></span>
+        </a>
+
+            </ul>
+        </div>
+    </div>
+</header></body></html>
+<a id="top" class="anchor-top"></a>
+
+
+
+<div class="post-header-thumb">
+	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/2.jpg);"></div>
+	<div class="post-header-thumb-cover">
+		<div class="post-header-thumb-container">
+			<div class="post-header-thumb-title">
+				scikit-learn
+			</div>
+			<div class="post-header-thumb-meta">
+				<time datetime="1562641639" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-07-09</time> | 
+				<time datetime="1562641639" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-07-09</time> | 
+				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Python-Packages/"> Python Packages</a>
+				<div class="post-header-thumb-meta">
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:3.4k字</span>
+					<span>|</span>
+					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:13 分钟</span>
+								<div class="post-header-thumb-meta">
+				
+					<span id="/2019/07/09/PythonPackages/scikit-learn/" class="leancloud-visitors" data-flag-title="scikit-learn">
+						<i class="fa fa-eye"></i> 阅读量: <span class="leancloud-visitors-count">0</span> | 
+					</span>
+					
+				
+				<i class="fa fa-comment-o"></i> 评论量: <a id="page-title-comment" href="#vcomments"></a>
+				
+				</div>
+			</div>
+			<div class="post-tags">
+				
+				
+                <a href="/tags/scikit-learn/">scikit-learn</a>
+                
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<article class="main-content post-page" itemscope itemtype="http://schema.org/Article">
+	<div class="post-header">
+		<h1 class="post-title" itemprop="name headline">
+			scikit-learn
+		</h1>
+		<div class="post-data">
+			
+			<span id="/2019/07/09/PythonPackages/scikit-learn/" class="leancloud-visitors" data-flag-title="scikit-learn">
+				<span class="leancloud-visitors-count">0</span> Views 
+			</span>
+			
+            <time datetime="1562641639" itemprop="datePublished">Published on 2019-07-09 in </time><a href="/categories/Python-Packages/">Python Packages</a>
+			
+			with <a id="page-title-comment" href="#vcomments"></a>
+			
+
+			<div>
+				<span class="post-count">本文字数：3.4k 字</span>
+				<span>|</span>
+				<span class="post-count">阅读时长 ≈ 13 min</span>
+			</div>
+		</div>
+	</div>
+	<div id="post-content" class="post-content" itemprop="articleBody">
+		<p class="post-tags">
+            
+            
+            <a href="/tags/scikit-learn/">scikit-learn</a>
+            
+            
+        </p>
+		<p>在机器学习和数据挖掘的应用中，scikit-learn是一个功能强大的python包。在数据量不是过大的情况下，可以解决大部分问题。学习使用scikit-learn的过程中，我自己也在补充着机器学习和数据挖掘的知识。这里根据自己学习sklearn的经验，我做一个总结的笔记。另外，我也想把这篇笔记一直更新下去。</p>
+<h1 id="1-scikit-learn基础介绍"><a href="#1-scikit-learn基础介绍" class="headerlink" title="1 scikit-learn基础介绍"></a>1 scikit-learn基础介绍</h1><h2 id="1-1-估计器（Estimator）"><a href="#1-1-估计器（Estimator）" class="headerlink" title="1.1 估计器（Estimator）"></a>1.1 估计器（Estimator）</h2><p>估计器，很多时候可以直接理解成分类器，主要包含两个函数：</p>
+<ul>
+<li>fit()：训练算法，设置内部参数。接收训练集和类别两个参数。</li>
+<li>predict()：预测测试集类别，参数为测试集。</li>
+</ul>
+<p>大多数scikit-learn估计器接收和输出的数据格式均为numpy数组或类似格式。</p>
+<h2 id="1-2-转换器（Transformer）"><a href="#1-2-转换器（Transformer）" class="headerlink" title="1.2 转换器（Transformer）"></a>1.2 转换器（Transformer）</h2><p>转换器用于数据预处理和数据转换，主要是三个方法：</p>
+<ul>
+<li>fit()：训练算法，设置内部参数。</li>
+<li>transform()：数据转换。</li>
+<li>fit_transform()：合并fit和transform两个方法。</li>
+<li>inverse_transform()：将转换后的数据进行逆转换得到原始数据</li>
+</ul>
+<h2 id="1-3-流水线（Pipeline）"><a href="#1-3-流水线（Pipeline）" class="headerlink" title="1.3 流水线（Pipeline）"></a>1.3 流水线（Pipeline）</h2><p><strong>sklearn.pipeline</strong>包</p>
+<h3 id="1-3-1-流水线的功能："><a href="#1-3-1-流水线的功能：" class="headerlink" title="1.3.1 流水线的功能："></a>1.3.1 流水线的功能：</h3><ul>
+<li>跟踪记录各步骤的操作（以方便地重现实验结果）</li>
+<li>对各步骤进行一个封装</li>
+<li>确保代码的复杂程度不至于超出掌控范围</li>
+</ul>
+<h3 id="1-3-2-基本使用方法"><a href="#1-3-2-基本使用方法" class="headerlink" title="1.3.2 基本使用方法"></a>1.3.2 基本使用方法</h3><p>流水线的输入为一连串的数据挖掘步骤，其中最后一步必须是估计器，前几步是转换器。输入的数据集经过转换器的处理后，输出的结果作为下一步的输入。最后，用位于流水线最后一步的估计器对数据进行分类。</p>
+<p>每一步都用元组（ ‘名称’，步骤）来表示。现在来创建流水线。</p>
+<pre><code>scaling_pipeline = Pipeline([
+  (&#39;scale&#39;, MinMaxScaler()),
+  (&#39;predict&#39;, KNeighborsClassifier())
+])</code></pre><h2 id="1-4-预处理"><a href="#1-4-预处理" class="headerlink" title="1.4 预处理"></a>1.4 预处理</h2><p>主要在<strong>sklearn.preprcessing</strong>包下。</p>
+<p><strong>规范化：</strong></p>
+<ul>
+<li><strong>MinMaxScaler</strong> :最大最小值规范化</li>
+<li><strong>Normalizer</strong> :使每条数据各特征值的和为1</li>
+<li><strong>StandardScaler</strong> :为使各特征的均值为0，方差为1</li>
+</ul>
+<p><strong>编码：</strong></p>
+<ul>
+<li><strong>LabelEncoder</strong> ：把字符串类型的数据转化为整型</li>
+<li><strong>OneHotEncoder</strong> ：特征用一个二进制数字来表示</li>
+<li><strong>Binarizer</strong> :为将数值型特征的二值化</li>
+<li><strong>MultiLabelBinarizer</strong>：多标签二值化</li>
+</ul>
+<h2 id="1-5-特征"><a href="#1-5-特征" class="headerlink" title="1.5 特征"></a>1.5 特征</h2><h3 id="1-5-1-特征抽取"><a href="#1-5-1-特征抽取" class="headerlink" title="1.5.1 特征抽取"></a>1.5.1 特征抽取</h3><p>包：<strong>sklearn.feature_extraction</strong></p>
+<p>特征抽取是数据挖掘任务最为重要的一个环节，一般而言，它对最终结果的影响要高过数据挖掘算法本身。只有先把现实用特征表示出来，才能借助数据挖掘的力量找到问题的答案。特征选择的另一个优点在于：降低真实世界的复杂度，模型比现实更容易操纵。</p>
+<p>一般最常使用的特征抽取技术都是高度针对具体领域的，对于特定的领域，如图像处理，在过去一段时间已经开发了各种特征抽取的技术，但这些技术在其他领域的应用却非常有限。</p>
+<ul>
+<li><strong>DictVectorizer</strong>： 将dict类型的list数据，转换成numpy array</li>
+<li><strong>FeatureHasher</strong> ： 特征哈希，相当于一种降维技巧</li>
+<li><strong>image</strong>：图像相关的特征抽取</li>
+<li><strong>text</strong>： 文本相关的特征抽取</li>
+<li><strong>text.CountVectorizer</strong>：将文本转换为每个词出现的个数的向量</li>
+<li><strong>text.TfidfVectorizer</strong>：将文本转换为tfidf值的向量</li>
+<li><strong>text.HashingVectorizer</strong>：文本的特征哈希</li>
+</ul>
+<p><strong>示例</strong></p>
+<p>data.png</p>
+<p>CountVectorize只数出现个数</p>
+<p>count.png</p>
+<p>hash.png</p>
+<p>TfidfVectorizer：个数+归一化（不包括idf）</p>
+<p>tfidf(without idf).png</p>
+<h3 id="1-5-2-特征选择"><a href="#1-5-2-特征选择" class="headerlink" title="1.5.2 特征选择"></a>1.5.2 特征选择</h3><p>包：<strong>sklearn.feature_selection</strong></p>
+<p>特征选择的原因如下：</p>
+<p>(1)降低复杂度</p>
+<p>(2)降低噪音</p>
+<p>(3)增加模型可读性</p>
+<ul>
+<li><strong>VarianceThreshold</strong>： 删除特征值的方差达不到最低标准的特征</li>
+<li><strong>SelectKBest</strong>： 返回<em>k</em>个最佳特征</li>
+<li><strong>SelectPercentile</strong>： 返回表现最佳的前r%个特征</li>
+</ul>
+<p>单个特征和某一类别之间相关性的计算方法有很多。最常用的有卡方检验（χ2）。其他方法还有互信息和信息熵。</p>
+<ul>
+<li><strong>chi2</strong>： 卡方检验（χ2）</li>
+</ul>
+<h2 id="1-6-降维"><a href="#1-6-降维" class="headerlink" title="1.6 降维"></a>1.6 降维</h2><p>包：<strong>sklearn.decomposition</strong></p>
+<ul>
+<li>主成分分析算法（Principal Component Analysis， PCA）的目的是找到能用较少信息描述数据集的特征组合。它意在发现彼此之间没有相关性、能够描述数据集的特征，确切说这些特征的方差跟整体方差没有多大差距，这样的特征也被称为主成分。这也就意味着，借助这种方法，就能通过更少的特征捕获到数据集的大部分信息。</li>
+</ul>
+<h2 id="1-7-组合"><a href="#1-7-组合" class="headerlink" title="1.7 组合"></a>1.7 组合</h2><p>包：*<em>sklearn.ensemble *</em></p>
+<p>组合技术即通过聚集多个分类器的预测来提高分类准确率。</p>
+<p>常用的组合分类器方法：</p>
+<p>(1)通过处理训练数据集。即通过某种抽样分布，对原始数据进行再抽样，得到多个训练集。常用的方法有装袋（bagging）和提升（boosting）。</p>
+<p>(2)通过处理输入特征。即通过选择输入特征的子集形成每个训练集。适用于有大量冗余特征的数据集。随机森林（Random forest）就是一种处理输入特征的组合方法。</p>
+<p>(3)通过处理类标号。适用于多分类的情况，将类标号随机划分成两个不相交的子集，再把问题变为二分类问题，重复构建多次模型，进行分类投票。</p>
+<ul>
+<li><strong>BaggingClassifier</strong>： Bagging分类器组合</li>
+<li><strong>BaggingRegressor</strong>： Bagging回归器组合</li>
+<li><strong>AdaBoostClassifier</strong>： AdaBoost分类器组合</li>
+<li><strong>AdaBoostRegressor</strong>： AdaBoost回归器组合</li>
+<li><strong>GradientBoostingClassifier</strong>：GradientBoosting分类器组合</li>
+<li><strong>GradientBoostingRegressor</strong>： GradientBoosting回归器组合</li>
+<li><strong>ExtraTreeClassifier</strong>：ExtraTree分类器组合</li>
+<li><strong>ExtraTreeRegressor</strong>： ExtraTree回归器组合</li>
+<li><strong>RandomTreeClassifier</strong>：随机森林分类器组合</li>
+<li><strong>RandomTreeRegressor</strong>： 随机森林回归器组合</li>
+</ul>
+<p><strong>使用举例</strong></p>
+<pre><code>AdaBoostClassifier(DecisionTreeClassifier(max_depth=1),
+algorithm=&quot;SAMME&quot;,
+n_estimators=200)</code></pre><p><strong>解释</strong><br><strong>装袋（bagging）</strong>：根据均匀概率分布从数据集中重复抽样（有放回），每个自助样本集和原数据集一样大，每个自助样本集含有原数据集大约63%的数据。训练k个分类器，测试样本被指派到得票最高的类。<br><strong>提升（boosting）</strong>：通过给样本设置不同的权值，每轮迭代调整权值。不同的提升算法之间的差别，一般是（1）如何更新样本的权值，（2）如何组合每个分类器的预测。其中Adaboost中，样本权值是增加那些被错误分类的样本的权值，分类器C_i的重要性依赖于它的错误率。</p>
+<p>Boosting主要关注降低偏差，因此Boosting能基于泛化性能相当弱的学习器构建出很强的集成；Bagging主要关注降低方差，因此它在不剪枝的决策树、神经网络等学习器上效用更为明显。偏差指的是算法的期望预测与真实预测之间的偏差程度，反应了模型本身的拟合能力；方差度量了同等大小的训练集的变动导致学习性能的变化，刻画了数据扰动所导致的影响。</p>
+<h3 id="1-7-1-模型评估（度量）"><a href="#1-7-1-模型评估（度量）" class="headerlink" title="1.7.1 模型评估（度量）"></a>1.7.1 模型评估（度量）</h3><p>包：<strong>sklearn.metrics</strong></p>
+<p>sklearn.metrics包含评分方法、性能度量、成对度量和距离计算。<br><strong>分类结果度量</strong></p>
+<p>参数大多是y_true和y_pred。</p>
+<ul>
+<li><strong>accuracy_score</strong>：分类准确度</li>
+<li><strong>condusion_matrix</strong> ：分类混淆矩阵</li>
+<li><strong>classification_report</strong>：分类报告</li>
+<li><strong>precision_recall_fscore_support</strong>：计算精确度、召回率、f、支持率</li>
+<li><strong>jaccard_similarity_score</strong>：计算jcaard相似度</li>
+<li><strong>hamming_loss</strong>：计算汉明损失</li>
+<li><strong>zero_one_loss</strong>：0-1损失</li>
+<li><strong>hinge_loss</strong>：计算hinge损失</li>
+<li><strong>log_loss</strong>：计算log损失</li>
+</ul>
+<p>其中，F1是以<strong>每个类别</strong>为基础进行定义的，包括两个概念：准确率（precision）和召回率（recall）。准确率是指预测结果属于某一类的个体，实际属于该类的比例。召回率是被正确预测为某类的个体，与数据集中该类个体总数的比例。F1是准确率和召回率的调和平均数。</p>
+<p><strong>回归结果度量</strong></p>
+<ul>
+<li><strong>explained_varicance_score</strong>：可解释方差的回归评分函数</li>
+<li><strong>mean_absolute_error</strong>：平均绝对误差</li>
+<li><strong>mean_squared_error</strong>：平均平方误差</li>
+</ul>
+<p><strong>多标签的度量</strong></p>
+<ul>
+<li><strong>coverage_error</strong>：涵盖误差</li>
+<li><strong>label_ranking_average_precision_score</strong>：计算基于排名的平均误差Label ranking average precision (LRAP)</li>
+</ul>
+<p><strong>聚类的度量</strong></p>
+<ul>
+<li><strong>adjusted_mutual_info_score</strong>：调整的互信息评分</li>
+<li><strong>silhouette_score</strong>：所有样本的轮廓系数的平均值</li>
+<li><strong>silhouette_sample</strong>：所有样本的轮廓系数</li>
+</ul>
+<h2 id="1-8-交叉验证"><a href="#1-8-交叉验证" class="headerlink" title="1.8 交叉验证"></a>1.8 交叉验证</h2><p>包：<strong>sklearn.cross_validation</strong></p>
+<ul>
+<li><strong>KFold</strong>：K-Fold交叉验证迭代器。接收元素个数、fold数、是否清洗</li>
+<li><strong>LeaveOneOut</strong>：LeaveOneOut交叉验证迭代器</li>
+<li><strong>LeavePOut</strong>：LeavePOut交叉验证迭代器</li>
+<li><strong>LeaveOneLableOut</strong>：LeaveOneLableOut交叉验证迭代器</li>
+<li><strong>LeavePLabelOut</strong>：LeavePLabelOut交叉验证迭代器</li>
+</ul>
+<p>LeaveOneOut(n) 相当于 KFold(n, n_folds=n) 相当于LeavePOut(n, p=1)。</p>
+<p>LeaveP和LeaveOne差别在于leave的个数，也就是测试集的尺寸。LeavePLabel和LeaveOneLabel差别在于leave的Label的种类的个数。</p>
+<p>LeavePLabel这种设计是针对可能存在第三方的Label，比如我们的数据是一些季度的数据。那么很自然的一个想法就是把1,2,3个季度的数据当做训练集，第4个季度的数据当做测试集。这个时候只要输入每个样本对应的季度Label，就可以实现这样的功能。</p>
+<p>以下是实验代码，尽量自己多实验去理解。</p>
+<pre><code class="python">    #coding=utf-8
+    import numpy as np
+    import sklearnfrom sklearn
+    import cross_validation
+    X = np.array([[1, 2], [3, 4], [5, 6], [7, 8],[9, 10]])
+    y = np.array([1, 2, 1, 2, 3])
+    def show_cross_val(method):    
+      if method == &quot;lolo&quot;:        
+        labels = np.array([&quot;summer&quot;, &quot;winter&quot;, &quot;summer&quot;, &quot;winter&quot;, &quot;spring&quot;])        
+        cv = cross_validation.LeaveOneLabelOut(labels)          
+      elif method == &#39;lplo&#39;:        
+        labels = np.array([&quot;summer&quot;, &quot;winter&quot;, &quot;summer&quot;, &quot;winter&quot;, &quot;spring&quot;])        
+        cv = cross_validation.LeavePLabelOut(labels,p=2)    
+      elif method == &#39;loo&#39;:        
+        cv = cross_validation.LeaveOneOut(n=len(y))    
+      elif method == &#39;lpo&#39;:        
+        cv = cross_validation.LeavePOut(n=len(y),p=3)    
+      for train_index, test_index in cv:        
+        print(&quot;TRAIN:&quot;, train_index, &quot;TEST:&quot;, test_index)        
+        X_train, X_test = X[train_index], X[test_index]        
+        y_train, y_test = y[train_index], y[test_index]        
+        print &quot;X_train: &quot;,X_train        
+        print &quot;y_train: &quot;, y_train        
+        print &quot;X_test: &quot;,X_test        
+        print &quot;y_test: &quot;,y_test
+    if __name__ == &#39;__main__&#39;:    
+      show_cross_val(&quot;lpo&quot;)</code></pre>
+<p><strong>常用方法</strong></p>
+<ul>
+<li><strong>train_test_split</strong>：分离训练集和测试集（不是K-Fold）</li>
+<li><strong>cross_val_score</strong>：交叉验证评分，可以指认cv为上面的类的实例</li>
+<li><strong>cross_val_predict</strong>：交叉验证的预测。</li>
+</ul>
+<h2 id="1-9-网格搜索"><a href="#1-9-网格搜索" class="headerlink" title="1.9 网格搜索"></a>1.9 网格搜索</h2><p>包：<strong>sklearn.grid_search</strong></p>
+<p>网格搜索最佳参数</p>
+<ul>
+<li><strong>GridSearchCV</strong>：搜索指定参数网格中的最佳参数</li>
+<li><strong>ParameterGrid</strong>：参数网格</li>
+<li><strong>ParameterSampler</strong>：用给定分布生成参数的生成器</li>
+<li><strong>RandomizedSearchCV</strong>：超参的随机搜索</li>
+</ul>
+<p>通过best_estimator_.get_params()方法，获取最佳参数。</p>
+<h2 id="1-10-多分类、多标签分类"><a href="#1-10-多分类、多标签分类" class="headerlink" title="1.10 多分类、多标签分类"></a>1.10 多分类、多标签分类</h2><p>包：<strong>sklearn.multiclass</strong></p>
+<ul>
+<li><strong>OneVsRestClassifier</strong>：1-rest多分类（多标签）策略</li>
+<li><strong>OneVsOneClassifier</strong>：1-1多分类策略</li>
+<li><strong>OutputCodeClassifier</strong>：1个类用一个二进制码表示</li>
+</ul>
+<p><strong>示例代码</strong></p>
+<pre><code class="python">    #coding=utf-8
+    from sklearn import metrics
+    from sklearn import cross_validation
+    from sklearn.svm import SVC
+    from sklearn.multiclass import OneVsRestClassifier
+    from sklearn.preprocessing import MultiLabelBinarizer
+    import numpy as np
+    from numpy import random
+    X=np.arange(15).reshape(5,3)
+    y=np.arange(5)
+    Y_1 = np.arange(5)
+    random.shuffle(Y_1)
+    Y_2 = np.arange(5)
+    random.shuffle(Y_2)
+    Y = np.c_[Y_1,Y_2]
+    def multiclassSVM():
+        X_train, X_test, y_train, y_test = cross_validation.train_test_split(X, y, test_size=0.2,random_state=0)
+        model = OneVsRestClassifier(SVC())
+        model.fit(X_train, y_train)
+        predicted = model.predict(X_test)
+        print predicted
+    def multilabelSVM():
+        Y_enc = MultiLabelBinarizer().fit_transform(Y)
+        X_train, X_test, Y_train, Y_test = cross_validation.train_test_split(X, Y_enc, test_size=0.2, random_state=0)
+        model = OneVsRestClassifier(SVC())
+        model.fit(X_train, Y_train)
+        predicted = model.predict(X_test)
+        print predicted
+    if __name__ == &#39;__main__&#39;:
+        multiclassSVM()
+        # multilabelSVM()</code></pre>
+<p>上面的代码测试了svm在OneVsRestClassifier的包装下，分别处理多分类和多标签的情况。特别注意，在多标签的情况下，输入必须是二值化的。所以需要MultiLabelBinarizer()先处理。</p>
+<h1 id="2-具体模型"><a href="#2-具体模型" class="headerlink" title="2 具体模型"></a>2 具体模型</h1><h2 id="2-1-朴素贝叶斯（Naive-Bayes）"><a href="#2-1-朴素贝叶斯（Naive-Bayes）" class="headerlink" title="2.1 朴素贝叶斯（Naive Bayes）"></a>2.1 朴素贝叶斯（Naive Bayes）</h2><p>包：<strong>sklearn.cross_validation</strong></p>
+<p>朴素贝叶斯.png</p>
+<p>朴素贝叶斯的特点是分类速度快，分类效果不一定是最好的。</p>
+<ul>
+<li><strong>GasussianNB</strong>：高斯分布的朴素贝叶斯</li>
+<li><strong>MultinomialNB</strong>：多项式分布的朴素贝叶斯</li>
+<li><strong>BernoulliNB</strong>：伯努利分布的朴素贝叶斯</li>
+</ul>
+<p>所谓使用什么分布的朴素贝叶斯，就是假设P(x_i|y)是符合哪一种分布，比如可以假设其服从高斯分布，然后用最大似然法估计高斯分布的参数。</p>
+<p>高斯分布.png</p>
+<p>多项式分布.png</p>
+<p>伯努利分布.png</p>
+<h1 id="3-scikit-learn扩展"><a href="#3-scikit-learn扩展" class="headerlink" title="3 scikit-learn扩展"></a>3 scikit-learn扩展</h1><h2 id="3-1-概览"><a href="#3-1-概览" class="headerlink" title="3.1 概览"></a>3.1 概览</h2><p>具体的扩展，通常要继承<strong>sklearn.base</strong>包下的类。</p>
+<ul>
+<li><strong>BaseEstimator</strong>： 估计器的基类</li>
+<li><strong>ClassifierMixin</strong> ：分类器的混合类</li>
+<li><strong>ClusterMixin</strong>：聚类器的混合类</li>
+<li><strong>RegressorMixin</strong> ：回归器的混合类</li>
+<li><strong>TransformerMixin</strong> ：转换器的混合类</li>
+</ul>
+<p>关于什么是Mixin（混合类），具体可以看这个<a href="https://link.jianshu.com?t=https://www.zhihu.com/question/20778853" target="_blank" rel="noopener">知乎链接</a>。简单地理解，就是带有实现方法的接口，可以将其看做是组合模式的一种实现。举个例子，比如说常用的TfidfTransformer，继承了BaseEstimator， TransformerMixin，因此它的基本功能就是单一职责的估计器和转换器的组合。</p>
+<h2 id="3-2-创建自己的转换器"><a href="#3-2-创建自己的转换器" class="headerlink" title="3.2 创建自己的转换器"></a>3.2 创建自己的转换器</h2><p>在特征抽取的时候，经常会发现自己的一些数据预处理的方法，sklearn里可能没有实现，但若直接在数据上改，又容易将代码弄得混乱，难以重现实验。这个时候最好自己创建一个转换器，在后面将这个转换器放到pipeline里，统一管理。</p>
+<p>例如《Python数据挖掘入门与实战》书中的例子，我们想接收一个numpy数组，根据其均值将其离散化，任何高于均值的特征值替换为1，小于或等于均值的替换为0。</p>
+<p>代码实现：</p>
+<pre><code class="python">    from sklearn.base import TransformerMixin
+    from sklearn.utils import as_float_array
+
+    class MeanDiscrete(TransformerMixin):
+
+      #计算出数据集的均值，用内部变量保存该值。  
+      def fit(self, X, y=None):
+            X = as_float_array(X)
+            self.mean = np.mean(X, axis=0)
+            #返回self，确保在转换器中能够进行链式调用（例如调用transformer.fit(X).transform(X)）
+            return self
+
+        def transform(self, X):
+            X = as_float_array(X)
+            assert X.shape[1] == self.mean.shape[0]
+            return X &gt; self.mean</code></pre>
+
+		
+		<p class="post-info">
+			本文由 <a href="https://yyb1995.github.io">Eric_fish</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>
+		</p>
+		
+		<meting-js
+			id="60519192"
+			fixed="true"
+			server="netese"
+			type="playlist"
+			auto=""
+			autoplay="false"
+			order="list"
+			lrc-type="0"
+			>
+		</meting-js>
+		
+	</div>
+</article>
+<div id="post-bottom-bar" class="post-bottom-bar">
+	<div class="bottom-bar-inner">
+		<div class="bottom-bar-items social-share left">
+			<span class="bottom-bar-item"><i class="fa fa-share-square-o" aria-hidden="true"></i></span>
+			<span class="bottom-bar-item bottom-bar-qq"><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yyb1995.github.io/2019/07/09/PythonPackages/scikit-learn/index.html&amp;sharesource=qzone&amp;title=scikit-learn" target="_blank" title="scikit-learn" rel="nofollow">Qzone</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=https://yyb1995.github.io/2019/07/09/PythonPackages/scikit-learn/index.html&amp;title=scikit-learn" target="_blank" title="scikit-learn" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://yyb1995.github.io/2019/07/09/PythonPackages/scikit-learn/index.html" target="_blank" title="scikit-learn" rel="nofollow">Facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=https://yyb1995.github.io/2019/07/09/PythonPackages/scikit-learn/&amp;text=scikit-learn" target="_blank" title="scikit-learn" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="https://cli.im/api/qrcode/code?text=https://yyb1995.github.io/2019/07/09/PythonPackages/scikit-learn/index.html" target="_blank" rel="nofollow">QRcode</a></span>
+		</div>
+		<div class="bottom-bar-items right">
+            
+            <span class="bottom-bar-item"><a href="/2019/07/09/PythonPackages/seaborn/数据可视化 Seaborn 从零开始学习教程（三） 数据分布可视化篇/"><i class="fa fa-arrow-left"></i></a></span>
+            
+            
+            <span class="bottom-bar-item"><a href="/2019/07/09/PythonPackages/numpy/"><i class="fa fa-arrow-right"></i></a></span>
+            
+			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
+			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="comment-container">
+	<div id="vcomments"></div>
+</div>
+
+
+<footer id="footer" class="footer bg-white">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/load.js"></script>
+    <script src="/js/search.js"></script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll@0.4.0/smoothscroll.min.js"></script>
+    
+
+    
+    
+    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget/waifu.css"/>
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+    
+    <script src="/plugins/live2d-widget/waifu-tips.js"></script>
+    <script src="/plugins/live2d-widget/live2d.js"></script>
+    
+    <script type="text/javascript">
+    	initModel("/plugins/live2d-widget/waifu-tips.json")
+    </script>
+
+    
+
+    
+        <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script> 
+        <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+
+	<div class="footer-social">
+		<div class="footer-container clearfix">
+			<div class="social-list">
+                
+                    <a class="social" target="blank" title="Github" href="https://github.com/yyb1995">Github</a>
+                
+                    <a class="social" target="blank" title="Weibo" href="https://weibo.com/yyb1015">Weibo</a>
+                
+                    <a class="social" target="blank" title="Email" href="mailto:yyb19951015@163.com">Email</a>
+                
+                    <a class="social" target="blank" title="RSS" href="/atom.xml">RSS</a>
+                
+            </div>
+		</div>
+	</div>
+	<div class="footer-meta">
+		<div class="footer-container">
+            <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+            
+            
+            <div class="meta-item meta-posts">
+                <h3 class="meta-title">最近文章</h3>
+                
+                <li><a href="/2019/07/09/Regex/常用查询网站/">正则表达式学习和查询网站</a></li>
+                
+                <li><a href="/2019/07/09/Regex/常用正则表达式/">正则表达式一些知识点</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch遇到的问题/">Pytorch使用过程中遇到的问题</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch学习/">Pytorch知识点学习</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch入门/">Pytorch入门</a></li>
+                
+            </div>
+            
+            
+            <div class="meta-item meta-comments">
+            </div>
+            
+            <div class="meta-item meta-copyright">
+				<div class="meta-copyright-info">
+                        <a href="https://yyb1995.github.io" class="info-logo">
+                        
+                        
+                        
+                    </a>
+                    
+                    站点信息
+					<div class="info-text">
+                        <p id="chakhsu"></p>
+                    	<p>Theme — <a href="https://github.com/cccyb/hexo-theme-pinghsu" target="_blank">Pinghsu</a></p>
+                        <p>Powered by <a href="https://hexo.io/" target="_blank" rel="nofollow">Hexo</a></p>
+                        <p>Hosted on <a href="https://pages.github.com/" target="_blank" rel="nofollow">Github Pages</a></p>
+                    </div>
+
+                    <div class="site-statistics">
+                        <p style="margin-top: 10px">总字数 49.3k</p>
+                        
+                        <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
+                        <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
+                        
+                    </div>
+                    <div class="site-copyright">
+                        
+                        <p style="margin-top: 10px">&copy; 2019 - 2019 with 
+                        <i class="fa fa-heart animated infinite pulse"></i> <a href="https://yyb1995.github.io"> by Eric_fish</a></p>
+                    </div>
+				</div>
+            </div>
+		</div>
+	</div>
+</footer>
+
+
+<div id="directory-content" class="directory-content">
+    <div id="directory"></div>
+</div>
+<script>
+var postDirectoryBuild = function() {
+    var postChildren = function children(childNodes, reg) {
+        var result = [],
+            isReg = typeof reg === 'object',
+            isStr = typeof reg === 'string',
+            node, i, len;
+        for (i = 0, len = childNodes.length; i < len; i++) {
+            node = childNodes[i];
+            if ((node.nodeType === 1 || node.nodeType === 9) &&
+                (!reg ||
+                isReg && reg.test(node.tagName.toLowerCase()) ||
+                isStr && node.tagName.toLowerCase() === reg)) {
+                result.push(node);
+            }
+        }
+        return result;
+    },
+    createPostDirectory = function(article, directory, isDirNum) {
+        var contentArr = [],
+            titleId = [],
+            levelArr, root, level,
+            currentList, list, li, link, i, len;
+        levelArr = (function(article, contentArr, titleId) {
+            var titleElem = postChildren(article.childNodes, /^h\d$/),
+                levelArr = [],
+                lastNum = 1,
+                lastRevNum = 1,
+                count = 0,
+                guid = 1,
+                id = 'directory' + (Math.random() + '').replace(/\D/, ''),
+                lastRevNum, num, elem;
+            while (titleElem.length) {
+                elem = titleElem.shift();
+                contentArr.push(elem.innerHTML);
+                num = +elem.tagName.match(/\d/)[0];
+                if (num > lastNum) {
+                    levelArr.push(1);
+                    lastRevNum += 1;
+                } else if (num === lastRevNum ||
+                    num > lastRevNum && num <= lastNum) {
+                    levelArr.push(0);
+                    lastRevNum = lastRevNum;
+                } else if (num < lastRevNum) {
+                    levelArr.push(num - lastRevNum);
+                    lastRevNum = num;
+                }
+                count += levelArr[levelArr.length - 1];
+                lastNum = num;
+                elem.id = id + guid++;
+                titleId.push(elem.id);
+            }
+            if (count !== 0 && levelArr[0] === 1) levelArr[0] = 0;
+            return levelArr;
+        })(article, contentArr, titleId);
+        currentList = root = document.createElement('ul');
+        dirNum = [0];
+        for (i = 0, len = levelArr.length; i < len; i++) {
+            level = levelArr[i];
+            if (level === 1) {
+                list = document.createElement('ul');
+                if (!currentList.lastElementChild) {
+                    currentList.appendChild(document.createElement('li'));
+                }
+                currentList.lastElementChild.appendChild(list);
+                currentList = list;
+                dirNum.push(0);
+            } else if (level < 0) {
+                level *= 2;
+                while (level++) {
+                    if (level % 2) dirNum.pop();
+                    currentList = currentList.parentNode;
+                }
+            }
+            dirNum[dirNum.length - 1]++;
+            li = document.createElement('li');
+            link = document.createElement('a');
+            link.href = '#' + titleId[i];
+            link.innerHTML = !isDirNum ? contentArr[i] :
+                dirNum.join('.') + ' ' + contentArr[i] ;
+            li.appendChild(link);
+            currentList.appendChild(li);
+        }
+        directory.appendChild(root);
+    };
+    createPostDirectory(document.getElementById('post-content'),document.getElementById('directory'), true);
+};
+postDirectoryBuild();
+</script>
+
+<script src="//cdn.bootcss.com/headroom/0.9.1/headroom.min.js"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+<script>
+
+var postDirectory = new Headroom(document.getElementById("directory-content"), {
+    tolerance: 0,
+    
+    offset : 280,
+    
+    classes: {
+        initial: "initial",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postDirectory.init();
+
+
+var postSharer = new Headroom(document.getElementById("post-bottom-bar"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+        initial: "animated",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postSharer.init();
+
+var header = new Headroom(document.getElementById("header"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+      initial: "animated",
+      pinned: "slideDown",
+      unpinned: "slideUp"
+    }
+});
+header.init();
+
+
+
+
+
+
+hljs.initHighlightingOnLoad();
+ 
+
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+}
+
+</script>
+<script>
+var words = 'Python,Pytorch,Hexo'.split(',').map(item => item.trim());
+var chakhsu = function(r){function t(){return b[Math.floor(Math.random()*b.length)]}function e(){return String.fromCharCode(94*Math.random()+33)}function n(r){for(var n=document.createDocumentFragment(),i=0;r>i;i++){var l=document.createElement("span");l.textContent=e(),l.style.color=t(),n.appendChild(l)}return n}function i(){var t=o[c.skillI];c.step?c.step--:(c.step=g,c.prefixP<l.length?(c.prefixP>=0&&(c.text+=l[c.prefixP]),c.prefixP++):"forward"===c.direction?c.skillP<t.length?(c.text+=t[c.skillP],c.skillP++):c.delay?c.delay--:(c.direction="backward",c.delay=a):c.skillP>0?(c.text=c.text.slice(0,-1),c.skillP--):(c.skillI=(c.skillI+1)%o.length,c.direction="forward")),r.textContent=c.text,r.appendChild(n(c.prefixP<l.length?Math.min(s,s+c.prefixP):Math.min(s,t.length-c.skillP))),setTimeout(i,d)}var l="人生苦短，我用",o=words.map(function(r){return r}),a=2,g=1,s=5,d=75,b=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],c={text:"",prefixP:-s,skillI:0,skillP:0,direction:"forward",delay:a,step:g};i()};chakhsu(document.getElementById('chakhsu')); if ('addEventListener' in document) { document.addEventListener('DOMContentLoaded', function() { FastClick.attach(document.body); }, false); }
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    showProcessingMessages: false,
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+        ignoreClass:"comment-content"
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"],
+        showMathMenu: false
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'gNin085Y3zygw7jX5FDWtWjN-gzGzoHsz',
+        appKey: 'z7bSyY0HsudrXcfCzuEluvEI',
+        placeholder: '说点什么吧~' || 'Your commnet here. Be cool.',
+        avatar: 'mp' || 'mp',
+        pageSize: 10 || 10,
+        visitor: true,
+    })
+</script>
+
+
+<script>
+
+// 获取文章评论数
+var query1 = new AV.Query('Comment');
+query1.equalTo('url', '/2019/07/09/PythonPackages/scikit-learn/');
+query1.doesNotExist('pid');
+query1.count().then(function (count) {
+    document.getElementById('page-title-comment').innerText = count;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+
+
+// 获取最近评论
+var query2 = new AV.Query('Comment');
+query2.doesNotExist('pid');
+query2.descending('createdAt');
+query2.limit(5);
+query2.find().then(function (data) {
+    var _dom = '<h3 class="meta-title">最近评论</h3>';
+    data.forEach(function(comment) {
+        const plainComment = comment.get('comment').replace(/<[^>]+>/gim, '');
+        const href = `${comment.get('url')}#${comment.get('objectId')}`;
+        _dom += `<li><a href="${href}">${comment.get('nick')} : ${plainComment}</a></li>`
+    })
+    document.getElementsByClassName('meta-comments')[0].innerHTML = _dom;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+</body>
+</html>

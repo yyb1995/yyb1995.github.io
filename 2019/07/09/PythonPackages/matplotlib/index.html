@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    <link rel="dns-prefetch" href="//cdn.bootcss.com">
+    <link rel="dns-prefetch" href="//secure.gravatar.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+    
+    <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    
+    <title>
+    
+        Matplotlib - Eric_fish&#39;s Blog
+    
+    </title>
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <link rel="stylesheet" href="/style.min.css">
+    <link href="//cdn.bootcss.com/highlight.js/9.10.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/valine@1.3.6/dist/Valine.min.js"></script>
+    
+
+</head>
+<body class="bg-white" gtools_scp_screen_capture_injected="true">
+<!--[if lt IE 8]>
+<div class="browsehappy" role="dialog">
+    当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级你的浏览器</a>。
+</div>
+<![endif]-->
+<header id="header" class="header bg-white">
+    <div class="navbar-container">
+        <a href="/" class="navbar-logo">
+            
+            Eric_fish&#39;s Blog
+            
+        </a>
+        <div class="navbar-menu">
+            
+            <a href="/categories" class>分类</a>
+            
+            <a href="/archives" class>归档</a>
+            
+            <a href="/links" class>友人帐</a>
+            
+            <a href="/about" class>关于我</a>
+            
+        
+        <a href="/search" class="navbar-search">
+            <span class="icon-search"></span>
+        </a>
+
+        </div>
+        <div class="navbar-mobile-menu" onclick>
+            <span class="icon-menu cross"><span class="middle"></span></span>
+            <ul>
+                
+                <li><a href="/categories" class>分类</a></li>
+                
+                <li><a href="/archives" class>归档</a></li>
+                
+                <li><a href="/links" class>友人帐</a></li>
+                
+                <li><a href="/about" class>关于我</a></li>
+                
+
+                <a href="/search" class="navbar-search">
+                <span class="icon-search"></span>
+        </a>
+
+            </ul>
+        </div>
+    </div>
+</header></body></html>
+<a id="top" class="anchor-top"></a>
+
+
+
+<div class="post-header-thumb">
+	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/5.jpg);"></div>
+	<div class="post-header-thumb-cover">
+		<div class="post-header-thumb-container">
+			<div class="post-header-thumb-title">
+				Matplotlib
+			</div>
+			<div class="post-header-thumb-meta">
+				<time datetime="1562641639" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-07-09</time> | 
+				<time datetime="1562641639" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-07-09</time> | 
+				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Python-Packages/"> Python Packages</a>
+				<div class="post-header-thumb-meta">
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:2.3k字</span>
+					<span>|</span>
+					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:13 分钟</span>
+								<div class="post-header-thumb-meta">
+				
+					<span id="/2019/07/09/PythonPackages/matplotlib/" class="leancloud-visitors" data-flag-title="Matplotlib">
+						<i class="fa fa-eye"></i> 阅读量: <span class="leancloud-visitors-count">0</span> | 
+					</span>
+					
+				
+				<i class="fa fa-comment-o"></i> 评论量: <a id="page-title-comment" href="#vcomments"></a>
+				
+				</div>
+			</div>
+			<div class="post-tags">
+				
+				
+                <a href="/tags/matplotlib-Python/">matplotlib Python</a>
+                
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<article class="main-content post-page" itemscope itemtype="http://schema.org/Article">
+	<div class="post-header">
+		<h1 class="post-title" itemprop="name headline">
+			Matplotlib
+		</h1>
+		<div class="post-data">
+			
+			<span id="/2019/07/09/PythonPackages/matplotlib/" class="leancloud-visitors" data-flag-title="Matplotlib">
+				<span class="leancloud-visitors-count">0</span> Views 
+			</span>
+			
+            <time datetime="1562641639" itemprop="datePublished">Published on 2019-07-09 in </time><a href="/categories/Python-Packages/">Python Packages</a>
+			
+			with <a id="page-title-comment" href="#vcomments"></a>
+			
+
+			<div>
+				<span class="post-count">本文字数：2.3k 字</span>
+				<span>|</span>
+				<span class="post-count">阅读时长 ≈ 13 min</span>
+			</div>
+		</div>
+	</div>
+	<div id="post-content" class="post-content" itemprop="articleBody">
+		<p class="post-tags">
+            
+            
+            <a href="/tags/matplotlib-Python/">matplotlib Python</a>
+            
+            
+        </p>
+		<p>实用网站：</p>
+<ul>
+<li><a href="https://matplotlib.org/gallery/index.html" target="_blank" rel="noopener">https://matplotlib.org/gallery/index.html</a></li>
+<li><a href="https://matplotlib.org/index.html" target="_blank" rel="noopener">https://matplotlib.org/index.html</a></li>
+</ul>
+<h2 id="1-画图"><a href="#1-画图" class="headerlink" title="1 画图"></a>1 画图</h2><h3 id="1-1-直线"><a href="#1-1-直线" class="headerlink" title="1.1 直线"></a>1.1 直线</h3><pre><code class="python">plt.subplots(1, 1)
+x= range(100)
+y= [i**2 for i in x]
+
+plt.plot(x, y, linewidth = &#39;1&#39;, label = &quot;test&quot;, color=&#39; coral &#39;, linestyle=&#39;:&#39;, marker=&#39;|&#39;)
+plt.legend(loc=&#39;upper left&#39;)
+plt.show()</code></pre>
+<h3 id="1-2-平行于坐标轴的直线"><a href="#1-2-平行于坐标轴的直线" class="headerlink" title="1.2 平行于坐标轴的直线"></a>1.2 平行于坐标轴的直线</h3><pre><code class="python">plt.axvline(x, ymin, ymax)
+plt.axhline(y, xmin, xmax)</code></pre>
+<h3 id="1-3-柱状图"><a href="#1-3-柱状图" class="headerlink" title="1.3 柱状图"></a>1.3 柱状图</h3><pre><code>plt.figure(4, figsize=(10, 8), dpi=100
+mean = [35.886, 20.512, 22.029, 31.130, 42.842]
+std = [82.987, 65.015, 66.816, 71.533, 74.364]
+width = 0.2
+axislabel = [&#39;10&#39;, &#39;25&#39;, &#39;50&#39;, &#39;75&#39;, &#39;100&#39;]
+x = list(range(len(mean)))
+ plt.bar(x, mean, width=width, label=&#39;均值&#39;, edgecolor=&#39;black&#39;, facecolor=&#39;white&#39;, hatch=&#39;&#39;)
+for i in range(len(x)):
+    x[i] = x[i] + width
+plt.bar(x, std, width=width, label=&#39;标准差&#39;, edgecolor=&#39;black&#39;, facecolor=&#39;white&#39;, hatch=&#39;/&#39;)
+plt.xticks([(i + width / 2) for i in range(len(axislabel))], axislabel)
+plt.xlabel(&#39;输入历史窗长&#39;)
+plt.legend(loc=&#39;upper right&#39;)
+plt.show()</code></pre><h3 id="1-4-画热图（Heatmap）"><a href="#1-4-画热图（Heatmap）" class="headerlink" title="1.4 画热图（Heatmap）"></a>1.4 画热图（Heatmap）</h3><p><a href="https://matplotlib.org/gallery/images_contours_and_fields/image_annotated_heatmap.html#sphx-glr-gallery-images-contours-and-fields-image-annotated-heatmap-py" target="_blank" rel="noopener">Creating annotated heatmaps</a></p>
+<ul>
+<li><a href="https://matplotlib.org/users/colormaps.html" target="_blank" rel="noopener">cmap参数查询</a></li>
+</ul>
+<h2 id="2-图像参数及属性"><a href="#2-图像参数及属性" class="headerlink" title="2 图像参数及属性"></a>2 图像参数及属性</h2><h3 id="2-1-linestyle参数"><a href="#2-1-linestyle参数" class="headerlink" title="2.1 linestyle参数"></a>2.1 linestyle参数</h3><pre><code>&#39;-&#39;       solid line style
+&#39;--&#39;      dashed line style
+&#39;-.&#39;      dash-dot line style
+&#39;:&#39;       dotted line style</code></pre><h3 id="2-2-marker参数"><a href="#2-2-marker参数" class="headerlink" title="2.2 marker参数"></a>2.2 marker参数</h3><pre><code>&#39;.&#39;       point marker
+&#39;,&#39;       pixel marker
+&#39;o&#39;       circle marker
+&#39;v&#39;       triangle_down marker
+&#39;^&#39;       triangle_up marker
+&#39;&lt;&#39;       triangle_left marker
+&#39;&gt;&#39;       triangle_right marker
+&#39;1&#39;       tri_down marker
+&#39;2&#39;       tri_up marker
+&#39;3&#39;       tri_left marker
+&#39;4&#39;       tri_right marker
+&#39;s&#39;       square marker
+&#39;p&#39;       pentagon marker
+&#39;*&#39;       star marker
+&#39;h&#39;       hexagon1 marker
+&#39;H&#39;       hexagon2 marker
+&#39;+&#39;       plus marker
+&#39;x&#39;       x marker
+&#39;D&#39;       diamond marker
+&#39;d&#39;       thin_diamond marker
+&#39;|&#39;       vline marker
+&#39;_&#39;       hline marker</code></pre><h3 id="2-3-color参数"><a href="#2-3-color参数" class="headerlink" title="2.3 color参数"></a>2.3 color参数</h3><pre><code>&#39;aliceblue&#39;:            &#39;#F0F8FF&#39;,
+&#39;antiquewhite&#39;:         &#39;#FAEBD7&#39;,
+&#39;aqua&#39;:                 &#39;#00FFFF&#39;,
+&#39;aquamarine&#39;:           &#39;#7FFFD4&#39;,
+&#39;azure&#39;:                &#39;#F0FFFF&#39;,
+&#39;beige&#39;:                &#39;#F5F5DC&#39;,
+&#39;bisque&#39;:               &#39;#FFE4C4&#39;,
+&#39;black&#39;:                &#39;#000000&#39;,
+&#39;blanchedalmond&#39;:       &#39;#FFEBCD&#39;,
+&#39;blue&#39;:                 &#39;#0000FF&#39;,
+&#39;blueviolet&#39;:           &#39;#8A2BE2&#39;,
+&#39;brown&#39;:                &#39;#A52A2A&#39;,
+&#39;burlywood&#39;:            &#39;#DEB887&#39;,
+&#39;cadetblue&#39;:            &#39;#5F9EA0&#39;,
+&#39;chartreuse&#39;:           &#39;#7FFF00&#39;,
+&#39;chocolate&#39;:            &#39;#D2691E&#39;,
+&#39;coral&#39;:                &#39;#FF7F50&#39;,
+&#39;cornflowerblue&#39;:       &#39;#6495ED&#39;,
+&#39;cornsilk&#39;:             &#39;#FFF8DC&#39;,
+&#39;crimson&#39;:              &#39;#DC143C&#39;,
+&#39;cyan&#39;:                 &#39;#00FFFF&#39;,
+&#39;darkblue&#39;:             &#39;#00008B&#39;,
+&#39;darkcyan&#39;:             &#39;#008B8B&#39;,
+&#39;darkgoldenrod&#39;:        &#39;#B8860B&#39;,
+&#39;darkgray&#39;:             &#39;#A9A9A9&#39;,
+&#39;darkgreen&#39;:            &#39;#006400&#39;,
+&#39;darkkhaki&#39;:            &#39;#BDB76B&#39;,
+&#39;darkmagenta&#39;:          &#39;#8B008B&#39;,
+&#39;darkolivegreen&#39;:       &#39;#556B2F&#39;,
+&#39;darkorange&#39;:           &#39;#FF8C00&#39;,
+&#39;darkorchid&#39;:           &#39;#9932CC&#39;,
+&#39;darkred&#39;:              &#39;#8B0000&#39;,
+&#39;darksalmon&#39;:           &#39;#E9967A&#39;,
+&#39;darkseagreen&#39;:         &#39;#8FBC8F&#39;,
+&#39;darkslateblue&#39;:        &#39;#483D8B&#39;,
+&#39;darkslategray&#39;:        &#39;#2F4F4F&#39;,
+&#39;darkturquoise&#39;:        &#39;#00CED1&#39;,
+&#39;darkviolet&#39;:           &#39;#9400D3&#39;,
+&#39;deeppink&#39;:             &#39;#FF1493&#39;,
+&#39;deepskyblue&#39;:          &#39;#00BFFF&#39;,
+&#39;dimgray&#39;:              &#39;#696969&#39;,
+&#39;dodgerblue&#39;:           &#39;#1E90FF&#39;,
+&#39;firebrick&#39;:            &#39;#B22222&#39;,
+&#39;floralwhite&#39;:          &#39;#FFFAF0&#39;,
+&#39;forestgreen&#39;:          &#39;#228B22&#39;,
+&#39;fuchsia&#39;:              &#39;#FF00FF&#39;,
+&#39;gainsboro&#39;:            &#39;#DCDCDC&#39;,
+&#39;ghostwhite&#39;:           &#39;#F8F8FF&#39;,
+&#39;gold&#39;:                 &#39;#FFD700&#39;,
+&#39;goldenrod&#39;:            &#39;#DAA520&#39;,
+&#39;gray&#39;:                 &#39;#808080&#39;,
+&#39;green&#39;:                &#39;#008000&#39;,
+&#39;greenyellow&#39;:          &#39;#ADFF2F&#39;,
+&#39;honeydew&#39;:             &#39;#F0FFF0&#39;,
+&#39;hotpink&#39;:              &#39;#FF69B4&#39;,
+&#39;indianred&#39;:            &#39;#CD5C5C&#39;,
+&#39;indigo&#39;:               &#39;#4B0082&#39;,
+&#39;ivory&#39;:                &#39;#FFFFF0&#39;,
+&#39;khaki&#39;:                &#39;#F0E68C&#39;,
+&#39;lavender&#39;:             &#39;#E6E6FA&#39;,
+&#39;lavenderblush&#39;:        &#39;#FFF0F5&#39;,
+&#39;lawngreen&#39;:            &#39;#7CFC00&#39;,
+&#39;lemonchiffon&#39;:         &#39;#FFFACD&#39;,
+&#39;lightblue&#39;:            &#39;#ADD8E6&#39;,
+&#39;lightcoral&#39;:           &#39;#F08080&#39;,
+&#39;lightcyan&#39;:            &#39;#E0FFFF&#39;,
+&#39;lightgoldenrodyellow&#39;: &#39;#FAFAD2&#39;,
+&#39;lightgreen&#39;:           &#39;#90EE90&#39;,
+&#39;lightgray&#39;:            &#39;#D3D3D3&#39;,
+&#39;lightpink&#39;:            &#39;#FFB6C1&#39;,
+&#39;lightsalmon&#39;:          &#39;#FFA07A&#39;,
+&#39;lightseagreen&#39;:        &#39;#20B2AA&#39;,
+&#39;lightskyblue&#39;:         &#39;#87CEFA&#39;,
+&#39;lightslategray&#39;:       &#39;#778899&#39;,
+&#39;lightsteelblue&#39;:       &#39;#B0C4DE&#39;,
+&#39;lightyellow&#39;:          &#39;#FFFFE0&#39;,
+&#39;lime&#39;:                 &#39;#00FF00&#39;,
+&#39;limegreen&#39;:            &#39;#32CD32&#39;,
+&#39;linen&#39;:                &#39;#FAF0E6&#39;,
+&#39;magenta&#39;:              &#39;#FF00FF&#39;,
+&#39;maroon&#39;:               &#39;#800000&#39;,
+&#39;mediumaquamarine&#39;:     &#39;#66CDAA&#39;,
+&#39;mediumblue&#39;:           &#39;#0000CD&#39;,
+&#39;mediumorchid&#39;:         &#39;#BA55D3&#39;,
+&#39;mediumpurple&#39;:         &#39;#9370DB&#39;,
+&#39;mediumseagreen&#39;:       &#39;#3CB371&#39;,
+&#39;mediumslateblue&#39;:      &#39;#7B68EE&#39;,
+&#39;mediumspringgreen&#39;:    &#39;#00FA9A&#39;,
+&#39;mediumturquoise&#39;:      &#39;#48D1CC&#39;,
+&#39;mediumvioletred&#39;:      &#39;#C71585&#39;,
+&#39;midnightblue&#39;:         &#39;#191970&#39;,
+&#39;mintcream&#39;:            &#39;#F5FFFA&#39;,
+&#39;mistyrose&#39;:            &#39;#FFE4E1&#39;,
+&#39;moccasin&#39;:             &#39;#FFE4B5&#39;,
+&#39;navajowhite&#39;:          &#39;#FFDEAD&#39;,
+&#39;navy&#39;:                 &#39;#000080&#39;,
+&#39;oldlace&#39;:              &#39;#FDF5E6&#39;,
+&#39;olive&#39;:                &#39;#808000&#39;,
+&#39;olivedrab&#39;:            &#39;#6B8E23&#39;,
+&#39;orange&#39;:               &#39;#FFA500&#39;,
+&#39;orangered&#39;:            &#39;#FF4500&#39;,
+&#39;orchid&#39;:               &#39;#DA70D6&#39;,
+&#39;palegoldenrod&#39;:        &#39;#EEE8AA&#39;,
+&#39;palegreen&#39;:            &#39;#98FB98&#39;,
+&#39;paleturquoise&#39;:        &#39;#AFEEEE&#39;,
+&#39;palevioletred&#39;:        &#39;#DB7093&#39;,
+&#39;papayawhip&#39;:           &#39;#FFEFD5&#39;,
+&#39;peachpuff&#39;:            &#39;#FFDAB9&#39;,
+&#39;peru&#39;:                 &#39;#CD853F&#39;,
+&#39;pink&#39;:                 &#39;#FFC0CB&#39;,
+&#39;plum&#39;:                 &#39;#DDA0DD&#39;,
+&#39;powderblue&#39;:           &#39;#B0E0E6&#39;,
+&#39;purple&#39;:               &#39;#800080&#39;,
+&#39;red&#39;:                  &#39;#FF0000&#39;,
+&#39;rosybrown&#39;:            &#39;#BC8F8F&#39;,
+&#39;royalblue&#39;:            &#39;#4169E1&#39;,
+&#39;saddlebrown&#39;:          &#39;#8B4513&#39;,
+&#39;salmon&#39;:               &#39;#FA8072&#39;,
+&#39;sandybrown&#39;:           &#39;#FAA460&#39;,
+&#39;seagreen&#39;:             &#39;#2E8B57&#39;,
+&#39;seashell&#39;:             &#39;#FFF5EE&#39;,
+&#39;sienna&#39;:               &#39;#A0522D&#39;,
+&#39;silver&#39;:               &#39;#C0C0C0&#39;,
+&#39;skyblue&#39;:              &#39;#87CEEB&#39;,
+&#39;slateblue&#39;:            &#39;#6A5ACD&#39;,
+&#39;slategray&#39;:            &#39;#708090&#39;,
+&#39;snow&#39;:                 &#39;#FFFAFA&#39;,
+&#39;springgreen&#39;:          &#39;#00FF7F&#39;,
+&#39;steelblue&#39;:            &#39;#4682B4&#39;,
+&#39;tan&#39;:                  &#39;#D2B48C&#39;,
+&#39;teal&#39;:                 &#39;#008080&#39;,
+&#39;thistle&#39;:              &#39;#D8BFD8&#39;,
+&#39;tomato&#39;:               &#39;#FF6347&#39;,
+&#39;turquoise&#39;:            &#39;#40E0D0&#39;,
+&#39;violet&#39;:               &#39;#EE82EE&#39;,
+&#39;wheat&#39;:                &#39;#F5DEB3&#39;,
+&#39;white&#39;:                &#39;#FFFFFF&#39;,
+&#39;whitesmoke&#39;:           &#39;#F5F5F5&#39;,
+&#39;yellow&#39;:               &#39;#FFFF00&#39;,
+&#39;yellowgreen&#39;:          &#39;#9ACD32&#39;</code></pre><h2 id="3-图像处理"><a href="#3-图像处理" class="headerlink" title="3 图像处理"></a>3 图像处理</h2><h3 id="3-1-最大化图像"><a href="#3-1-最大化图像" class="headerlink" title="3.1 最大化图像"></a>3.1 最大化图像</h3><pre><code class="python">figManager = plt.get_current_fig_manager()
+figManager.window.showMaximized()</code></pre>
+<h3 id="3-2-将图像紧密排布"><a href="#3-2-将图像紧密排布" class="headerlink" title="3.2 将图像紧密排布"></a>3.2 将图像紧密排布</h3><p><code>plt.tight_layout()</code></p>
+<h3 id="3-3-在线上标注某个点"><a href="#3-3-在线上标注某个点" class="headerlink" title="3.3 在线上标注某个点"></a>3.3 在线上标注某个点</h3><p><code>plt.scatter(x, y, size)</code></p>
+<h3 id="3-4-给线加标签"><a href="#3-4-给线加标签" class="headerlink" title="3.4 给线加标签"></a>3.4 给线加标签</h3><pre><code>plt.plot([1,2,3], label=&#39;abc&#39;)
+plt.legend()</code></pre><h3 id="3-5-坐标轴"><a href="#3-5-坐标轴" class="headerlink" title="3.5 坐标轴"></a>3.5 坐标轴</h3><pre><code class="python"># 设置X轴和Y轴的说明
+plt.xlabel()  
+plt.ylabel()
+
+# 设置X轴和Y轴的刻度
+plt.xticks()
+plt.yticks()
+
+# 设置范围
+plt.xlim(0, 1)
+plt.ylim(ymin=0)</code></pre>
+<h2 id="4-字体修改"><a href="#4-字体修改" class="headerlink" title="4 字体修改"></a>4 字体修改</h2><pre><code class="python">## 查看可用系统字体
+import matplotlib.font_manager
+print ([f.name for f in matplotlib.font_manager.fontManager.ttflist])
+
+# 修改默认字体为Times New Roman
+plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;Times New Roman&#39;]
+plt.rcParams[&#39;axes.unicode_minus&#39;] = False
+
+# 单独修改某些部分的字体
+    chinese_font = &#39;Simsun&#39;
+    ax = plt.gca()
+    # 8 这四个分别为图例、x轴标签、y轴标签和标题
+    modified_font_list = [ax.legend().texts, ax.xaxis.label, ax.title]
+    plt.setp(modified_font_list, family=chinese_font)</code></pre>
+<h2 id="5-图例-legend"><a href="#5-图例-legend" class="headerlink" title="5 图例(legend)"></a>5 图例(legend)</h2><p><code>plt.legend()</code>可传入的一些参数：</p>
+<ol>
+<li>fontsize: 字号</li>
+<li>labelspacing: label之间的间距</li>
+<li>loc:图例的位置</li>
+</ol>
+<h2 id="6-figsize和dpi的关系"><a href="#6-figsize和dpi的关系" class="headerlink" title="6 figsize和dpi的关系"></a>6 figsize和dpi的关系</h2><p>在plt.figure()中，figsize只改变图像的绝对大小不改变图像内元素的大小。而dpi会改变图像中元素的大小，同时改变图像的大小。</p>
+<h2 id="7-对ax对象的处理"><a href="#7-对ax对象的处理" class="headerlink" title="7 对ax对象的处理"></a>7 对ax对象的处理</h2><h3 id="7-1-画子图"><a href="#7-1-画子图" class="headerlink" title="7.1 画子图"></a>7.1 画子图</h3><pre><code class="python">figure, ax = plt.subplots(2, 1, figsize=(12, 8))
+ax[0].plot()
+ax[1].plot()</code></pre>
+<h3 id="7-2-设置axis"><a href="#7-2-设置axis" class="headerlink" title="7.2 设置axis"></a>7.2 设置axis</h3><pre><code class="python"># 设置label
+ax.set_xlabel()
+ax.set_ylabel()
+
+# 设置label到坐标轴的距离
+ax.xaxis.set_label_coords(-0.0075, 0.5)
+ax.yaxis.set_label_coords(-0.0075, 0.5)
+</code></pre>
+<h2 id="8-一些常用代码"><a href="#8-一些常用代码" class="headerlink" title="8 一些常用代码"></a>8 一些常用代码</h2><h3 id="8-1-Gaussian分布拟合"><a href="#8-1-Gaussian分布拟合" class="headerlink" title="8.1 Gaussian分布拟合"></a>8.1 Gaussian分布拟合</h3><pre><code class="python"># Gaussian distribution simulation
+    xt = plt.xticks()[0]
+    xmin, xmax = min(xt), max(xt)
+    lnspc = np.linspace(xmin, xmax, len(mape_attn))
+
+    # 12 lets try the normal distribution first
+    m, s = stats.norm.fit(mape_attn)  # get mean and standard deviation
+    pdf_g = stats.norm.pdf(lnspc, m, s)  # now get theoretical values in our interval
+    plt.plot(lnspc, pdf_g, label=&quot;高斯分布拟合&quot;, linestyle=&#39;--&#39;)  # plot it</code></pre>
+<h3 id="8-2-PDF-amp-CDF"><a href="#8-2-PDF-amp-CDF" class="headerlink" title="8.2 PDF &amp; CDF"></a>8.2 PDF &amp; CDF</h3><pre><code class="python">plt.figure(7, figsize=(18, 9))
+mape_attn = (attn_predict - attn_real) / attn_real * 100
+mape_lstm = (lstm_predict - lstm_real) / lstm_real * 100
+bins = np.arange(-15, 16, 2)
+bins_axis = [(bins[i] + bins[i + 1]) / 2 for i in range(len(bins) - 1)]
+
+plt.subplot(121)
+hist_attn, _ = np.histogram(mape_attn, bins=bins, density=True)
+cdf_attn = np.cumsum(hist_attn / sum(hist_attn))
+hist_lstm, _ = np.histogram(mape_lstm, bins=bins, density=True)
+cdf_lstm = np.cumsum(hist_lstm / sum(hist_lstm))
+
+plt.plot(bins_axis, hist_attn, label=&#39;注意力网络&#39;, marker=&#39;^&#39;, markersize=markersize)
+plt.plot(bins_axis, hist_lstm, label=&#39;GRU网络&#39;, marker=&#39;o&#39;, markersize=markersize)
+
+plt.xlabel(&#39;相对百分比误差（%）&#39;)
+plt.xlim(-15, 15)
+plt.ylim(ymin=0)
+plt.title(&#39;PDF&#39;)
+
+# Gaussian distribution simulation
+xt = plt.xticks()[0]
+xmin, xmax = min(xt), max(xt)
+lnspc = np.linspace(xmin, xmax, len(mape_attn))
+
+# lets try the normal distribution first
+m, s = stats.norm.fit(mape_attn)  # get mean and standard deviation
+pdf_g = stats.norm.pdf(lnspc, m, s)  # now get theoretical values in our interval
+plt.plot(lnspc, pdf_g, label=&quot;高斯分布拟合&quot;, linestyle=&#39;--&#39;)  # plot it
+
+ax = plt.gca()
+modified_font_list = [ax.xaxis.label, ax.yaxis.label]
+plt.setp(ax.legend(loc=&#39;upper left&#39;).texts, family=chinese_font, fontsize=legendsize)
+plt.setp(modified_font_list, family=chinese_font)
+
+# Draw cdf figure
+plt.subplot(122)
+plt.plot(bins_axis, cdf_attn, label=&#39;注意力网络&#39;, marker=&#39;^&#39;, markersize=markersize)
+plt.plot(bins_axis, cdf_lstm, label=&#39;GRU网络&#39;, marker=&#39;o&#39;, markersize=markersize)
+plt.xlabel(&#39;相对百分比误差（%）&#39;)
+plt.xlim(-15, 15)
+plt.ylim(ymin=0)
+plt.title(&#39;CDF&#39;)
+
+ax = plt.gca()
+modified_font_list = [ax.xaxis.label, ax.yaxis.label]
+plt.setp(ax.legend(loc=&#39;upper left&#39;).texts, family=chinese_font, fontsize=legendsize)
+plt.setp(modified_font_list, family=chinese_font)
+
+plt.tight_layout()
+
+plt.show()</code></pre>
+<h2 id="9-一些实用步骤"><a href="#9-一些实用步骤" class="headerlink" title="9 一些实用步骤"></a>9 一些实用步骤</h2><h3 id="9-1-matplotlib加入中文字体"><a href="#9-1-matplotlib加入中文字体" class="headerlink" title="9.1 matplotlib加入中文字体"></a>9.1 matplotlib加入中文字体</h3><ol>
+<li>下载相应的中文ttf字体放入matplotlib的font文件夹</li>
+<li>在代码中加入<code>plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;SimSun&#39;]</code></li>
+<li>删除<code>C://Username//.matplotlib//文件夹下的字体缓存</code></li>
+</ol>
+<h3 id="9-2-matplotlib画图名称不重复"><a href="#9-2-matplotlib画图名称不重复" class="headerlink" title="9.2 matplotlib画图名称不重复"></a>9.2 matplotlib画图名称不重复</h3><p><code>plt.figure(len(plt.get_fignums()) + 1)</code></p>
+<h2 id="10-matplotlib面向对象编程"><a href="#10-matplotlib面向对象编程" class="headerlink" title="10 matplotlib面向对象编程"></a>10 matplotlib面向对象编程</h2><ol>
+<li><p>绘制基本图片</p>
+<pre><code class="python">fig = plt.figure(1)
+axes = fig.add_subplot(111)
+axes1.plot(range(10))
+plt.show()</code></pre>
+</li>
+<li><p>添加子图<br><code>fig, ax = plt.subplots(3, 2)</code></p>
+</li>
+<li><p>添加标题<br><code>ax.set_title(&#39;title1&#39;)</code></p>
+</li>
+<li><p>修改x/y轴刻度<br><code>ax.set_xticks(range(len(data)))</code><br><code>ax.set_xticklabels(ticklist)</code><br><code>ax.set_yticklabels(ticklist)</code></p>
+</li>
+</ol>
+<h3 id="10-1-放大图像的一部分"><a href="#10-1-放大图像的一部分" class="headerlink" title="10.1 放大图像的一部分"></a>10.1 放大图像的一部分</h3><pre><code class="python">plt.figure(1, figsize=(16, 8), dpi=100)
+# Add subplot16
+ax1 = plt.subplot(211)
+ts1 = attn_predict[0: 120 * displayday] / 1e9
+ts2 = attn_real[0: 120 * displayday] / 1e9
+ax1.plot(ts1, label=&#39;注意力模型预测值&#39;, color=&#39;k&#39;)
+ax1.plot(ts2, label=&#39;真实值&#39;, linestyle=&#39;--&#39;, color=&#39;k&#39;)
+plt.xlabel(&#39;时间(30秒)&#39;)ax1.yaxis.set_label_coords(-0.05, 0.5)
+plt.ylabel(&#39;流量（GByte）&#39;)
+plt.xlim(0, len(attn_predict[0: 120 * displayday + 100]))
+# plt.ylim(0,17 )
+plt.legend()
+
+x1 = 560
+x2 = 600
+
+# select y-range for zoomed region
+y1 = 28
+y2 = 35
+
+# Make the zoom-in plot:
+axins1 = zoomed_inset_axes(ax1, zoom_scale, loc=4)  # zoom = 2
+axins1.plot(ts1, color=&#39;k&#39;)
+axins1.plot(ts2, linestyle=&#39;--&#39;, color=&#39;k&#39;)
+axins1.set_xlim(x1, x2)
+axins1.set_ylim(y1, y2)
+plt.xticks(visible=False)
+plt.yticks(visible=False)
+mark_inset(ax1, axins1, loc1=2, loc2=4, fc=&quot;none&quot;, ec=&quot;0.5&quot;)</code></pre>
+
+		
+		<p class="post-info">
+			本文由 <a href="https://yyb1995.github.io">Eric_fish</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>
+		</p>
+		
+		<meting-js
+			id="60519192"
+			fixed="true"
+			server="netese"
+			type="playlist"
+			auto=""
+			autoplay="false"
+			order="list"
+			lrc-type="0"
+			>
+		</meting-js>
+		
+	</div>
+</article>
+<div id="post-bottom-bar" class="post-bottom-bar">
+	<div class="bottom-bar-inner">
+		<div class="bottom-bar-items social-share left">
+			<span class="bottom-bar-item"><i class="fa fa-share-square-o" aria-hidden="true"></i></span>
+			<span class="bottom-bar-item bottom-bar-qq"><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yyb1995.github.io/2019/07/09/PythonPackages/matplotlib/index.html&amp;sharesource=qzone&amp;title=Matplotlib" target="_blank" title="Matplotlib" rel="nofollow">Qzone</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=https://yyb1995.github.io/2019/07/09/PythonPackages/matplotlib/index.html&amp;title=Matplotlib" target="_blank" title="Matplotlib" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://yyb1995.github.io/2019/07/09/PythonPackages/matplotlib/index.html" target="_blank" title="Matplotlib" rel="nofollow">Facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=https://yyb1995.github.io/2019/07/09/PythonPackages/matplotlib/&amp;text=Matplotlib" target="_blank" title="Matplotlib" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="https://cli.im/api/qrcode/code?text=https://yyb1995.github.io/2019/07/09/PythonPackages/matplotlib/index.html" target="_blank" rel="nofollow">QRcode</a></span>
+		</div>
+		<div class="bottom-bar-items right">
+            
+            <span class="bottom-bar-item"><a href="/2019/07/09/PythonPackages/pip换源/"><i class="fa fa-arrow-left"></i></a></span>
+            
+            
+            <span class="bottom-bar-item"><a href="/2019/07/09/PythonPackages/getopt/"><i class="fa fa-arrow-right"></i></a></span>
+            
+			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
+			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="comment-container">
+	<div id="vcomments"></div>
+</div>
+
+
+<footer id="footer" class="footer bg-white">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/load.js"></script>
+    <script src="/js/search.js"></script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll@0.4.0/smoothscroll.min.js"></script>
+    
+
+    
+    
+    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget/waifu.css"/>
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+    
+    <script src="/plugins/live2d-widget/waifu-tips.js"></script>
+    <script src="/plugins/live2d-widget/live2d.js"></script>
+    
+    <script type="text/javascript">
+    	initModel("/plugins/live2d-widget/waifu-tips.json")
+    </script>
+
+    
+
+    
+        <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script> 
+        <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+
+	<div class="footer-social">
+		<div class="footer-container clearfix">
+			<div class="social-list">
+                
+                    <a class="social" target="blank" title="Github" href="https://github.com/yyb1995">Github</a>
+                
+                    <a class="social" target="blank" title="Weibo" href="https://weibo.com/yyb1015">Weibo</a>
+                
+                    <a class="social" target="blank" title="Email" href="mailto:yyb19951015@163.com">Email</a>
+                
+                    <a class="social" target="blank" title="RSS" href="/atom.xml">RSS</a>
+                
+            </div>
+		</div>
+	</div>
+	<div class="footer-meta">
+		<div class="footer-container">
+            <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+            
+            
+            <div class="meta-item meta-posts">
+                <h3 class="meta-title">最近文章</h3>
+                
+                <li><a href="/2019/07/09/Regex/常用查询网站/">正则表达式学习和查询网站</a></li>
+                
+                <li><a href="/2019/07/09/Regex/常用正则表达式/">正则表达式一些知识点</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch遇到的问题/">Pytorch使用过程中遇到的问题</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch学习/">Pytorch知识点学习</a></li>
+                
+                <li><a href="/2019/07/09/Pytorch/Pytorch入门/">Pytorch入门</a></li>
+                
+            </div>
+            
+            
+            <div class="meta-item meta-comments">
+            </div>
+            
+            <div class="meta-item meta-copyright">
+				<div class="meta-copyright-info">
+                        <a href="https://yyb1995.github.io" class="info-logo">
+                        
+                        
+                        
+                    </a>
+                    
+                    站点信息
+					<div class="info-text">
+                        <p id="chakhsu"></p>
+                    	<p>Theme — <a href="https://github.com/cccyb/hexo-theme-pinghsu" target="_blank">Pinghsu</a></p>
+                        <p>Powered by <a href="https://hexo.io/" target="_blank" rel="nofollow">Hexo</a></p>
+                        <p>Hosted on <a href="https://pages.github.com/" target="_blank" rel="nofollow">Github Pages</a></p>
+                    </div>
+
+                    <div class="site-statistics">
+                        <p style="margin-top: 10px">总字数 49.3k</p>
+                        
+                        <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
+                        <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
+                        
+                    </div>
+                    <div class="site-copyright">
+                        
+                        <p style="margin-top: 10px">&copy; 2019 - 2019 with 
+                        <i class="fa fa-heart animated infinite pulse"></i> <a href="https://yyb1995.github.io"> by Eric_fish</a></p>
+                    </div>
+				</div>
+            </div>
+		</div>
+	</div>
+</footer>
+
+
+<div id="directory-content" class="directory-content">
+    <div id="directory"></div>
+</div>
+<script>
+var postDirectoryBuild = function() {
+    var postChildren = function children(childNodes, reg) {
+        var result = [],
+            isReg = typeof reg === 'object',
+            isStr = typeof reg === 'string',
+            node, i, len;
+        for (i = 0, len = childNodes.length; i < len; i++) {
+            node = childNodes[i];
+            if ((node.nodeType === 1 || node.nodeType === 9) &&
+                (!reg ||
+                isReg && reg.test(node.tagName.toLowerCase()) ||
+                isStr && node.tagName.toLowerCase() === reg)) {
+                result.push(node);
+            }
+        }
+        return result;
+    },
+    createPostDirectory = function(article, directory, isDirNum) {
+        var contentArr = [],
+            titleId = [],
+            levelArr, root, level,
+            currentList, list, li, link, i, len;
+        levelArr = (function(article, contentArr, titleId) {
+            var titleElem = postChildren(article.childNodes, /^h\d$/),
+                levelArr = [],
+                lastNum = 1,
+                lastRevNum = 1,
+                count = 0,
+                guid = 1,
+                id = 'directory' + (Math.random() + '').replace(/\D/, ''),
+                lastRevNum, num, elem;
+            while (titleElem.length) {
+                elem = titleElem.shift();
+                contentArr.push(elem.innerHTML);
+                num = +elem.tagName.match(/\d/)[0];
+                if (num > lastNum) {
+                    levelArr.push(1);
+                    lastRevNum += 1;
+                } else if (num === lastRevNum ||
+                    num > lastRevNum && num <= lastNum) {
+                    levelArr.push(0);
+                    lastRevNum = lastRevNum;
+                } else if (num < lastRevNum) {
+                    levelArr.push(num - lastRevNum);
+                    lastRevNum = num;
+                }
+                count += levelArr[levelArr.length - 1];
+                lastNum = num;
+                elem.id = id + guid++;
+                titleId.push(elem.id);
+            }
+            if (count !== 0 && levelArr[0] === 1) levelArr[0] = 0;
+            return levelArr;
+        })(article, contentArr, titleId);
+        currentList = root = document.createElement('ul');
+        dirNum = [0];
+        for (i = 0, len = levelArr.length; i < len; i++) {
+            level = levelArr[i];
+            if (level === 1) {
+                list = document.createElement('ul');
+                if (!currentList.lastElementChild) {
+                    currentList.appendChild(document.createElement('li'));
+                }
+                currentList.lastElementChild.appendChild(list);
+                currentList = list;
+                dirNum.push(0);
+            } else if (level < 0) {
+                level *= 2;
+                while (level++) {
+                    if (level % 2) dirNum.pop();
+                    currentList = currentList.parentNode;
+                }
+            }
+            dirNum[dirNum.length - 1]++;
+            li = document.createElement('li');
+            link = document.createElement('a');
+            link.href = '#' + titleId[i];
+            link.innerHTML = !isDirNum ? contentArr[i] :
+                dirNum.join('.') + ' ' + contentArr[i] ;
+            li.appendChild(link);
+            currentList.appendChild(li);
+        }
+        directory.appendChild(root);
+    };
+    createPostDirectory(document.getElementById('post-content'),document.getElementById('directory'), true);
+};
+postDirectoryBuild();
+</script>
+
+<script src="//cdn.bootcss.com/headroom/0.9.1/headroom.min.js"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+<script>
+
+var postDirectory = new Headroom(document.getElementById("directory-content"), {
+    tolerance: 0,
+    
+    offset : 280,
+    
+    classes: {
+        initial: "initial",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postDirectory.init();
+
+
+var postSharer = new Headroom(document.getElementById("post-bottom-bar"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+        initial: "animated",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postSharer.init();
+
+var header = new Headroom(document.getElementById("header"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+      initial: "animated",
+      pinned: "slideDown",
+      unpinned: "slideUp"
+    }
+});
+header.init();
+
+
+
+
+
+
+hljs.initHighlightingOnLoad();
+ 
+
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+}
+
+</script>
+<script>
+var words = 'Python,Pytorch,Hexo'.split(',').map(item => item.trim());
+var chakhsu = function(r){function t(){return b[Math.floor(Math.random()*b.length)]}function e(){return String.fromCharCode(94*Math.random()+33)}function n(r){for(var n=document.createDocumentFragment(),i=0;r>i;i++){var l=document.createElement("span");l.textContent=e(),l.style.color=t(),n.appendChild(l)}return n}function i(){var t=o[c.skillI];c.step?c.step--:(c.step=g,c.prefixP<l.length?(c.prefixP>=0&&(c.text+=l[c.prefixP]),c.prefixP++):"forward"===c.direction?c.skillP<t.length?(c.text+=t[c.skillP],c.skillP++):c.delay?c.delay--:(c.direction="backward",c.delay=a):c.skillP>0?(c.text=c.text.slice(0,-1),c.skillP--):(c.skillI=(c.skillI+1)%o.length,c.direction="forward")),r.textContent=c.text,r.appendChild(n(c.prefixP<l.length?Math.min(s,s+c.prefixP):Math.min(s,t.length-c.skillP))),setTimeout(i,d)}var l="人生苦短，我用",o=words.map(function(r){return r}),a=2,g=1,s=5,d=75,b=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],c={text:"",prefixP:-s,skillI:0,skillP:0,direction:"forward",delay:a,step:g};i()};chakhsu(document.getElementById('chakhsu')); if ('addEventListener' in document) { document.addEventListener('DOMContentLoaded', function() { FastClick.attach(document.body); }, false); }
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    showProcessingMessages: false,
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+        ignoreClass:"comment-content"
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"],
+        showMathMenu: false
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'gNin085Y3zygw7jX5FDWtWjN-gzGzoHsz',
+        appKey: 'z7bSyY0HsudrXcfCzuEluvEI',
+        placeholder: '说点什么吧~' || 'Your commnet here. Be cool.',
+        avatar: 'mp' || 'mp',
+        pageSize: 10 || 10,
+        visitor: true,
+    })
+</script>
+
+
+<script>
+
+// 获取文章评论数
+var query1 = new AV.Query('Comment');
+query1.equalTo('url', '/2019/07/09/PythonPackages/matplotlib/');
+query1.doesNotExist('pid');
+query1.count().then(function (count) {
+    document.getElementById('page-title-comment').innerText = count;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+
+
+// 获取最近评论
+var query2 = new AV.Query('Comment');
+query2.doesNotExist('pid');
+query2.descending('createdAt');
+query2.limit(5);
+query2.find().then(function (data) {
+    var _dom = '<h3 class="meta-title">最近评论</h3>';
+    data.forEach(function(comment) {
+        const plainComment = comment.get('comment').replace(/<[^>]+>/gim, '');
+        const href = `${comment.get('url')}#${comment.get('objectId')}`;
+        _dom += `<li><a href="${href}">${comment.get('nick')} : ${plainComment}</a></li>`
+    })
+    document.getElementsByClassName('meta-comments')[0].innerHTML = _dom;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+</body>
+</html>
