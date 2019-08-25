@@ -106,10 +106,10 @@ print(result.shape)
 ```
 
 ## 11 expand&repeat
-expand和repeat都用于扩展Tensor的维度。**使用前提：原矩阵的维度和扩展后矩阵后的维度一致。因此通常先进行squeeze(dim)或unsqueeze(dim)操作**。expand的输入参数是扩展后Tensor的维度，repeat的输入参数是扩展后Tensor相对于原Tensor扩展的倍数。**此外，注意expand仅限于维数为1的扩展，否则会报类型不匹配错误。** 例如：
+expand和repeat都用于扩展Tensor的维度。**使用前提：原矩阵的维度和扩展后矩阵的维度一致。因此通常先进行squeeze(dim)或unsqueeze(dim)操作**。expand的输入参数是扩展后Tensor的维度，repeat的输入参数是扩展后Tensor相对于原Tensor扩展的倍数。**此外，注意expand仅限于对张量中维数为1的维度的扩展，否则会报类型不匹配错误。** 例如：
 ```python
 a = torch.Tensor([1, 2, 3])
-# 最终维数为(3, 5)
+# 最终维数为(3, 5)，相当于第一维不变，第二维扩展5次
 b = a.unsqueeze(1).expand(3, 5)
 # 在第一维扩展1次，在第二维扩展5次
 c = a.unsqueeze(1).repeat(1, 5)
