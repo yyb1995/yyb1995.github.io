@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    <link rel="dns-prefetch" href="//cdn.bootcss.com">
+    <link rel="dns-prefetch" href="//secure.gravatar.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+    
+    <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    
+    <title>
+    
+        Python常见问题和技巧 - Eric_fish&#39;s Blog
+    
+    </title>
+    <meta name="keywords" content>
+    <meta name="description" content>
+    
+    <link rel="stylesheet" href="/style.min.css">
+    <link href="//cdn.bootcss.com/highlight.js/9.10.0/styles/atom-one-dark.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/r29/html5.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/valine@1.3.6/dist/Valine.min.js"></script>
+    
+
+</head>
+<body class="bg-white" gtools_scp_screen_capture_injected="true">
+<!--[if lt IE 8]>
+<div class="browsehappy" role="dialog">
+    当前网页 <strong>不支持</strong> 你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/" target="_blank">升级你的浏览器</a>。
+</div>
+<![endif]-->
+<header id="header" class="header bg-white">
+    <div class="navbar-container">
+        <a href="/" class="navbar-logo">
+            
+            Eric_fish&#39;s Blog
+            
+        </a>
+        <div class="navbar-menu">
+            
+            <a href="/categories" class>分类</a>
+            
+            <a href="/archives" class>归档</a>
+            
+            <a href="/links" class>友人帐</a>
+            
+            <a href="/about" class>关于我</a>
+            
+        
+        <a href="/search" class="navbar-search">
+            <span class="icon-search"></span>
+        </a>
+
+        </div>
+        <div class="navbar-mobile-menu" onclick>
+            <span class="icon-menu cross"><span class="middle"></span></span>
+            <ul>
+                
+                <li><a href="/categories" class>分类</a></li>
+                
+                <li><a href="/archives" class>归档</a></li>
+                
+                <li><a href="/links" class>友人帐</a></li>
+                
+                <li><a href="/about" class>关于我</a></li>
+                
+
+                <a href="/search" class="navbar-search">
+                <span class="icon-search"></span>
+        </a>
+
+            </ul>
+        </div>
+    </div>
+</header></body></html>
+<a id="top" class="anchor-top"></a>
+
+
+
+<div class="post-header-thumb">
+	<div class="post-header-thumb-op" style="background-image:url(http://www.iplaypython.com/uploads/allimg/131215/2-131215203406215.jpg);"></div>
+	<div class="post-header-thumb-cover">
+		<div class="post-header-thumb-container">
+			<div class="post-header-thumb-title">
+				Python常见问题和技巧
+			</div>
+			<div class="post-header-thumb-meta">
+				<time datetime="1571382878" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-10-18</time> | 
+				<time datetime="1571382878" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-10-18</time> | 
+				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Python/"> Python</a>
+				<div class="post-header-thumb-meta">
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:1.9k字</span>
+					<span>|</span>
+					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:8 分钟</span>
+								<div class="post-header-thumb-meta">
+				
+					<span id="/2019/10/18/Python/Python技巧/" class="leancloud-visitors" data-flag-title="Python常见问题和技巧">
+						<i class="fa fa-eye"></i> 阅读量: <span class="leancloud-visitors-count">0</span> | 
+					</span>
+					
+				
+				<i class="fa fa-comment-o"></i> 评论量: <a id="page-title-comment" href="#vcomments"></a>
+				
+				</div>
+			</div>
+			<div class="post-tags">
+				
+				
+                <a href="/tags/Python/">Python</a>
+                
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<article class="main-content post-page" itemscope itemtype="http://schema.org/Article">
+	<div class="post-header">
+		<h1 class="post-title" itemprop="name headline">
+			Python常见问题和技巧
+		</h1>
+		<div class="post-data">
+			
+			<span id="/2019/10/18/Python/Python技巧/" class="leancloud-visitors" data-flag-title="Python常见问题和技巧">
+				<span class="leancloud-visitors-count">0</span> Views 
+			</span>
+			
+            <time datetime="1571382878" itemprop="datePublished">Published on 2019-10-18 in </time><a href="/categories/Python/">Python</a>
+			
+			with <a id="page-title-comment" href="#vcomments"></a>
+			
+
+			<div>
+				<span class="post-count">本文字数：1.9k 字</span>
+				<span>|</span>
+				<span class="post-count">阅读时长 ≈ 8 min</span>
+			</div>
+		</div>
+	</div>
+	<div id="post-content" class="post-content" itemprop="articleBody">
+		<p class="post-tags">
+            
+            
+            <a href="/tags/Python/">Python</a>
+            
+            
+        </p>
+		<h2 id="模块修改后再次载入无变化"><a href="#模块修改后再次载入无变化" class="headerlink" title="模块修改后再次载入无变化"></a>模块修改后再次载入无变化</h2><pre><code class="python">import importlib
+importlib.reload(PackageName)
+%load_ext autoreload
+%autoreload 2</code></pre>
+<h2 id="python数据类型set"><a href="#python数据类型set" class="headerlink" title="python数据类型set"></a>python数据类型set</h2><p>set是一种无序集合。常见的方法有：</p>
+<ol>
+<li>创建集合<br><code>a = set(&#39;python&#39;)</code></li>
+<li>向集合中传入一个元素并拆分<br><code>a.update(&#39;java&#39;)</code></li>
+<li>删除集合中元素<br><code>a.remove(&#39;p&#39;)</code></li>
+<li>不同集合之间的关系<br><a data-fancybox="gallery" href="http://www.iplaypython.com/uploads/allimg/131215/2-131215203406215.jpg" data-height="800"><img src="http://www.iplaypython.com/uploads/allimg/131215/2-131215203406215.jpg"></a></li>
+</ol>
+<h2 id="利用列表生成字典"><a href="#利用列表生成字典" class="headerlink" title="利用列表生成字典"></a>利用列表生成字典</h2><pre><code class="python">a = [1, 2, 3]
+b = [4, 5, 6]
+dict1 = dict(zip(a, b))</code></pre>
+<h2 id="python-排序"><a href="#python-排序" class="headerlink" title="python 排序"></a>python 排序</h2><p><code>sorted([1, 2, 3, 5, 3])</code></p>
+<h2 id="python中的队列"><a href="#python中的队列" class="headerlink" title="python中的队列"></a>python中的队列</h2><pre><code>from collections import deque
+queue = deque([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])
+queue.append(&#39;e&#39;)
+queue.popleft()</code></pre><h2 id="python数组按某列排序"><a href="#python数组按某列排序" class="headerlink" title="python数组按某列排序"></a>python数组按某列排序</h2><p><code>data[data[:,2].argsort()]</code><br>数组按第三列排序</p>
+<h2 id="python-字典转变量"><a href="#python-字典转变量" class="headerlink" title="python 字典转变量"></a>python 字典转变量</h2><p><code>globals().update(dict)</code><br>例如： {foo: bar} -&gt; foo = bar</p>
+<h2 id="Google注释规范"><a href="#Google注释规范" class="headerlink" title="Google注释规范"></a>Google注释规范</h2><pre><code class="python">def fetch_bigtable_rows(big_table, keys, other_silly_variable=None):
+    &quot;&quot;&quot;Fetches rows from a Bigtable.
+
+    Retrieves rows pertaining to the given keys from the Table instance
+    represented by big_table.  Silly things may happen if
+    other_silly_variable is not None.
+
+    Args:
+        big_table: An open Bigtable Table instance.
+        keys: A sequence of strings representing the key of each table row
+            to fetch.
+        other_silly_variable: Another optional variable, that has a much
+            longer name than the other args, and which does nothing.
+
+    Returns:
+        A dict mapping keys to the corresponding table row data
+        fetched. Each row is represented as a tuple of strings. For
+        example:
+
+        {&#39;Serak&#39;: (&#39;Rigel VII&#39;, &#39;Preparer&#39;),
+         &#39;Zim&#39;: (&#39;Irk&#39;, &#39;Invader&#39;),
+         &#39;Lrrr&#39;: (&#39;Omicron Persei 8&#39;, &#39;Emperor&#39;)}
+
+        If a key from the keys argument is missing from the dictionary,
+        then that row was not found in the table.
+
+    Raises:
+        IOError: An error occurred accessing the bigtable.Table object.
+    &quot;&quot;&quot;
+    pass</code></pre>
+<p><strong>注意：</strong> 函数功能注释与参数说明之间应该空一行</p>
+<h2 id="map、reduce和filter"><a href="#map、reduce和filter" class="headerlink" title="map、reduce和filter"></a>map、reduce和filter</h2><p>map用于将一个函数映射到后面给出的变量列表中，reduce用于将一个函数依次映射到后面的相邻变量中，reduce用于筛选列表中符合某个函数条件的值</p>
+<pre><code class="python">map(lambda x: x ** 2, range(1, 10))
+from functools import reduce
+reduce(lambda x, y: x + y, range(1, 11))
+filter(lambda x: x % 2, range(1, 11))</code></pre>
+<h2 id="号的使用"><a href="#号的使用" class="headerlink" title="*号的使用"></a>*号的使用</h2><p>*号可用在函数的输入参数前，用于将输入参数解包以匹配函数的形参，也可用于把一个函数的多个返回值拆开使用</p>
+<pre><code class="python"># Example 1
+def print_(a, b, c):
+    print(a)
+    print(b)
+    print(c)
+
+a = [&#39;ap&#39;, &#39;ba&#39;, &#39;or&#39;]
+print(*a)
+
+# Example 2
+def a():
+    return 1, 2, 3
+
+print(&#39;{} {} {}&#39;.format(*a()))</code></pre>
+<h2 id="Python数组拷贝"><a href="#Python数组拷贝" class="headerlink" title="Python数组拷贝"></a>Python数组拷贝</h2><p>在进行Python的数组拷贝时，有时会用到切片操作。下面是一个例子：</p>
+<pre><code class="python">dec_seq = torch.rand(3, 4, 5)
+dec_input = dec_seq[:, :-1]
+dec_output = dec_seq[:, 1:]</code></pre>
+<p>实际上dec_input和dec_output只是对dec_seq的一个引用，并不是对对象的一个完整复制。当dec_seq的值改变时，dec_input和dec_output的值也会随之改变。因此，dec_input和dec_output更像是指向dec_seq一部分的指针。如果想对原数组进行完整的拷贝，应该使用copy模块中的copy和deepcopy。</p>
+<ol>
+<li>copy.copy 浅拷贝 只拷贝父对象，不会拷贝对象的内部的子对象。</li>
+<li>copy.deepcopy 深拷贝 拷贝对象及其子对象<br>例子：<pre><code class="python">&gt;&gt;&gt; import copy
+&gt;&gt;&gt; a = [1,2,3,4,[&#39;a&#39;,&#39;b&#39;]]  #原始对象
+</code></pre>
+</li>
+</ol>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>b = a  #赋值，传对象的引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>c = copy.copy(a)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>d = copy.deepcopy(a)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>a.append(5)<br>a[4].append(‘c’)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>print ‘a=’,a<br>a= [1, 2, 3, 4, [‘a’, ‘b’, ‘c’], 5]<br>print ‘b=’,b<br>b= [1, 2, 3, 4, [‘a’, ‘b’, ‘c’], 5]<br>print ‘c=’,c<br>c= [1, 2, 3, 4, [‘a’, ‘b’, ‘c’]]<br>print ‘d=’,d<br>d= [1, 2, 3, 4, [‘a’, ‘b’]]</p>
+<pre><code></code></pre></blockquote>
+</blockquote>
+</blockquote>
+<h2 id="Python的异常处理机制"><a href="#Python的异常处理机制" class="headerlink" title="Python的异常处理机制"></a>Python的异常处理机制</h2><p>python有两种机制可以触发异常：</p>
+<ol>
+<li><p>try-except-else-finally<br>程序尝试执行try下的语句，如果触发异常就跳到相应的except语句，如果没有错误就跳到else语句。finally语句是无论是否发生错误都会执行。</p>
+<pre><code class="python">try:
+&lt;语句&gt;        #尝试执行
+except &lt;异常类型1&gt;：
+&lt;语句&gt;        #如果在try部份引发了&#39;name&#39;异常
+except &lt;异常类型2&gt;，&lt;数据&gt;:
+&lt;语句&gt;        #如果引发了&#39;name&#39;异常，获得附加的数据
+else:
+&lt;语句&gt;        #正常执行
+finally:
+&lt;语句&gt;        #无论是否触发异常都执行的语句</code></pre>
+</li>
+<li><p>if-raise<br>程序尝试判断if语句下是否成立，如果成立，抛出raise下的error。</p>
+<pre><code class="python">if expression:
+ raise Exception</code></pre>
+</li>
+<li><p>自定义Error类型<br>需要自定义异常类型时，需要继承<code>Exception</code>类</p>
+<pre><code class="python">class SomeCustomException(Exception):
+ pass</code></pre>
+</li>
+<li><p>warnings模块<br>warnings.warn()函数用于生成警告信息。格式为：</p>
+<pre><code class="python">if expression:
+ warnings.warn(&#39;Warning message&#39;, WarningType)</code></pre>
+<p>其中WarningType可以是Python模块中的warning，<a href="https://docs.python.org/3/library/warnings.html" target="_blank" rel="noopener">具体目录</a></p>
+</li>
+</ol>
+<h2 id="Python-filter-函数"><a href="#Python-filter-函数" class="headerlink" title="Python filter()函数"></a>Python filter()函数</h2><p><code>filter(function, iterable)</code></p>
+<p>filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。</p>
+<p>该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。</p>
+<p>使用方法：</p>
+<pre><code class="python">filter1 = filter(lambda x: x &gt; 0, [-1, 0, 1, 5])
+filter1.next()</code></pre>
+<h2 id="对于None的判断"><a href="#对于None的判断" class="headerlink" title="对于None的判断"></a>对于None的判断</h2><p>在 if判断中，None，False，空字符串，0，空列表，空字典，空元组都会被判断成False。因此在使用if not x判断是否为None时，需要排除其余可能的影响。因此，建议的判断方式为：if x is not None</p>
+<h2 id="字符串join-方法"><a href="#字符串join-方法" class="headerlink" title="字符串join()方法"></a>字符串join()方法</h2><p>Python join()方法用于将序列中的元素以指定的字符连接生成一个新的字符串。str.join(sequence)即用str来连接sequence<br><code>a = &#39;&#39;.join(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;)</code></p>
+<h2 id="响应键盘终止"><a href="#响应键盘终止" class="headerlink" title="响应键盘终止"></a>响应键盘终止</h2><pre><code class="python">except KeyboardInterrupt:
+    print(&#39;Interrupt&#39;)</code></pre>
+<h2 id="字符串不转义"><a href="#字符串不转义" class="headerlink" title="字符串不转义"></a>字符串不转义</h2><p>在使用正则表达式时，通常不希望表示转义字符，方法是在字符串前加上<code>r</code>，如<code>r&#39;[]\&#39;</code>。</p>
+<h2 id="heapq模块及其应用"><a href="#heapq模块及其应用" class="headerlink" title="heapq模块及其应用"></a>heapq模块及其应用</h2><p>Python中的heapq模块提供了基于堆的优先排序算法。堆可以看成完全二叉树，父节点的值永远比子节点小。常用的方法有</p>
+<ol>
+<li><code>heappush</code>把元素放入堆</li>
+<li><code>heappop</code>返回堆中最小的元素</li>
+<li><code>heappushpop</code>把元素放入堆的同时返回最小的元素</li>
+<li><code>heapify</code>在线性时间内把一个列表转化为堆。注意，这个操作是把原列表直接转化为堆而不是创建一个新的堆</li>
+<li><code>nlargest</code>返回堆中最大的k个元素</li>
+<li><code>nsmallest</code>返回堆中最小的k个元素。<code>nlargest</code>和<code>nsmallest</code>通常用于在一个含有较多元素的列表中找出少数最值，<code>max()</code>和<code>min</code>通常用于找出最大/最小值，如果需要找的最值较多，推荐把列表进行排序后使用切片查找。</li>
+<li><code>merge</code>用于将多个<code>iterable</code>对象进行归并排序。返回一个<code>generator</code>用于生成排序结果。<pre><code class="python">import heapq
+list1 = [1, 5, 9, 2, 4]
+dict1 = [{&#39;a&#39;: 2}, {&#39;a&#39;: 3}, {&#39;a&#39;: 8}]
+heapq.nlargest(2, list1)
+heapq.nsmallest(4, list1)
+heapq.nlargest(2, dict1, key=lambda x: x[&#39;a&#39;])</code></pre>
+</li>
+</ol>
+<h2 id="统计列表中各元素出现的次数"><a href="#统计列表中各元素出现的次数" class="headerlink" title="统计列表中各元素出现的次数"></a>统计列表中各元素出现的次数</h2><pre><code class="python">from Collections import Counter
+a = [1, 2, 3, 2, 4, 2]
+counter = Counter(a)
+count_list = dict(counter)
+print(counter.most_common(3))</code></pre>
+<h2 id="isinstance-方法"><a href="#isinstance-方法" class="headerlink" title="isinstance()方法"></a>isinstance()方法</h2><p>Python中<code>isinstance(object, classinfo)</code>方法用于判断一个对象是否是一个已知的类型，与<code>type()</code>类似。它们的区别在于</p>
+<blockquote>
+<p>type() 不会认为子类是一种父类类型，不考虑继承关系。</p>
+<p>isinstance() 会认为子类是一种父类类型，考虑继承关系。</p>
+<p>如果要判断两个类型是否相同推荐使用 isinstance()。</p>
+</blockquote>
+<p>对于classinfo的选择，可以是<br><code>int</code>，<code>float</code>，<code>bool</code>，<code>complex</code>，<code>str</code>，<code>list</code>，<code>dict</code>，<code>set</code>，<code>tuple</code>。</p>
+<h2 id="global-和-nonlocal"><a href="#global-和-nonlocal" class="headerlink" title="global 和 nonlocal"></a>global 和 nonlocal</h2><p>global用于声明全局变量。如果在函数内部修改函数外的变量，需要在函数中声明全局变量。</p>
+<pre><code class="python">foo = 0
+def bar():
+    global foo
+    foo += 1</code></pre>
+<p>nonlocal用于声明在内层函数中使用的变量。</p>
+<pre><code class="python">def foo1():
+    bar = 0
+    def foo2():
+        nonlocal bar
+        bar += 1
+        return bar
+    return foo2()</code></pre>
+<h1 id="测试程序运行时间"><a href="#测试程序运行时间" class="headerlink" title="测试程序运行时间"></a>测试程序运行时间</h1><p>可以使用<code>time</code>或<code>timeit</code>模块测试程序的运行时间</p>
+<pre><code class="python">def foo(param):
+    pass
+
+import time 
+start = time.time()
+foo()
+end = time.time()
+print(end - start)
+
+from timeit import timeit
+print(timeit(&#39;foo(x)&#39;, setup=&#39;from __main__ import foo&#39;, globals={&#39;x&#39;: param}), number=1)</code></pre>
+
+		
+		<p class="post-info">
+			本文由 <a href="https://yyb1995.github.io">Eric_fish</a> 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="external nofollow">知识共享署名4.0</a> 国际许可协议进行许可<br>本站文章除注明转载/出处外，均为本站原创或翻译，转载前请务必署名<br>
+		</p>
+		
+		<meting-js
+			id="60519192"
+			fixed="true"
+			server="netese"
+			type="playlist"
+			auto=""
+			autoplay="false"
+			order="list"
+			lrc-type="0"
+			>
+		</meting-js>
+		
+	</div>
+</article>
+<div id="post-bottom-bar" class="post-bottom-bar">
+	<div class="bottom-bar-inner">
+		<div class="bottom-bar-items social-share left">
+			<span class="bottom-bar-item"><i class="fa fa-share-square-o" aria-hidden="true"></i></span>
+			<span class="bottom-bar-item bottom-bar-qq"><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://yyb1995.github.io/2019/10/18/Python/Python技巧/index.html&amp;sharesource=qzone&amp;title=Python常见问题和技巧" target="_blank" title="Python常见问题和技巧" rel="nofollow">Qzone</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=https://yyb1995.github.io/2019/10/18/Python/Python技巧/index.html&amp;title=Python常见问题和技巧" target="_blank" title="Python常见问题和技巧" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=https://yyb1995.github.io/2019/10/18/Python/Python技巧/index.html" target="_blank" title="Python常见问题和技巧" rel="nofollow">Facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=https://yyb1995.github.io/2019/10/18/Python/Python技巧/&amp;text=Python常见问题和技巧" target="_blank" title="Python常见问题和技巧" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="https://cli.im/api/qrcode/code?text=https://yyb1995.github.io/2019/10/18/Python/Python技巧/index.html" target="_blank" rel="nofollow">QRcode</a></span>
+		</div>
+		<div class="bottom-bar-items right">
+            
+            <span class="bottom-bar-item"><a href="/2019/10/18/PythonPackages/numpy/"><i class="fa fa-arrow-left"></i></a></span>
+            
+            
+            <span class="bottom-bar-item"><a href="/2019/10/18/Git/Git常用命令/"><i class="fa fa-arrow-right"></i></a></span>
+            
+			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
+			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
+		</div>
+	</div>
+</div>
+
+
+<div class="related-post-lists">
+	<div class="post-lists">
+		<div class="post-lists-body">
+		
+			<div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-label">
+						<div class="item-title"><a href="/2019/07/09/Python/simpread-styleguide _ Style guides for Google-originated open-source projects/">Google Python Style Guide</a></div>
+						<div class="item-meta clearfix">
+							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
+							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                
+                                <a href="/categories/Python/">Python</a>
+                                
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-label">
+						<div class="item-title"><a href="/2019/07/09/Python/Python常用文件及目录操作/">Python常用文件及目录操作</a></div>
+						<div class="item-meta clearfix">
+							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
+							<div class="item-meta-ico bg-ico-code" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                
+                                <a href="/categories/Python/">Python</a>
+                                
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		
+			<div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-label">
+						<div class="item-title"><a href="/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/">Python 迭代器(iterator) 生成器(generator)</a></div>
+						<div class="item-meta clearfix">
+							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
+							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                
+                                <a href="/categories/Python/">Python</a>
+                                
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+
+
+<div class="comment-container">
+	<div id="vcomments"></div>
+</div>
+
+
+<footer id="footer" class="footer bg-white">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="/js/load.js"></script>
+    <script src="/js/search.js"></script>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/smoothscroll@0.4.0/smoothscroll.min.js"></script>
+    
+
+    
+    
+    <link rel="stylesheet" type="text/css" href="/plugins/live2d-widget/waifu.css"/>
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d"></canvas>
+        <div class="waifu-tool">
+            <span class="fui-home"></span>
+            <span class="fui-chat"></span>
+            <span class="fui-eye"></span>
+            <span class="fui-user"></span>
+            <span class="fui-photo"></span>
+            <span class="fui-info-circle"></span>
+            <span class="fui-cross"></span>
+        </div>
+    </div>
+    
+    <script src="/plugins/live2d-widget/waifu-tips.js"></script>
+    <script src="/plugins/live2d-widget/live2d.js"></script>
+    
+    <script type="text/javascript">
+    	initModel("/plugins/live2d-widget/waifu-tips.json")
+    </script>
+
+    
+
+    
+        <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script> 
+        <script type="text/javascript" src="/js/fireworks.js"></script>
+    
+
+	<div class="footer-social">
+		<div class="footer-container clearfix">
+			<div class="social-list">
+                
+                    <a class="social" target="blank" title="Github" href="https://github.com/yyb1995">Github</a>
+                
+                    <a class="social" target="blank" title="Weibo" href="https://weibo.com/yyb1015">Weibo</a>
+                
+                    <a class="social" target="blank" title="Email" href="mailto:yyb19951015@163.com">Email</a>
+                
+                    <a class="social" target="blank" title="RSS" href="/atom.xml">RSS</a>
+                
+            </div>
+		</div>
+	</div>
+	<div class="footer-meta">
+		<div class="footer-container">
+            <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+            
+            
+            <div class="meta-item meta-posts">
+                <h3 class="meta-title">最近文章</h3>
+                
+                <li><a href="/2019/10/18/Mac/Mac折腾/"></a></li>
+                
+                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
+                
+                <li><a href="/2019/10/18/PythonPackages/numpy/">numpy</a></li>
+                
+                <li><a href="/2019/10/18/Python/Python技巧/">Python常见问题和技巧</a></li>
+                
+                <li><a href="/2019/10/18/Git/Git常用命令/">Git常用命令</a></li>
+                
+            </div>
+            
+            
+            <div class="meta-item meta-comments">
+            </div>
+            
+            <div class="meta-item meta-copyright">
+				<div class="meta-copyright-info">
+                        <a href="https://yyb1995.github.io" class="info-logo">
+                        
+                        
+                        
+                    </a>
+                    
+                    站点信息
+					<div class="info-text">
+                        <p id="chakhsu"></p>
+                    	<p>Theme — <a href="https://github.com/cccyb/hexo-theme-pinghsu" target="_blank">Pinghsu</a></p>
+                        <p>Powered by <a href="https://hexo.io/" target="_blank" rel="nofollow">Hexo</a></p>
+                        <p>Hosted on <a href="https://pages.github.com/" target="_blank" rel="nofollow">Github Pages</a></p>
+                    </div>
+
+                    <div class="site-statistics">
+                        <p style="margin-top: 10px">总字数 50.6k</p>
+                        
+                        <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
+                        <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
+                        
+                    </div>
+                    <div class="site-copyright">
+                        
+                        <p style="margin-top: 10px">&copy; 2019 - 2019 with 
+                        <i class="fa fa-heart animated infinite pulse"></i> <a href="https://yyb1995.github.io"> by Eric_fish</a></p>
+                    </div>
+				</div>
+            </div>
+		</div>
+	</div>
+</footer>
+
+
+<div id="directory-content" class="directory-content">
+    <div id="directory"></div>
+</div>
+<script>
+var postDirectoryBuild = function() {
+    var postChildren = function children(childNodes, reg) {
+        var result = [],
+            isReg = typeof reg === 'object',
+            isStr = typeof reg === 'string',
+            node, i, len;
+        for (i = 0, len = childNodes.length; i < len; i++) {
+            node = childNodes[i];
+            if ((node.nodeType === 1 || node.nodeType === 9) &&
+                (!reg ||
+                isReg && reg.test(node.tagName.toLowerCase()) ||
+                isStr && node.tagName.toLowerCase() === reg)) {
+                result.push(node);
+            }
+        }
+        return result;
+    },
+    createPostDirectory = function(article, directory, isDirNum) {
+        var contentArr = [],
+            titleId = [],
+            levelArr, root, level,
+            currentList, list, li, link, i, len;
+        levelArr = (function(article, contentArr, titleId) {
+            var titleElem = postChildren(article.childNodes, /^h\d$/),
+                levelArr = [],
+                lastNum = 1,
+                lastRevNum = 1,
+                count = 0,
+                guid = 1,
+                id = 'directory' + (Math.random() + '').replace(/\D/, ''),
+                lastRevNum, num, elem;
+            while (titleElem.length) {
+                elem = titleElem.shift();
+                contentArr.push(elem.innerHTML);
+                num = +elem.tagName.match(/\d/)[0];
+                if (num > lastNum) {
+                    levelArr.push(1);
+                    lastRevNum += 1;
+                } else if (num === lastRevNum ||
+                    num > lastRevNum && num <= lastNum) {
+                    levelArr.push(0);
+                    lastRevNum = lastRevNum;
+                } else if (num < lastRevNum) {
+                    levelArr.push(num - lastRevNum);
+                    lastRevNum = num;
+                }
+                count += levelArr[levelArr.length - 1];
+                lastNum = num;
+                elem.id = id + guid++;
+                titleId.push(elem.id);
+            }
+            if (count !== 0 && levelArr[0] === 1) levelArr[0] = 0;
+            return levelArr;
+        })(article, contentArr, titleId);
+        currentList = root = document.createElement('ul');
+        dirNum = [0];
+        for (i = 0, len = levelArr.length; i < len; i++) {
+            level = levelArr[i];
+            if (level === 1) {
+                list = document.createElement('ul');
+                if (!currentList.lastElementChild) {
+                    currentList.appendChild(document.createElement('li'));
+                }
+                currentList.lastElementChild.appendChild(list);
+                currentList = list;
+                dirNum.push(0);
+            } else if (level < 0) {
+                level *= 2;
+                while (level++) {
+                    if (level % 2) dirNum.pop();
+                    currentList = currentList.parentNode;
+                }
+            }
+            dirNum[dirNum.length - 1]++;
+            li = document.createElement('li');
+            link = document.createElement('a');
+            link.href = '#' + titleId[i];
+            link.innerHTML = !isDirNum ? contentArr[i] :
+                dirNum.join('.') + ' ' + contentArr[i] ;
+            li.appendChild(link);
+            currentList.appendChild(li);
+        }
+        directory.appendChild(root);
+    };
+    createPostDirectory(document.getElementById('post-content'),document.getElementById('directory'), true);
+};
+postDirectoryBuild();
+</script>
+
+<script src="//cdn.bootcss.com/headroom/0.9.1/headroom.min.js"></script>
+
+<script src="//cdn.bootcss.com/highlight.js/9.10.0/highlight.min.js"></script>
+
+
+
+<script src="//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script>
+
+<script>
+
+var postDirectory = new Headroom(document.getElementById("directory-content"), {
+    tolerance: 0,
+    
+    offset : 280,
+    
+    classes: {
+        initial: "initial",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postDirectory.init();
+
+
+var postSharer = new Headroom(document.getElementById("post-bottom-bar"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+        initial: "animated",
+        pinned: "pinned",
+        unpinned: "unpinned"
+    }
+});
+postSharer.init();
+
+var header = new Headroom(document.getElementById("header"), {
+    tolerance: 0,
+    offset : 70,
+    classes: {
+      initial: "animated",
+      pinned: "slideDown",
+      unpinned: "slideUp"
+    }
+});
+header.init();
+
+
+
+
+
+
+hljs.initHighlightingOnLoad();
+ 
+
+if ('addEventListener' in document) {
+    document.addEventListener('DOMContentLoaded', function() {
+        FastClick.attach(document.body);
+    }, false);
+}
+
+</script>
+<script>
+var words = 'Python,Pytorch,Hexo'.split(',').map(item => item.trim());
+var chakhsu = function(r){function t(){return b[Math.floor(Math.random()*b.length)]}function e(){return String.fromCharCode(94*Math.random()+33)}function n(r){for(var n=document.createDocumentFragment(),i=0;r>i;i++){var l=document.createElement("span");l.textContent=e(),l.style.color=t(),n.appendChild(l)}return n}function i(){var t=o[c.skillI];c.step?c.step--:(c.step=g,c.prefixP<l.length?(c.prefixP>=0&&(c.text+=l[c.prefixP]),c.prefixP++):"forward"===c.direction?c.skillP<t.length?(c.text+=t[c.skillP],c.skillP++):c.delay?c.delay--:(c.direction="backward",c.delay=a):c.skillP>0?(c.text=c.text.slice(0,-1),c.skillP--):(c.skillI=(c.skillI+1)%o.length,c.direction="forward")),r.textContent=c.text,r.appendChild(n(c.prefixP<l.length?Math.min(s,s+c.prefixP):Math.min(s,t.length-c.skillP))),setTimeout(i,d)}var l="人生苦短，我用",o=words.map(function(r){return r}),a=2,g=1,s=5,d=75,b=["rgb(110,64,170)","rgb(150,61,179)","rgb(191,60,175)","rgb(228,65,157)","rgb(254,75,131)","rgb(255,94,99)","rgb(255,120,71)","rgb(251,150,51)","rgb(226,183,47)","rgb(198,214,60)","rgb(175,240,91)","rgb(127,246,88)","rgb(82,246,103)","rgb(48,239,130)","rgb(29,223,163)","rgb(26,199,194)","rgb(35,171,216)","rgb(54,140,225)","rgb(76,110,219)","rgb(96,84,200)"],c={text:"",prefixP:-s,skillI:0,skillP:0,direction:"forward",delay:a,step:g};i()};chakhsu(document.getElementById('chakhsu')); if ('addEventListener' in document) { document.addEventListener('DOMContentLoaded', function() { FastClick.attach(document.body); }, false); }
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    showProcessingMessages: false,
+    messageStyle: "none",
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+        ignoreClass:"comment-content"
+    },
+    "HTML-CSS": {
+        availableFonts: ["STIX","TeX"],
+        showMathMenu: false
+    }
+});
+MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+</script>
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'gNin085Y3zygw7jX5FDWtWjN-gzGzoHsz',
+        appKey: 'z7bSyY0HsudrXcfCzuEluvEI',
+        placeholder: '说点什么吧~' || 'Your commnet here. Be cool.',
+        avatar: 'mp' || 'mp',
+        pageSize: 10 || 10,
+        visitor: true,
+    })
+</script>
+
+
+<script>
+
+// 获取文章评论数
+var query1 = new AV.Query('Comment');
+query1.equalTo('url', '/2019/10/18/Python/Python技巧/');
+query1.doesNotExist('pid');
+query1.count().then(function (count) {
+    document.getElementById('page-title-comment').innerText = count;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+
+
+// 获取最近评论
+var query2 = new AV.Query('Comment');
+query2.doesNotExist('pid');
+query2.descending('createdAt');
+query2.limit(5);
+query2.find().then(function (data) {
+    var _dom = '<h3 class="meta-title">最近评论</h3>';
+    data.forEach(function(comment) {
+        const plainComment = comment.get('comment').replace(/<[^>]+>/gim, '');
+        const href = `${comment.get('url')}#${comment.get('objectId')}`;
+        _dom += `<li><a href="${href}">${comment.get('nick')} : ${plainComment}</a></li>`
+    })
+    document.getElementsByClassName('meta-comments')[0].innerHTML = _dom;
+}, function (error) {
+    console.log(error.message);    
+}).catch(function (error) {
+    console.log(error.message);
+});
+
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+
+</body>
+</html>
