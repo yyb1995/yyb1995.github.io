@@ -69,7 +69,6 @@ Hotkey: Double click Command
 
 5. 如果出现已连接但不能移动鼠标的情况，可以在主机端把从机清除再添加一次
 
-
 ### Mactex
 [MacTex](http://www.tug.org/mactex/)
 
@@ -86,3 +85,16 @@ Hotkey: Double click Command
 
 ### 视频播放器
 [IINA](https://iina.io/)
+
+### brew & git
+
+- 安装Homebrew
+
+[https://brew.sh/](https://brew.sh/)
+
+- 安装git
+
+```
+brew install git
+brew link git --overwrite
+```
