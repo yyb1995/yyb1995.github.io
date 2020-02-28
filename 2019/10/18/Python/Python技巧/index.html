@@ -110,12 +110,12 @@
 			</div>
 			<div class="post-header-thumb-meta">
 				<time datetime="1571382878" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-10-18</time> | 
-				<time datetime="1571382878" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-10-18</time> | 
+				<time datetime="1581908860" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2020-02-17</time> | 
 				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Python/"> Python</a>
 				<div class="post-header-thumb-meta">
-					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:1.9k字</span>
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:2.1k字</span>
 					<span>|</span>
-					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:8 分钟</span>
+					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:9 分钟</span>
 								<div class="post-header-thumb-meta">
 				
 					<span id="/2019/10/18/Python/Python技巧/" class="leancloud-visitors" data-flag-title="Python常见问题和技巧">
@@ -157,9 +157,9 @@
 			
 
 			<div>
-				<span class="post-count">本文字数：1.9k 字</span>
+				<span class="post-count">本文字数：2.1k 字</span>
 				<span>|</span>
-				<span class="post-count">阅读时长 ≈ 8 min</span>
+				<span class="post-count">阅读时长 ≈ 9 min</span>
 			</div>
 		</div>
 	</div>
@@ -185,7 +185,13 @@ importlib.reload(PackageName)
 <h2 id="利用列表生成字典"><a href="#利用列表生成字典" class="headerlink" title="利用列表生成字典"></a>利用列表生成字典</h2><pre><code class="python">a = [1, 2, 3]
 b = [4, 5, 6]
 dict1 = dict(zip(a, b))</code></pre>
-<h2 id="python-排序"><a href="#python-排序" class="headerlink" title="python 排序"></a>python 排序</h2><p><code>sorted([1, 2, 3, 5, 3])</code></p>
+<h2 id="初始化值类型的字典——defaultdict"><a href="#初始化值类型的字典——defaultdict" class="headerlink" title="初始化值类型的字典——defaultdict"></a>初始化值类型的字典——defaultdict</h2><p>在python中可以使用<code>collections</code>中的<code>defaultdict</code>对字典中的值类型进行初始化。在初始化<code>defaultdict</code>时，可以加上<code>int</code>，<code>list</code>等参数，表示值的默认类型。</p>
+<h2 id="列表删除元素"><a href="#列表删除元素" class="headerlink" title="列表删除元素"></a>列表删除元素</h2><ol>
+<li><code>a.remove(item)</code></li>
+<li><code>del(a[index])</code></li>
+<li><code>a.pop()</code></li>
+</ol>
+<h2 id="python-排序"><a href="#python-排序" class="headerlink" title="python 排序"></a>python 排序</h2><p><code>sorted([1, 2, 3, 5, 3])</code><br><code>[1, 2, 3, 6, 5].sort()</code></p>
 <h2 id="python中的队列"><a href="#python中的队列" class="headerlink" title="python中的队列"></a>python中的队列</h2><pre><code>from collections import deque
 queue = deque([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])
 queue.append(&#39;e&#39;)
@@ -222,13 +228,21 @@ queue.popleft()</code></pre><h2 id="python数组按某列排序"><a href="#pytho
     &quot;&quot;&quot;
     pass</code></pre>
 <p><strong>注意：</strong> 函数功能注释与参数说明之间应该空一行</p>
-<h2 id="map、reduce和filter"><a href="#map、reduce和filter" class="headerlink" title="map、reduce和filter"></a>map、reduce和filter</h2><p>map用于将一个函数映射到后面给出的变量列表中，reduce用于将一个函数依次映射到后面的相邻变量中，reduce用于筛选列表中符合某个函数条件的值</p>
+<h2 id="map、reduce和filter"><a href="#map、reduce和filter" class="headerlink" title="map、reduce和filter"></a>map、reduce和filter</h2><p>map用于将一个函数映射到后面给出的变量列表中，reduce用于将一个函数依次映射到后面的相邻变量中，filter用于筛选列表中符合某个函数条件的值</p>
 <pre><code class="python">map(lambda x: x ** 2, range(1, 10))
 from functools import reduce
 reduce(lambda x, y: x + y, range(1, 11))
 filter(lambda x: x % 2, range(1, 11))</code></pre>
-<h2 id="号的使用"><a href="#号的使用" class="headerlink" title="*号的使用"></a>*号的使用</h2><p>*号可用在函数的输入参数前，用于将输入参数解包以匹配函数的形参，也可用于把一个函数的多个返回值拆开使用</p>
-<pre><code class="python"># Example 1
+<h2 id="号的使用"><a href="#号的使用" class="headerlink" title="*号的使用"></a>*号的使用</h2><ol>
+<li>乘法符号</li>
+<li>当*号用在函数定义时，作用是收集传入的参数，也就是把除<code>a=b</code>形式外的传入参数打包成一个元组，在函数中使用。**号作用相同，是把所有<code>a=b</code>形式的传入参数打包成字典，在函数中使用。</li>
+<li>当*号用于函数调用时，作用是把以元组形式的参数集合展开并对应到各个参数位置上。</li>
+</ol>
+<pre><code class="python">def print(*param):
+    for item in param:
+        print(item)
+
+# Example 1
 def print_(a, b, c):
     print(a)
     print(b)
@@ -241,7 +255,13 @@ print(*a)
 def a():
     return 1, 2, 3
 
-print(&#39;{} {} {}&#39;.format(*a()))</code></pre>
+print(&#39;{} {} {}&#39;.format(*a()))
+
+# Example 3
+a = [1, 2, 3]
+b = [*a]
+
+print(b)</code></pre>
 <h2 id="Python数组拷贝"><a href="#Python数组拷贝" class="headerlink" title="Python数组拷贝"></a>Python数组拷贝</h2><p>在进行Python的数组拷贝时，有时会用到切片操作。下面是一个例子：</p>
 <pre><code class="python">dec_seq = torch.rand(3, 4, 5)
 dec_input = dec_seq[:, :-1]
@@ -373,7 +393,7 @@ def bar():
 <pre><code class="python">def foo(param):
     pass
 
-import time 
+import time
 start = time.time()
 foo()
 end = time.time()
@@ -381,6 +401,7 @@ print(end - start)
 
 from timeit import timeit
 print(timeit(&#39;foo(x)&#39;, setup=&#39;from __main__ import foo&#39;, globals={&#39;x&#39;: param}), number=1)</code></pre>
+<h2 id="逻辑运算符运算顺序"><a href="#逻辑运算符运算顺序" class="headerlink" title="逻辑运算符运算顺序"></a>逻辑运算符运算顺序</h2><p>python中逻辑运算符包括<code>not</code>，<code>and</code>和<code>or</code>，其运算顺序为<code>not&gt;and&gt;or</code>。</p>
 
 		
 		<p class="post-info">
@@ -413,10 +434,10 @@ print(timeit(&#39;foo(x)&#39;, setup=&#39;from __main__ import foo&#39;, globals
 		</div>
 		<div class="bottom-bar-items right">
             
-            <span class="bottom-bar-item"><a href="/2019/10/18/PythonPackages/numpy/"><i class="fa fa-arrow-left"></i></a></span>
+            <span class="bottom-bar-item"><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/"><i class="fa fa-arrow-left"></i></a></span>
             
             
-            <span class="bottom-bar-item"><a href="/2019/10/18/Git/Git常用命令/"><i class="fa fa-arrow-right"></i></a></span>
+            <span class="bottom-bar-item"><a href="/2019/10/18/Pytorch/Pytorch学习/"><i class="fa fa-arrow-right"></i></a></span>
             
 			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
 			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
@@ -432,7 +453,7 @@ print(timeit(&#39;foo(x)&#39;, setup=&#39;from __main__ import foo&#39;, globals
 			<div class="post-list-item">
 				<div class="post-list-item-container">
 					<div class="item-label">
-						<div class="item-title"><a href="/2019/07/09/Python/simpread-styleguide _ Style guides for Google-originated open-source projects/">Google Python Style Guide</a></div>
+						<div class="item-title"><a href="/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/">Python 迭代器(iterator) 生成器(generator)</a></div>
 						<div class="item-meta clearfix">
 							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
 							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
@@ -466,7 +487,7 @@ print(timeit(&#39;foo(x)&#39;, setup=&#39;from __main__ import foo&#39;, globals
 			<div class="post-list-item">
 				<div class="post-list-item-container">
 					<div class="item-label">
-						<div class="item-title"><a href="/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/">Python 迭代器(iterator) 生成器(generator)</a></div>
+						<div class="item-title"><a href="/2019/07/09/Python/simpread-styleguide _ Style guides for Google-originated open-source projects/">Google Python Style Guide</a></div>
 						<div class="item-meta clearfix">
 							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
 							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
@@ -557,15 +578,15 @@ print(timeit(&#39;foo(x)&#39;, setup=&#39;from __main__ import foo&#39;, globals
             <div class="meta-item meta-posts">
                 <h3 class="meta-title">最近文章</h3>
                 
-                <li><a href="/2019/10/18/Mac/Mac折腾/"></a></li>
+                <li><a href="/2019/11/26/Python/Python基础/">Python基础</a></li>
                 
-                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
+                <li><a href="/2019/10/18/Mac/Mac折腾/">Mac折腾</a></li>
+                
+                <li><a href="/2019/10/18/Git/Git常用命令/">Git常用命令</a></li>
                 
                 <li><a href="/2019/10/18/PythonPackages/numpy/">numpy</a></li>
                 
-                <li><a href="/2019/10/18/Python/Python技巧/">Python常见问题和技巧</a></li>
-                
-                <li><a href="/2019/10/18/Git/Git常用命令/">Git常用命令</a></li>
+                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
                 
             </div>
             
@@ -590,7 +611,7 @@ print(timeit(&#39;foo(x)&#39;, setup=&#39;from __main__ import foo&#39;, globals
                     </div>
 
                     <div class="site-statistics">
-                        <p style="margin-top: 10px">总字数 50.6k</p>
+                        <p style="margin-top: 10px">总字数 51.5k</p>
                         
                         <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
                         <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
@@ -598,7 +619,7 @@ print(timeit(&#39;foo(x)&#39;, setup=&#39;from __main__ import foo&#39;, globals
                     </div>
                     <div class="site-copyright">
                         
-                        <p style="margin-top: 10px">&copy; 2019 - 2019 with 
+                        <p style="margin-top: 10px">&copy; 2019 - 2020 with 
                         <i class="fa fa-heart animated infinite pulse"></i> <a href="https://yyb1995.github.io"> by Eric_fish</a></p>
                     </div>
 				</div>

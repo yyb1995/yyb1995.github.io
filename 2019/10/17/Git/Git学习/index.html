@@ -102,7 +102,7 @@
 
 
 <div class="post-header-thumb">
-	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/5.jpg);"></div>
+	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/8.jpg);"></div>
 	<div class="post-header-thumb-cover">
 		<div class="post-header-thumb-container">
 			<div class="post-header-thumb-title">
@@ -110,12 +110,12 @@
 			</div>
 			<div class="post-header-thumb-meta">
 				<time datetime="1571320183" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-10-17</time> | 
-				<time datetime="1571410834" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-10-18</time> | 
+				<time datetime="1577690836" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-12-30</time> | 
 				<i class="fa fa-folder-o"></i> 分类于 
 				<div class="post-header-thumb-meta">
-					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:912字</span>
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:1.1k字</span>
 					<span>|</span>
-					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:3 分钟</span>
+					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:4 分钟</span>
 								<div class="post-header-thumb-meta">
 				
 					<span id="/2019/10/17/Git/Git学习/" class="leancloud-visitors" data-flag-title="">
@@ -153,9 +153,9 @@
 			
 
 			<div>
-				<span class="post-count">本文字数：912 字</span>
+				<span class="post-count">本文字数：1.1k 字</span>
 				<span>|</span>
-				<span class="post-count">阅读时长 ≈ 3 min</span>
+				<span class="post-count">阅读时长 ≈ 4 min</span>
 			</div>
 		</div>
 	</div>
@@ -176,6 +176,9 @@ git config --global user.email</code></pre>
 <h2 id="创建一个仓库"><a href="#创建一个仓库" class="headerlink" title="创建一个仓库"></a>创建一个仓库</h2><p><code>git init</code></p>
 <h2 id="把文件添加到仓库"><a href="#把文件添加到仓库" class="headerlink" title="把文件添加到仓库"></a>把文件添加到仓库</h2><p><code>git add filename</code></p>
 <h2 id="对本次操作进行说明"><a href="#对本次操作进行说明" class="headerlink" title="对本次操作进行说明"></a>对本次操作进行说明</h2><p><code>git commit -m &#39;add a file&#39;</code></p>
+<ul>
+<li>对上次的提交信息进行修改和更新<br><code>git commit --amend -m</code></li>
+</ul>
 <h2 id="查看仓库当前状态"><a href="#查看仓库当前状态" class="headerlink" title="查看仓库当前状态"></a>查看仓库当前状态</h2><p><code>git status</code></p>
 <h2 id="查看具体文件修改的内容"><a href="#查看具体文件修改的内容" class="headerlink" title="查看具体文件修改的内容"></a>查看具体文件修改的内容</h2><p><code>git diff filename</code></p>
 <h2 id="查看版本历史记录"><a href="#查看版本历史记录" class="headerlink" title="查看版本历史记录"></a>查看版本历史记录</h2><ul>
@@ -200,10 +203,18 @@ git config --global user.email</code></pre>
 </ul>
 <p><code>git checkout -- file</code></p>
 <ul>
-<li>这个修改已经经过<code>git add</code>加入暂存区<pre><code class="git">git reset --hard HEAD~
-git checkout -- file</code></pre>
+<li>这个修改已经经过<code>git add</code>加入暂存区<pre><code class="git">git rm --cached [filename]</code></pre>
 </li>
 </ul>
+<h2 id="撤销提交"><a href="#撤销提交" class="headerlink" title="撤销提交"></a>撤销提交</h2><ul>
+<li><p>新增一次提交以抵消上一次提交的变化，不会改变过去的所有历史<br><code>git revert head</code></p>
+</li>
+<li><p>新增多次提交以抵消某几次提交的变化<br><code>git revert [倒数第一次] [倒数第二次]</code></p>
+</li>
+</ul>
+<h2 id="丢弃提交"><a href="#丢弃提交" class="headerlink" title="丢弃提交"></a>丢弃提交</h2><p>丢弃提交的含义是使某次提交之后的所有提交在历史中彻底删除，仍可以使用<code>git reflog</code>查看记录</p>
+<p><code>git reset [某次提交]</code></p>
+<p>还可以加上<code>--hard</code>参数，表示让工作区的文件也回到过去的状态</p>
 <h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><ul>
 <li>删除没有经过<code>git add</code>的文件</li>
 </ul>
@@ -278,6 +289,8 @@ git merge a</code></pre>
 <li><p>给标签加上说明文字<br><code>git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb</code></p>
 </li>
 </ul>
+<h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><p><code>.gitignore</code>主要用于忽略一些文件，不加入版本库。</p>
+<p>当现有文件已经被git跟踪时，再使用.gitignore并没有用。此时需要使用<br><code>git rm -r --cached .</code>删除本地缓存，再使用.gitignore进行跟踪。</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/897271968352576" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
 
 		
@@ -396,15 +409,15 @@ git merge a</code></pre>
             <div class="meta-item meta-posts">
                 <h3 class="meta-title">最近文章</h3>
                 
-                <li><a href="/2019/10/18/Mac/Mac折腾/"></a></li>
+                <li><a href="/2019/11/26/Python/Python基础/">Python基础</a></li>
                 
-                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
+                <li><a href="/2019/10/18/Mac/Mac折腾/">Mac折腾</a></li>
+                
+                <li><a href="/2019/10/18/Git/Git常用命令/">Git常用命令</a></li>
                 
                 <li><a href="/2019/10/18/PythonPackages/numpy/">numpy</a></li>
                 
-                <li><a href="/2019/10/18/Python/Python技巧/">Python常见问题和技巧</a></li>
-                
-                <li><a href="/2019/10/18/Git/Git常用命令/">Git常用命令</a></li>
+                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
                 
             </div>
             
@@ -429,7 +442,7 @@ git merge a</code></pre>
                     </div>
 
                     <div class="site-statistics">
-                        <p style="margin-top: 10px">总字数 50.6k</p>
+                        <p style="margin-top: 10px">总字数 51.5k</p>
                         
                         <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
                         <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
@@ -437,7 +450,7 @@ git merge a</code></pre>
                     </div>
                     <div class="site-copyright">
                         
-                        <p style="margin-top: 10px">&copy; 2019 - 2019 with 
+                        <p style="margin-top: 10px">&copy; 2019 - 2020 with 
                         <i class="fa fa-heart animated infinite pulse"></i> <a href="https://yyb1995.github.io"> by Eric_fish</a></p>
                     </div>
 				</div>

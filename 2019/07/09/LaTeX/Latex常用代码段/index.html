@@ -102,7 +102,7 @@
 
 
 <div class="post-header-thumb">
-	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/4.jpg);"></div>
+	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/6.jpg);"></div>
 	<div class="post-header-thumb-cover">
 		<div class="post-header-thumb-container">
 			<div class="post-header-thumb-title">
@@ -110,12 +110,12 @@
 			</div>
 			<div class="post-header-thumb-meta">
 				<time datetime="1562641639" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-07-09</time> | 
-				<time datetime="1562641639" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-07-09</time> | 
+				<time datetime="1574595218" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-11-24</time> | 
 				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Latex/"> Latex</a>
 				<div class="post-header-thumb-meta">
-					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:1k字</span>
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:1.2k字</span>
 					<span>|</span>
-					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:5 分钟</span>
+					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:6 分钟</span>
 								<div class="post-header-thumb-meta">
 				
 					<span id="/2019/07/09/LaTeX/Latex常用代码段/" class="leancloud-visitors" data-flag-title="$\LaTeX$常用代码段">
@@ -157,9 +157,9 @@
 			
 
 			<div>
-				<span class="post-count">本文字数：1k 字</span>
+				<span class="post-count">本文字数：1.2k 字</span>
 				<span>|</span>
-				<span class="post-count">阅读时长 ≈ 5 min</span>
+				<span class="post-count">阅读时长 ≈ 6 min</span>
 			</div>
 		</div>
 	</div>
@@ -217,16 +217,21 @@ c=53223
 a&amp;=1\\
 &amp;=332
 \end{aligned}
-\end{gather*}</code></pre><h2 id="2-图"><a href="#2-图" class="headerlink" title="2 图"></a>2 图</h2><ol>
-<li><p>一行一图</p>
-<pre><code class="latex">\begin{figure}  %图
+\end{gather*}</code></pre><ol start="7">
+<li>分段函数<br>```latex<br>smooth_{L_{1}}(x)=\begin{cases}</li>
+<li>5x^{2}, &amp;\left |x \right |\leq 1 \cr \left |x \right|-0.5, &amp; otherwise<br>\end{cases}</li>
+</ol>
+<pre><code>
+## 2 图
+1. 一行一图
+```latex
+\begin{figure}  %图
 \centering  %插入的图片居中表示
 \includegraphics[width=\textwidth]{./figures/estimate.jpg}
 \renewcommand{\figurename}{Fig.}\renewcommand{\figurename}{图}
 \caption{不同数据缺失率下的数据补全结果}  %图片的名称
 \label{fig1}   %标签，用作引用
-\end{figure}</code></pre>
-</li>
+\end{figure}</code></pre><ol start="2">
 <li><p>一行多图</p>
 <pre><code class="latex">\usepackage{subcaption}
 
@@ -297,6 +302,24 @@ a&amp;=1\\
 \usepackage{caption}
 \DeclareCaptionLabelSeparator{twospace}{\ ~}
 \captionsetup{labelsep=twospace}</code></pre>
+</li>
+<li><p>多行表格</p>
+<pre><code class="latex">\begin{table}[htp]
+ \centering
+ \caption{不同条件下一些中间结果的动态范围}
+ \label{cha_nonlinear}
+ \begin{tabular}{@{\extracolsep{12pt}}cccccc@{}}
+     \hline
+     \multirow{2}{*}{序列编号} &amp; \multirow{2}{*}{条件}    &amp; \multicolumn{4}{c}{动态范围}\\
+     \cline{3-6}&amp; &amp; $\mathbf{A}_{enc}$  &amp; $X_{attn}$ &amp; $\mathbf{A}_{enc\_dec}$ &amp; $\hat{\mathbf{x}}_{pre}$\\
+     \hline
+     \multirow{4}{*}{1} &amp; 无线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\
+     &amp; 有线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\
+     &amp; 无线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4 \\
+     &amp; 有线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\
+     \hline
+ \end{tabular}
+\end{table}</code></pre>
 </li>
 </ol>
 <h2 id="5-调整页边距"><a href="#5-调整页边距" class="headerlink" title="5 调整页边距"></a>5 调整页边距</h2><pre><code class="latex">\usepackage{geometry}
@@ -416,10 +439,10 @@ print(&#39;Iteration finish&#39;)
 		</div>
 		<div class="bottom-bar-items right">
             
-            <span class="bottom-bar-item"><a href="/2019/07/09/Linux/Linux使用过程中的问题/"><i class="fa fa-arrow-left"></i></a></span>
+            <span class="bottom-bar-item"><a href="/2019/07/09/LaTeX/Latex导言区设置/"><i class="fa fa-arrow-left"></i></a></span>
             
             
-            <span class="bottom-bar-item"><a href="/2019/07/09/LaTeX/Latex导言区设置/"><i class="fa fa-arrow-right"></i></a></span>
+            <span class="bottom-bar-item"><a href="/2019/07/09/Linux/Linux使用过程中的问题/"><i class="fa fa-arrow-right"></i></a></span>
             
 			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
 			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
@@ -431,6 +454,23 @@ print(&#39;Iteration finish&#39;)
 <div class="related-post-lists">
 	<div class="post-lists">
 		<div class="post-lists-body">
+		
+			<div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-label">
+						<div class="item-title"><a href="/2019/07/09/LaTeX/Latex一些坑/">$\LaTeX$一些坑</a></div>
+						<div class="item-meta clearfix">
+							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
+							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                
+                                <a href="/categories/Latex/">Latex</a>
+                                
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
 		
 			<div class="post-list-item">
 				<div class="post-list-item-container">
@@ -456,23 +496,6 @@ print(&#39;Iteration finish&#39;)
 						<div class="item-meta clearfix">
 							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
 							<div class="item-meta-ico bg-ico-code" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
-                            <div class="item-meta-cat">
-                                
-                                <a href="/categories/Latex/">Latex</a>
-                                
-                            </div>
-                        </div>
-					</div>
-				</div>
-			</div>
-		
-			<div class="post-list-item">
-				<div class="post-list-item-container">
-					<div class="item-label">
-						<div class="item-title"><a href="/2019/07/09/LaTeX/Latex一些坑/">$\LaTeX$一些坑</a></div>
-						<div class="item-meta clearfix">
-							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
-							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
                             <div class="item-meta-cat">
                                 
                                 <a href="/categories/Latex/">Latex</a>
@@ -560,15 +583,15 @@ print(&#39;Iteration finish&#39;)
             <div class="meta-item meta-posts">
                 <h3 class="meta-title">最近文章</h3>
                 
-                <li><a href="/2019/10/18/Mac/Mac折腾/"></a></li>
+                <li><a href="/2019/11/26/Python/Python基础/">Python基础</a></li>
                 
-                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
+                <li><a href="/2019/10/18/Mac/Mac折腾/">Mac折腾</a></li>
+                
+                <li><a href="/2019/10/18/Git/Git常用命令/">Git常用命令</a></li>
                 
                 <li><a href="/2019/10/18/PythonPackages/numpy/">numpy</a></li>
                 
-                <li><a href="/2019/10/18/Python/Python技巧/">Python常见问题和技巧</a></li>
-                
-                <li><a href="/2019/10/18/Git/Git常用命令/">Git常用命令</a></li>
+                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
                 
             </div>
             
@@ -593,7 +616,7 @@ print(&#39;Iteration finish&#39;)
                     </div>
 
                     <div class="site-statistics">
-                        <p style="margin-top: 10px">总字数 50.6k</p>
+                        <p style="margin-top: 10px">总字数 51.5k</p>
                         
                         <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
                         <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
@@ -601,7 +624,7 @@ print(&#39;Iteration finish&#39;)
                     </div>
                     <div class="site-copyright">
                         
-                        <p style="margin-top: 10px">&copy; 2019 - 2019 with 
+                        <p style="margin-top: 10px">&copy; 2019 - 2020 with 
                         <i class="fa fa-heart animated infinite pulse"></i> <a href="https://yyb1995.github.io"> by Eric_fish</a></p>
                     </div>
 				</div>

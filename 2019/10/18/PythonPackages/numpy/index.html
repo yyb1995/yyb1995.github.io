@@ -102,7 +102,7 @@
 
 
 <div class="post-header-thumb">
-	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/10.jpg);"></div>
+	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/13.jpg);"></div>
 	<div class="post-header-thumb-cover">
 		<div class="post-header-thumb-container">
 			<div class="post-header-thumb-title">
@@ -110,12 +110,12 @@
 			</div>
 			<div class="post-header-thumb-meta">
 				<time datetime="1571382878" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-10-18</time> | 
-				<time datetime="1571382878" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-10-18</time> | 
+				<time datetime="1574673074" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-11-25</time> | 
 				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Python-Packages/"> Python Packages</a>
 				<div class="post-header-thumb-meta">
-					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:907字</span>
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:941字</span>
 					<span>|</span>
-					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:3 分钟</span>
+					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:4 分钟</span>
 								<div class="post-header-thumb-meta">
 				
 					<span id="/2019/10/18/PythonPackages/numpy/" class="leancloud-visitors" data-flag-title="numpy">
@@ -157,9 +157,9 @@
 			
 
 			<div>
-				<span class="post-count">本文字数：907 字</span>
+				<span class="post-count">本文字数：941 字</span>
 				<span>|</span>
-				<span class="post-count">阅读时长 ≈ 3 min</span>
+				<span class="post-count">阅读时长 ≈ 4 min</span>
 			</div>
 		</div>
 	</div>
@@ -171,8 +171,8 @@
             
             
         </p>
-		<h2 id="1-导入numpy"><a href="#1-导入numpy" class="headerlink" title="1 导入numpy"></a>1 导入numpy</h2><p>常用代码：<code>import numpy as np</code>或<code>from numpy import *</code>。建议使用第一种。使用第一种时要在numpy函数前加上<code>np.xxx</code>，如·<code>np.array</code></p>
-<h2 id="2-矩阵的创建"><a href="#2-矩阵的创建" class="headerlink" title="2 矩阵的创建"></a>2 矩阵的创建</h2><p>常用代码:</p>
+		<h2 id="导入numpy"><a href="#导入numpy" class="headerlink" title="导入numpy"></a>导入numpy</h2><p>常用代码：<code>import numpy as np</code>或<code>from numpy import *</code>。建议使用第一种。使用第一种时要在numpy函数前加上<code>np.xxx</code>，如·<code>np.array</code></p>
+<h2 id="矩阵的创建"><a href="#矩阵的创建" class="headerlink" title="矩阵的创建"></a>矩阵的创建</h2><p>常用代码:</p>
 <ol>
 <li>创建数组<br><code>np.array([[1,2,3]])</code>创建一个1*3的numpy数组</li>
 <li>创建全1矩阵<br><code>np.ones([a,b])</code>创建一个a*b的矩阵，元素全为1</li>
@@ -182,7 +182,7 @@
 <li>创建全0矩阵<br><code>np.zeros([a,b])</code>创建一个a*b的矩阵，元素全为0</li>
 <li>创建对角矩阵<br><code>np.diag([a,b,c])</code>创建一个对角线元素为a,b,c的矩阵<br><code>np.diag([[a,b,c],[d,e,f],[g,h,i]])</code>创建一个1*3向量，元素为矩阵对角线元素</li>
 </ol>
-<h2 id="3-矩阵的运算"><a href="#3-矩阵的运算" class="headerlink" title="3 矩阵的运算"></a>3 矩阵的运算</h2><ol>
+<h2 id="矩阵的运算"><a href="#矩阵的运算" class="headerlink" title="矩阵的运算"></a>矩阵的运算</h2><ol>
 <li><p>计算向量间的欧氏距离</p>
 <pre><code class="python">a1 = np.array([[1,2],[2,3]])
 a2 = np.array([[2,0],[2,1]])
@@ -235,7 +235,13 @@ array([[1, 2, 3],
 <li><p>使用元组索引数组<br>可以使用元组对数组进行索引，即<code>a[(2, 3)]</code>。如果是其他类型的，可以使用<code>tuple()</code>进行转换。</p>
 </li>
 </ol>
-<h2 id="4-数据的产生"><a href="#4-数据的产生" class="headerlink" title="4 数据的产生"></a>4 数据的产生</h2><ol>
+<h2 id="矩阵元素操作"><a href="#矩阵元素操作" class="headerlink" title="矩阵元素操作"></a>矩阵元素操作</h2><ol>
+<li>找出所有等于某个值的所有元素的下标<pre><code class="python">a = np.random.randint(1, 10, 100)
+np.where(a == 2)
+np.argwhere(a == 2)</code></pre>
+</li>
+</ol>
+<h2 id="数据的产生"><a href="#数据的产生" class="headerlink" title="数据的产生"></a>数据的产生</h2><ol>
 <li>正态分布数据<br><code>numpy.random.normal(loc, scale, size)</code><br>loc：float<br> 此概率分布的均值（对应着整个分布的中心centre）<br>scale：float<br> 此概率分布的标准差（对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高）<br>size：int or tuple of ints<br> 输出的shape，默认为None，只输出一个值</li>
 <li>随机分布数据<br><code>numpy.random.rand(a,b)</code>创建一个维数为a*b，数值在[0,1)的随机矩阵</li>
 <li>标准正态分布数据中随机抽取<br><code>numpy.random.randn(a,b)</code>创建一个维数为a*b，数值取值为标准正态分布中随机取样本点</li>
@@ -273,10 +279,10 @@ array([[1, 2, 3],
 		</div>
 		<div class="bottom-bar-items right">
             
-            <span class="bottom-bar-item"><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/"><i class="fa fa-arrow-left"></i></a></span>
+            <span class="bottom-bar-item"><a href="/2019/10/18/Git/Git常用命令/"><i class="fa fa-arrow-left"></i></a></span>
             
             
-            <span class="bottom-bar-item"><a href="/2019/10/18/Python/Python技巧/"><i class="fa fa-arrow-right"></i></a></span>
+            <span class="bottom-bar-item"><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/"><i class="fa fa-arrow-right"></i></a></span>
             
 			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
 			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
@@ -358,15 +364,15 @@ array([[1, 2, 3],
             <div class="meta-item meta-posts">
                 <h3 class="meta-title">最近文章</h3>
                 
-                <li><a href="/2019/10/18/Mac/Mac折腾/"></a></li>
+                <li><a href="/2019/11/26/Python/Python基础/">Python基础</a></li>
                 
-                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
+                <li><a href="/2019/10/18/Mac/Mac折腾/">Mac折腾</a></li>
+                
+                <li><a href="/2019/10/18/Git/Git常用命令/">Git常用命令</a></li>
                 
                 <li><a href="/2019/10/18/PythonPackages/numpy/">numpy</a></li>
                 
-                <li><a href="/2019/10/18/Python/Python技巧/">Python常见问题和技巧</a></li>
-                
-                <li><a href="/2019/10/18/Git/Git常用命令/">Git常用命令</a></li>
+                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
                 
             </div>
             
@@ -391,7 +397,7 @@ array([[1, 2, 3],
                     </div>
 
                     <div class="site-statistics">
-                        <p style="margin-top: 10px">总字数 50.6k</p>
+                        <p style="margin-top: 10px">总字数 51.5k</p>
                         
                         <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
                         <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
@@ -399,7 +405,7 @@ array([[1, 2, 3],
                     </div>
                     <div class="site-copyright">
                         
-                        <p style="margin-top: 10px">&copy; 2019 - 2019 with 
+                        <p style="margin-top: 10px">&copy; 2019 - 2020 with 
                         <i class="fa fa-heart animated infinite pulse"></i> <a href="https://yyb1995.github.io"> by Eric_fish</a></p>
                     </div>
 				</div>
