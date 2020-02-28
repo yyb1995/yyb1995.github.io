@@ -256,6 +256,34 @@
   </entry>
   
   <entry>
+    <title>用Keras搭建第一个神经网络</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Keras/Build the First Neural Network/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-Steps"><a href="#1-Steps" class="headerlink" title="1 Steps"></a>1 Steps</h2><ol><li>Load Data</li><li>Define Model</li><li>Compile Model</li><li>Fit Model</li><li>Evaluate Model</li><li>Tie It All Together</li></ol><h2 id="2-Load-Data"><a href="#2-Load-Data" class="headerlink" title="2 Load Data"></a>2 Load Data</h2><ol><li>Define a certain random number seed. By doing so, you can get the same result to compare it with other model.<br>Method:<pre><code class="python">import numpy as npnp.random.seed(7)</code></pre>We use <a href="https://yun.baidu.com/s/1c24tweW#list/path=%2F" target="_blank" rel="noopener">pima-indians-diabetes.csv</a> as our dataset. To load the .csv data, we use <code>np.loadtxt</code> and split it into input and output section. <h2 id="3-Define-Model"><a href="#3-Define-Model" class="headerlink" title="3 Define Model"></a>3 Define Model</h2>Models in Keras are defined as a sequence of layers.While defining the first layer, we can define the input number with the <strong>input_dim</strong> argument.<br>In this example, we will use a fully-connected network structure with three layers.<br>Fully connected layers are defined using the <strong>Dense class</strong>. We can specify:</li><li><strong>the number of neurons</strong> in the layer as the first argument</li><li>the initialization method as the second argument as <strong>init</strong> </li><li>specify the activation function using the <strong>activation</strong> argument.<h2 id="4-Build-the-Model"><a href="#4-Build-the-Model" class="headerlink" title="4 Build the Model"></a>4 Build the Model</h2>define a model class. In this problem, we use a sequential model. So we use a <code>model = keras.sequential()</code> to instantiate the class. And then use the <code>.add</code> method to add layers in the model.<br>We want to add a layer into our model, so we use <code>keras.layers.Dense()</code> to be the parameter of <code>add</code>. The activation function must be in the string form like <code>activation=&#39;relu&#39;</code>.</li></ol><h2 id="5-Compile-the-Model"><a href="#5-Compile-the-Model" class="headerlink" title="5 Compile the Model"></a>5 Compile the Model</h2><p>When compiling, we must specify some additional properties required when training the network.We must specify the <strong>loss function</strong> to use to evaluate a set of weights, <strong>the optimizer</strong> used to search through different weights for the network and <strong>any optional metrics we would like to collect and report</strong> during training.</p><h2 id="6-Fit-the-model"><a href="#6-Fit-the-model" class="headerlink" title="6 Fit the model"></a>6 Fit the model</h2><p>use <code>model.fit()</code> method to define fit parameters like epochs and batch_size.</p><h2 id="7-Evaluate-the-model"><a href="#7-Evaluate-the-model" class="headerlink" title="7 Evaluate the model"></a>7 Evaluate the model</h2><p>use <code>model.evaluate</code> and a set of X and Y to calculate the model performance.</p><h2 id="8-Prediction"><a href="#8-Prediction" class="headerlink" title="8 Prediction"></a>8 Prediction</h2><p>use <code>model.fit</code> and a set of X to predict the predicted Y value.</p><h2 id="9-Related-material"><a href="#9-Related-material" class="headerlink" title="9 Related material"></a>9 Related material</h2><ol><li><a href="https://machinelearningmastery.com/" target="_blank" rel="noopener">https://machinelearningmastery.com/</a></li><li><a href="https://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">Keras中文文档</a></li><li><a href="https://github.com/keras-team/keras/tree/master/examples" target="_blank" rel="noopener">Keras Example</a><br>s-team/keras/tree/master/examples)</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-Steps&quot;&gt;&lt;a href=&quot;#1-Steps&quot; class=&quot;headerlink&quot; title=&quot;1 Steps&quot;&gt;&lt;/a&gt;1 Steps&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Load Data&lt;/li&gt;
+&lt;li&gt;Define Model&lt;/li&gt;
+&lt;li&gt;Com
+      
+    
+    </summary>
+    
+      <category term="Keras" scheme="https://yyb1995.github.io/categories/Keras/"/>
+    
+    
+      <category term="深度学习" scheme="https://yyb1995.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Linux系统使用过程中遇到的一些问题</title>
     <link href="https://yyb1995.github.io/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     <id>https://yyb1995.github.io/2019/07/09/Linux/Linux使用过程中的问题/</id>
@@ -308,33 +336,28 @@
   </entry>
   
   <entry>
-    <title>latex导言区常用设置</title>
-    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E5%AF%BC%E8%A8%80%E5%8C%BA%E8%AE%BE%E7%BD%AE/"/>
-    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex导言区设置/</id>
+    <title>最小二乘解与最小二乘估计</title>
+    <link href="https://yyb1995.github.io/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
+    <id>https://yyb1995.github.io/2019/07/09/MachineLearning/最小二乘解(Least-squares Minimization)/</id>
     <published>2019-07-09T03:07:19.000Z</published>
     <updated>2019-07-09T03:07:19.000Z</updated>
     
-    <content type="html"><![CDATA[<pre><code class="latex">% Article setting% Article type\documentclass[12]{article}% Page margin\usepackage{geometry}%\geometry{a4paper,scale=0.8}\geometry{a4paper,left=2cm,right=2cm%,top=2cm,%bottom=2cm, includefoot,heightrounded}% set title\title{}\author{}\date{}% import package\usepackage{amsmath, amsfonts, bm}% \numberwithin{equation}{section} % Equation numbering by section\numberwithin{equation}{subsection} % Equation numbering by subsection% \numberwithin{equation}{subsubsection}% Chinese support\usepackage{xeCJK}\usepackage{fontspec} \setCJKmainfont[AutoFakeBold]{SimSun}\setCJKmonofont{SimSun}\setmainfont{Times New Roman}\renewcommand\contentsname{目录}\renewcommand\refname{参考文献}\renewcommand{\figurename}{图}\renewcommand{\tablename}{表}% Indent\usepackage{indentfirst}\setlength{\parindent}{2em}% Python code\usepackage{listings}\usepackage{color}\definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\lstset{frame=tb,    language=Python,    aboveskip=3mm,    belowskip=3mm,    showstringspaces=false,    columns=flexible,    basicstyle={\small\ttfamily},    numbers=none,    numberstyle=\tiny\color{gray},    keywordstyle=\color{blue},    commentstyle=\color{dkgreen},    stringstyle=\color{mauve},    breaklines=true,    breakatwhitespace=true,    tabsize=3}% Import image\usepackage{graphicx}\usepackage{subcaption}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,          urlcolor=blue,    citecolor=blue,}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,    urlcolor=blue,    citecolor=blue,}```    citecolor=blue,}</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;% Article setting
-% Article type
-\documentclass[12]{article}
-
-% Page margin
-\usepackage{geometry}
-%\geometry{a4pape
+        &lt;h2 id=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;a href=&quot;#最小二乘解与最小二乘估计资料&quot; class=&quot;headerlink&quot; title=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;/a&gt;最小二乘解与最小二乘估计资料&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https:/
       
     
     </summary>
     
-      <category term="Latex" scheme="https://yyb1995.github.io/categories/Latex/"/>
+      <category term="Machine Learning" scheme="https://yyb1995.github.io/categories/Machine-Learning/"/>
     
     
-      <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
+      <category term="机器学习" scheme="https://yyb1995.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -367,6 +390,31 @@
   </entry>
   
   <entry>
+    <title>C语言中数组名作为参数进行函数传递</title>
+    <link href="https://yyb1995.github.io/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/"/>
+    <id>https://yyb1995.github.io/2019/07/09/CProgrammingLanguage/C语言中数组名作为参数进行函数传递/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>在普通变量或下标变量作函数参数时，形参变量和实参变量是由编译系统分配的两个不同的内存单元。在函数调用时发生的值传送是把实参变量的值赋予形参变量。在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编译系统不为形参数组分配内存。那么，数据的传送是如何实现的呢?在我们曾介绍过，数组名就是数组的首地址。<strong><em>因此在数组名作函数参数时所进行的传送只是地址的传送，也就是说把实参数组的首地址赋予形参数组名。</em></strong>形参数组名取得该首地址之后，也就等于有了实在的数组。实际上是形参数组和实参数组为同一数组，共同拥有一段内存空间。<strong><em>因此当形参数组发生变化时，实参数组也随之变化。</em></strong><br><img src="http://c.biancheng.net/cpp/uploads/allimg/120129/343dfgdgd645ccvnbm.gif?_=5778318" alt="图片1"><br>上图说明了这种情形。图中设a为实参数组，类型为整型。a占有以2000为首地址的一块内存区。b为形参数组名。当发生函数调用时，进行地址传送，把实参数组a的首地址传送给形参数组名b，于是b也取得该地址2000。于是a，b两数组共同占有以2000为首地址的一段连续内存单元。从图中还可以看出a和b下标相同的元素实际上也占相同的两个内存单元（整型数组每个元素占二字节）。例如a[0]和b[0]都占用2000和2001单元，当然a[0]等于b[0]。类推则有a[i]等于b[i]。<br>多维数组也可以作为函数的参数。在函数定义时对形参数组可以指定每一维的长度，也可省去第一维的长度。因此，以下写法都是合法的：<br><code>int MA(int a[3][10]);</code>或<code>int MA(int a[][10]);</code></p><p>下面给出两个将数组传递进函数的例子：<br>ex1:</p><pre><code class="c">//求5名学生的平均成绩#include &lt;stdio.h&gt;float aver(float a[5])  //此处函数的定义中数组的元素个数可以省略，由传入的数组决定{    int i;    float av,s=a[0];    for(i=1;i&lt;5;i++)        s=s+a[i];    av=s/5;    return av;}int main(void){    float sco[5],av;    int i;    printf(&quot;\ninput 5 scores:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%f&quot;,&amp;sco[i]);    av=aver(sco);  //此处将数组传递进函数时使用的是数组名称，没有括号    printf(&quot;average score is %5.2f&quot;,av);    return 0;}</code></pre><p>ex2:</p><pre><code class="c">//将数组中小于0的元素置成0#include &lt;stdio.h&gt;void nzp(int a[8]){    int i;    printf(&quot;\nvalues of array are:\n&quot;);    for(i=0;i&lt;8;i++)    {        if(a[i]&lt;0)            a[i]=0;        printf(&quot;%d &quot;,a[i]);    }}int main(void){    int b[5],i;    printf(&quot;\ninput 5 numbers:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%d&quot;,&amp;b[i]);    printf(&quot;initial values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    nzp(b);  //将有5个元素的数组传递进一个有8个元素的数组的函数，编译通过    printf(&quot;\nlast values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    return 0;}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在普通变量或下标变量作函数参数时，形参变量和实参变量是由编译系统分配的两个不同的内存单元。在函数调用时发生的值传送是把实参变量的值赋予形参变量。在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编
+      
+    
+    </summary>
+    
+      <category term="C语言" scheme="https://yyb1995.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="编程语言" scheme="https://yyb1995.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
     <title></title>
     <link href="https://yyb1995.github.io/2019/07/09/Matlab/MATLAB%20GUI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
     <id>https://yyb1995.github.io/2019/07/09/Matlab/MATLAB GUI编程入门/</id>
@@ -384,58 +432,6 @@
     
     </summary>
     
-    
-  </entry>
-  
-  <entry>
-    <title>最小二乘解与最小二乘估计</title>
-    <link href="https://yyb1995.github.io/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
-    <id>https://yyb1995.github.io/2019/07/09/MachineLearning/最小二乘解(Least-squares Minimization)/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;a href=&quot;#最小二乘解与最小二乘估计资料&quot; class=&quot;headerlink&quot; title=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;/a&gt;最小二乘解与最小二乘估计资料&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https:/
-      
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="https://yyb1995.github.io/categories/Machine-Learning/"/>
-    
-    
-      <category term="机器学习" scheme="https://yyb1995.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>傅里叶变换的新理解</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Others/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%96%B0%E7%90%86%E8%A7%A3/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Others/傅里叶变换的新理解/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>傅里叶变换把无限长的三角函数作为基函数：<br><img src="https://pic3.zhimg.com/80/be914c25f4886601caf2324b855b2b9f_hd.jpg" alt="a"></p><p>利用三角函数作为基函数，对其进行伸缩和平移，并与原函数进行相乘，实际相乘的步骤相当于求原函数与伸缩和平移后得到的某个尺度的相关性，这个尺度即为频率，相关性即表示为某个频率分量的大小。<br>量的大小。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;傅里叶变换把无限长的三角函数作为基函数：&lt;br&gt;&lt;img src=&quot;https://pic3.zhimg.com/80/be914c25f4886601caf2324b855b2b9f_hd.jpg&quot; alt=&quot;a&quot;&gt;&lt;/p&gt;
-&lt;p&gt;利用三角函数作为基函数，对其进行伸缩和平
-      
-    
-    </summary>
-    
-      <category term="other" scheme="https://yyb1995.github.io/categories/other/"/>
-    
-    
-      <category term="傅里叶变换" scheme="https://yyb1995.github.io/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
     
   </entry>
   
@@ -471,6 +467,32 @@
   </entry>
   
   <entry>
+    <title>傅里叶变换的新理解</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Others/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%96%B0%E7%90%86%E8%A7%A3/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Others/傅里叶变换的新理解/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>傅里叶变换把无限长的三角函数作为基函数：<br><img src="https://pic3.zhimg.com/80/be914c25f4886601caf2324b855b2b9f_hd.jpg" alt="a"></p><p>利用三角函数作为基函数，对其进行伸缩和平移，并与原函数进行相乘，实际相乘的步骤相当于求原函数与伸缩和平移后得到的某个尺度的相关性，这个尺度即为频率，相关性即表示为某个频率分量的大小。<br>量的大小。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;傅里叶变换把无限长的三角函数作为基函数：&lt;br&gt;&lt;img src=&quot;https://pic3.zhimg.com/80/be914c25f4886601caf2324b855b2b9f_hd.jpg&quot; alt=&quot;a&quot;&gt;&lt;/p&gt;
+&lt;p&gt;利用三角函数作为基函数，对其进行伸缩和平
+      
+    
+    </summary>
+    
+      <category term="other" scheme="https://yyb1995.github.io/categories/other/"/>
+    
+    
+      <category term="傅里叶变换" scheme="https://yyb1995.github.io/tags/%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python 迭代器(iterator) 生成器(generator)</title>
     <link href="https://yyb1995.github.io/2019/07/09/Python/Python%20%E8%BF%AD%E4%BB%A3%E5%99%A8(iterator)%20%E7%94%9F%E6%88%90%E5%99%A8(generator)/"/>
     <id>https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/</id>
@@ -494,31 +516,6 @@
     
     
       <category term="Python" scheme="https://yyb1995.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>C语言中数组名作为参数进行函数传递</title>
-    <link href="https://yyb1995.github.io/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/"/>
-    <id>https://yyb1995.github.io/2019/07/09/CProgrammingLanguage/C语言中数组名作为参数进行函数传递/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在普通变量或下标变量作函数参数时，形参变量和实参变量是由编译系统分配的两个不同的内存单元。在函数调用时发生的值传送是把实参变量的值赋予形参变量。在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编译系统不为形参数组分配内存。那么，数据的传送是如何实现的呢?在我们曾介绍过，数组名就是数组的首地址。<strong><em>因此在数组名作函数参数时所进行的传送只是地址的传送，也就是说把实参数组的首地址赋予形参数组名。</em></strong>形参数组名取得该首地址之后，也就等于有了实在的数组。实际上是形参数组和实参数组为同一数组，共同拥有一段内存空间。<strong><em>因此当形参数组发生变化时，实参数组也随之变化。</em></strong><br><img src="http://c.biancheng.net/cpp/uploads/allimg/120129/343dfgdgd645ccvnbm.gif?_=5778318" alt="图片1"><br>上图说明了这种情形。图中设a为实参数组，类型为整型。a占有以2000为首地址的一块内存区。b为形参数组名。当发生函数调用时，进行地址传送，把实参数组a的首地址传送给形参数组名b，于是b也取得该地址2000。于是a，b两数组共同占有以2000为首地址的一段连续内存单元。从图中还可以看出a和b下标相同的元素实际上也占相同的两个内存单元（整型数组每个元素占二字节）。例如a[0]和b[0]都占用2000和2001单元，当然a[0]等于b[0]。类推则有a[i]等于b[i]。<br>多维数组也可以作为函数的参数。在函数定义时对形参数组可以指定每一维的长度，也可省去第一维的长度。因此，以下写法都是合法的：<br><code>int MA(int a[3][10]);</code>或<code>int MA(int a[][10]);</code></p><p>下面给出两个将数组传递进函数的例子：<br>ex1:</p><pre><code class="c">//求5名学生的平均成绩#include &lt;stdio.h&gt;float aver(float a[5])  //此处函数的定义中数组的元素个数可以省略，由传入的数组决定{    int i;    float av,s=a[0];    for(i=1;i&lt;5;i++)        s=s+a[i];    av=s/5;    return av;}int main(void){    float sco[5],av;    int i;    printf(&quot;\ninput 5 scores:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%f&quot;,&amp;sco[i]);    av=aver(sco);  //此处将数组传递进函数时使用的是数组名称，没有括号    printf(&quot;average score is %5.2f&quot;,av);    return 0;}</code></pre><p>ex2:</p><pre><code class="c">//将数组中小于0的元素置成0#include &lt;stdio.h&gt;void nzp(int a[8]){    int i;    printf(&quot;\nvalues of array are:\n&quot;);    for(i=0;i&lt;8;i++)    {        if(a[i]&lt;0)            a[i]=0;        printf(&quot;%d &quot;,a[i]);    }}int main(void){    int b[5],i;    printf(&quot;\ninput 5 numbers:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%d&quot;,&amp;b[i]);    printf(&quot;initial values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    nzp(b);  //将有5个元素的数组传递进一个有8个元素的数组的函数，编译通过    printf(&quot;\nlast values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    return 0;}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;在普通变量或下标变量作函数参数时，形参变量和实参变量是由编译系统分配的两个不同的内存单元。在函数调用时发生的值传送是把实参变量的值赋予形参变量。在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编
-      
-    
-    </summary>
-    
-      <category term="C语言" scheme="https://yyb1995.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
-    
-    
-      <category term="编程语言" scheme="https://yyb1995.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   

@@ -218,6 +218,31 @@
     
     
     <entry>
+      <title>用Keras搭建第一个神经网络</title>
+      <link href="/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/"/>
+      <url>/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-Steps"><a href="#1-Steps" class="headerlink" title="1 Steps"></a>1 Steps</h2><ol><li>Load Data</li><li>Define Model</li><li>Compile Model</li><li>Fit Model</li><li>Evaluate Model</li><li>Tie It All Together</li></ol><h2 id="2-Load-Data"><a href="#2-Load-Data" class="headerlink" title="2 Load Data"></a>2 Load Data</h2><ol><li>Define a certain random number seed. By doing so, you can get the same result to compare it with other model.<br>Method:<pre><code class="python">import numpy as npnp.random.seed(7)</code></pre>We use <a href="https://yun.baidu.com/s/1c24tweW#list/path=%2F" target="_blank" rel="noopener">pima-indians-diabetes.csv</a> as our dataset. To load the .csv data, we use <code>np.loadtxt</code> and split it into input and output section. <h2 id="3-Define-Model"><a href="#3-Define-Model" class="headerlink" title="3 Define Model"></a>3 Define Model</h2>Models in Keras are defined as a sequence of layers.While defining the first layer, we can define the input number with the <strong>input_dim</strong> argument.<br>In this example, we will use a fully-connected network structure with three layers.<br>Fully connected layers are defined using the <strong>Dense class</strong>. We can specify:</li><li><strong>the number of neurons</strong> in the layer as the first argument</li><li>the initialization method as the second argument as <strong>init</strong> </li><li>specify the activation function using the <strong>activation</strong> argument.<h2 id="4-Build-the-Model"><a href="#4-Build-the-Model" class="headerlink" title="4 Build the Model"></a>4 Build the Model</h2>define a model class. In this problem, we use a sequential model. So we use a <code>model = keras.sequential()</code> to instantiate the class. And then use the <code>.add</code> method to add layers in the model.<br>We want to add a layer into our model, so we use <code>keras.layers.Dense()</code> to be the parameter of <code>add</code>. The activation function must be in the string form like <code>activation=&#39;relu&#39;</code>.</li></ol><h2 id="5-Compile-the-Model"><a href="#5-Compile-the-Model" class="headerlink" title="5 Compile the Model"></a>5 Compile the Model</h2><p>When compiling, we must specify some additional properties required when training the network.We must specify the <strong>loss function</strong> to use to evaluate a set of weights, <strong>the optimizer</strong> used to search through different weights for the network and <strong>any optional metrics we would like to collect and report</strong> during training.</p><h2 id="6-Fit-the-model"><a href="#6-Fit-the-model" class="headerlink" title="6 Fit the model"></a>6 Fit the model</h2><p>use <code>model.fit()</code> method to define fit parameters like epochs and batch_size.</p><h2 id="7-Evaluate-the-model"><a href="#7-Evaluate-the-model" class="headerlink" title="7 Evaluate the model"></a>7 Evaluate the model</h2><p>use <code>model.evaluate</code> and a set of X and Y to calculate the model performance.</p><h2 id="8-Prediction"><a href="#8-Prediction" class="headerlink" title="8 Prediction"></a>8 Prediction</h2><p>use <code>model.fit</code> and a set of X to predict the predicted Y value.</p><h2 id="9-Related-material"><a href="#9-Related-material" class="headerlink" title="9 Related material"></a>9 Related material</h2><ol><li><a href="https://machinelearningmastery.com/" target="_blank" rel="noopener">https://machinelearningmastery.com/</a></li><li><a href="https://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">Keras中文文档</a></li><li><a href="https://github.com/keras-team/keras/tree/master/examples" target="_blank" rel="noopener">Keras Example</a><br>s-team/keras/tree/master/examples)</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Keras </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linux系统使用过程中遇到的一些问题</title>
       <link href="/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
       <url>/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
@@ -268,23 +293,23 @@
     
     
     <entry>
-      <title>latex导言区常用设置</title>
-      <link href="/2019/07/09/LaTeX/Latex%E5%AF%BC%E8%A8%80%E5%8C%BA%E8%AE%BE%E7%BD%AE/"/>
-      <url>/2019/07/09/LaTeX/Latex%E5%AF%BC%E8%A8%80%E5%8C%BA%E8%AE%BE%E7%BD%AE/</url>
+      <title>最小二乘解与最小二乘估计</title>
+      <link href="/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
+      <url>/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/</url>
       
-        <content type="html"><![CDATA[<pre><code class="latex">% Article setting% Article type\documentclass[12]{article}% Page margin\usepackage{geometry}%\geometry{a4paper,scale=0.8}\geometry{a4paper,left=2cm,right=2cm%,top=2cm,%bottom=2cm, includefoot,heightrounded}% set title\title{}\author{}\date{}% import package\usepackage{amsmath, amsfonts, bm}% \numberwithin{equation}{section} % Equation numbering by section\numberwithin{equation}{subsection} % Equation numbering by subsection% \numberwithin{equation}{subsubsection}% Chinese support\usepackage{xeCJK}\usepackage{fontspec} \setCJKmainfont[AutoFakeBold]{SimSun}\setCJKmonofont{SimSun}\setmainfont{Times New Roman}\renewcommand\contentsname{目录}\renewcommand\refname{参考文献}\renewcommand{\figurename}{图}\renewcommand{\tablename}{表}% Indent\usepackage{indentfirst}\setlength{\parindent}{2em}% Python code\usepackage{listings}\usepackage{color}\definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\lstset{frame=tb,    language=Python,    aboveskip=3mm,    belowskip=3mm,    showstringspaces=false,    columns=flexible,    basicstyle={\small\ttfamily},    numbers=none,    numberstyle=\tiny\color{gray},    keywordstyle=\color{blue},    commentstyle=\color{dkgreen},    stringstyle=\color{mauve},    breaklines=true,    breakatwhitespace=true,    tabsize=3}% Import image\usepackage{graphicx}\usepackage{subcaption}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,          urlcolor=blue,    citecolor=blue,}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,    urlcolor=blue,    citecolor=blue,}```    citecolor=blue,}</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
       
       
       <categories>
           
-          <category> Latex </category>
+          <category> Machine Learning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Latex </tag>
+            <tag> 机器学习 </tag>
             
         </tags>
       
@@ -318,6 +343,31 @@
     
     
     <entry>
+      <title>C语言中数组名作为参数进行函数传递</title>
+      <link href="/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/"/>
+      <url>/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/</url>
+      
+        <content type="html"><![CDATA[<p>在普通变量或下标变量作函数参数时，形参变量和实参变量是由编译系统分配的两个不同的内存单元。在函数调用时发生的值传送是把实参变量的值赋予形参变量。在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编译系统不为形参数组分配内存。那么，数据的传送是如何实现的呢?在我们曾介绍过，数组名就是数组的首地址。<strong><em>因此在数组名作函数参数时所进行的传送只是地址的传送，也就是说把实参数组的首地址赋予形参数组名。</em></strong>形参数组名取得该首地址之后，也就等于有了实在的数组。实际上是形参数组和实参数组为同一数组，共同拥有一段内存空间。<strong><em>因此当形参数组发生变化时，实参数组也随之变化。</em></strong><br><img src="http://c.biancheng.net/cpp/uploads/allimg/120129/343dfgdgd645ccvnbm.gif?_=5778318" alt="图片1"><br>上图说明了这种情形。图中设a为实参数组，类型为整型。a占有以2000为首地址的一块内存区。b为形参数组名。当发生函数调用时，进行地址传送，把实参数组a的首地址传送给形参数组名b，于是b也取得该地址2000。于是a，b两数组共同占有以2000为首地址的一段连续内存单元。从图中还可以看出a和b下标相同的元素实际上也占相同的两个内存单元（整型数组每个元素占二字节）。例如a[0]和b[0]都占用2000和2001单元，当然a[0]等于b[0]。类推则有a[i]等于b[i]。<br>多维数组也可以作为函数的参数。在函数定义时对形参数组可以指定每一维的长度，也可省去第一维的长度。因此，以下写法都是合法的：<br><code>int MA(int a[3][10]);</code>或<code>int MA(int a[][10]);</code></p><p>下面给出两个将数组传递进函数的例子：<br>ex1:</p><pre><code class="c">//求5名学生的平均成绩#include &lt;stdio.h&gt;float aver(float a[5])  //此处函数的定义中数组的元素个数可以省略，由传入的数组决定{    int i;    float av,s=a[0];    for(i=1;i&lt;5;i++)        s=s+a[i];    av=s/5;    return av;}int main(void){    float sco[5],av;    int i;    printf(&quot;\ninput 5 scores:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%f&quot;,&amp;sco[i]);    av=aver(sco);  //此处将数组传递进函数时使用的是数组名称，没有括号    printf(&quot;average score is %5.2f&quot;,av);    return 0;}</code></pre><p>ex2:</p><pre><code class="c">//将数组中小于0的元素置成0#include &lt;stdio.h&gt;void nzp(int a[8]){    int i;    printf(&quot;\nvalues of array are:\n&quot;);    for(i=0;i&lt;8;i++)    {        if(a[i]&lt;0)            a[i]=0;        printf(&quot;%d &quot;,a[i]);    }}int main(void){    int b[5],i;    printf(&quot;\ninput 5 numbers:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%d&quot;,&amp;b[i]);    printf(&quot;initial values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    nzp(b);  //将有5个元素的数组传递进一个有8个元素的数组的函数，编译通过    printf(&quot;\nlast values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    return 0;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> C语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/2019/07/09/Matlab/MATLAB%20GUI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
       <url>/2019/07/09/Matlab/MATLAB%20GUI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/</url>
@@ -331,23 +381,23 @@
     
     
     <entry>
-      <title>最小二乘解与最小二乘估计</title>
-      <link href="/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
-      <url>/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/</url>
+      <title>颜色收集</title>
+      <link href="/2019/07/09/Others/%E5%B8%B8%E7%94%A8%E9%A2%9C%E8%89%B2%E6%94%B6%E9%9B%86/"/>
+      <url>/2019/07/09/Others/%E5%B8%B8%E7%94%A8%E9%A2%9C%E8%89%B2%E6%94%B6%E9%9B%86/</url>
       
-        <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
+        <content type="html"><![CDATA[<pre><code>#929292 grey#FFBBFF pink#BBFFBB green#BBFFFF blue#FFFFBB yellow#FF9999 red```9999 red</code></pre>]]></content>
       
       
       <categories>
           
-          <category> Machine Learning </category>
+          <category> Others </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 机器学习 </tag>
+            <tag> Color </tag>
             
         </tags>
       
@@ -381,111 +431,11 @@
     
     
     <entry>
-      <title>颜色收集</title>
-      <link href="/2019/07/09/Others/%E5%B8%B8%E7%94%A8%E9%A2%9C%E8%89%B2%E6%94%B6%E9%9B%86/"/>
-      <url>/2019/07/09/Others/%E5%B8%B8%E7%94%A8%E9%A2%9C%E8%89%B2%E6%94%B6%E9%9B%86/</url>
-      
-        <content type="html"><![CDATA[<pre><code>#929292 grey#FFBBFF pink#BBFFBB green#BBFFFF blue#FFFFBB yellow#FF9999 red```9999 red</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Others </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Color </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Python 迭代器(iterator) 生成器(generator)</title>
       <link href="/2019/07/09/Python/Python%20%E8%BF%AD%E4%BB%A3%E5%99%A8(iterator)%20%E7%94%9F%E6%88%90%E5%99%A8(generator)/"/>
       <url>/2019/07/09/Python/Python%20%E8%BF%AD%E4%BB%A3%E5%99%A8(iterator)%20%E7%94%9F%E6%88%90%E5%99%A8(generator)/</url>
       
         <content type="html"><![CDATA[<h2 id="可迭代对象-iterable"><a href="#可迭代对象-iterable" class="headerlink" title="可迭代对象(iterable)"></a>可迭代对象(iterable)</h2><ul><li><p>定义</p><p> iterable又称为可迭代对象。在Python中，如果一个对象（又称为container object）实现了<code>__iter__()</code>方法或者可以支持下标索引的<code>__getitem__()</code>方法，就称为一个可迭代对象。</p></li><li><p><code>__iter__()</code>方法</p><p> 调用一个可迭代对象的<code>__iter__()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。这个在下一章会提到。</p></li><li><p><code>iter()</code>方法</p><p> 调用一个可迭代对象的<code>iter()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。</p></li><li><p>判断方法<br>在Python中，我们常用到的集合数据类型都是iterable的。如列表(list)，元组(tuple)，字典(dict)，集合(set)，字符串(str)等。在程序中判断一个对象是否是iterable的方法为</p><pre><code class="python"># Method1: use isinstancefrom collections import Iterableisinstance([1, 2, 3], Iterable)# Method2: use for loopfor i in [1, 2, 3]:    print(i)</code></pre></li></ul><h2 id="迭代器-iterator"><a href="#迭代器-iterator" class="headerlink" title="迭代器(iterator)"></a>迭代器(iterator)</h2><ul><li><p>定义</p><p> 借用<a href="https://docs.python.org/dev/howto/functional.html#iterators" target="_blank" rel="noopener">Python文档</a>中对迭代器的定义，一个迭代器指的是一个包含着数据流的对象，它每次返回数据中的一个元素。一个可迭代对象本身也可以是迭代器，但是这样在迭代一次之后数据本身将无法使用，除非将迭代器重置。在Python中大部分迭代器和可迭代对象是分离的，这样就保证了能够重复产生迭代器。</p></li><li><p><code>__next__()</code>方法</p><p> 一个迭代器必须实现<code>__next__()</code>方法。在每次调用<strong>迭代器</strong>（注意，不是可迭代对象）的<code>__next__()</code>方法时顺序返回数据的一个元素。当遍历完数据后抛出<code>StopIteration</code>异常，表示迭代完成。这时迭代器也就完成了它的使命。</p></li><li><p><code>__iter__()</code>方法</p><p> 调用一个迭代器的<code>__iter__()</code>方法会返回迭代器对象本身，注意每次调用产生一个新的迭代器对象。</p></li><li><p><code>next()</code>方法</p><p> 在<code>next()</code>内传入一个迭代器，可以得到迭代器的下一个值。</p></li></ul><h2 id="生成器-generator"><a href="#生成器-generator" class="headerlink" title="生成器(generator)"></a>生成器(generator)</h2><ul><li><p>定义</p><p> 生成器可以看成是迭代器的简化版。生成器只需要定义一个函数，并将普通函数的<code>return</code>改为<code>yield</code>即可。</p></li></ul><ul><li><p>使用<br> 在使用生成器时，可以像一个普通的迭代器一样，使用<code>for in</code>或者<code>next()</code>方法获取其中的值。</p><pre><code class="python"> # Define a generator def range_like(n):     i = 0     while i &lt; n:         yield i         i += 1 # Create a generator object a = range_like(5) a.__next__() for i in range_like(n):     print(i)</code></pre></li></ul><h2 id="迭代器、生成器的关系"><a href="#迭代器、生成器的关系" class="headerlink" title="迭代器、生成器的关系"></a>迭代器、生成器的关系</h2><p>迭代器、生成器、可迭代对象的关系可用下图表示<br><img src="https://i.loli.net/2017/05/06/590d99e937114.png" alt></p><h2 id="for语句的执行顺序"><a href="#for语句的执行顺序" class="headerlink" title="for语句的执行顺序"></a>for语句的执行顺序</h2><p>在对一个iterable对象使用<code>for</code>语句时，实际上先调用了<code>iter()</code>方法返回一个iterator，然后再依次调用<code>__next__()</code>方法获得每一个值。当抛出<code>StopIteration</code>异常时意味着<code>for</code>语句的结束。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><p><a href="https://stackoverflow.com/questions/9884132/what-exactly-are-iterator-iterable-and-iteration" target="_blank" rel="noopener">What exactly are iterator, iterable and iteration</a></p></li><li><p><a href="https://docs.python.org/3/tutorial/classes.html#iterators" target="_blank" rel="noopener">9.8. Iterators</a></p></li><li><p><a href="https://www.jianshu.com/p/24876cf14a5c" target="_blank" rel="noopener">彻底理解Iterable, Iterator, generator</a></p></li><li><p><a href="https://blog.csdn.net/dawningblue/article/details/72629362" target="_blank" rel="noopener">Python中iteration(迭代)、iterator(迭代器)、generator(生成器)等相关概念的理解</a></p></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>C语言中数组名作为参数进行函数传递</title>
-      <link href="/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/"/>
-      <url>/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/</url>
-      
-        <content type="html"><![CDATA[<p>在普通变量或下标变量作函数参数时，形参变量和实参变量是由编译系统分配的两个不同的内存单元。在函数调用时发生的值传送是把实参变量的值赋予形参变量。在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编译系统不为形参数组分配内存。那么，数据的传送是如何实现的呢?在我们曾介绍过，数组名就是数组的首地址。<strong><em>因此在数组名作函数参数时所进行的传送只是地址的传送，也就是说把实参数组的首地址赋予形参数组名。</em></strong>形参数组名取得该首地址之后，也就等于有了实在的数组。实际上是形参数组和实参数组为同一数组，共同拥有一段内存空间。<strong><em>因此当形参数组发生变化时，实参数组也随之变化。</em></strong><br><img src="http://c.biancheng.net/cpp/uploads/allimg/120129/343dfgdgd645ccvnbm.gif?_=5778318" alt="图片1"><br>上图说明了这种情形。图中设a为实参数组，类型为整型。a占有以2000为首地址的一块内存区。b为形参数组名。当发生函数调用时，进行地址传送，把实参数组a的首地址传送给形参数组名b，于是b也取得该地址2000。于是a，b两数组共同占有以2000为首地址的一段连续内存单元。从图中还可以看出a和b下标相同的元素实际上也占相同的两个内存单元（整型数组每个元素占二字节）。例如a[0]和b[0]都占用2000和2001单元，当然a[0]等于b[0]。类推则有a[i]等于b[i]。<br>多维数组也可以作为函数的参数。在函数定义时对形参数组可以指定每一维的长度，也可省去第一维的长度。因此，以下写法都是合法的：<br><code>int MA(int a[3][10]);</code>或<code>int MA(int a[][10]);</code></p><p>下面给出两个将数组传递进函数的例子：<br>ex1:</p><pre><code class="c">//求5名学生的平均成绩#include &lt;stdio.h&gt;float aver(float a[5])  //此处函数的定义中数组的元素个数可以省略，由传入的数组决定{    int i;    float av,s=a[0];    for(i=1;i&lt;5;i++)        s=s+a[i];    av=s/5;    return av;}int main(void){    float sco[5],av;    int i;    printf(&quot;\ninput 5 scores:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%f&quot;,&amp;sco[i]);    av=aver(sco);  //此处将数组传递进函数时使用的是数组名称，没有括号    printf(&quot;average score is %5.2f&quot;,av);    return 0;}</code></pre><p>ex2:</p><pre><code class="c">//将数组中小于0的元素置成0#include &lt;stdio.h&gt;void nzp(int a[8]){    int i;    printf(&quot;\nvalues of array are:\n&quot;);    for(i=0;i&lt;8;i++)    {        if(a[i]&lt;0)            a[i]=0;        printf(&quot;%d &quot;,a[i]);    }}int main(void){    int b[5],i;    printf(&quot;\ninput 5 numbers:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%d&quot;,&amp;b[i]);    printf(&quot;initial values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    nzp(b);  //将有5个元素的数组传递进一个有8个元素的数组的函数，编译通过    printf(&quot;\nlast values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    return 0;}</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> C语言 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 编程语言 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>谈谈深度学习中的 Batch_Size</title>
-      <link href="/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/"/>
-      <url>/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>本文转载自:<a href="http://blog.csdn.net/ycheng_sjtu/article/details/49804041#reply" target="_blank" rel="noopener">谈谈深度学习中的 Batch_Size</a></p></blockquote><p>Batch_Size（批尺寸）是机器学习中一个重要参数，涉及诸多矛盾，下面逐一展开。</p><h2 id="首先，为什么需要有-Batch-Size-这个参数？"><a href="#首先，为什么需要有-Batch-Size-这个参数？" class="headerlink" title="首先，为什么需要有 Batch_Size 这个参数？"></a>首先，为什么需要有 Batch_Size 这个参数？</h2><p>Batch 的选择，首先决定的是下降的方向。如果数据集比较小，完全可以采用<strong>全数据集 （ Full Batch Learning ）</strong>的形式，这样做<strong>至少</strong>有 2 个好处：其一，由全数据集确定的方向能够更好地代表样本总体，从而更准确地朝向极值所在的方向。其二，由于不同权重的梯度值差别巨大，因此选取一个全局的学习率很困难。 Full Batch Learning 可以使用 <strong>Rprop</strong> 只基于梯度符号并且针对性单独更新各权值。</p><p>对于更大的数据集，以上 2 个好处又变成了 2 个坏处：其一，随着数据集的海量增长和内存限制，一次性载入所有的数据进来变得越来越不可行。其二，以 Rprop 的方式迭代，会由于各个 Batch 之间的采样差异性，各次梯度修正值相互抵消，无法修正。这才有了后来 <strong>RMSProp</strong> 的妥协方案。</p><h2 id="既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？"><a href="#既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？" class="headerlink" title="既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？"></a>既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？</h2><p>所谓另一个极端，就是每次只训练一个样本，即 Batch_Size = 1。这就是<strong>在线学习（Online Learning）</strong>。线性神经元在均方误差代价函数的错误面是一个抛物面，横截面是椭圆。对于多层神经元、非线性网络，在局部依然近似是抛物面。使用在线学习，每次修正方向以各自样本的梯度方向修正，横冲直撞各自为政，<strong>难以达到收敛</strong>。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195814221" alt="这里写图片描述"> </p><h2 id="可不可以选择一个适中的-Batch-Size-值呢？"><a href="#可不可以选择一个适中的-Batch-Size-值呢？" class="headerlink" title="可不可以选择一个适中的 Batch_Size 值呢？"></a>可不可以选择一个适中的 Batch_Size 值呢？</h2><p>当然可以，这就是<strong>批梯度下降法（Mini-batches Learning）</strong>。因为如果数据集足够充分，那么用一半（<strong>甚至少得多</strong>）的数据训练算出来的梯度与用全部数据训练出来的梯度是<strong>几乎一样</strong>的。</p><h2 id="在合理范围内，增大-Batch-Size-有何好处？"><a href="#在合理范围内，增大-Batch-Size-有何好处？" class="headerlink" title="在合理范围内，增大 Batch_Size 有何好处？"></a>在合理范围内，增大 Batch_Size 有何好处？</h2><ul><li>内存利用率提高了，大矩阵乘法的并行化效率提高。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。</li><li>在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。</li></ul><h2 id="盲目增大-Batch-Size-有何坏处？"><a href="#盲目增大-Batch-Size-有何坏处？" class="headerlink" title="盲目增大 Batch_Size 有何坏处？"></a>盲目增大 Batch_Size 有何坏处？</h2><ul><li>内存利用率提高了，但是内存容量可能撑不住了。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。</li><li>Batch_Size 增大到一定程度，其确定的下降方向已经基本不再变化。</li></ul><h2 id="调节-Batch-Size-对训练效果影响到底如何？"><a href="#调节-Batch-Size-对训练效果影响到底如何？" class="headerlink" title="调节 Batch_Size 对训练效果影响到底如何？"></a>调节 Batch_Size 对训练效果影响到底如何？</h2><p>这里跑一个 LeNet 在 MNIST 数据集上的效果。MNIST 是一个手写体标准库，我使用的是 <strong>Theano</strong> 框架。这是一个 Python 的深度学习库。<a href="http://deeplearning.net/software/theano/install.html#install" target="_blank" rel="noopener">安装方便</a>（几行命令而已），调试简单（自带 Profile），GPU / CPU 通吃，<a href="http://deeplearning.net/tutorial/contents.html" target="_blank" rel="noopener">官方教程相当完备</a>，支持模块十分丰富（除了 CNNs，更是支持 RBM / DBN / LSTM / RBM-RNN / SdA / MLPs）。在其上层有 <a href="http://keras.io/" target="_blank" rel="noopener">Keras</a> 封装，支持 GRU / JZS1, JZS2, JZS3 等较新结构，支持 Adagrad / Adadelta / RMSprop / Adam 等优化算法。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195829489" alt="这里写图片描述"></p><p><img src="http://img.blog.csdn.net/20151112195843957" alt="这里写图片描述"> </p><p>运行结果如上图所示，其中绝对时间做了标幺化处理。运行结果与上文分析相印证：</p><ul><li>Batch_Size 太小，算法在 200 epoches 内不收敛。</li><li>随着 Batch_Size 增大，处理相同数据量的速度越快。</li><li>随着 Batch_Size 增大，达到相同精度所需要的 epoch 数量越来越多。</li><li>由于上述两种因素的矛盾， Batch_Size 增大到<strong>某个</strong>时候，达到<strong>时间上</strong>的最优。</li><li>由于最终收敛精度会陷入不同的局部极值，因此 Batch_Size 增大到<strong>某些</strong>时候，达到最终收敛<strong>精度上</strong>的最优。</li></ul><h2 id="关于batchsize和epoch的理解"><a href="#关于batchsize和epoch的理解" class="headerlink" title="关于batchsize和epoch的理解"></a>关于batchsize和epoch的理解</h2><p>batchsize指的是使超参数发生一次迭代输入的样本数，也就是完成一次反向传播、求导、参数更新过程所需要输入的样本数。epoch指完成将所有训练数据全部应用于参数更新的过程。在样本数据比较小时，batchsize可以取为训练样本数，这样完成一次epoch只需进行一次梯度下降和参数更新。将全部输入数据作为一个batch进行训练的方法称为<strong>批梯度下降法（Batch Gradient Descend）</strong>。与之相对应的是<strong>随机梯度下降法（Stochastic Gradient Descent）</strong>。这种梯度下降法每次只选取一个样本进行参数更新，因此完成一次epoch需要进行size(X)次迭代。这种方法梯度下降的方向一般不是最优的。将这两种方法折中的一种方法称为<strong>小批量梯度下降法（Mini-batch Gradient Descent）</strong>。这种方法每次将<strong>batchsize</strong>的数据用来训练网络，完成一次迭代。那么完成一次epoch需要进行的迭代次数为<code>np.ceil(size(x) / batchsize)</code>。在实际使用时，可以在一定范围内尽可能增大batchsize的值。当然，如果增大batch值，达到相同精度的epoch数会越来越多，因此需要在精度和运算速度这两方面来考虑选取的batchsize。方面来考虑选取的batchsize。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Deep Learning </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 深度学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Google Python Style Guide</title>
-      <link href="/2019/07/09/Python/simpread-styleguide%20_%20Style%20guides%20for%20Google-originated%20open-source%20projects/"/>
-      <url>/2019/07/09/Python/simpread-styleguide%20_%20Style%20guides%20for%20Google-originated%20open-source%20projects/</url>
-      
-        <content type="html"><![CDATA[<p><a href="http://google.github.io/styleguide/" target="_blank" rel="noopener">Google Python styleguide</a></p>]]></content>
       
       
       <categories>
@@ -531,23 +481,73 @@
     
     
     <entry>
-      <title>argparse</title>
-      <link href="/2019/07/09/PythonPackages/argparse/"/>
-      <url>/2019/07/09/PythonPackages/argparse/</url>
+      <title>Google Python Style Guide</title>
+      <link href="/2019/07/09/Python/simpread-styleguide%20_%20Style%20guides%20for%20Google-originated%20open-source%20projects/"/>
+      <url>/2019/07/09/Python/simpread-styleguide%20_%20Style%20guides%20for%20Google-originated%20open-source%20projects/</url>
       
-        <content type="html"><![CDATA[<p>argparse模块用于在运行python程序时加入命令行参数。其基本用法是：</p><ol><li><p>创建一个parser</p><p><code>parser = argparse.ArgumentParser()</code></p></li><li><p>添加一个命令行参数<br><code>parser.add_argument(&#39;-data&#39;, help=&#39;func_help&#39; required=True, type=int, choices=[1, 2, 3], nargs=&#39;?)</code><br>其中，nargs表示需要参数的个数，’?’表示0或1，’*’表示任意，’+’表示1或多</p></li><li><p>获取传入的参数变量</p><pre><code class="python">opt = parser.parse_args()data = opt.data</code></pre></li></ol><p><a href="https://blog.csdn.net/lis_12/article/details/54618868#%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0%E9%80%89%E9%A1%B9-addargument" target="_blank" rel="noopener">Reference</a></p>]]></content>
+        <content type="html"><![CDATA[<p><a href="http://google.github.io/styleguide/" target="_blank" rel="noopener">Google Python styleguide</a></p>]]></content>
       
       
       <categories>
           
-          <category> Python Packages </category>
+          <category> Python </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> argparse Python </tag>
+            <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>正则表达式学习和查询网站</title>
+      <link href="/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99/"/>
+      <url>/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99/</url>
+      
+        <content type="html"><![CDATA[<h2 id="正则表达式学习和查询网站"><a href="#正则表达式学习和查询网站" class="headerlink" title="正则表达式学习和查询网站"></a>正则表达式学习和查询网站</h2><ol><li><a href="https://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">正则表达式30分钟入门教程</a></li><li><a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" target="_blank" rel="noopener">正则表达式手册</a></li><li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference" target="_blank" rel="noopener">正则表达式快速参考</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Regex </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 正则表达式 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>正则表达式一些知识点</title>
+      <link href="/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <url>/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-括号的区别"><a href="#1-括号的区别" class="headerlink" title="1 括号的区别"></a>1 括号的区别</h2><ul><li><p>小括号()：匹配小括号内的字符串，可以是一个，也可以是多个，常跟“|”（或）符号搭配使用，是多选结构的。<strong>通俗的说小括号匹配的是具体的字符</strong><br>示例1：string name = “way2014”;  regex：(way|zgw)  result：结果是可以匹配出way的，因为是多选结构，小括号是匹配字符串的<br>示例2：string text = “123456789”;  regex：(0-9)　result：结果是什么都匹配不到的，它只匹配字符串”0-9”而不是匹配数字, [0-9]这个字符组才是匹配0-9的数字</p></li><li><p>中括号[]：匹配字符组内的字符，比如咱们常用的[0-9a-zA-Z.*?!]等，在[]内的字符都是字符，不是元字符，比如“0-9”、“a-z”这中间的“-”就是连接符号，表示范围的元字符，如果写成[-!?*(]这样的话，就是普通字符。<strong>通俗的说中括号匹配的是元字符</strong><br>示例1： string text = “1234567890”;  regex：[0-9]  result：结果是可以匹配出字符串text内的任意数字了，像上边的【或符号“|”在字符组内就是一个普通字符】<br>示例2：string text = “a|e|s|v”;  regex：[a|e|s]  result：结果就是匹配字符a、e、|三个字符，这个跟(a|e|s)有区别的，区别就是(a|e|s)匹配的是a、e、s三个字符的随意一个，三个中的任意一个，这是的|是元字符</p></li><li><p>大括号{}：匹配次数，匹配在它之前表达式匹配出来的元素出现的次数，{n}出现n次、{n,}匹配最少出现n次、{n,m}匹配最少出现n次，最多出现m次</p></li></ul><h2 id="2-替换一部分内容"><a href="#2-替换一部分内容" class="headerlink" title="2 替换一部分内容"></a>2 替换一部分内容</h2><p>在替换正则表达式内容时，有时需要保持一部分内容不变。具体做法是：将需要保留的部分用小括号括起来，在修改后的表达式中使用<code>$1</code>,<code>$2</code>…引用。<code>$0</code>表示整个匹配项。如：<br>把trim(ABC)替换成trim(replace(ABC,char(9),’    ‘)，正则表达式为：<br><code>trim\(([^).]*)\)</code>替换成<code>trim\(replace\($1,char\(9\),&#39;    &#39;\)</code><br>place($1,char(9),’    ‘)`</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Regex </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 正则表达式 </tag>
             
         </tags>
       
@@ -631,11 +631,11 @@
     
     
     <entry>
-      <title>pandas</title>
-      <link href="/2019/07/09/PythonPackages/pandas/"/>
-      <url>/2019/07/09/PythonPackages/pandas/</url>
+      <title>argparse</title>
+      <link href="/2019/07/09/PythonPackages/argparse/"/>
+      <url>/2019/07/09/PythonPackages/argparse/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-对于时间的处理"><a href="#1-对于时间的处理" class="headerlink" title="1 对于时间的处理"></a>1 对于时间的处理</h2><p>python中datetime模块非常好用，提供了日期格式和字符串格式相互转化的函数strftime/strptime</p><p>1、由日期格式转化为字符串格式的函数为: <code>datetime.datetime.strftime()</code></p><p>2、由字符串格式转化为日期格式的函数为: <code>datetime.datetime.strptime()</code></p><p>3、两个函数都涉及日期时间的格式化字符串，列举如下：</p><pre><code>%a 星期几的简写;如 星期三为Web %A 星期几的全称;如 星期三为Wednesday %b 月份的简写; 如4月份为Apr %B 月份的全称; 如4月份为April %c 标准的日期的时间串;（如： 04/07/10 10:43:39） %C 年份的后两位数字 %d 十进制表示的每月的第几天 %D 月/天/年 %e 在两字符域中，十进制表示的每月的第几天 %F 年-月-日 %g 年份的后两位数字，使用基于周的年 %G 年分，使用基于周的年 %h 简写的月份名 %H 24小时制的小时 %I 12小时制的小时 %j 十进制表示的每年的第几天 %m 十进制表示的月份 %M 十时制表示的分钟数 %n 新行符 %p 本地的AM或PM的等价显示 %r 12小时的时间 %R 显示小时和分钟：hh:mm %S 十进制的秒数 %t 水平制表符 %T 显示时分秒：hh:mm:ss %u 每周的第几天，星期一为第一天 （值从0到6，星期一为0） %U 第年的第几周，把星期日做为第一天（值从0到53） %V 每年的第几周，使用基于周的年 %w 十进制表示的星期几（值从0到6，星期天为0） %W 每年的第几周，把星期一做为第一天（值从0到53） %x 标准的日期串 %X 标准的时间串 %y 不带世纪的十进制年份（值从0到99） %Y 带世纪部分的十制年份 %z，%Z 时区名称，如果不能得到时区名称则返回空字符。 %% 百分号</code></pre><h2 id="2-入门及基本操作"><a href="#2-入门及基本操作" class="headerlink" title="2 入门及基本操作"></a>2 入门及基本操作</h2><ol><li><p>查看数据的头5行/后5行</p><pre><code>df.head()`df.tail()</code></pre></li><li><p>查看数据索引，数据的列名，数据的值</p><pre><code>df.indexdf.columnsdf.values</code></pre></li><li><p>对坐标轴进行排序<br><code>df.sort_index(axis=1, ascending=False)</code><br>注意：axis=1是以列名作为索引，也就是columns；axis=0是以行名作为索引，也就是index</p></li><li><p>对值进行排序<br><code>df.sort_values(by=&#39;B&#39;)</code></p></li><li><p>数据切片操作<br>df.loc  按照行、列名选取<br>df.iloc 按照行、列号选取<br>df.ix iloc和loc的结合</p></li></ol><pre><code>df.loc[&#39;20010101&#39;]  #选取行df.loc[:, [&#39;A&#39;]]  #选取列df.iloc[0]df.iloc[:, [0]]</code></pre><p><strong>注意</strong>:使用loc进行切片时，括号左右两边的值都包含，如<code>df.loc[&#39;A&#39;:&#39;B&#39;]</code>取出的行包括index为A和B的行。使用iloc进行切片时，括号右边的值不包含，如<code>df.iloc[:2]</code>取出的行为序号为0和1的行</p><ol start="6"><li><p>对残缺数据处理</p><pre><code>df.dropna()df.fillna()</code></pre><p>inplace参数：在原dataframe中进行修改</p></li><li><p>数据的读取：<br>读取txt文件：<br><code>df = pd.read_table(&#39;./data/bili.txt&#39;, sep=&#39;,&#39;)</code><br>查看各列类型：df.info()<br>调整列顺序：<br><code>df = df[[&#39;a&#39;, &#39;c&#39;, &#39;b&#39;]]</code><br>删除一列：<br><code>df.drop(axis=1, inplace=True)</code><br>查找某行某列的值</p><pre><code># df.loc[conditions, column name] = newvaluedf_full.loc[(df_full[&#39;date&#39;] == date_temp) &amp; (df_full[&#39;time&#39;] == time_temp), &#39;reqnum&#39;] = reqnum_temp`</code></pre></li></ol><pre><code></code></pre>]]></content>
+        <content type="html"><![CDATA[<p>argparse模块用于在运行python程序时加入命令行参数。其基本用法是：</p><ol><li><p>创建一个parser</p><p><code>parser = argparse.ArgumentParser()</code></p></li><li><p>添加一个命令行参数<br><code>parser.add_argument(&#39;-data&#39;, help=&#39;func_help&#39; required=True, type=int, choices=[1, 2, 3], nargs=&#39;?)</code><br>其中，nargs表示需要参数的个数，’?’表示0或1，’*’表示任意，’+’表示1或多</p></li><li><p>获取传入的参数变量</p><pre><code class="python">opt = parser.parse_args()data = opt.data</code></pre></li></ol><p><a href="https://blog.csdn.net/lis_12/article/details/54618868#%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0%E9%80%89%E9%A1%B9-addargument" target="_blank" rel="noopener">Reference</a></p>]]></content>
       
       
       <categories>
@@ -647,7 +647,7 @@
       
         <tags>
             
-            <tag> pandas </tag>
+            <tag> argparse Python </tag>
             
         </tags>
       
@@ -698,6 +698,56 @@
         <tags>
             
             <tag> 编程语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>谈谈深度学习中的 Batch_Size</title>
+      <link href="/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/"/>
+      <url>/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>本文转载自:<a href="http://blog.csdn.net/ycheng_sjtu/article/details/49804041#reply" target="_blank" rel="noopener">谈谈深度学习中的 Batch_Size</a></p></blockquote><p>Batch_Size（批尺寸）是机器学习中一个重要参数，涉及诸多矛盾，下面逐一展开。</p><h2 id="首先，为什么需要有-Batch-Size-这个参数？"><a href="#首先，为什么需要有-Batch-Size-这个参数？" class="headerlink" title="首先，为什么需要有 Batch_Size 这个参数？"></a>首先，为什么需要有 Batch_Size 这个参数？</h2><p>Batch 的选择，首先决定的是下降的方向。如果数据集比较小，完全可以采用<strong>全数据集 （ Full Batch Learning ）</strong>的形式，这样做<strong>至少</strong>有 2 个好处：其一，由全数据集确定的方向能够更好地代表样本总体，从而更准确地朝向极值所在的方向。其二，由于不同权重的梯度值差别巨大，因此选取一个全局的学习率很困难。 Full Batch Learning 可以使用 <strong>Rprop</strong> 只基于梯度符号并且针对性单独更新各权值。</p><p>对于更大的数据集，以上 2 个好处又变成了 2 个坏处：其一，随着数据集的海量增长和内存限制，一次性载入所有的数据进来变得越来越不可行。其二，以 Rprop 的方式迭代，会由于各个 Batch 之间的采样差异性，各次梯度修正值相互抵消，无法修正。这才有了后来 <strong>RMSProp</strong> 的妥协方案。</p><h2 id="既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？"><a href="#既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？" class="headerlink" title="既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？"></a>既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？</h2><p>所谓另一个极端，就是每次只训练一个样本，即 Batch_Size = 1。这就是<strong>在线学习（Online Learning）</strong>。线性神经元在均方误差代价函数的错误面是一个抛物面，横截面是椭圆。对于多层神经元、非线性网络，在局部依然近似是抛物面。使用在线学习，每次修正方向以各自样本的梯度方向修正，横冲直撞各自为政，<strong>难以达到收敛</strong>。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195814221" alt="这里写图片描述"> </p><h2 id="可不可以选择一个适中的-Batch-Size-值呢？"><a href="#可不可以选择一个适中的-Batch-Size-值呢？" class="headerlink" title="可不可以选择一个适中的 Batch_Size 值呢？"></a>可不可以选择一个适中的 Batch_Size 值呢？</h2><p>当然可以，这就是<strong>批梯度下降法（Mini-batches Learning）</strong>。因为如果数据集足够充分，那么用一半（<strong>甚至少得多</strong>）的数据训练算出来的梯度与用全部数据训练出来的梯度是<strong>几乎一样</strong>的。</p><h2 id="在合理范围内，增大-Batch-Size-有何好处？"><a href="#在合理范围内，增大-Batch-Size-有何好处？" class="headerlink" title="在合理范围内，增大 Batch_Size 有何好处？"></a>在合理范围内，增大 Batch_Size 有何好处？</h2><ul><li>内存利用率提高了，大矩阵乘法的并行化效率提高。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。</li><li>在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。</li></ul><h2 id="盲目增大-Batch-Size-有何坏处？"><a href="#盲目增大-Batch-Size-有何坏处？" class="headerlink" title="盲目增大 Batch_Size 有何坏处？"></a>盲目增大 Batch_Size 有何坏处？</h2><ul><li>内存利用率提高了，但是内存容量可能撑不住了。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。</li><li>Batch_Size 增大到一定程度，其确定的下降方向已经基本不再变化。</li></ul><h2 id="调节-Batch-Size-对训练效果影响到底如何？"><a href="#调节-Batch-Size-对训练效果影响到底如何？" class="headerlink" title="调节 Batch_Size 对训练效果影响到底如何？"></a>调节 Batch_Size 对训练效果影响到底如何？</h2><p>这里跑一个 LeNet 在 MNIST 数据集上的效果。MNIST 是一个手写体标准库，我使用的是 <strong>Theano</strong> 框架。这是一个 Python 的深度学习库。<a href="http://deeplearning.net/software/theano/install.html#install" target="_blank" rel="noopener">安装方便</a>（几行命令而已），调试简单（自带 Profile），GPU / CPU 通吃，<a href="http://deeplearning.net/tutorial/contents.html" target="_blank" rel="noopener">官方教程相当完备</a>，支持模块十分丰富（除了 CNNs，更是支持 RBM / DBN / LSTM / RBM-RNN / SdA / MLPs）。在其上层有 <a href="http://keras.io/" target="_blank" rel="noopener">Keras</a> 封装，支持 GRU / JZS1, JZS2, JZS3 等较新结构，支持 Adagrad / Adadelta / RMSprop / Adam 等优化算法。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195829489" alt="这里写图片描述"></p><p><img src="http://img.blog.csdn.net/20151112195843957" alt="这里写图片描述"> </p><p>运行结果如上图所示，其中绝对时间做了标幺化处理。运行结果与上文分析相印证：</p><ul><li>Batch_Size 太小，算法在 200 epoches 内不收敛。</li><li>随着 Batch_Size 增大，处理相同数据量的速度越快。</li><li>随着 Batch_Size 增大，达到相同精度所需要的 epoch 数量越来越多。</li><li>由于上述两种因素的矛盾， Batch_Size 增大到<strong>某个</strong>时候，达到<strong>时间上</strong>的最优。</li><li>由于最终收敛精度会陷入不同的局部极值，因此 Batch_Size 增大到<strong>某些</strong>时候，达到最终收敛<strong>精度上</strong>的最优。</li></ul><h2 id="关于batchsize和epoch的理解"><a href="#关于batchsize和epoch的理解" class="headerlink" title="关于batchsize和epoch的理解"></a>关于batchsize和epoch的理解</h2><p>batchsize指的是使超参数发生一次迭代输入的样本数，也就是完成一次反向传播、求导、参数更新过程所需要输入的样本数。epoch指完成将所有训练数据全部应用于参数更新的过程。在样本数据比较小时，batchsize可以取为训练样本数，这样完成一次epoch只需进行一次梯度下降和参数更新。将全部输入数据作为一个batch进行训练的方法称为<strong>批梯度下降法（Batch Gradient Descend）</strong>。与之相对应的是<strong>随机梯度下降法（Stochastic Gradient Descent）</strong>。这种梯度下降法每次只选取一个样本进行参数更新，因此完成一次epoch需要进行size(X)次迭代。这种方法梯度下降的方向一般不是最优的。将这两种方法折中的一种方法称为<strong>小批量梯度下降法（Mini-batch Gradient Descent）</strong>。这种方法每次将<strong>batchsize</strong>的数据用来训练网络，完成一次迭代。那么完成一次epoch需要进行的迭代次数为<code>np.ceil(size(x) / batchsize)</code>。在实际使用时，可以在一定范围内尽可能增大batchsize的值。当然，如果增大batch值，达到相同精度的epoch数会越来越多，因此需要在精度和运算速度这两方面来考虑选取的batchsize。方面来考虑选取的batchsize。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Deep Learning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pandas</title>
+      <link href="/2019/07/09/PythonPackages/pandas/"/>
+      <url>/2019/07/09/PythonPackages/pandas/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-对于时间的处理"><a href="#1-对于时间的处理" class="headerlink" title="1 对于时间的处理"></a>1 对于时间的处理</h2><p>python中datetime模块非常好用，提供了日期格式和字符串格式相互转化的函数strftime/strptime</p><p>1、由日期格式转化为字符串格式的函数为: <code>datetime.datetime.strftime()</code></p><p>2、由字符串格式转化为日期格式的函数为: <code>datetime.datetime.strptime()</code></p><p>3、两个函数都涉及日期时间的格式化字符串，列举如下：</p><pre><code>%a 星期几的简写;如 星期三为Web %A 星期几的全称;如 星期三为Wednesday %b 月份的简写; 如4月份为Apr %B 月份的全称; 如4月份为April %c 标准的日期的时间串;（如： 04/07/10 10:43:39） %C 年份的后两位数字 %d 十进制表示的每月的第几天 %D 月/天/年 %e 在两字符域中，十进制表示的每月的第几天 %F 年-月-日 %g 年份的后两位数字，使用基于周的年 %G 年分，使用基于周的年 %h 简写的月份名 %H 24小时制的小时 %I 12小时制的小时 %j 十进制表示的每年的第几天 %m 十进制表示的月份 %M 十时制表示的分钟数 %n 新行符 %p 本地的AM或PM的等价显示 %r 12小时的时间 %R 显示小时和分钟：hh:mm %S 十进制的秒数 %t 水平制表符 %T 显示时分秒：hh:mm:ss %u 每周的第几天，星期一为第一天 （值从0到6，星期一为0） %U 第年的第几周，把星期日做为第一天（值从0到53） %V 每年的第几周，使用基于周的年 %w 十进制表示的星期几（值从0到6，星期天为0） %W 每年的第几周，把星期一做为第一天（值从0到53） %x 标准的日期串 %X 标准的时间串 %y 不带世纪的十进制年份（值从0到99） %Y 带世纪部分的十制年份 %z，%Z 时区名称，如果不能得到时区名称则返回空字符。 %% 百分号</code></pre><h2 id="2-入门及基本操作"><a href="#2-入门及基本操作" class="headerlink" title="2 入门及基本操作"></a>2 入门及基本操作</h2><ol><li><p>查看数据的头5行/后5行</p><pre><code>df.head()`df.tail()</code></pre></li><li><p>查看数据索引，数据的列名，数据的值</p><pre><code>df.indexdf.columnsdf.values</code></pre></li><li><p>对坐标轴进行排序<br><code>df.sort_index(axis=1, ascending=False)</code><br>注意：axis=1是以列名作为索引，也就是columns；axis=0是以行名作为索引，也就是index</p></li><li><p>对值进行排序<br><code>df.sort_values(by=&#39;B&#39;)</code></p></li><li><p>数据切片操作<br>df.loc  按照行、列名选取<br>df.iloc 按照行、列号选取<br>df.ix iloc和loc的结合</p></li></ol><pre><code>df.loc[&#39;20010101&#39;]  #选取行df.loc[:, [&#39;A&#39;]]  #选取列df.iloc[0]df.iloc[:, [0]]</code></pre><p><strong>注意</strong>:使用loc进行切片时，括号左右两边的值都包含，如<code>df.loc[&#39;A&#39;:&#39;B&#39;]</code>取出的行包括index为A和B的行。使用iloc进行切片时，括号右边的值不包含，如<code>df.iloc[:2]</code>取出的行为序号为0和1的行</p><ol start="6"><li><p>对残缺数据处理</p><pre><code>df.dropna()df.fillna()</code></pre><p>inplace参数：在原dataframe中进行修改</p></li><li><p>数据的读取：<br>读取txt文件：<br><code>df = pd.read_table(&#39;./data/bili.txt&#39;, sep=&#39;,&#39;)</code><br>查看各列类型：df.info()<br>调整列顺序：<br><code>df = df[[&#39;a&#39;, &#39;c&#39;, &#39;b&#39;]]</code><br>删除一列：<br><code>df.drop(axis=1, inplace=True)</code><br>查找某行某列的值</p><pre><code># df.loc[conditions, column name] = newvaluedf_full.loc[(df_full[&#39;date&#39;] == date_temp) &amp; (df_full[&#39;time&#39;] == time_temp), &#39;reqnum&#39;] = reqnum_temp`</code></pre></li></ol><pre><code></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python Packages </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> pandas </tag>
             
         </tags>
       
@@ -781,56 +831,6 @@
     
     
     <entry>
-      <title>正则表达式学习和查询网站</title>
-      <link href="/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99/"/>
-      <url>/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99/</url>
-      
-        <content type="html"><![CDATA[<h2 id="正则表达式学习和查询网站"><a href="#正则表达式学习和查询网站" class="headerlink" title="正则表达式学习和查询网站"></a>正则表达式学习和查询网站</h2><ol><li><a href="https://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">正则表达式30分钟入门教程</a></li><li><a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" target="_blank" rel="noopener">正则表达式手册</a></li><li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference" target="_blank" rel="noopener">正则表达式快速参考</a></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Regex </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 正则表达式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>正则表达式一些知识点</title>
-      <link href="/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-      <url>/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-      
-        <content type="html"><![CDATA[<h2 id="1-括号的区别"><a href="#1-括号的区别" class="headerlink" title="1 括号的区别"></a>1 括号的区别</h2><ul><li><p>小括号()：匹配小括号内的字符串，可以是一个，也可以是多个，常跟“|”（或）符号搭配使用，是多选结构的。<strong>通俗的说小括号匹配的是具体的字符</strong><br>示例1：string name = “way2014”;  regex：(way|zgw)  result：结果是可以匹配出way的，因为是多选结构，小括号是匹配字符串的<br>示例2：string text = “123456789”;  regex：(0-9)　result：结果是什么都匹配不到的，它只匹配字符串”0-9”而不是匹配数字, [0-9]这个字符组才是匹配0-9的数字</p></li><li><p>中括号[]：匹配字符组内的字符，比如咱们常用的[0-9a-zA-Z.*?!]等，在[]内的字符都是字符，不是元字符，比如“0-9”、“a-z”这中间的“-”就是连接符号，表示范围的元字符，如果写成[-!?*(]这样的话，就是普通字符。<strong>通俗的说中括号匹配的是元字符</strong><br>示例1： string text = “1234567890”;  regex：[0-9]  result：结果是可以匹配出字符串text内的任意数字了，像上边的【或符号“|”在字符组内就是一个普通字符】<br>示例2：string text = “a|e|s|v”;  regex：[a|e|s]  result：结果就是匹配字符a、e、|三个字符，这个跟(a|e|s)有区别的，区别就是(a|e|s)匹配的是a、e、s三个字符的随意一个，三个中的任意一个，这是的|是元字符</p></li><li><p>大括号{}：匹配次数，匹配在它之前表达式匹配出来的元素出现的次数，{n}出现n次、{n,}匹配最少出现n次、{n,m}匹配最少出现n次，最多出现m次</p></li></ul><h2 id="2-替换一部分内容"><a href="#2-替换一部分内容" class="headerlink" title="2 替换一部分内容"></a>2 替换一部分内容</h2><p>在替换正则表达式内容时，有时需要保持一部分内容不变。具体做法是：将需要保留的部分用小括号括起来，在修改后的表达式中使用<code>$1</code>,<code>$2</code>…引用。<code>$0</code>表示整个匹配项。如：<br>把trim(ABC)替换成trim(replace(ABC,char(9),’    ‘)，正则表达式为：<br><code>trim\(([^).]*)\)</code>替换成<code>trim\(replace\($1,char\(9\),&#39;    &#39;\)</code><br>place($1,char(9),’    ‘)`</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Regex </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 正则表达式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>搭建我的Hexo博客——从入门到放弃</title>
       <link href="/2019/07/09/Hexo/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/"/>
       <url>/2019/07/09/Hexo/%E6%90%AD%E5%BB%BA%E6%88%91%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2%E2%80%94%E2%80%94%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/</url>
@@ -881,23 +881,23 @@
     
     
     <entry>
-      <title>用Keras搭建第一个神经网络</title>
-      <link href="/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/"/>
-      <url>/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/</url>
+      <title>$\LaTeX$一些坑</title>
+      <link href="/2019/07/09/LaTeX/Latex%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
+      <url>/2019/07/09/LaTeX/Latex%E4%B8%80%E4%BA%9B%E5%9D%91/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-Steps"><a href="#1-Steps" class="headerlink" title="1 Steps"></a>1 Steps</h2><ol><li>Load Data</li><li>Define Model</li><li>Compile Model</li><li>Fit Model</li><li>Evaluate Model</li><li>Tie It All Together</li></ol><h2 id="2-Load-Data"><a href="#2-Load-Data" class="headerlink" title="2 Load Data"></a>2 Load Data</h2><ol><li>Define a certain random number seed. By doing so, you can get the same result to compare it with other model.<br>Method:<pre><code class="python">import numpy as npnp.random.seed(7)</code></pre>We use <a href="https://yun.baidu.com/s/1c24tweW#list/path=%2F" target="_blank" rel="noopener">pima-indians-diabetes.csv</a> as our dataset. To load the .csv data, we use <code>np.loadtxt</code> and split it into input and output section. <h2 id="3-Define-Model"><a href="#3-Define-Model" class="headerlink" title="3 Define Model"></a>3 Define Model</h2>Models in Keras are defined as a sequence of layers.While defining the first layer, we can define the input number with the <strong>input_dim</strong> argument.<br>In this example, we will use a fully-connected network structure with three layers.<br>Fully connected layers are defined using the <strong>Dense class</strong>. We can specify:</li><li><strong>the number of neurons</strong> in the layer as the first argument</li><li>the initialization method as the second argument as <strong>init</strong> </li><li>specify the activation function using the <strong>activation</strong> argument.<h2 id="4-Build-the-Model"><a href="#4-Build-the-Model" class="headerlink" title="4 Build the Model"></a>4 Build the Model</h2>define a model class. In this problem, we use a sequential model. So we use a <code>model = keras.sequential()</code> to instantiate the class. And then use the <code>.add</code> method to add layers in the model.<br>We want to add a layer into our model, so we use <code>keras.layers.Dense()</code> to be the parameter of <code>add</code>. The activation function must be in the string form like <code>activation=&#39;relu&#39;</code>.</li></ol><h2 id="5-Compile-the-Model"><a href="#5-Compile-the-Model" class="headerlink" title="5 Compile the Model"></a>5 Compile the Model</h2><p>When compiling, we must specify some additional properties required when training the network.We must specify the <strong>loss function</strong> to use to evaluate a set of weights, <strong>the optimizer</strong> used to search through different weights for the network and <strong>any optional metrics we would like to collect and report</strong> during training.</p><h2 id="6-Fit-the-model"><a href="#6-Fit-the-model" class="headerlink" title="6 Fit the model"></a>6 Fit the model</h2><p>use <code>model.fit()</code> method to define fit parameters like epochs and batch_size.</p><h2 id="7-Evaluate-the-model"><a href="#7-Evaluate-the-model" class="headerlink" title="7 Evaluate the model"></a>7 Evaluate the model</h2><p>use <code>model.evaluate</code> and a set of X and Y to calculate the model performance.</p><h2 id="8-Prediction"><a href="#8-Prediction" class="headerlink" title="8 Prediction"></a>8 Prediction</h2><p>use <code>model.fit</code> and a set of X to predict the predicted Y value.</p><h2 id="9-Related-material"><a href="#9-Related-material" class="headerlink" title="9 Related material"></a>9 Related material</h2><ol><li><a href="https://machinelearningmastery.com/" target="_blank" rel="noopener">https://machinelearningmastery.com/</a></li><li><a href="https://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">Keras中文文档</a></li><li><a href="https://github.com/keras-team/keras/tree/master/examples" target="_blank" rel="noopener">Keras Example</a><br>s-team/keras/tree/master/examples)</li></ol>]]></content>
+        <content type="html"><![CDATA[<ol><li><code>\indent</code>后要跟空格</li><li><code>\gather</code>不要留空行</li><li><code>\gather</code>内嵌<code>\aligned</code>不能加<code>*</code></li><li>在使用<code>\mathbb</code>前需要导入包<code>\usepackage{amsfonts}</code></li><li>插入小、中、大括号的语句分别为：<pre><code class="latex">\left\{ ... \right\}\left[ ... \right]\left( ... \right)</code></pre></li><li>图片、算法的插入一般使用<code>!htb</code>控制位置。如果强制指定图片位置，可使用<code>H</code></li><li><strong>在编译$\LaTeX$前一定要先关闭用acrobat打开的pdf文档！</strong></li><li><strong>插入图片时图片名称不要带空格和点<code>.</code>！</strong>否则可能报<code>Cannot determine size of graphic in fig.png (no BoundingBox).</code></li><li>一个<code>gather</code>环境中加入多个<code>align</code>环境且需要纵向对齐时在每一个<code>align</code>后加上<code>\\</code></li></ol>]]></content>
       
       
       <categories>
           
-          <category> Keras </category>
+          <category> Latex </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 深度学习 </tag>
+            <tag> Latex </tag>
             
         </tags>
       
@@ -956,11 +956,11 @@
     
     
     <entry>
-      <title>$\LaTeX$一些坑</title>
-      <link href="/2019/07/09/LaTeX/Latex%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
-      <url>/2019/07/09/LaTeX/Latex%E4%B8%80%E4%BA%9B%E5%9D%91/</url>
+      <title>latex导言区常用设置</title>
+      <link href="/2019/07/09/LaTeX/Latex%E5%AF%BC%E8%A8%80%E5%8C%BA%E8%AE%BE%E7%BD%AE/"/>
+      <url>/2019/07/09/LaTeX/Latex%E5%AF%BC%E8%A8%80%E5%8C%BA%E8%AE%BE%E7%BD%AE/</url>
       
-        <content type="html"><![CDATA[<ol><li><code>\indent</code>后要跟空格</li><li><code>\gather</code>不要留空行</li><li><code>\gather</code>内嵌<code>\aligned</code>不能加<code>*</code></li><li>在使用<code>\mathbb</code>前需要导入包<code>\usepackage{amsfonts}</code></li><li>插入小、中、大括号的语句分别为：<pre><code class="latex">\left\{ ... \right\}\left[ ... \right]\left( ... \right)</code></pre></li><li>图片、算法的插入一般使用<code>!htb</code>控制位置。如果强制指定图片位置，可使用<code>H</code></li><li><strong>在编译$\LaTeX$前一定要先关闭用acrobat打开的pdf文档！</strong></li><li><strong>插入图片时图片名称不要带空格和点<code>.</code>！</strong>否则可能报<code>Cannot determine size of graphic in fig.png (no BoundingBox).</code></li><li>一个<code>gather</code>环境中加入多个<code>align</code>环境且需要纵向对齐时在每一个<code>align</code>后加上<code>\\</code></li></ol>]]></content>
+        <content type="html"><![CDATA[<pre><code class="latex">% Article setting% Article type\documentclass[12]{article}% Page margin\usepackage{geometry}%\geometry{a4paper,scale=0.8}\geometry{a4paper,left=2cm,right=2cm%,top=2cm,%bottom=2cm, includefoot,heightrounded}% set title\title{}\author{}\date{}% import package\usepackage{amsmath, amsfonts, bm}% \numberwithin{equation}{section} % Equation numbering by section\numberwithin{equation}{subsection} % Equation numbering by subsection% \numberwithin{equation}{subsubsection}% Chinese support\usepackage{xeCJK}\usepackage{fontspec} \setCJKmainfont[AutoFakeBold]{SimSun}\setCJKmonofont{SimSun}\setmainfont{Times New Roman}\renewcommand\contentsname{目录}\renewcommand\refname{参考文献}\renewcommand{\figurename}{图}\renewcommand{\tablename}{表}% Indent\usepackage{indentfirst}\setlength{\parindent}{2em}% Python code\usepackage{listings}\usepackage{color}\definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\lstset{frame=tb,    language=Python,    aboveskip=3mm,    belowskip=3mm,    showstringspaces=false,    columns=flexible,    basicstyle={\small\ttfamily},    numbers=none,    numberstyle=\tiny\color{gray},    keywordstyle=\color{blue},    commentstyle=\color{dkgreen},    stringstyle=\color{mauve},    breaklines=true,    breakatwhitespace=true,    tabsize=3}% Import image\usepackage{graphicx}\usepackage{subcaption}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,          urlcolor=blue,    citecolor=blue,}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,    urlcolor=blue,    citecolor=blue,}```    citecolor=blue,}</code></pre>]]></content>
       
       
       <categories>
@@ -973,31 +973,6 @@
         <tags>
             
             <tag> Latex </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>《C程序设计语言》读书笔记（四）——函数与程序结构</title>
-      <link href="/2019/07/09/BookNotes/The%20C%20Programming%20Language/%E3%80%8AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/"/>
-      <url>/2019/07/09/BookNotes/The%20C%20Programming%20Language/%E3%80%8AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/</url>
-      
-        <content type="html"><![CDATA[<h2 id="4-1"><a href="#4-1" class="headerlink" title="4.1"></a>4.1</h2><ul><li>找出某一字符串在一段文本内的位置并返回</li></ul><pre><code class="c">int strindex(char s[], char t[]){    int i,j,k;    for(i = 0;s[i] != &#39;\0&#39;;i++)  //遍历初始位置    {        for (j = i,k = 0;t[k] != &#39;\0&#39; &amp;&amp; s[j] == t[k];j++,k++)            ;        if(k &gt; 0 &amp;&amp; t[k] == &#39;\0&#39;)  //t[k] == &#39;\0&#39;表示完全匹配            return i;    }    return -1;  //遍历完成后没有找到匹配的}</code></pre><h2 id="4-4"><a href="#4-4" class="headerlink" title="4.4"></a>4.4</h2><ul><li>外部变量或函数的作用域从声明它的地方开始，到其所在的（待编译的的）文件的末尾为结束。如果要在外部变量的定义之前使用该变量，或者外部变量的定义与变量的使用不在同一源文件中，则必须在相应的变量声明中强制性地使用关键字extern.</li><li>外部变量定义与声明<br>外部变量的声明英语说明变量的属性（主要是变量的类型），而那两定义除此之外还将引起存储器的分配。一个外部变量只能某个文件中定义一次，而其他文件可以通过extern声明访问它；下面给出变量定理和声明的例子：<pre><code class="c">//变量定义int sp;double val[MAXVAL];  //要说明数组的大小</code></pre></li></ul><p>//变量声明<br>extern int sp;<br>extern double val[];</p><pre><code>## 4.5- 头文件的作用由于一些共同使用的外部变量和函数在不同文件中被使用的时候需要被重新声明，所以可以将这些需要共同使用的变量和函数的 *声明* 放在同一个文件中，在需要用到这些函数的文件中只要将这个文件包含进来就可以直接使用，不必再在每个文件重新声明外部变量和函数。这个包含外部变量和共同使用的函数的文件就叫做头文件，包含头文件的操作叫`#include&lt;a.h&gt;`。一般头文件只会存放外部变量和函数的声明，定义在各个.c文件中实现，因为函数的声明只能出现一次，如果定义放在头文件中，而这个头文件又被多个文件引用，那么容易出现重复定义的问题。## 4.6- 静态变量声明一个变量为静态变量`static`的作用在于限定该变量的作用区域。如对一个外部变量声明为静态变量表示该变量只能在声明的文件中使用，在其他文件中不能使用该外部变量。对一个函数中的变量声明为静态变量表示该变量只能在该函数的范围内使用。**注意**：在函数中声明的静态变量和函数内部变量的区别是静态变量始终存在于内存中，下次调用时存放在里面的值是上次调用完毕后的值；而内部变量在函数开始时被分配内存，在函数结束后内存被收回，下次调用重新分配内存。## 4.9- 初始化在不进行人为初始化的情况下，外部变量和静态变量都被初始化为0，而内部变量和寄存器变量没有定义。外部变量和静态变量的初始化必须是 *常量* 表达式。## 4.11.2- 宏替换宏定义可以带参数，不过要十分注意括号的添加，如`#define square(x) (x)*(x)`中的括号不可省略，否则在计算square(a+1)时会发生错误## 4.11.3- 条件包含 #ifdef在头文件的编写中，为了防止一个头文件被重复包含在同一个.c文件中，最好使用条件包含格式。头文件被重复包含情况：假设 a.h 和 b.h 中有 \#include &quot;c.h&quot;语句，而在 main.c 中出现了\#include &quot;a.h&quot; 和\#include &quot;b.h&quot; 那么 v.h就属于在一个.c 文件中重复引用的情况。这时候就会用到如下格式的语句：``` c#ifndef B_H#define B_H//declarations#endif</code></pre><p>endif</p><pre><code></code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Book Notes </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C语言 </tag>
             
         </tags>
       
@@ -1056,11 +1031,36 @@
     
     
     <entry>
-      <title>Word2vec</title>
-      <link href="/2019/07/09/DeepLearning/NLP/Word2vec%E8%B5%84%E6%96%99/"/>
-      <url>/2019/07/09/DeepLearning/NLP/Word2vec%E8%B5%84%E6%96%99/</url>
+      <title>《C程序设计语言》读书笔记（四）——函数与程序结构</title>
+      <link href="/2019/07/09/BookNotes/The%20C%20Programming%20Language/%E3%80%8AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/"/>
+      <url>/2019/07/09/BookNotes/The%20C%20Programming%20Language/%E3%80%8AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%E2%80%94%E2%80%94%E5%87%BD%E6%95%B0%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84/</url>
       
-        <content type="html"><![CDATA[<p>将一些Word2vec资料收集如下</p><ol><li><a href="https://medium.com/data-science-group-iitr/word-embedding-2d05d270b285" target="_blank" rel="noopener"><strong>Word embedding</strong></a></li><li><a href="https://www.cnblogs.com/pinard/p/7160330.html" target="_blank" rel="noopener">word2vec原理(一) CBOW与Skip-Gram模型基础</a></li><li><a href="https://www.cnblogs.com/pinard/p/7243513.html" target="_blank" rel="noopener">word2vec原理(二) 基于Hierarchical Softmax的模型</a></li><li><a href="https://www.cnblogs.com/pinard/p/7249903.html" target="_blank" rel="noopener">word2vec原理(三) 基于Negative Sampling的模型</a></li><li>html)</li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="4-1"><a href="#4-1" class="headerlink" title="4.1"></a>4.1</h2><ul><li>找出某一字符串在一段文本内的位置并返回</li></ul><pre><code class="c">int strindex(char s[], char t[]){    int i,j,k;    for(i = 0;s[i] != &#39;\0&#39;;i++)  //遍历初始位置    {        for (j = i,k = 0;t[k] != &#39;\0&#39; &amp;&amp; s[j] == t[k];j++,k++)            ;        if(k &gt; 0 &amp;&amp; t[k] == &#39;\0&#39;)  //t[k] == &#39;\0&#39;表示完全匹配            return i;    }    return -1;  //遍历完成后没有找到匹配的}</code></pre><h2 id="4-4"><a href="#4-4" class="headerlink" title="4.4"></a>4.4</h2><ul><li>外部变量或函数的作用域从声明它的地方开始，到其所在的（待编译的的）文件的末尾为结束。如果要在外部变量的定义之前使用该变量，或者外部变量的定义与变量的使用不在同一源文件中，则必须在相应的变量声明中强制性地使用关键字extern.</li><li>外部变量定义与声明<br>外部变量的声明英语说明变量的属性（主要是变量的类型），而那两定义除此之外还将引起存储器的分配。一个外部变量只能某个文件中定义一次，而其他文件可以通过extern声明访问它；下面给出变量定理和声明的例子：<pre><code class="c">//变量定义int sp;double val[MAXVAL];  //要说明数组的大小</code></pre></li></ul><p>//变量声明<br>extern int sp;<br>extern double val[];</p><pre><code>## 4.5- 头文件的作用由于一些共同使用的外部变量和函数在不同文件中被使用的时候需要被重新声明，所以可以将这些需要共同使用的变量和函数的 *声明* 放在同一个文件中，在需要用到这些函数的文件中只要将这个文件包含进来就可以直接使用，不必再在每个文件重新声明外部变量和函数。这个包含外部变量和共同使用的函数的文件就叫做头文件，包含头文件的操作叫`#include&lt;a.h&gt;`。一般头文件只会存放外部变量和函数的声明，定义在各个.c文件中实现，因为函数的声明只能出现一次，如果定义放在头文件中，而这个头文件又被多个文件引用，那么容易出现重复定义的问题。## 4.6- 静态变量声明一个变量为静态变量`static`的作用在于限定该变量的作用区域。如对一个外部变量声明为静态变量表示该变量只能在声明的文件中使用，在其他文件中不能使用该外部变量。对一个函数中的变量声明为静态变量表示该变量只能在该函数的范围内使用。**注意**：在函数中声明的静态变量和函数内部变量的区别是静态变量始终存在于内存中，下次调用时存放在里面的值是上次调用完毕后的值；而内部变量在函数开始时被分配内存，在函数结束后内存被收回，下次调用重新分配内存。## 4.9- 初始化在不进行人为初始化的情况下，外部变量和静态变量都被初始化为0，而内部变量和寄存器变量没有定义。外部变量和静态变量的初始化必须是 *常量* 表达式。## 4.11.2- 宏替换宏定义可以带参数，不过要十分注意括号的添加，如`#define square(x) (x)*(x)`中的括号不可省略，否则在计算square(a+1)时会发生错误## 4.11.3- 条件包含 #ifdef在头文件的编写中，为了防止一个头文件被重复包含在同一个.c文件中，最好使用条件包含格式。头文件被重复包含情况：假设 a.h 和 b.h 中有 \#include &quot;c.h&quot;语句，而在 main.c 中出现了\#include &quot;a.h&quot; 和\#include &quot;b.h&quot; 那么 v.h就属于在一个.c 文件中重复引用的情况。这时候就会用到如下格式的语句：``` c#ifndef B_H#define B_H//declarations#endif</code></pre><p>endif</p><pre><code></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Book Notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>NLP新的发展方向</title>
+      <link href="/2019/07/09/DeepLearning/NLP/NLP%E5%8F%91%E5%B1%95%E6%96%B0%E6%96%B9%E5%90%91/"/>
+      <url>/2019/07/09/DeepLearning/NLP/NLP%E5%8F%91%E5%B1%95%E6%96%B0%E6%96%B9%E5%90%91/</url>
+      
+        <content type="html"><![CDATA[<p>将一些比较新的关于NLP发展方向的博客和文章收集如下</p><ol><li><a href="https://zhuanlan.zhihu.com/p/49271699" target="_blank" rel="noopener">从Word Embedding到Bert模型—自然语言处理中的预训练技术发展史</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247493520&idx=1&sn=2b04c009ef75291ef3d19e8fe673aa36&chksm=96ea3810a19db10621e7a661974c796e8adeffc31625a769f8db1d87ba803cd58a30d40ad7ce&scene=21#wechat_redirect" target="_blank" rel="noopener">NLP的巨人肩膀上</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247493731&idx=1&sn=51206e4ca3983548436d889590ab5347&chksm=96ea37e3a19dbef5b6db3143eb9df822915126d3d8f61fe73ddb9f8fa329d568ec79a662acb1&mpshare=1&scene=23&srcid=12177Ua04Q6MGcDDUf5HSrL0#rd" target="_blank" rel="noopener">NLP的巨人肩膀下</a></li><li><a href="https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html" target="_blank" rel="noopener">https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html</a></li><li><a href="https://zhuanlan.zhihu.com/p/54743941" target="_blank" rel="noopener">放弃幻想，全面拥抱Transformer：自然语言处理三大特征抽取器（CNN/RNN/TF）比较</a></li><li><a href="https://mp.weixin.qq.com/s/TM5poGwSGi5C9szO13GYxg" target="_blank" rel="noopener">NLP中的attention机制</a></li><li><a href="https://zhuanlan.zhihu.com/p/49271699" target="_blank" rel="noopener">从Word Embedding到Bert模型—自然语言处理中的预训练技术发展史</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247497461&idx=1&sn=2821912a51749ef50a46007249fec26a&chksm=96ea2975a19da0633f3286750088a22c78987628666a6cd2d42d1fbee74f9c189e073d111dc2&mpshare=1&scene=23&srcid=#rd" target="_blank" rel="noopener">ICLR 2019最佳论文 | ON-LSTM：用有序神经元表达层次结构</a></li><li><a href="https://zhuanlan.zhihu.com/p/68446772" target="_blank" rel="noopener">Bert时代的创新（应用篇）：Bert在NLP各领域的应用进展</a></li><li><a href="https://zhuanlan.zhihu.com/p/70257427" target="_blank" rel="noopener">XLNet:运行机制及和Bert的异同比较</a></li><li><a href="https://xueqiu.com/7788828530/136260361" target="_blank" rel="noopener">15篇论文全面概览BERT压缩方法</a></li></ol>]]></content>
       
       
       <categories>
@@ -1081,11 +1081,11 @@
     
     
     <entry>
-      <title>NLP新的发展方向</title>
-      <link href="/2019/07/09/DeepLearning/NLP/NLP%E5%8F%91%E5%B1%95%E6%96%B0%E6%96%B9%E5%90%91/"/>
-      <url>/2019/07/09/DeepLearning/NLP/NLP%E5%8F%91%E5%B1%95%E6%96%B0%E6%96%B9%E5%90%91/</url>
+      <title>Word2vec</title>
+      <link href="/2019/07/09/DeepLearning/NLP/Word2vec%E8%B5%84%E6%96%99/"/>
+      <url>/2019/07/09/DeepLearning/NLP/Word2vec%E8%B5%84%E6%96%99/</url>
       
-        <content type="html"><![CDATA[<p>将一些比较新的关于NLP发展方向的博客和文章收集如下</p><ol><li><a href="https://zhuanlan.zhihu.com/p/49271699" target="_blank" rel="noopener">从Word Embedding到Bert模型—自然语言处理中的预训练技术发展史</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247493520&idx=1&sn=2b04c009ef75291ef3d19e8fe673aa36&chksm=96ea3810a19db10621e7a661974c796e8adeffc31625a769f8db1d87ba803cd58a30d40ad7ce&scene=21#wechat_redirect" target="_blank" rel="noopener">NLP的巨人肩膀上</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247493731&idx=1&sn=51206e4ca3983548436d889590ab5347&chksm=96ea37e3a19dbef5b6db3143eb9df822915126d3d8f61fe73ddb9f8fa329d568ec79a662acb1&mpshare=1&scene=23&srcid=12177Ua04Q6MGcDDUf5HSrL0#rd" target="_blank" rel="noopener">NLP的巨人肩膀下</a></li><li><a href="https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html" target="_blank" rel="noopener">https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html</a></li><li><a href="https://zhuanlan.zhihu.com/p/54743941" target="_blank" rel="noopener">放弃幻想，全面拥抱Transformer：自然语言处理三大特征抽取器（CNN/RNN/TF）比较</a></li><li><a href="https://mp.weixin.qq.com/s/TM5poGwSGi5C9szO13GYxg" target="_blank" rel="noopener">NLP中的attention机制</a></li><li><a href="https://zhuanlan.zhihu.com/p/49271699" target="_blank" rel="noopener">从Word Embedding到Bert模型—自然语言处理中的预训练技术发展史</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247497461&idx=1&sn=2821912a51749ef50a46007249fec26a&chksm=96ea2975a19da0633f3286750088a22c78987628666a6cd2d42d1fbee74f9c189e073d111dc2&mpshare=1&scene=23&srcid=#rd" target="_blank" rel="noopener">ICLR 2019最佳论文 | ON-LSTM：用有序神经元表达层次结构</a></li><li><a href="https://zhuanlan.zhihu.com/p/68446772" target="_blank" rel="noopener">Bert时代的创新（应用篇）：Bert在NLP各领域的应用进展</a></li><li><a href="https://zhuanlan.zhihu.com/p/70257427" target="_blank" rel="noopener">XLNet:运行机制及和Bert的异同比较</a></li><li><a href="https://xueqiu.com/7788828530/136260361" target="_blank" rel="noopener">15篇论文全面概览BERT压缩方法</a></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>将一些Word2vec资料收集如下</p><ol><li><a href="https://medium.com/data-science-group-iitr/word-embedding-2d05d270b285" target="_blank" rel="noopener"><strong>Word embedding</strong></a></li><li><a href="https://www.cnblogs.com/pinard/p/7160330.html" target="_blank" rel="noopener">word2vec原理(一) CBOW与Skip-Gram模型基础</a></li><li><a href="https://www.cnblogs.com/pinard/p/7243513.html" target="_blank" rel="noopener">word2vec原理(二) 基于Hierarchical Softmax的模型</a></li><li><a href="https://www.cnblogs.com/pinard/p/7249903.html" target="_blank" rel="noopener">word2vec原理(三) 基于Negative Sampling的模型</a></li></ol>]]></content>
       
       
       <categories>
@@ -1156,6 +1156,31 @@
     
     
     <entry>
+      <title>《C程序设计语言》读书笔记（六）——结构</title>
+      <link href="/2019/07/09/BookNotes/The%20C%20Programming%20Language/%E3%80%8AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84/"/>
+      <url>/2019/07/09/BookNotes/The%20C%20Programming%20Language/%E3%80%8AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84/</url>
+      
+        <content type="html"><![CDATA[<h2 id="6-1"><a href="#6-1" class="headerlink" title="6.1"></a>6.1</h2><p>结构的初始化只能紧跟在结构类型的变量声明后面，必须对所有结构成员进行初始化，且初始化的值必须为常量。比如</p><pre><code class="c">    struct abc    {        int a;        int b;    } x = {100,200};</code></pre><p>或者</p><pre><code class="c">struct abc y = {200,390};</code></pre><p>或者</p><pre><code class="c">struct abc z;z.a = 200;z.b = 300;</code></pre><p>而不允许</p><pre><code class="c">struct abc y;y = {200,300};</code></pre><h2 id="6-2-结构与函数、指针"><a href="#6-2-结构与函数、指针" class="headerlink" title="6.2 结构与函数、指针"></a>6.2 结构与函数、指针</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><p>在函数中可以调用结构，也可以在一个函数中返回一个结构。这里要注意的是，在函数的声明中如果出现结构的形式，其类型是struct + 结构标记，如<code>struct abc</code>。下面给出课本上两个使用结构的函数：</p><pre><code class="c">struct point makepoint (int x,int y)  //返回类型为struct point{    struct point temp;    temp.x = x;    temp.y = y;    return temp;  //返回结构时只写结构名即可}struct point addpoint(struct point p1,struct point p2)  //形参为两个struct point类型，返回为struct point类型{    p1.x += p2.x;    p1.y += p2.y;    return p1;}</code></pre><h3 id="2-结构指针"><a href="#2-结构指针" class="headerlink" title="2. 结构指针"></a>2. 结构指针</h3><p>在结构很大的条件下，使用指针方式的结构比普通的结构效率更高。结构指针的定义方式和普通指针类似：<code>struct point *pp;</code>。调用结构成员时可使用两种方法：<code>(*pp).a</code>或<code>pp-&gt;a</code>。个人感觉第二种方法不容易出错，因为运算符<code>.</code>的优先级高于<code>*</code>，所以第一种方法中圆括号不可少，而第二种方法简单直观。实际上，通过查找2.12的运算符优先级表可以看到，<code>-&gt;</code>和<code>.</code>的优先级是最高的，所以在类似于<code>++</code>、<code>*</code>等操作时一定注意括号的使用。</p><h2 id="6-5-自引用结构"><a href="#6-5-自引用结构" class="headerlink" title="6.5 自引用结构"></a>6.5 自引用结构</h2><p>在结构的声明中不能包括结构本身，但是可以包括指向本结构的指针。在下面这个课本例子对于结构的声明中我们可以看到这一点。</p><pre><code class="c">/*例6.5 统计单词出现的次数完整版代码*/#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;malloc.h&gt;#define MAXWORDNUM 100  //输入字符串最大数目#define MAXWORDLEN 10  //输入每个字符串最大长度struct tnode{    char *tword;    int num;    struct tnode *left;    struct tnode *right;};struct tnode * Addtree(struct tnode *p, char *word)  //判断一个单词是否在二叉树中并添加其到合适位置，返回根节点{    if (p == NULL)    {        p = (struct tnode *)malloc(sizeof(struct tnode));  //分配struct tnode大小的空间        p-&gt;tword = word;        p-&gt;num = 1;        p-&gt;left = NULL;        p-&gt;right = NULL;    }    else if ((strcmp(p-&gt;tword, word)) == 0)        p-&gt;num++;    else if ((strcmp(p-&gt;tword, word)) &gt; 0)        p-&gt;left = Addtree(p-&gt;left, word);  //递归调用    else p-&gt;right = Addtree(p-&gt;right, word);    return p;}int Findtree(struct tnode *p,char *word)  //查找一个单词是否在二叉树中，找到返回1，否则返回0{    int result = 0;    if(p != NULL)    {        result |= Findtree(p-&gt;left,word);  //如果在左子树中找到，左子树的Findtree返回1，和总结果做或运算即可        if(strcmp(p-&gt;tword,word) == 0)            result = 1;        result |= Findtree(p-&gt;right,word);    }    return result;}void Printtree(struct tnode *p)  //打印整个二叉树{    if (p != NULL)  //这里不能使用while，否则会一直循环    {        Printtree(p-&gt;left);  //递归调用        printf(&quot;word:%10s\t\tnumber:%2d\n&quot;, p-&gt;tword, p-&gt;num);        Printtree(p-&gt;right);    }}int main(int argc, char const *argv[]){    char *wordarray[MAXWORDNUM];    int i = 0, j,result;    char *temp,*tempword;    printf(&quot;Please enter all words:\n&quot;);    //将所有单词输入进一个字符串指针数组中    do    {        wordarray[i] = (char*)malloc(MAXWORDLEN * sizeof(char));  //使用gets()输入字符串        gets(wordarray[i]);        i++;    } while (*wordarray[i - 1] != &#39;\0&#39; &amp;&amp; i &lt; MAXWORDNUM);    struct tnode *root;    root = NULL;    for (j = 0; j &lt; ((*wordarray[i - 1] == &#39;\0&#39; ? i - 1 : i); j++)        root = Addtree(root, wordarray[j]);  //创建整棵二叉树。注意每一个Addtree的调用返回的是它本身，所以root并不会因此    printf(&quot;Press 1 to find a specific word,press 2 to print all words existed:\n&quot;);    temp = (char *)malloc(sizeof(char));    gets(temp);    switch(*temp)    {        case &#39;1&#39;:  //选择1：查找某个单词是否在二叉树中        printf(&quot;Please enter the word you want to find:\n&quot;);        tempword = (char*)malloc(MAXWORDLEN*sizeof(char));        gets(tempword);        result = Findtree(root,tempword);        result &gt; 0 ? puts(&quot;Found!&quot;):puts(&quot;Not found!&quot;);        break;        case &#39;2&#39;:  //选择2：打印整棵二叉树        Printtree(root);        printf(&quot;\nPrint complete!\n&quot;);        break;        default:        printf(&quot;Input error!\n&quot;);        break;    }return 0;}</code></pre><h2 id="6-6-表查找"><a href="#6-6-表查找" class="headerlink" title="6.6 表查找"></a>6.6 表查找</h2><p>给出一个课本例题的稍微改动和添加版本，其中包含了hash表的初始化、添加数据、删除和查找功能，也包括使用malloc()和get_s()为字符串指针申请内存以及一些编程中容易出错的地方（花了我快一天啊啊啊效率太低了(╯°口°)╯(┴—┴）</p><pre><code class="c">//hash表的初始化、添加、删除和查找练习// ConsoleApplication2.cpp : 定义控制台应用程序的入口点。//#include &quot;stdafx.h&quot;#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;malloc.h&gt;#define MAXHASHSIZE 20#define MAXCHARSIZE 20#define SUCCESS 1#define FAIL -1typedef struct tnode{    char *tword;    int count;}Hashtable;int InitHashtable(Hashtable *[]);int AddToHashtable(Hashtable *[], char*);int DeleteHashtable(Hashtable *[], char *);int FindInHashtable(Hashtable *[], char *);int InitHashtable(Hashtable *root[]);unsigned int CalcHashValue(char *);int InitHashtable(Hashtable *root[])  //初始化hash表，所有字符串指针指向NULL，计数为0{    int i;    for (i = 0; i &lt; MAXHASHSIZE; i++)    {        root[i] = (Hashtable*)malloc(sizeof(Hashtable));  //为字符串指针分配地址        if ((*(root + i))-&gt;tword == NULL)  //存储空间满            return FAIL;        (*(root + i))-&gt;tword = NULL;        (*(root + i))-&gt;count = 0;    }    return SUCCESS;}int AddToHashtable(Hashtable *root[], char *data)  //将一个字符串加入hash表{    unsigned int hashvalue, i = 0;    hashvalue = CalcHashValue(data);    while ((*(root + hashvalue))-&gt;tword != NULL &amp;&amp; i &lt; MAXHASHSIZE)  //欲放入的位置不为空    {        if (strcmp((*(root + hashvalue))-&gt;tword, data) == 0)        {            (*(root + hashvalue))-&gt;count++;            break;        }        else            hashvalue = (hashvalue + i) % MAXHASHSIZE;  //存放位置加1        i++;    }    if (i == MAXHASHSIZE)    {        printf(&quot;Stack full!&quot;);        return FAIL;    }    else    {        (*(root + hashvalue))-&gt;tword = data;  //放入字符串        (*(root + hashvalue))-&gt;count = 1;  //计数        return SUCCESS;    }}int DeleteHashtable(Hashtable *root[], char *word)  //从hash表中删除一个字符串数据{    unsigned int hashvalue;    int temp;    temp = FindInHashtable(root, word);    if (temp == FAIL)    {        printf(&quot;Cannot delete!\n&quot;);        return FAIL;    }    else    {        (*(root + temp))-&gt;tword = NULL;  //字符串指针指向NULL        (*(root + temp))-&gt;count = 0;        return SUCCESS;    }}int FindInHashtable(Hashtable *root[], char *word)  //在hash表中查找某个字符串{    unsigned int hashvalue;    int i;    hashvalue = CalcHashValue(word);    for (i = 0;(*(root + hashvalue))-&gt;tword != NULL &amp;&amp; strcmp((*(root + hashvalue))-&gt;tword, word) != 0 &amp;&amp; i &lt; MAXHASHSIZE; i++)        hashvalue = (hashvalue + i) % MAXHASHSIZE;    if (i &lt; MAXHASHSIZE &amp;&amp; (*(root + hashvalue))-&gt;tword != NULL)  //找到的时候没有循环一次而且不为空指针，说明已经找到        return (hashvalue + i) % MAXHASHSIZE;  //返回hash表中位置    else return FAIL;}unsigned int CalcHashValue(char *data)  //计算一个字符串hash的值{    int i = 0;    unsigned int result = 0;    while (*data != &#39;\0&#39;)        result = result * 31 + *data++;    return result % MAXHASHSIZE;}int main(int argc, char const *argv[]){    char *temp[MAXHASHSIZE];    char *wordtemp;    int i = 0, j = 0, k, l;    char m;    Hashtable *root[MAXHASHSIZE];    //初始化过程    printf(&quot;Please enter all words:\n&quot;);    do    {        *(temp + i) = (char *)malloc(MAXCHARSIZE * sizeof(char));  //为字符串指针分配存储空间        gets_s(*(temp + i),MAXCHARSIZE);        i++;    } while (**(temp + i - 1) != &#39;\0&#39; &amp;&amp; i &lt; MAXHASHSIZE);    if (InitHashtable(root) == SUCCESS)        printf(&quot;Initial complete!\n&quot;);    else    {        printf(&quot;Initial fail!\n&quot;);        return FAIL;    }    //添加字符串数据过程    for (j = 0; j &lt; (**(temp + i - 1) == &#39;\0&#39; ? i - 1 : i); j++)    {        if (l = AddToHashtable(root, *(temp + j)) != SUCCESS)        {            printf(&quot;Add fail!\n&quot;);            return FAIL;        }    }    printf(&quot;Add complete!\n&quot;);    //查找，删除或退出    while (1)    {        printf(&quot;Press 1 to delete a word,press 2 to find a word,press 3 to break:\n&quot;);        m = getchar();        getchar();  /*注意注意注意在getchar()获取一个字符后一定要加一个getchar()清楚缓存区，        否则下面的gets_s()会直接从缓存区读取回车号，造成的后果是读取的直接为空字符_(:3」∠)_*/        switch (m)        {            case &#39;1&#39;:  //删除            printf(&quot;Please enter the word you want to delete:\n&quot;);            wordtemp = (char*)malloc(MAXCHARSIZE * sizeof(char));            gets_s(wordtemp, MAXCHARSIZE);            k = DeleteHashtable(root, wordtemp);            if (k == SUCCESS)                printf(&quot;Delete successful!\n&quot;);            else                printf(&quot;Delete fail!\n&quot;);            break;            case &#39;2&#39;:  //查找            printf(&quot;Please enter the word you want to find:\n&quot;);            wordtemp = (char*)malloc(MAXCHARSIZE * sizeof(char));            gets_s(wordtemp, MAXCHARSIZE);            k = FindInHashtable(root, wordtemp);            if (k &gt;= 0 &amp;&amp; k &lt; MAXHASHSIZE)                printf(&quot;Found!%s is in the %d place.\n&quot;, (*(root + k))-&gt;tword, k);            else if (k == FAIL)                printf(&quot;Not found!\n&quot;);            else                printf(&quot;Error!\n&quot;);            break;            case &#39;3&#39;:            return 0;        }    }    return 0;}</code></pre><h2 id="6-7-类型定义"><a href="#6-7-类型定义" class="headerlink" title="6.7 类型定义"></a>6.7 类型定义</h2><p>格式：typedef 原类型名 新类型名<br>例子：</p><ol><li><code>typedef int length;</code></li><li><code>typedef char *string;</code> 定义string为字符串指针类型</li><li><code>typedef struct tnode{} Tree;</code>  定义Tree为struct tnode类型，因此Tree tnode1等价于struct tnode tnode1;</li><li><code>typedef struct tnode *pTree;</code>  定义pTree为指向struct tnode类型的指针，因此可用：<code>pTree pTree1; pTree1-&gt;member</code>访问成员变量</li><li><code>typedef int (*Func1)(char*,char*);</code>  定义一个指向函数的指针，这个函数返回char类型，因此可用：<code>Func1 func1; a = (*func1)(str1,str2);</code>来调用这个函数</li></ol><h2 id="6-8-共用体"><a href="#6-8-共用体" class="headerlink" title="6.8 共用体"></a>6.8 共用体</h2><p><a href="http://blog.csdn.net/yyb19951015/article/details/71036444" target="_blank" rel="noopener">共用体（Union）简介</a></p><h2 id="6-9-位字段"><a href="#6-9-位字段" class="headerlink" title="6.9 位字段"></a>6.9 位字段</h2><p>位字段的作用是将多个对象保存在同一个机器字中，机器字是指计算机一次运算能够同时处理的最大位数，通常所说的32/64位电脑就是指机器字的长度。位字段在一个结构中声明，方式为：</p><pre><code class="c">//代码引用自：http://blog.csdn.net/lovecodeless/article/details/23270911struct  {    unsigned int a  : 1;     //冒号“:”后的数字为该位字段所占的bit位数    unsigned int b  : 3;          unsigned int c  : 5;}flags;</code></pre><p>因此，在对每个字段进行赋值的时候，要注意不能超过定义的最大范围，在上例中范围为0~2^(n-1)<br>更详细的介绍请参考：<a href="http://blog.csdn.net/lovecodeless/article/details/23270911" target="_blank" rel="noopener">http://blog.csdn.net/lovecodeless/article/details/23270911</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Book Notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深度信念网络(Deep Belief Network,DBN)</title>
       <link href="/2019/07/09/DeepLearning/DBN/%E6%B7%B1%E5%BA%A6%E4%BF%A1%E5%BF%B5%E7%BD%91%E7%BB%9C(Deep%20Belief%20Network,DBN)/"/>
       <url>/2019/07/09/DeepLearning/DBN/%E6%B7%B1%E5%BA%A6%E4%BF%A1%E5%BF%B5%E7%BD%91%E7%BB%9C(Deep%20Belief%20Network,DBN)/</url>
@@ -1173,6 +1198,31 @@
         <tags>
             
             <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据可视化Seaborn从零开始学习教程（三） 数据分布可视化篇</title>
+      <link href="/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89%20%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E5%8F%AF%E8%A7%86%E5%8C%96%E7%AF%87/"/>
+      <url>/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89%20%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E5%8F%AF%E8%A7%86%E5%8C%96%E7%AF%87/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>本文转载自<a href="https://segmentfault.com/a/1190000015006667" target="_blank" rel="noopener">数据可视化Seaborn从零开始学习教程（三） 数据分布可视化篇</a></p></blockquote><h2 id="Seaborn-学习大纲"><a href="#Seaborn-学习大纲" class="headerlink" title="Seaborn 学习大纲"></a>Seaborn 学习大纲</h2><p><code>seaborn</code>的学习内容主要包含以下几个部分：</p><ol><li><p><strong>风格管理</strong></p><ul><li>绘图风格设置</li><li>颜色风格设置</li></ul></li><li><p><strong>绘图方法</strong></p><ul><li><code>数据集的分布可视化</code></li><li>分类数据可视化</li><li>线性关系可视化</li></ul></li><li><p><strong>结构网格</strong></p><ul><li>数据识别网格绘图</li></ul></li></ol><p>本次将主要介绍<code>数据集的分布可视化</code>的使用。</p><h2 id="数据集分布可视化"><a href="#数据集分布可视化" class="headerlink" title="数据集分布可视化"></a>数据集分布可视化</h2><p>当处理一个数据集的时候，我们经常会想要先看看特征变量是如何分布的。这会让我们对数据特征有个很好的初始认识，同时也会影响后续数据分析以及特征工程的方法。本篇将会介绍如何使用 seaborn 的一些工具来检测单变量和双变量分布情况。</p><p>首先还是先导入需要的模块和数据集。</p><pre><code>%matplotlib inlineimport numpy as npimport pandas as pdfrom scipy import stats, integrateimport matplotlib.pyplot as pltimport seaborn as snssns.set(color_codes=True)np.random.seed(sum(map(ord, &quot;distributions&quot;)))</code></pre><blockquote><p>注意：这里的数据集是随机产生的分布数据，由 numpy 生成，数据类型是 ndarray。当然，pandas 的 Series 数据类型也是可以使用的，比如我们经常需要从 DataFrame 表中提取某一特征（某一列）来查看分布情况。</p></blockquote><h2 id="绘制单变量分布"><a href="#绘制单变量分布" class="headerlink" title="绘制单变量分布"></a>绘制单变量分布</h2><p>在 seaborn 中，快速观察单变量分布的最方便的方法就是使用 <code>distplot()</code> 函数。默认会使用柱状图 (histogram) 来绘制，并提供一个适配的核密度估计(KDE)。</p><pre><code>x = np.random.normal(size=100)sns.distplot(x);</code></pre><p><img src="https://segmentfault.com/img/bVba71r?w=599&h=337" alt></p><h4 id="直方图（histograms"><a href="#直方图（histograms" class="headerlink" title="直方图（histograms"></a>直方图（histograms</h4><p>直方图是比较常见的，并且在 matplotlib 中已经存在了 <code>hist</code> 函数。直方图在横坐标的数据值范围内均等分的形成一定数量的数据段（bins），并在每个数据段内用矩形条（bars）显示 y 轴观察数量的方式，完成了对的数据分布的可视化展示。</p><p>为了说明这个，我们可以移除 kde plot，然后添加 rug plot（在每个观察点上的垂直小标签）。当然，你也可以使用 rug plot 自带的 <code>rugplot()</code> 函数，但是也同样可以在 <code>distplot</code> 中实现：</p><pre><code>sns.distplot(x, kde=False, rug=True);</code></pre><p><img src="https://segmentfault.com/img/bVba71A?w=620&h=334" alt></p><p>当绘制直方图时，你最需要确定的参数是矩形条的数目以及如何放置它们。<code>distplot()</code>使用了一个简单的规则推测出默认情况下最合适的数量，但是或多或少的对 bins 数量进行一些尝试也许能找出数据的其它特征：</p><pre><code>sns.distplot(x, bins=20, kde=False, rug=True);</code></pre><p><img src="https://segmentfault.com/img/bVba71S?w=608&h=333" alt></p><h4 id="核密度估计（Kernel-density-estimation）"><a href="#核密度估计（Kernel-density-estimation）" class="headerlink" title="核密度估计（Kernel density estimation）"></a>核密度估计（Kernel density estimation）</h4><p>核密度估计可能不被大家所熟悉，但它对于绘制分布的形状是一个非常有用的工具。就像直方图那样，KDE plots 会在一个轴上通过高度沿着其它轴将观察的密度编码。</p><pre><code>sns.distplot(x, hist=False, rug=True);</code></pre><p><img src="https://segmentfault.com/img/bVba72q?w=570&h=332" alt></p><p>绘制 KDE 比绘制直方图需要更多的计算。它的计算过程是这样的，每个观察点首先都被以这个点为中心的正态分布曲线所替代。</p><pre><code>x = np.random.normal(0, 1, size=30)bandwidth = 1.06 * x.std() * x.size ** (-1 / 5.)support = np.linspace(-4, 4, 200)kernels = []for x_i in x:    kernel = stats.norm(x_i, bandwidth).pdf(support)    kernels.append(kernel)    plt.plot(support, kernel, color=&quot;r&quot;)sns.rugplot(x, color=&quot;.2&quot;, linewidth=3);</code></pre><p><img src="https://segmentfault.com/img/bVba72x?w=585&h=339" alt></p><p>然后，这些替代的曲线进行加和，并计算出在每个点的密度值。最终生成的曲线被归一化，以使得曲线下面包围的面积是 1。</p><pre><code>density = np.sum(kernels, axis=0)density /= integrate.trapz(density, support)plt.plot(support, density);</code></pre><p><img src="https://segmentfault.com/img/bVba72y?w=577&h=330" alt></p><p>我们可以看到，如果我们使用 <code>kdeplot()</code> 函数，我们可以得到相同的曲线。这个函数实际上也被 <code>distplot()</code> 所使用，但是如果你就只想要密度估计，那么 <code>kdeplot()</code> 会提供一个直接的接口更简单的操作其它选项。</p><pre><code>sns.kdeplot(x, shade=True);</code></pre><p><img src="https://segmentfault.com/img/bVba72B?w=584&h=327" alt></p><p>KDE 的带宽参数（bw）控制着密度估计曲线的宽窄形状，有点类似直方图中的 bins 参数的作用。它对应着我们上面绘制的 KDE 的宽度。默认情况下，函数会按照一个通用的参考规则来估算出一个合适的值，但是尝试更大或者更小也可能会有帮助：</p><pre><code>sns.kdeplot(x)sns.kdeplot(x, bw=.2, label=&quot;bw: 0.2&quot;)sns.kdeplot(x, bw=2, label=&quot;bw: 2&quot;)plt.legend();</code></pre><p><img src="https://segmentfault.com/img/bVba72E?w=588&h=337" alt></p><p>如上所述，高斯 KDE 过程的意味着估计延续了数据集中最大和最小的值。 可以通过<code>cut</code>参数来控制绘制曲线的极值值的距离; 然而，这只影响曲线的绘制方式，而不是曲线如何拟合：</p><pre><code>sns.kdeplot(x, shade=True, cut=0)sns.rugplot(x);</code></pre><p><img src="https://segmentfault.com/img/bVba72J?w=575&h=338" alt></p><h4 id="拟合参数分布"><a href="#拟合参数分布" class="headerlink" title="拟合参数分布"></a>拟合参数分布</h4><p>你也可以使用<code>distplot()</code>将参数分布拟合到数据集，并可视化地评估其与观察数据的对应程度：</p><pre><code>x = np.random.gamma(6, size=200)sns.distplot(x, kde=False, fit=stats.gamma);</code></pre><p><img src="https://segmentfault.com/img/bVba72Q?w=610&h=335" alt></p><h2 id="绘制双变量分布"><a href="#绘制双变量分布" class="headerlink" title="绘制双变量分布"></a>绘制双变量分布</h2><p>对于双变量分布的可视化也是非常有用的。在 seaborn 中最简单的方法就是使用 <code>joinplot()</code> 函数，它能够创建一个多面板图形来展示两个变量之间的联合关系，以及每个轴上单变量的分布情况。</p><pre><code>mean, cov = [0, 1], [(1, .5), (.5, 1)]data = np.random.multivariate_normal(mean, cov, 200)df = pd.DataFrame(data, columns=[&quot;x&quot;, &quot;y&quot;])</code></pre><h4 id="Scatterplots"><a href="#Scatterplots" class="headerlink" title="Scatterplots"></a>Scatterplots</h4><p>双变量分布最熟悉的可视化方法无疑是散点图了，在散点图中每个观察结果以 x 轴和 y 轴值所对应的点展示。你可以用 matplotlib 的 <code>plt.scatter</code> 函数来绘制一个散点图，它也是<code>jointplot()</code>函数显示的默认方式。</p><pre><code>sns.jointplot(x=&quot;x&quot;, y=&quot;y&quot;, data=df)</code></pre><p><img src="https://segmentfault.com/img/bVba73e?w=614&h=553" alt></p><h4 id="Hexbin-plots"><a href="#Hexbin-plots" class="headerlink" title="Hexbin plots"></a>Hexbin plots</h4><p>直方图 <code>histogram</code> 的双变量类似图被称为 “hexbin” 图，因为它展示了落在六角形箱内的观测量。这种绘图对于相对大的数据集效果最好。它可以通过 matplotlib 的 <code>plt.hexbin</code> 函数使用，也可以作为 <code>jointplot</code> 的一种类型参数使用。它使用白色背景的时候视觉效果最好。</p><pre><code>x, y = np.random.multivariate_normal(mean, cov, 1000).Twith sns.axes_style(&quot;white&quot;):    sns.jointplot(x=x, y=y, kind=&quot;hex&quot;, color=&quot;k&quot;);</code></pre><p><img src="https://segmentfault.com/img/bVba73i?w=585&h=563" alt></p><h4 id="Kernel-density-estimation"><a href="#Kernel-density-estimation" class="headerlink" title="Kernel density estimation"></a>Kernel density estimation</h4><p>还使用上面描述的核密度估计过程来可视化双变量分布。在 seaborn 中，这种绘图以等高线图展示，并且可以作为 <code>jointplot()</code>的一种类型参数使用。</p><pre><code>sns.jointplot(x=&quot;x&quot;, y=&quot;y&quot;, data=df, kind=&quot;kde&quot;);</code></pre><p><img src="https://segmentfault.com/img/bVba73o?w=578&h=557" alt></p><p>你也可以用 <code>kdeplot</code> 函数来绘制一个二维的核密度图形。这可以将这种绘图绘制到一个特定的（可能已经存在的）matplotlib 轴上，而<code>jointplot()</code>函数只能管理自己：</p><pre><code>f, ax = plt.subplots(figsize=(6, 6))sns.kdeplot(df.x, df.y, ax=ax)sns.rugplot(df.x, color=&quot;g&quot;, ax=ax)sns.rugplot(df.y, vertical=True, ax=ax);</code></pre><p><img src="https://segmentfault.com/img/bVba73u?w=515&h=503" alt></p><p>如果你希望让双变量密度看起来更连续，您可以简单地增加 n_levels 参数增加轮廓级数：</p><pre><code>f, ax = plt.subplots(figsize=(6, 6))cmap = sns.cubehelix_palette(as_cmap=True, dark=0, light=1, reverse=True)sns.kdeplot(df.x, df.y, cmap=cmap, n_levels=60, shade=True);</code></pre><p><img src="https://segmentfault.com/img/bVba73B?w=537&h=495" alt></p><p><code>jointplot()</code>函数使用<code>JointGrid</code>来管理图形。为了获得更多的灵活性，您可能需要直接使用<code>JointGrid</code>绘制图形。<code>jointplot()</code>在绘制后返回 JointGrid 对象，你可以用它来添加更多层或调整可视化的其他方面：</p><pre><code>g = sns.jointplot(x=&quot;x&quot;, y=&quot;y&quot;, data=df, kind=&quot;kde&quot;, color=&quot;m&quot;)g.plot_joint(plt.scatter, c=&quot;w&quot;, s=30, linewidth=1, marker=&quot;+&quot;)g.ax_joint.collections[0].set_alpha(0)g.set_axis_labels(&quot;$X$&quot;, &quot;$Y$&quot;);</code></pre><p><img src="https://segmentfault.com/img/bVba73H?w=568&h=565" alt></p><h2 id="可视化数据集成对关系"><a href="#可视化数据集成对关系" class="headerlink" title="可视化数据集成对关系"></a>可视化数据集成对关系</h2><p>为了绘制数据集中多个成对的双变量，你可以使用 <code>pairplot()</code> 函数。这创建了一个轴矩阵，并展示了在一个 DataFrame 中每对列的关系。默认情况下，它也绘制每个变量在对角轴上的单变量。</p><pre><code>iris = sns.load_dataset(&quot;iris&quot;)sns.pairplot(iris);</code></pre><p><img src="https://segmentfault.com/img/bVba73I?w=976&h=934" alt></p><p>就像 <code>joinplot()</code> 和 <code>JoinGrid</code> 之间的关系，<code>pairplot()</code> 函数建立在 <code>PairGrid</code> 对象之上，直接使用可以更灵活。</p><pre><code>g = sns.PairGrid(iris)g.map_diag(sns.kdeplot)g.map_offdiag(sns.kdeplot, cmap=&quot;Blues_d&quot;, n_levels=6);/Users/mwaskom/anaconda/lib/python2.7/site-packages/matplotlib/axes/_axes.py:545: UserWarning: No labelled objects found. Use label=&#39;...&#39; kwarg on individual plots.  warnings.warn(&quot;No labelled objects found. &quot;</code></pre><p><img src="https://segmentfault.com/img/bVba73P?w=961&h=932" alt></p><blockquote><p>参考：<a href="http://seaborn.pydata.org/tutorial.html" target="_blank" rel="noopener">http://seaborn.pydata.org/tut…</a></p></blockquote><hr><p>关注微信公众号 <strong>Python 数据科学</strong>，获取 <code>120G</code> 人工智能 学习资料。<br><img src="https://segmentfault.com/img/bV7oO9?w=344&h=344" alt></p><p><img src="https://segmentfault.com/img/bV93KE?w=572&h=367" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python Packages </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> seaborn </tag>
             
         </tags>
       
@@ -1231,56 +1281,6 @@
     
     
     <entry>
-      <title>数据可视化Seaborn从零开始学习教程（三） 数据分布可视化篇</title>
-      <link href="/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89%20%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E5%8F%AF%E8%A7%86%E5%8C%96%E7%AF%87/"/>
-      <url>/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89%20%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E5%8F%AF%E8%A7%86%E5%8C%96%E7%AF%87/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>本文转载自<a href="https://segmentfault.com/a/1190000015006667" target="_blank" rel="noopener">数据可视化Seaborn从零开始学习教程（三） 数据分布可视化篇</a></p></blockquote><h2 id="Seaborn-学习大纲"><a href="#Seaborn-学习大纲" class="headerlink" title="Seaborn 学习大纲"></a>Seaborn 学习大纲</h2><p><code>seaborn</code>的学习内容主要包含以下几个部分：</p><ol><li><p><strong>风格管理</strong></p><ul><li>绘图风格设置</li><li>颜色风格设置</li></ul></li><li><p><strong>绘图方法</strong></p><ul><li><code>数据集的分布可视化</code></li><li>分类数据可视化</li><li>线性关系可视化</li></ul></li><li><p><strong>结构网格</strong></p><ul><li>数据识别网格绘图</li></ul></li></ol><p>本次将主要介绍<code>数据集的分布可视化</code>的使用。</p><h2 id="数据集分布可视化"><a href="#数据集分布可视化" class="headerlink" title="数据集分布可视化"></a>数据集分布可视化</h2><p>当处理一个数据集的时候，我们经常会想要先看看特征变量是如何分布的。这会让我们对数据特征有个很好的初始认识，同时也会影响后续数据分析以及特征工程的方法。本篇将会介绍如何使用 seaborn 的一些工具来检测单变量和双变量分布情况。</p><p>首先还是先导入需要的模块和数据集。</p><pre><code>%matplotlib inlineimport numpy as npimport pandas as pdfrom scipy import stats, integrateimport matplotlib.pyplot as pltimport seaborn as snssns.set(color_codes=True)np.random.seed(sum(map(ord, &quot;distributions&quot;)))</code></pre><blockquote><p>注意：这里的数据集是随机产生的分布数据，由 numpy 生成，数据类型是 ndarray。当然，pandas 的 Series 数据类型也是可以使用的，比如我们经常需要从 DataFrame 表中提取某一特征（某一列）来查看分布情况。</p></blockquote><h2 id="绘制单变量分布"><a href="#绘制单变量分布" class="headerlink" title="绘制单变量分布"></a>绘制单变量分布</h2><p>在 seaborn 中，快速观察单变量分布的最方便的方法就是使用 <code>distplot()</code> 函数。默认会使用柱状图 (histogram) 来绘制，并提供一个适配的核密度估计(KDE)。</p><pre><code>x = np.random.normal(size=100)sns.distplot(x);</code></pre><p><img src="https://segmentfault.com/img/bVba71r?w=599&h=337" alt></p><h4 id="直方图（histograms"><a href="#直方图（histograms" class="headerlink" title="直方图（histograms"></a>直方图（histograms</h4><p>直方图是比较常见的，并且在 matplotlib 中已经存在了 <code>hist</code> 函数。直方图在横坐标的数据值范围内均等分的形成一定数量的数据段（bins），并在每个数据段内用矩形条（bars）显示 y 轴观察数量的方式，完成了对的数据分布的可视化展示。</p><p>为了说明这个，我们可以移除 kde plot，然后添加 rug plot（在每个观察点上的垂直小标签）。当然，你也可以使用 rug plot 自带的 <code>rugplot()</code> 函数，但是也同样可以在 <code>distplot</code> 中实现：</p><pre><code>sns.distplot(x, kde=False, rug=True);</code></pre><p><img src="https://segmentfault.com/img/bVba71A?w=620&h=334" alt></p><p>当绘制直方图时，你最需要确定的参数是矩形条的数目以及如何放置它们。<code>distplot()</code>使用了一个简单的规则推测出默认情况下最合适的数量，但是或多或少的对 bins 数量进行一些尝试也许能找出数据的其它特征：</p><pre><code>sns.distplot(x, bins=20, kde=False, rug=True);</code></pre><p><img src="https://segmentfault.com/img/bVba71S?w=608&h=333" alt></p><h4 id="核密度估计（Kernel-density-estimation）"><a href="#核密度估计（Kernel-density-estimation）" class="headerlink" title="核密度估计（Kernel density estimation）"></a>核密度估计（Kernel density estimation）</h4><p>核密度估计可能不被大家所熟悉，但它对于绘制分布的形状是一个非常有用的工具。就像直方图那样，KDE plots 会在一个轴上通过高度沿着其它轴将观察的密度编码。</p><pre><code>sns.distplot(x, hist=False, rug=True);</code></pre><p><img src="https://segmentfault.com/img/bVba72q?w=570&h=332" alt></p><p>绘制 KDE 比绘制直方图需要更多的计算。它的计算过程是这样的，每个观察点首先都被以这个点为中心的正态分布曲线所替代。</p><pre><code>x = np.random.normal(0, 1, size=30)bandwidth = 1.06 * x.std() * x.size ** (-1 / 5.)support = np.linspace(-4, 4, 200)kernels = []for x_i in x:    kernel = stats.norm(x_i, bandwidth).pdf(support)    kernels.append(kernel)    plt.plot(support, kernel, color=&quot;r&quot;)sns.rugplot(x, color=&quot;.2&quot;, linewidth=3);</code></pre><p><img src="https://segmentfault.com/img/bVba72x?w=585&h=339" alt></p><p>然后，这些替代的曲线进行加和，并计算出在每个点的密度值。最终生成的曲线被归一化，以使得曲线下面包围的面积是 1。</p><pre><code>density = np.sum(kernels, axis=0)density /= integrate.trapz(density, support)plt.plot(support, density);</code></pre><p><img src="https://segmentfault.com/img/bVba72y?w=577&h=330" alt></p><p>我们可以看到，如果我们使用 <code>kdeplot()</code> 函数，我们可以得到相同的曲线。这个函数实际上也被 <code>distplot()</code> 所使用，但是如果你就只想要密度估计，那么 <code>kdeplot()</code> 会提供一个直接的接口更简单的操作其它选项。</p><pre><code>sns.kdeplot(x, shade=True);</code></pre><p><img src="https://segmentfault.com/img/bVba72B?w=584&h=327" alt></p><p>KDE 的带宽参数（bw）控制着密度估计曲线的宽窄形状，有点类似直方图中的 bins 参数的作用。它对应着我们上面绘制的 KDE 的宽度。默认情况下，函数会按照一个通用的参考规则来估算出一个合适的值，但是尝试更大或者更小也可能会有帮助：</p><pre><code>sns.kdeplot(x)sns.kdeplot(x, bw=.2, label=&quot;bw: 0.2&quot;)sns.kdeplot(x, bw=2, label=&quot;bw: 2&quot;)plt.legend();</code></pre><p><img src="https://segmentfault.com/img/bVba72E?w=588&h=337" alt></p><p>如上所述，高斯 KDE 过程的意味着估计延续了数据集中最大和最小的值。 可以通过<code>cut</code>参数来控制绘制曲线的极值值的距离; 然而，这只影响曲线的绘制方式，而不是曲线如何拟合：</p><pre><code>sns.kdeplot(x, shade=True, cut=0)sns.rugplot(x);</code></pre><p><img src="https://segmentfault.com/img/bVba72J?w=575&h=338" alt></p><h4 id="拟合参数分布"><a href="#拟合参数分布" class="headerlink" title="拟合参数分布"></a>拟合参数分布</h4><p>你也可以使用<code>distplot()</code>将参数分布拟合到数据集，并可视化地评估其与观察数据的对应程度：</p><pre><code>x = np.random.gamma(6, size=200)sns.distplot(x, kde=False, fit=stats.gamma);</code></pre><p><img src="https://segmentfault.com/img/bVba72Q?w=610&h=335" alt></p><h2 id="绘制双变量分布"><a href="#绘制双变量分布" class="headerlink" title="绘制双变量分布"></a>绘制双变量分布</h2><p>对于双变量分布的可视化也是非常有用的。在 seaborn 中最简单的方法就是使用 <code>joinplot()</code> 函数，它能够创建一个多面板图形来展示两个变量之间的联合关系，以及每个轴上单变量的分布情况。</p><pre><code>mean, cov = [0, 1], [(1, .5), (.5, 1)]data = np.random.multivariate_normal(mean, cov, 200)df = pd.DataFrame(data, columns=[&quot;x&quot;, &quot;y&quot;])</code></pre><h4 id="Scatterplots"><a href="#Scatterplots" class="headerlink" title="Scatterplots"></a>Scatterplots</h4><p>双变量分布最熟悉的可视化方法无疑是散点图了，在散点图中每个观察结果以 x 轴和 y 轴值所对应的点展示。你可以用 matplotlib 的 <code>plt.scatter</code> 函数来绘制一个散点图，它也是<code>jointplot()</code>函数显示的默认方式。</p><pre><code>sns.jointplot(x=&quot;x&quot;, y=&quot;y&quot;, data=df)</code></pre><p><img src="https://segmentfault.com/img/bVba73e?w=614&h=553" alt></p><h4 id="Hexbin-plots"><a href="#Hexbin-plots" class="headerlink" title="Hexbin plots"></a>Hexbin plots</h4><p>直方图 <code>histogram</code> 的双变量类似图被称为 “hexbin” 图，因为它展示了落在六角形箱内的观测量。这种绘图对于相对大的数据集效果最好。它可以通过 matplotlib 的 <code>plt.hexbin</code> 函数使用，也可以作为 <code>jointplot</code> 的一种类型参数使用。它使用白色背景的时候视觉效果最好。</p><pre><code>x, y = np.random.multivariate_normal(mean, cov, 1000).Twith sns.axes_style(&quot;white&quot;):    sns.jointplot(x=x, y=y, kind=&quot;hex&quot;, color=&quot;k&quot;);</code></pre><p><img src="https://segmentfault.com/img/bVba73i?w=585&h=563" alt></p><h4 id="Kernel-density-estimation"><a href="#Kernel-density-estimation" class="headerlink" title="Kernel density estimation"></a>Kernel density estimation</h4><p>还使用上面描述的核密度估计过程来可视化双变量分布。在 seaborn 中，这种绘图以等高线图展示，并且可以作为 <code>jointplot()</code>的一种类型参数使用。</p><pre><code>sns.jointplot(x=&quot;x&quot;, y=&quot;y&quot;, data=df, kind=&quot;kde&quot;);</code></pre><p><img src="https://segmentfault.com/img/bVba73o?w=578&h=557" alt></p><p>你也可以用 <code>kdeplot</code> 函数来绘制一个二维的核密度图形。这可以将这种绘图绘制到一个特定的（可能已经存在的）matplotlib 轴上，而<code>jointplot()</code>函数只能管理自己：</p><pre><code>f, ax = plt.subplots(figsize=(6, 6))sns.kdeplot(df.x, df.y, ax=ax)sns.rugplot(df.x, color=&quot;g&quot;, ax=ax)sns.rugplot(df.y, vertical=True, ax=ax);</code></pre><p><img src="https://segmentfault.com/img/bVba73u?w=515&h=503" alt></p><p>如果你希望让双变量密度看起来更连续，您可以简单地增加 n_levels 参数增加轮廓级数：</p><pre><code>f, ax = plt.subplots(figsize=(6, 6))cmap = sns.cubehelix_palette(as_cmap=True, dark=0, light=1, reverse=True)sns.kdeplot(df.x, df.y, cmap=cmap, n_levels=60, shade=True);</code></pre><p><img src="https://segmentfault.com/img/bVba73B?w=537&h=495" alt></p><p><code>jointplot()</code>函数使用<code>JointGrid</code>来管理图形。为了获得更多的灵活性，您可能需要直接使用<code>JointGrid</code>绘制图形。<code>jointplot()</code>在绘制后返回 JointGrid 对象，你可以用它来添加更多层或调整可视化的其他方面：</p><pre><code>g = sns.jointplot(x=&quot;x&quot;, y=&quot;y&quot;, data=df, kind=&quot;kde&quot;, color=&quot;m&quot;)g.plot_joint(plt.scatter, c=&quot;w&quot;, s=30, linewidth=1, marker=&quot;+&quot;)g.ax_joint.collections[0].set_alpha(0)g.set_axis_labels(&quot;$X$&quot;, &quot;$Y$&quot;);</code></pre><p><img src="https://segmentfault.com/img/bVba73H?w=568&h=565" alt></p><h2 id="可视化数据集成对关系"><a href="#可视化数据集成对关系" class="headerlink" title="可视化数据集成对关系"></a>可视化数据集成对关系</h2><p>为了绘制数据集中多个成对的双变量，你可以使用 <code>pairplot()</code> 函数。这创建了一个轴矩阵，并展示了在一个 DataFrame 中每对列的关系。默认情况下，它也绘制每个变量在对角轴上的单变量。</p><pre><code>iris = sns.load_dataset(&quot;iris&quot;)sns.pairplot(iris);</code></pre><p><img src="https://segmentfault.com/img/bVba73I?w=976&h=934" alt></p><p>就像 <code>joinplot()</code> 和 <code>JoinGrid</code> 之间的关系，<code>pairplot()</code> 函数建立在 <code>PairGrid</code> 对象之上，直接使用可以更灵活。</p><pre><code>g = sns.PairGrid(iris)g.map_diag(sns.kdeplot)g.map_offdiag(sns.kdeplot, cmap=&quot;Blues_d&quot;, n_levels=6);/Users/mwaskom/anaconda/lib/python2.7/site-packages/matplotlib/axes/_axes.py:545: UserWarning: No labelled objects found. Use label=&#39;...&#39; kwarg on individual plots.  warnings.warn(&quot;No labelled objects found. &quot;</code></pre><p><img src="https://segmentfault.com/img/bVba73P?w=961&h=932" alt></p><blockquote><p>参考：<a href="http://seaborn.pydata.org/tutorial.html" target="_blank" rel="noopener">http://seaborn.pydata.org/tut…</a></p></blockquote><hr><p>关注微信公众号 <strong>Python 数据科学</strong>，获取 <code>120G</code> 人工智能 学习资料。<br><img src="https://segmentfault.com/img/bV7oO9?w=344&h=344" alt></p><p><img src="https://segmentfault.com/img/bV93KE?w=572&h=367" alt></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Python Packages </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> seaborn </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>《C程序设计语言》读书笔记（六）——结构</title>
-      <link href="/2019/07/09/BookNotes/The%20C%20Programming%20Language/%E3%80%8AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84/"/>
-      <url>/2019/07/09/BookNotes/The%20C%20Programming%20Language/%E3%80%8AC%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E8%AF%AD%E8%A8%80%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%88%E5%85%AD%EF%BC%89%E2%80%94%E2%80%94%E7%BB%93%E6%9E%84/</url>
-      
-        <content type="html"><![CDATA[<h2 id="6-1"><a href="#6-1" class="headerlink" title="6.1"></a>6.1</h2><p>结构的初始化只能紧跟在结构类型的变量声明后面，必须对所有结构成员进行初始化，且初始化的值必须为常量。比如</p><pre><code class="c">    struct abc    {        int a;        int b;    } x = {100,200};</code></pre><p>或者</p><pre><code class="c">struct abc y = {200,390};</code></pre><p>或者</p><pre><code class="c">struct abc z;z.a = 200;z.b = 300;</code></pre><p>而不允许</p><pre><code class="c">struct abc y;y = {200,300};</code></pre><h2 id="6-2-结构与函数、指针"><a href="#6-2-结构与函数、指针" class="headerlink" title="6.2 结构与函数、指针"></a>6.2 结构与函数、指针</h2><h3 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h3><p>在函数中可以调用结构，也可以在一个函数中返回一个结构。这里要注意的是，在函数的声明中如果出现结构的形式，其类型是struct + 结构标记，如<code>struct abc</code>。下面给出课本上两个使用结构的函数：</p><pre><code class="c">struct point makepoint (int x,int y)  //返回类型为struct point{    struct point temp;    temp.x = x;    temp.y = y;    return temp;  //返回结构时只写结构名即可}struct point addpoint(struct point p1,struct point p2)  //形参为两个struct point类型，返回为struct point类型{    p1.x += p2.x;    p1.y += p2.y;    return p1;}</code></pre><h3 id="2-结构指针"><a href="#2-结构指针" class="headerlink" title="2. 结构指针"></a>2. 结构指针</h3><p>在结构很大的条件下，使用指针方式的结构比普通的结构效率更高。结构指针的定义方式和普通指针类似：<code>struct point *pp;</code>。调用结构成员时可使用两种方法：<code>(*pp).a</code>或<code>pp-&gt;a</code>。个人感觉第二种方法不容易出错，因为运算符<code>.</code>的优先级高于<code>*</code>，所以第一种方法中圆括号不可少，而第二种方法简单直观。实际上，通过查找2.12的运算符优先级表可以看到，<code>-&gt;</code>和<code>.</code>的优先级是最高的，所以在类似于<code>++</code>、<code>*</code>等操作时一定注意括号的使用。</p><h2 id="6-5-自引用结构"><a href="#6-5-自引用结构" class="headerlink" title="6.5 自引用结构"></a>6.5 自引用结构</h2><p>在结构的声明中不能包括结构本身，但是可以包括指向本结构的指针。在下面这个课本例子对于结构的声明中我们可以看到这一点。</p><pre><code class="c">/*例6.5 统计单词出现的次数完整版代码*/#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;malloc.h&gt;#define MAXWORDNUM 100  //输入字符串最大数目#define MAXWORDLEN 10  //输入每个字符串最大长度struct tnode{    char *tword;    int num;    struct tnode *left;    struct tnode *right;};struct tnode * Addtree(struct tnode *p, char *word)  //判断一个单词是否在二叉树中并添加其到合适位置，返回根节点{    if (p == NULL)    {        p = (struct tnode *)malloc(sizeof(struct tnode));  //分配struct tnode大小的空间        p-&gt;tword = word;        p-&gt;num = 1;        p-&gt;left = NULL;        p-&gt;right = NULL;    }    else if ((strcmp(p-&gt;tword, word)) == 0)        p-&gt;num++;    else if ((strcmp(p-&gt;tword, word)) &gt; 0)        p-&gt;left = Addtree(p-&gt;left, word);  //递归调用    else p-&gt;right = Addtree(p-&gt;right, word);    return p;}int Findtree(struct tnode *p,char *word)  //查找一个单词是否在二叉树中，找到返回1，否则返回0{    int result = 0;    if(p != NULL)    {        result |= Findtree(p-&gt;left,word);  //如果在左子树中找到，左子树的Findtree返回1，和总结果做或运算即可        if(strcmp(p-&gt;tword,word) == 0)            result = 1;        result |= Findtree(p-&gt;right,word);    }    return result;}void Printtree(struct tnode *p)  //打印整个二叉树{    if (p != NULL)  //这里不能使用while，否则会一直循环    {        Printtree(p-&gt;left);  //递归调用        printf(&quot;word:%10s\t\tnumber:%2d\n&quot;, p-&gt;tword, p-&gt;num);        Printtree(p-&gt;right);    }}int main(int argc, char const *argv[]){    char *wordarray[MAXWORDNUM];    int i = 0, j,result;    char *temp,*tempword;    printf(&quot;Please enter all words:\n&quot;);    //将所有单词输入进一个字符串指针数组中    do    {        wordarray[i] = (char*)malloc(MAXWORDLEN * sizeof(char));  //使用gets()输入字符串        gets(wordarray[i]);        i++;    } while (*wordarray[i - 1] != &#39;\0&#39; &amp;&amp; i &lt; MAXWORDNUM);    struct tnode *root;    root = NULL;    for (j = 0; j &lt; ((*wordarray[i - 1] == &#39;\0&#39; ? i - 1 : i); j++)        root = Addtree(root, wordarray[j]);  //创建整棵二叉树。注意每一个Addtree的调用返回的是它本身，所以root并不会因此    printf(&quot;Press 1 to find a specific word,press 2 to print all words existed:\n&quot;);    temp = (char *)malloc(sizeof(char));    gets(temp);    switch(*temp)    {        case &#39;1&#39;:  //选择1：查找某个单词是否在二叉树中        printf(&quot;Please enter the word you want to find:\n&quot;);        tempword = (char*)malloc(MAXWORDLEN*sizeof(char));        gets(tempword);        result = Findtree(root,tempword);        result &gt; 0 ? puts(&quot;Found!&quot;):puts(&quot;Not found!&quot;);        break;        case &#39;2&#39;:  //选择2：打印整棵二叉树        Printtree(root);        printf(&quot;\nPrint complete!\n&quot;);        break;        default:        printf(&quot;Input error!\n&quot;);        break;    }return 0;}</code></pre><h2 id="6-6-表查找"><a href="#6-6-表查找" class="headerlink" title="6.6 表查找"></a>6.6 表查找</h2><p>给出一个课本例题的稍微改动和添加版本，其中包含了hash表的初始化、添加数据、删除和查找功能，也包括使用malloc()和get_s()为字符串指针申请内存以及一些编程中容易出错的地方（花了我快一天啊啊啊效率太低了(╯°口°)╯(┴—┴）</p><pre><code class="c">//hash表的初始化、添加、删除和查找练习// ConsoleApplication2.cpp : 定义控制台应用程序的入口点。//#include &quot;stdafx.h&quot;#include &lt;stdio.h&gt;#include &lt;string.h&gt;#include &lt;malloc.h&gt;#define MAXHASHSIZE 20#define MAXCHARSIZE 20#define SUCCESS 1#define FAIL -1typedef struct tnode{    char *tword;    int count;}Hashtable;int InitHashtable(Hashtable *[]);int AddToHashtable(Hashtable *[], char*);int DeleteHashtable(Hashtable *[], char *);int FindInHashtable(Hashtable *[], char *);int InitHashtable(Hashtable *root[]);unsigned int CalcHashValue(char *);int InitHashtable(Hashtable *root[])  //初始化hash表，所有字符串指针指向NULL，计数为0{    int i;    for (i = 0; i &lt; MAXHASHSIZE; i++)    {        root[i] = (Hashtable*)malloc(sizeof(Hashtable));  //为字符串指针分配地址        if ((*(root + i))-&gt;tword == NULL)  //存储空间满            return FAIL;        (*(root + i))-&gt;tword = NULL;        (*(root + i))-&gt;count = 0;    }    return SUCCESS;}int AddToHashtable(Hashtable *root[], char *data)  //将一个字符串加入hash表{    unsigned int hashvalue, i = 0;    hashvalue = CalcHashValue(data);    while ((*(root + hashvalue))-&gt;tword != NULL &amp;&amp; i &lt; MAXHASHSIZE)  //欲放入的位置不为空    {        if (strcmp((*(root + hashvalue))-&gt;tword, data) == 0)        {            (*(root + hashvalue))-&gt;count++;            break;        }        else            hashvalue = (hashvalue + i) % MAXHASHSIZE;  //存放位置加1        i++;    }    if (i == MAXHASHSIZE)    {        printf(&quot;Stack full!&quot;);        return FAIL;    }    else    {        (*(root + hashvalue))-&gt;tword = data;  //放入字符串        (*(root + hashvalue))-&gt;count = 1;  //计数        return SUCCESS;    }}int DeleteHashtable(Hashtable *root[], char *word)  //从hash表中删除一个字符串数据{    unsigned int hashvalue;    int temp;    temp = FindInHashtable(root, word);    if (temp == FAIL)    {        printf(&quot;Cannot delete!\n&quot;);        return FAIL;    }    else    {        (*(root + temp))-&gt;tword = NULL;  //字符串指针指向NULL        (*(root + temp))-&gt;count = 0;        return SUCCESS;    }}int FindInHashtable(Hashtable *root[], char *word)  //在hash表中查找某个字符串{    unsigned int hashvalue;    int i;    hashvalue = CalcHashValue(word);    for (i = 0;(*(root + hashvalue))-&gt;tword != NULL &amp;&amp; strcmp((*(root + hashvalue))-&gt;tword, word) != 0 &amp;&amp; i &lt; MAXHASHSIZE; i++)        hashvalue = (hashvalue + i) % MAXHASHSIZE;    if (i &lt; MAXHASHSIZE &amp;&amp; (*(root + hashvalue))-&gt;tword != NULL)  //找到的时候没有循环一次而且不为空指针，说明已经找到        return (hashvalue + i) % MAXHASHSIZE;  //返回hash表中位置    else return FAIL;}unsigned int CalcHashValue(char *data)  //计算一个字符串hash的值{    int i = 0;    unsigned int result = 0;    while (*data != &#39;\0&#39;)        result = result * 31 + *data++;    return result % MAXHASHSIZE;}int main(int argc, char const *argv[]){    char *temp[MAXHASHSIZE];    char *wordtemp;    int i = 0, j = 0, k, l;    char m;    Hashtable *root[MAXHASHSIZE];    //初始化过程    printf(&quot;Please enter all words:\n&quot;);    do    {        *(temp + i) = (char *)malloc(MAXCHARSIZE * sizeof(char));  //为字符串指针分配存储空间        gets_s(*(temp + i),MAXCHARSIZE);        i++;    } while (**(temp + i - 1) != &#39;\0&#39; &amp;&amp; i &lt; MAXHASHSIZE);    if (InitHashtable(root) == SUCCESS)        printf(&quot;Initial complete!\n&quot;);    else    {        printf(&quot;Initial fail!\n&quot;);        return FAIL;    }    //添加字符串数据过程    for (j = 0; j &lt; (**(temp + i - 1) == &#39;\0&#39; ? i - 1 : i); j++)    {        if (l = AddToHashtable(root, *(temp + j)) != SUCCESS)        {            printf(&quot;Add fail!\n&quot;);            return FAIL;        }    }    printf(&quot;Add complete!\n&quot;);    //查找，删除或退出    while (1)    {        printf(&quot;Press 1 to delete a word,press 2 to find a word,press 3 to break:\n&quot;);        m = getchar();        getchar();  /*注意注意注意在getchar()获取一个字符后一定要加一个getchar()清楚缓存区，        否则下面的gets_s()会直接从缓存区读取回车号，造成的后果是读取的直接为空字符_(:3」∠)_*/        switch (m)        {            case &#39;1&#39;:  //删除            printf(&quot;Please enter the word you want to delete:\n&quot;);            wordtemp = (char*)malloc(MAXCHARSIZE * sizeof(char));            gets_s(wordtemp, MAXCHARSIZE);            k = DeleteHashtable(root, wordtemp);            if (k == SUCCESS)                printf(&quot;Delete successful!\n&quot;);            else                printf(&quot;Delete fail!\n&quot;);            break;            case &#39;2&#39;:  //查找            printf(&quot;Please enter the word you want to find:\n&quot;);            wordtemp = (char*)malloc(MAXCHARSIZE * sizeof(char));            gets_s(wordtemp, MAXCHARSIZE);            k = FindInHashtable(root, wordtemp);            if (k &gt;= 0 &amp;&amp; k &lt; MAXHASHSIZE)                printf(&quot;Found!%s is in the %d place.\n&quot;, (*(root + k))-&gt;tword, k);            else if (k == FAIL)                printf(&quot;Not found!\n&quot;);            else                printf(&quot;Error!\n&quot;);            break;            case &#39;3&#39;:            return 0;        }    }    return 0;}</code></pre><h2 id="6-7-类型定义"><a href="#6-7-类型定义" class="headerlink" title="6.7 类型定义"></a>6.7 类型定义</h2><p>格式：typedef 原类型名 新类型名<br>例子：</p><ol><li><code>typedef int length;</code></li><li><code>typedef char *string;</code> 定义string为字符串指针类型</li><li><code>typedef struct tnode{} Tree;</code>  定义Tree为struct tnode类型，因此Tree tnode1等价于struct tnode tnode1;</li><li><code>typedef struct tnode *pTree;</code>  定义pTree为指向struct tnode类型的指针，因此可用：<code>pTree pTree1; pTree1-&gt;member</code>访问成员变量</li><li><code>typedef int (*Func1)(char*,char*);</code>  定义一个指向函数的指针，这个函数返回char类型，因此可用：<code>Func1 func1; a = (*func1)(str1,str2);</code>来调用这个函数</li></ol><h2 id="6-8-共用体"><a href="#6-8-共用体" class="headerlink" title="6.8 共用体"></a>6.8 共用体</h2><p><a href="http://blog.csdn.net/yyb19951015/article/details/71036444" target="_blank" rel="noopener">共用体（Union）简介</a></p><h2 id="6-9-位字段"><a href="#6-9-位字段" class="headerlink" title="6.9 位字段"></a>6.9 位字段</h2><p>位字段的作用是将多个对象保存在同一个机器字中，机器字是指计算机一次运算能够同时处理的最大位数，通常所说的32/64位电脑就是指机器字的长度。位字段在一个结构中声明，方式为：</p><pre><code class="c">//代码引用自：http://blog.csdn.net/lovecodeless/article/details/23270911struct  {    unsigned int a  : 1;     //冒号“:”后的数字为该位字段所占的bit位数    unsigned int b  : 3;          unsigned int c  : 5;}flags;</code></pre><p>因此，在对每个字段进行赋值的时候，要注意不能超过定义的最大范围，在上例中范围为0~2^(n-1)<br>更详细的介绍请参考：<a href="http://blog.csdn.net/lovecodeless/article/details/23270911" target="_blank" rel="noopener">http://blog.csdn.net/lovecodeless/article/details/23270911</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Book Notes </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> C语言 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>数据可视化Seaborn从零开始学习教程（二） 颜色调控篇</title>
       <link href="/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%20%E9%A2%9C%E8%89%B2%E8%B0%83%E6%8E%A7%E7%AF%87/"/>
       <url>/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%20%E9%A2%9C%E8%89%B2%E8%B0%83%E6%8E%A7%E7%AF%87/</url>
@@ -1298,6 +1298,31 @@
         <tags>
             
             <tag> seaborn </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>TimeDistributedDense()层</title>
+      <link href="/2019/07/09/DeepLearning/RNN/LSTM/TimeDistributedDense()%E5%B1%82/"/>
+      <url>/2019/07/09/DeepLearning/RNN/LSTM/TimeDistributedDense()%E5%B1%82/</url>
+      
+        <content type="html"><![CDATA[<ol><li><a href="https://github.com/keras-team/keras/issues/2405" target="_blank" rel="noopener">https://github.com/keras-team/keras/issues/2405</a></li><li><a href="https://github.com/CanePunma/Stock_Price_Prediction_With_RNNs/issues/1" target="_blank" rel="noopener">https://github.com/CanePunma/Stock_Price_Prediction_With_RNNs/issues/1</a></li><li><a href="https://stackoverflow.com/questions/42398645/timedistributed-vs-timedistributeddense-keras" target="_blank" rel="noopener">https://stackoverflow.com/questions/42398645/timedistributed-vs-timedistributeddense-keras</a></li><li><a href="https://stackoverflow.com/questions/44611006/timedistributeddense-vs-dense-in-keras-same-number-of-parameters" target="_blank" rel="noopener">https://stackoverflow.com/questions/44611006/timedistributeddense-vs-dense-in-keras-same-number-of-parameters</a></li><li><a href="https://stackoverflow.com/questions/45631235/importerror-cannot-import-name-timedistributeddense-in-keras" target="_blank" rel="noopener">https://stackoverflow.com/questions/45631235/importerror-cannot-import-name-timedistributeddense-in-keras</a></li><li><a href="https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu" target="_blank" rel="noopener">https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu</a></li><li><a href="https://stackoverflow.com/questions/49661708/keras-lstm-multiple-input-multiple-output" target="_blank" rel="noopener">https://stackoverflow.com/questions/49661708/keras-lstm-multiple-input-multiple-output</a></li><li><a href="https://blog.csdn.net/oQiCheng1234567/article/details/73051251" target="_blank" rel="noopener">https://blog.csdn.net/oQiCheng1234567/article/details/73051251</a></li><li><a href="https://github.com/keras-team/keras/issues/1029" target="_blank" rel="noopener">https://github.com/keras-team/keras/issues/1029</a></li></ol><p>keras/issues/1029)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> LSTM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -1336,31 +1361,6 @@
       <url>/2019/07/09/DeepLearning/RNN/LSTM/LSTM/</url>
       
         <content type="html"><![CDATA[<h2 id="1-LSTM原理"><a href="#1-LSTM原理" class="headerlink" title="1 LSTM原理"></a>1 LSTM原理</h2><ol><li><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">English version：Understanding LSTM Networks</a></li><li><a href="https://www.jianshu.com/p/4b4701beba92" target="_blank" rel="noopener">中文版：如何简单的理解LSTM——其实没有那么复杂</a></li><li><a href="https://zybuluo.com/hanbingtao/note/581764" target="_blank" rel="noopener">作业部落</a></li><li><a href="https://medium.com/mlreview/understanding-lstm-and-its-diagrams-37e2f46f1714" target="_blank" rel="noopener">好看的图</a></li></ol><h2 id="2-LSTM基础应用"><a href="#2-LSTM基础应用" class="headerlink" title="2 LSTM基础应用"></a>2 LSTM基础应用</h2><ol><li><a href="https://yq.aliyun.com/articles/202939" target="_blank" rel="noopener">LSTM在MNIST数据集中的运用</a></li></ol><h2 id="3-LSTM实战"><a href="#3-LSTM实战" class="headerlink" title="3 LSTM实战"></a>3 LSTM实战</h2><ol><li><a href="https://blog.csdn.net/mylove0414/article/details/56969181" target="_blank" rel="noopener"># Tensorflow实例：利用LSTM预测股票每日最高价（二）</a></li><li><a href="https://blog.csdn.net/flying_sfeng/article/details/78852816" target="_blank" rel="noopener">使用tensorflow的lstm网络进行时间序列预测</a></li><li><a href="https://machinelearningmastery.com/time-series-forecasting-long-short-term-memory-network-python/" target="_blank" rel="noopener">基于单变量的LSTM时间序列预测</a></li><li><a href="https://yq.aliyun.com/articles/174270" target="_blank" rel="noopener">基于多变量的LSTM时间序列预测</a></li><li><a href="https://machinelearningmastery.com/multi-step-time-series-forecasting-long-short-term-memory-networks-python/" target="_blank" rel="noopener">基于LSTM的多步预测</a></li><li><a href="https://www.jianshu.com/p/5d6d5aac4dbd" target="_blank" rel="noopener">实用LSTM时间预测例子</a></li><li><a href="https://yq.aliyun.com/articles/68463" target="_blank" rel="noopener">多层LSTM网络：教你打造股市晴雨表——通过LSTM神经网络预测股市</a></li><li><a href="https://machinelearningmastery.com/understanding-stateful-lstm-recurrent-neural-networks-python-keras/" target="_blank" rel="noopener">LSTM英文句子预测问题</a></li><li><a href="http://www.willfleury.com/machine-learning/forecasting/lstm/2017/09/01/short-term-forceasting-lstm.html" target="_blank" rel="noopener">lstm时间序列预测程序</a></li></ol><h2 id="4-LSTM相关问题理解"><a href="#4-LSTM相关问题理解" class="headerlink" title="4 LSTM相关问题理解"></a>4 LSTM相关问题理解</h2><ol><li><p><a href="https://stackoverflow.com/questions/37901047/what-is-num-units-in-tensorflow-basiclstmcell#comment83076885_37901047" target="_blank" rel="noopener">tensorflow中LSTM模型的n_hidden含义</a></p></li><li><p>LSTM stateful相关理解</p><ol><li><a href="http://philipperemy.github.io/keras-stateful-lstm/" target="_blank" rel="noopener">Stateful LSTM in Keras</a></li><li><a href="https://machinelearningmastery.com/understanding-stateful-lstm-recurrent-neural-networks-python-keras/" target="_blank" rel="noopener">Understanding Stateful LSTM Recurrent Neural Networks in Python with Keras</a><blockquote><p>The LSTM networks are stateful. They should be able to learn the whole alphabet sequence, but by default the Keras implementation resets the network state after each training batch.</p></blockquote></li><li><a href="https://stackoverflow.com/questions/43882796/when-does-keras-reset-an-lstm-state" target="_blank" rel="noopener">https://stackoverflow.com/questions/43882796/when-does-keras-reset-an-lstm-state</a></li><li><a href="https://ahstat.github.io/RNN-Keras-time-series/" target="_blank" rel="noopener">https://ahstat.github.io/RNN-Keras-time-series/</a></li><li><a href="https://zhuanlan.zhihu.com/p/34495801#comment-465502125" target="_blank" rel="noopener">Keras之stateful LSTM全面解析+实例测试</a></li></ol></li><li><p><a href="https://blog.csdn.net/yyb19951015/article/details/79740869" target="_blank" rel="noopener">LSTM输入层理解</a></p></li></ol><h2 id="5-LSTM论文及资料"><a href="#5-LSTM论文及资料" class="headerlink" title="5 LSTM论文及资料"></a>5 LSTM论文及资料</h2><p><a href="http://suanfazu.com/t/rnn-lstm/13587" target="_blank" rel="noopener">rnn和lstm资源收集</a><br>om/t/rnn-lstm/13587)</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> LSTM </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 深度学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>TimeDistributedDense()层</title>
-      <link href="/2019/07/09/DeepLearning/RNN/LSTM/TimeDistributedDense()%E5%B1%82/"/>
-      <url>/2019/07/09/DeepLearning/RNN/LSTM/TimeDistributedDense()%E5%B1%82/</url>
-      
-        <content type="html"><![CDATA[<ol><li><a href="https://github.com/keras-team/keras/issues/2405" target="_blank" rel="noopener">https://github.com/keras-team/keras/issues/2405</a></li><li><a href="https://github.com/CanePunma/Stock_Price_Prediction_With_RNNs/issues/1" target="_blank" rel="noopener">https://github.com/CanePunma/Stock_Price_Prediction_With_RNNs/issues/1</a></li><li><a href="https://stackoverflow.com/questions/42398645/timedistributed-vs-timedistributeddense-keras" target="_blank" rel="noopener">https://stackoverflow.com/questions/42398645/timedistributed-vs-timedistributeddense-keras</a></li><li><a href="https://stackoverflow.com/questions/44611006/timedistributeddense-vs-dense-in-keras-same-number-of-parameters" target="_blank" rel="noopener">https://stackoverflow.com/questions/44611006/timedistributeddense-vs-dense-in-keras-same-number-of-parameters</a></li><li><a href="https://stackoverflow.com/questions/45631235/importerror-cannot-import-name-timedistributeddense-in-keras" target="_blank" rel="noopener">https://stackoverflow.com/questions/45631235/importerror-cannot-import-name-timedistributeddense-in-keras</a></li><li><a href="https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu" target="_blank" rel="noopener">https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu</a></li><li><a href="https://stackoverflow.com/questions/49661708/keras-lstm-multiple-input-multiple-output" target="_blank" rel="noopener">https://stackoverflow.com/questions/49661708/keras-lstm-multiple-input-multiple-output</a></li><li><a href="https://blog.csdn.net/oQiCheng1234567/article/details/73051251" target="_blank" rel="noopener">https://blog.csdn.net/oQiCheng1234567/article/details/73051251</a></li><li><a href="https://github.com/keras-team/keras/issues/1029" target="_blank" rel="noopener">https://github.com/keras-team/keras/issues/1029</a></li></ol><p>keras/issues/1029)</p>]]></content>
       
       
       <categories>
