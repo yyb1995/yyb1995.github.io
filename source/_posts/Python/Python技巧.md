@@ -30,9 +30,18 @@ b = [4, 5, 6]
 dict1 = dict(zip(a, b))
 ```
 
+## 初始化值类型的字典——defaultdict
+在python中可以使用`collections`中的`defaultdict`对字典中的值类型进行初始化。在初始化`defaultdict`时，可以加上`int`，`list`等参数，表示值的默认类型。
+
+## 列表删除元素
+
+1. `a.remove(item)`
+2. `del(a[index])`
+3. `a.pop()`
+
 ## python 排序
 `sorted([1, 2, 3, 5, 3])`
-
+`[1, 2, 3, 6, 5].sort()`
 ## python中的队列
 ```
 from collections import deque
@@ -85,7 +94,7 @@ def fetch_bigtable_rows(big_table, keys, other_silly_variable=None):
 **注意：** 函数功能注释与参数说明之间应该空一行
 
 ## map、reduce和filter
-map用于将一个函数映射到后面给出的变量列表中，reduce用于将一个函数依次映射到后面的相邻变量中，reduce用于筛选列表中符合某个函数条件的值
+map用于将一个函数映射到后面给出的变量列表中，reduce用于将一个函数依次映射到后面的相邻变量中，filter用于筛选列表中符合某个函数条件的值
 ```python
 map(lambda x: x ** 2, range(1, 10))
 from functools import reduce
@@ -93,9 +102,17 @@ reduce(lambda x, y: x + y, range(1, 11))
 filter(lambda x: x % 2, range(1, 11))
 ```
 
-## *号的使用
-*号可用在函数的输入参数前，用于将输入参数解包以匹配函数的形参，也可用于把一个函数的多个返回值拆开使用
+## \*号的使用
+
+1. 乘法符号
+2. 当\*号用在函数定义时，作用是收集传入的参数，也就是把除`a=b`形式外的传入参数打包成一个元组，在函数中使用。\*\*号作用相同，是把所有`a=b`形式的传入参数打包成字典，在函数中使用。
+3. 当\*号用于函数调用时，作用是把以元组形式的参数集合展开并对应到各个参数位置上。
+
 ```python
+def print(*param):
+    for item in param:
+        print(item)
+
 # Example 1
 def print_(a, b, c):
     print(a)
@@ -110,8 +127,13 @@ def a():
     return 1, 2, 3
 
 print('{} {} {}'.format(*a()))
-```
 
+# Example 3
+a = [1, 2, 3]
+b = [*a]
+
+print(b)
+```
 
 ## Python数组拷贝
 在进行Python的数组拷贝时，有时会用到切片操作。下面是一个例子：
@@ -278,7 +300,7 @@ def foo1():
 def foo(param):
     pass
 
-import time 
+import time
 start = time.time()
 foo()
 end = time.time()
@@ -287,3 +309,8 @@ print(end - start)
 from timeit import timeit
 print(timeit('foo(x)', setup='from __main__ import foo', globals={'x': param}), number=1)
 ```
+
+
+## 逻辑运算符运算顺序
+
+python中逻辑运算符包括`not`，`and`和`or`，其运算顺序为`not>and>or`。

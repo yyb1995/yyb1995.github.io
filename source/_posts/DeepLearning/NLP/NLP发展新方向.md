@@ -16,3 +16,4 @@ icon: note
 8. [ICLR 2019最佳论文 | ON-LSTM：用有序神经元表达层次结构](https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247497461&idx=1&sn=2821912a51749ef50a46007249fec26a&chksm=96ea2975a19da0633f3286750088a22c78987628666a6cd2d42d1fbee74f9c189e073d111dc2&mpshare=1&scene=23&srcid=#rd)
 9. [Bert时代的创新（应用篇）：Bert在NLP各领域的应用进展](https://zhuanlan.zhihu.com/p/68446772)
 10. [XLNet:运行机制及和Bert的异同比较](https://zhuanlan.zhihu.com/p/70257427)
+11. [15篇论文全面概览BERT压缩方法](https://xueqiu.com/7788828530/136260361)

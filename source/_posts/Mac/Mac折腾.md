@@ -1,4 +1,8 @@
-# Mac折腾记
+---
+title: Mac折腾
+categories: MacOS
+icon: note
+---
 
 ## 一些好用的功能
 [触控板用力点按 Froce torch](https://www.macdaxue.com/force-touch/)
@@ -98,3 +102,9 @@ Hotkey: Double click Command
 brew install git
 brew link git --overwrite
 ```
+
+### Alfred
+一个很好用的搜索工具。
+
+### ForkLift
+一个很好用的文件管理工具，支持FTP、SMB等多种协议。

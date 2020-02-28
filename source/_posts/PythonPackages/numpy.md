@@ -5,10 +5,10 @@ tags: numpy
 icon: note
 ---
 
-## 1 导入numpy
+## 导入numpy
 常用代码：`import numpy as np`或`from numpy import *`。建议使用第一种。使用第一种时要在numpy函数前加上`np.xxx`，如·`np.array`
 
-## 2 矩阵的创建
+## 矩阵的创建
 常用代码:
 1. 创建数组
 `np.array([[1,2,3]])`创建一个1*3的numpy数组
@@ -22,7 +22,7 @@ icon: note
 `np.diag([[a,b,c],[d,e,f],[g,h,i]])`创建一个1*3向量，元素为矩阵对角线元素
 
 
-## 3 矩阵的运算
+## 矩阵的运算
 1. 计算向量间的欧氏距离
 ``` python
 a1 = np.array([[1,2],[2,3]])
@@ -95,7 +95,16 @@ array([[1, 2, 3],
 16. 使用元组索引数组
 可以使用元组对数组进行索引，即`a[(2, 3)]`。如果是其他类型的，可以使用`tuple()`进行转换。
 
-## 4 数据的产生
+## 矩阵元素操作
+1. 找出所有等于某个值的所有元素的下标
+```python
+a = np.random.randint(1, 10, 100)
+np.where(a == 2)
+np.argwhere(a == 2)
+```
+
+
+## 数据的产生
 1. 正态分布数据
 `numpy.random.normal(loc, scale, size)`
 loc：float

@@ -37,6 +37,9 @@ git config --global user.email
 
 `git commit -m 'add a file'`
 
+- 对上次的提交信息进行修改和更新
+`git commit --amend -m`
+
 ## 查看仓库当前状态
 
 `git status`
@@ -79,9 +82,24 @@ git config --global user.email
 
 - 这个修改已经经过`git add`加入暂存区
 ```git
-git reset --hard HEAD~
-git checkout -- file
+git rm --cached [filename]
 ```
+
+## 撤销提交
+
+- 新增一次提交以抵消上一次提交的变化，不会改变过去的所有历史
+`git revert head`
+
+- 新增多次提交以抵消某几次提交的变化
+`git revert [倒数第一次] [倒数第二次]`
+
+## 丢弃提交
+
+丢弃提交的含义是使某次提交之后的所有提交在历史中彻底删除，仍可以使用`git reflog`查看记录
+
+`git reset [某次提交]`
+
+还可以加上`--hard`参数，表示让工作区的文件也回到过去的状态
 
 ## 删除文件
 
@@ -178,6 +196,12 @@ git merge a
 
 - 给标签加上说明文字
 `git tag -a v0.1 -m "version 0.1 released" 1094adb`
+
+## .gitignore
+`.gitignore`主要用于忽略一些文件，不加入版本库。
+
+当现有文件已经被git跟踪时，再使用.gitignore并没有用。此时需要使用
+`git rm -r --cached .`删除本地缓存，再使用.gitignore进行跟踪。
 
 
 ## Reference

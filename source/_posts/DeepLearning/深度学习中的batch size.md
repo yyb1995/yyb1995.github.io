@@ -54,4 +54,5 @@ Batch 的选择，首先决定的是下降的方向。如果数据集比较小�
 *   由于最终收敛精度会陷入不同的局部极值，因此 Batch_Size 增大到**某些**时候，达到最终收敛**精度上**的最优。
 
 ## 关于batchsize和epoch的理解
+
 batchsize指的是使超参数发生一次迭代输入的样本数，也就是完成一次反向传播、求导、参数更新过程所需要输入的样本数。epoch指完成将所有训练数据全部应用于参数更新的过程。在样本数据比较小时，batchsize可以取为训练样本数，这样完成一次epoch只需进行一次梯度下降和参数更新。将全部输入数据作为一个batch进行训练的方法称为**批梯度下降法（Batch Gradient Descend）**。与之相对应的是**随机梯度下降法（Stochastic Gradient Descent）**。这种梯度下降法每次只选取一个样本进行参数更新，因此完成一次epoch需要进行size(X)次迭代。这种方法梯度下降的方向一般不是最优的。将这两种方法折中的一种方法称为**小批量梯度下降法（Mini-batch Gradient Descent）**。这种方法每次将**batchsize**的数据用来训练网络，完成一次迭代。那么完成一次epoch需要进行的迭代次数为`np.ceil(size(x) / batchsize)`。在实际使用时，可以在一定范围内尽可能增大batchsize的值。当然，如果增大batch值，达到相同精度的epoch数会越来越多，因此需要在精度和运算速度这两方面来考虑选取的batchsize。方面来考虑选取的batchsize。

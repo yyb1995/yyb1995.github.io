@@ -10,11 +10,7 @@ python中datetime模块非常好用，提供了日期格式和字符串格式相
 
 1、由日期格式转化为字符串格式的函数为: `datetime.datetime.strftime()`
 
-![](http://img.blog.csdn.net/20170205194641724)
-
 2、由字符串格式转化为日期格式的函数为: `datetime.datetime.strptime()`
-
-![](http://img.blog.csdn.net/20170205194637147)
 
 3、两个函数都涉及日期时间的格式化字符串，列举如下：
 ```

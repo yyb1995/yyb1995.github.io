@@ -61,6 +61,14 @@ a&=1\\
 \end{gather*}
 ```
 
+7. 分段函数
+```latex
+smooth_{L_{1}}(x)=\begin{cases}
+0.5x^{2}, &\left |x \right |\leq 1 \cr \left |x \right|-0.5, & otherwise
+\end{cases}
+
+```
+
 ## 2 图
 1. 一行一图
 ```latex
@@ -151,6 +159,26 @@ a&=1\\
 \DeclareCaptionLabelSeparator{twospace}{\ ~}
 \captionsetup{labelsep=twospace}
 ```
+4. 多行表格
+```latex
+\begin{table}[htp]
+	\centering
+	\caption{不同条件下一些中间结果的动态范围}
+	\label{cha_nonlinear}
+	\begin{tabular}{@{\extracolsep{12pt}}cccccc@{}}
+		\hline
+		\multirow{2}{*}{序列编号} & \multirow{2}{*}{条件}    & \multicolumn{4}{c}{动态范围}\\
+		\cline{3-6}& & $\mathbf{A}_{enc}$  & $X_{attn}$ & $\mathbf{A}_{enc\_dec}$ & $\hat{\mathbf{x}}_{pre}$\\
+		\hline
+		\multirow{4}{*}{1} & 无线性投影，无位置编码 & 1  & 2 & 3 & 4\\
+		& 有线性投影，无位置编码 & 1  & 2 & 3 & 4\\
+		& 无线性投影，有位置编码 & 1  & 2 & 3 & 4 \\
+		& 有线性投影，有位置编码 & 1  & 2 & 3 & 4\\
+		\hline
+	\end{tabular}
+\end{table}
+```
+
 
 ## 5 调整页边距
 ```latex
