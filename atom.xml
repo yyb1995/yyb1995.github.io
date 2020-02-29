@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yyb1995.github.io/"/>
-  <updated>2019-11-26T02:51:06.579Z</updated>
+  <updated>2019-12-01T08:44:53.264Z</updated>
   <id>https://yyb1995.github.io/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Python基础</title>
-    <link href="https://yyb1995.github.io/2019/11/26/Python/Python%E5%9F%BA%E7%A1%80/"/>
-    <id>https://yyb1995.github.io/2019/11/26/Python/Python基础/</id>
-    <published>2019-11-26T02:32:04.228Z</published>
-    <updated>2019-11-26T02:51:06.579Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="引用类型和值类型"><a href="#引用类型和值类型" class="headerlink" title="引用类型和值类型"></a>引用类型和值类型</h2><p>在Python中，变量实际上都可以看成指向一个对象的指针。对象可以分为可变(Mutable)对象和不可变(Immutable)对象。如果变量指向的是一个不可变对象，那么这个对象的值在创建后不允许改变。如改变这个变量的值，实际上是把变量指向了一个新的不可变对象，也就是内存里面一个新的地址。如果变量指向的是一个可变对象，那么这个对象的值在创建后允许改变。改变这个对象的内容（如增删改等）不会改变这个对象在内存中的地址。Python中常见的可变和不可变类有</p><table><thead><tr><th align="center">Class</th><th align="center">Immutable</th></tr></thead><tbody><tr><td align="center">bool</td><td align="center">True</td></tr><tr><td align="center">int</td><td align="center">True</td></tr><tr><td align="center">float</td><td align="center">True</td></tr><tr><td align="center">list</td><td align="center">False</td></tr><tr><td align="center">tuple</td><td align="center">True</td></tr><tr><td align="center">str</td><td align="center">True</td></tr><tr><td align="center">set</td><td align="center">False</td></tr><tr><td align="center">frozenset</td><td align="center">True</td></tr><tr><td align="center">dict</td><td align="center">False</td></tr></tbody></table>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;引用类型和值类型&quot;&gt;&lt;a href=&quot;#引用类型和值类型&quot; class=&quot;headerlink&quot; title=&quot;引用类型和值类型&quot;&gt;&lt;/a&gt;引用类型和值类型&lt;/h2&gt;&lt;p&gt;在Python中，变量实际上都可以看成指向一个对象的指针。对象可以分为可变(Mutable)
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://yyb1995.github.io/categories/Python/"/>
-    
-    
-  </entry>
   
   <entry>
     <title>Mac折腾</title>
@@ -188,22 +165,24 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>Git学习</title>
     <link href="https://yyb1995.github.io/2019/10/17/Git/Git%E5%AD%A6%E4%B9%A0/"/>
     <id>https://yyb1995.github.io/2019/10/17/Git/Git学习/</id>
     <published>2019-10-17T13:49:43.000Z</published>
-    <updated>2019-12-30T07:27:16.430Z</updated>
+    <updated>2020-02-29T09:50:31.720Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Git学习"><a href="#Git学习" class="headerlink" title="Git学习"></a>Git学习</h1><h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>Git是由Linux之父使用C语言开发的一个分布式版本控制系统。分布式版本控制系统的特点是没有中央服务器，每一个人的电脑上都有一个完整的版本库。</p><h2 id="Git安装与全局配置"><a href="#Git安装与全局配置" class="headerlink" title="Git安装与全局配置"></a>Git安装与全局配置</h2><p>在Windows系统下可以从官网下载Git安装包。在Mac系统下已经自带Git，如果需要安装更新版本，可以使用homebrew。</p><p>在安装完成后，可以进行全局用户名和电子邮件设置</p><pre><code class="git">git config --global user.name &#39;name&#39;git config --global user.email &#39;123@example.com&#39;</code></pre><p>如果忘记已经设置的用户名和电子邮件，可以使用以下命令查看</p><pre><code class="git">git config --global user.namegit config --global user.email</code></pre><p>如果文件夹名称中有中文，会出现乱码情况。可以使用<br><code>git config --global core.quotepath false</code></p><p>在Mac下git默认语言为中文，如果想改为中文，可以在<code>~/.zshrc</code>中加入<br><code>export LC_ALL=en_US.UTF-8</code></p><h2 id="创建一个仓库"><a href="#创建一个仓库" class="headerlink" title="创建一个仓库"></a>创建一个仓库</h2><p><code>git init</code></p><h2 id="把文件添加到仓库"><a href="#把文件添加到仓库" class="headerlink" title="把文件添加到仓库"></a>把文件添加到仓库</h2><p><code>git add filename</code></p><h2 id="对本次操作进行说明"><a href="#对本次操作进行说明" class="headerlink" title="对本次操作进行说明"></a>对本次操作进行说明</h2><p><code>git commit -m &#39;add a file&#39;</code></p><ul><li>对上次的提交信息进行修改和更新<br><code>git commit --amend -m</code></li></ul><h2 id="查看仓库当前状态"><a href="#查看仓库当前状态" class="headerlink" title="查看仓库当前状态"></a>查看仓库当前状态</h2><p><code>git status</code></p><h2 id="查看具体文件修改的内容"><a href="#查看具体文件修改的内容" class="headerlink" title="查看具体文件修改的内容"></a>查看具体文件修改的内容</h2><p><code>git diff filename</code></p><h2 id="查看版本历史记录"><a href="#查看版本历史记录" class="headerlink" title="查看版本历史记录"></a>查看版本历史记录</h2><ul><li><p>完整显示<br><code>git log</code></p></li><li><p>单行显示<br><code>git log --pretty=oneline</code></p></li></ul><h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ul><li><p>回退一个版本<br><code>git reset --hard HEAD^</code></p></li><li><p>回退n个版本<br><code>git reset --hard HEAD~n</code></p></li><li><p>根据版本号回退版本(不需写完整版本号)<br><code>git reset --hard 1234a</code></p></li><li><p>误操作时查看命令历史和版本号<br><code>git reflog</code></p></li></ul><h2 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h2><p>在Git中，平时工作的文件夹称为工作区，<code>.git</code>目录中存放的称为版本库。在版本库中存在一个暂存区。<code>git add</code>可以把文件放入暂存区。<code>git commit</code>可以把暂存区的改动提交到新的分支。如果对文件进行了多次修改，只有经过了<code>git add</code>的改动才会被暂存区记录，否则不会被记录。</p><h2 id="丢弃某个文件的修改-还原文件"><a href="#丢弃某个文件的修改-还原文件" class="headerlink" title="丢弃某个文件的修改(还原文件)"></a>丢弃某个文件的修改(还原文件)</h2><ul><li>这个修改没有经过<code>git add</code>加入暂存区</li></ul><p><code>git checkout -- file</code></p><ul><li>这个修改已经经过<code>git add</code>加入暂存区<pre><code class="git">git rm --cached [filename]</code></pre></li></ul><h2 id="撤销提交"><a href="#撤销提交" class="headerlink" title="撤销提交"></a>撤销提交</h2><ul><li><p>新增一次提交以抵消上一次提交的变化，不会改变过去的所有历史<br><code>git revert head</code></p></li><li><p>新增多次提交以抵消某几次提交的变化<br><code>git revert [倒数第一次] [倒数第二次]</code></p></li></ul><h2 id="丢弃提交"><a href="#丢弃提交" class="headerlink" title="丢弃提交"></a>丢弃提交</h2><p>丢弃提交的含义是使某次提交之后的所有提交在历史中彻底删除，仍可以使用<code>git reflog</code>查看记录</p><p><code>git reset [某次提交]</code></p><p>还可以加上<code>--hard</code>参数，表示让工作区的文件也回到过去的状态</p><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><ul><li>删除没有经过<code>git add</code>的文件</li></ul><p><code>rm file</code></p><ul><li>删除已经经过<code>git add</code>的文件</li></ul><pre><code class="git">rm filegit rm file</code></pre><h2 id="本地仓库与远程仓库的结合"><a href="#本地仓库与远程仓库的结合" class="headerlink" title="本地仓库与远程仓库的结合"></a>本地仓库与远程仓库的结合</h2><ul><li>把一个本地仓库与远程仓库关联</li></ul><p><code>git remote add origin git@github.com:xxx.git</code></p><p>其中<code>origin</code>表示远程仓库名。</p><ul><li>把本地仓库的内容推送到远程仓库</li></ul><p><code>git push -u origin master</code></p><ul><li>把远程仓库的内容拷贝到本地仓库<br><code>git clone git@github.com:xxx.git</code></li></ul><h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><ul><li>创建一个分支并切换到该分支</li></ul><p><code>git checkout -b dev</code></p><p><code>git switch -c dev</code></p><ul><li>创建一个分支</li></ul><p><code>git branch dev</code></p><ul><li>删除一个分支</li></ul><p><code>git branch -d dev</code></p><ul><li>切换到dev分支</li></ul><p><code>git checkout dev</code></p><p><code>git switch dev</code></p><ul><li>查看所有分支</li></ul><p><code>git branch</code></p><ul><li>把a分支合并到b分支</li></ul><pre><code class="git">git checkout bgit merge a</code></pre><ul><li>非快速合并模式<br><code>git merge --no-ff -m &#39;merge with no-diff&#39; dev</code></li></ul><h2 id="保存和恢复当前没提交的工作"><a href="#保存和恢复当前没提交的工作" class="headerlink" title="保存和恢复当前没提交的工作"></a>保存和恢复当前没提交的工作</h2><ul><li><p>保存暂存区的工作<br><code>git stash</code></p></li><li><p>恢复暂存区的工作并删除临时存储内容<br><code>git stash pop</code></p></li></ul><h2 id="把特定修改复制到当前分支"><a href="#把特定修改复制到当前分支" class="headerlink" title="把特定修改复制到当前分支"></a>把特定修改复制到当前分支</h2><p><code>git cherry-pick 1234ab</code></p><h2 id="查看远程地址"><a href="#查看远程地址" class="headerlink" title="查看远程地址"></a>查看远程地址</h2><ul><li><p>简略查看<br><code>git remote</code></p></li><li><p>详细查看<br><code>git remote -v</code></p></li></ul><h2 id="给特定的提交打标签"><a href="#给特定的提交打标签" class="headerlink" title="给特定的提交打标签"></a>给特定的提交打标签</h2><ul><li>给当前HEAD打标签</li></ul><p><code>git tag tagname</code></p><ul><li><p>给某个特定分支打标签<br><code>git tag tagname commit-id</code></p></li><li><p>给标签加上说明文字<br><code>git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb</code></p></li></ul><h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><p><code>.gitignore</code>主要用于忽略一些文件，不加入版本库。</p><p>当现有文件已经被git跟踪时，再使用.gitignore并没有用。此时需要使用<br><code>git rm -r --cached .</code>删除本地缓存，再使用.gitignore进行跟踪。</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/897271968352576" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="背景介绍"><a href="#背景介绍" class="headerlink" title="背景介绍"></a>背景介绍</h2><p>Git是由Linux之父使用C语言开发的一个分布式版本控制系统。分布式版本控制系统的特点是没有中央服务器，每一个人的电脑上都有一个完整的版本库。</p><h2 id="Git安装与全局配置"><a href="#Git安装与全局配置" class="headerlink" title="Git安装与全局配置"></a>Git安装与全局配置</h2><p>在Windows系统下可以从官网下载Git安装包。在Mac系统下已经自带Git，如果需要安装更新版本，可以使用homebrew。</p><p>在安装完成后，可以进行全局用户名和电子邮件设置</p><pre><code class="git">git config --global user.name &#39;name&#39;git config --global user.email &#39;123@example.com&#39;</code></pre><p>如果忘记已经设置的用户名和电子邮件，可以使用以下命令查看</p><pre><code class="git">git config --global user.namegit config --global user.email</code></pre><p>如果文件夹名称中有中文，会出现乱码情况。可以使用<br><code>git config --global core.quotepath false</code></p><p>在Mac下git默认语言为中文，如果想改为中文，可以在<code>~/.zshrc</code>中加入<br><code>export LC_ALL=en_US.UTF-8</code></p><h2 id="创建一个仓库"><a href="#创建一个仓库" class="headerlink" title="创建一个仓库"></a>创建一个仓库</h2><p><code>git init</code></p><h2 id="把文件添加到仓库"><a href="#把文件添加到仓库" class="headerlink" title="把文件添加到仓库"></a>把文件添加到仓库</h2><p><code>git add filename</code></p><h2 id="对本次操作进行说明"><a href="#对本次操作进行说明" class="headerlink" title="对本次操作进行说明"></a>对本次操作进行说明</h2><p><code>git commit -m &#39;add a file&#39;</code></p><ul><li>对上次的提交信息进行修改和更新<br><code>git commit --amend -m</code></li></ul><h2 id="查看仓库当前状态"><a href="#查看仓库当前状态" class="headerlink" title="查看仓库当前状态"></a>查看仓库当前状态</h2><p><code>git status</code></p><h2 id="查看具体文件修改的内容"><a href="#查看具体文件修改的内容" class="headerlink" title="查看具体文件修改的内容"></a>查看具体文件修改的内容</h2><p><code>git diff filename</code></p><h2 id="查看版本历史记录"><a href="#查看版本历史记录" class="headerlink" title="查看版本历史记录"></a>查看版本历史记录</h2><ul><li><p>完整显示<br><code>git log</code></p></li><li><p>单行显示<br><code>git log --pretty=oneline</code></p></li></ul><h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ul><li><p>回退一个版本<br><code>git reset --hard HEAD^</code></p></li><li><p>回退n个版本<br><code>git reset --hard HEAD~n</code></p></li><li><p>根据版本号回退版本(不需写完整版本号)<br><code>git reset --hard 1234a</code></p></li><li><p>误操作时查看命令历史和版本号<br><code>git reflog</code></p></li></ul><h2 id="工作区和暂存区"><a href="#工作区和暂存区" class="headerlink" title="工作区和暂存区"></a>工作区和暂存区</h2><p>在Git中，平时工作的文件夹称为工作区，<code>.git</code>目录中存放的称为版本库。在版本库中存在一个暂存区。<code>git add</code>可以把文件放入暂存区。<code>git commit</code>可以把暂存区的改动提交到新的分支。如果对文件进行了多次修改，只有经过了<code>git add</code>的改动才会被暂存区记录，否则不会被记录。</p><h2 id="丢弃某个文件的修改-还原文件"><a href="#丢弃某个文件的修改-还原文件" class="headerlink" title="丢弃某个文件的修改(还原文件)"></a>丢弃某个文件的修改(还原文件)</h2><ul><li>这个修改没有经过<code>git add</code>加入暂存区</li></ul><p><code>git checkout -- file</code></p><ul><li>这个修改已经经过<code>git add</code>加入暂存区<pre><code class="git">git rm --cached [filename]</code></pre></li></ul><h2 id="撤销提交"><a href="#撤销提交" class="headerlink" title="撤销提交"></a>撤销提交</h2><ul><li><p>新增一次提交以抵消上一次提交的变化，不会改变过去的所有历史<br><code>git revert head</code></p></li><li><p>新增多次提交以抵消某几次提交的变化<br><code>git revert [倒数第一次] [倒数第二次]</code></p></li></ul><h2 id="丢弃提交"><a href="#丢弃提交" class="headerlink" title="丢弃提交"></a>丢弃提交</h2><p>丢弃提交的含义是使某次提交之后的所有提交在历史中彻底删除，仍可以使用<code>git reflog</code>查看记录</p><p><code>git reset [某次提交]</code></p><p>还可以加上<code>--hard</code>参数，表示让工作区的文件也回到过去的状态</p><h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><ul><li>删除没有经过<code>git add</code>的文件</li></ul><p><code>rm file</code></p><ul><li>删除已经经过<code>git add</code>的文件</li></ul><pre><code class="git">rm filegit rm file</code></pre><h2 id="本地仓库与远程仓库的结合"><a href="#本地仓库与远程仓库的结合" class="headerlink" title="本地仓库与远程仓库的结合"></a>本地仓库与远程仓库的结合</h2><ul><li>把一个本地仓库与远程仓库关联</li></ul><p><code>git remote add origin git@github.com:xxx.git</code></p><p>其中<code>origin</code>表示远程仓库名。</p><ul><li>把本地仓库的内容推送到远程仓库</li></ul><p><code>git push -u origin master</code></p><ul><li>把远程仓库的内容拷贝到本地仓库<br><code>git clone git@github.com:xxx.git</code></li></ul><h2 id="git分支"><a href="#git分支" class="headerlink" title="git分支"></a>git分支</h2><ul><li>创建一个分支并切换到该分支</li></ul><p><code>git checkout -b dev</code></p><p><code>git switch -c dev</code></p><ul><li>创建一个分支</li></ul><p><code>git branch dev</code></p><ul><li>删除一个分支</li></ul><p><code>git branch -d dev</code></p><ul><li>切换到dev分支</li></ul><p><code>git checkout dev</code></p><p><code>git switch dev</code></p><ul><li>查看所有分支</li></ul><p><code>git branch</code></p><ul><li>把a分支合并到b分支</li></ul><pre><code class="git">git checkout bgit merge a</code></pre><ul><li>非快速合并模式<br><code>git merge --no-ff -m &#39;merge with no-diff&#39; dev</code></li></ul><h2 id="保存和恢复当前没提交的工作"><a href="#保存和恢复当前没提交的工作" class="headerlink" title="保存和恢复当前没提交的工作"></a>保存和恢复当前没提交的工作</h2><ul><li><p>保存暂存区的工作<br><code>git stash</code></p></li><li><p>恢复暂存区的工作并删除临时存储内容<br><code>git stash pop</code></p></li></ul><h2 id="把特定修改复制到当前分支"><a href="#把特定修改复制到当前分支" class="headerlink" title="把特定修改复制到当前分支"></a>把特定修改复制到当前分支</h2><p><code>git cherry-pick 1234ab</code></p><h2 id="查看远程地址"><a href="#查看远程地址" class="headerlink" title="查看远程地址"></a>查看远程地址</h2><ul><li><p>简略查看<br><code>git remote</code></p></li><li><p>详细查看<br><code>git remote -v</code></p></li></ul><h2 id="给特定的提交打标签"><a href="#给特定的提交打标签" class="headerlink" title="给特定的提交打标签"></a>给特定的提交打标签</h2><ul><li>给当前HEAD打标签</li></ul><p><code>git tag tagname</code></p><ul><li><p>给某个特定分支打标签<br><code>git tag tagname commit-id</code></p></li><li><p>给标签加上说明文字<br><code>git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb</code></p></li></ul><h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><p><code>.gitignore</code>主要用于忽略一些文件，不加入版本库。</p><p>当现有文件已经被git跟踪时，再使用.gitignore并没有用。此时需要使用<br><code>git rm -r --cached .</code>删除本地缓存，再使用.gitignore进行跟踪。</p><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/897271968352576" target="_blank" rel="noopener">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;Git学习&quot;&gt;&lt;a href=&quot;#Git学习&quot; class=&quot;headerlink&quot; title=&quot;Git学习&quot;&gt;&lt;/a&gt;Git学习&lt;/h1&gt;&lt;h2 id=&quot;背景介绍&quot;&gt;&lt;a href=&quot;#背景介绍&quot; class=&quot;headerlink&quot; title=&quot;背景介绍&quot;
+        &lt;h2 id=&quot;背景介绍&quot;&gt;&lt;a href=&quot;#背景介绍&quot; class=&quot;headerlink&quot; title=&quot;背景介绍&quot;&gt;&lt;/a&gt;背景介绍&lt;/h2&gt;&lt;p&gt;Git是由Linux之父使用C语言开发的一个分布式版本控制系统。分布式版本控制系统的特点是没有中央服务器，每一个人的电脑上都
       
     
     </summary>
+    
+      <category term="Git" scheme="https://yyb1995.github.io/categories/Git/"/>
     
     
   </entry>
@@ -256,55 +235,28 @@
   </entry>
   
   <entry>
-    <title>用Keras搭建第一个神经网络</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Keras/Build the First Neural Network/</id>
+    <title>Google Python Style Guide</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Python/simpread-styleguide%20_%20Style%20guides%20for%20Google-originated%20open-source%20projects/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Python/simpread-styleguide _ Style guides for Google-originated open-source projects/</id>
     <published>2019-07-09T03:07:19.000Z</published>
     <updated>2019-07-09T03:07:19.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="1-Steps"><a href="#1-Steps" class="headerlink" title="1 Steps"></a>1 Steps</h2><ol><li>Load Data</li><li>Define Model</li><li>Compile Model</li><li>Fit Model</li><li>Evaluate Model</li><li>Tie It All Together</li></ol><h2 id="2-Load-Data"><a href="#2-Load-Data" class="headerlink" title="2 Load Data"></a>2 Load Data</h2><ol><li>Define a certain random number seed. By doing so, you can get the same result to compare it with other model.<br>Method:<pre><code class="python">import numpy as npnp.random.seed(7)</code></pre>We use <a href="https://yun.baidu.com/s/1c24tweW#list/path=%2F" target="_blank" rel="noopener">pima-indians-diabetes.csv</a> as our dataset. To load the .csv data, we use <code>np.loadtxt</code> and split it into input and output section. <h2 id="3-Define-Model"><a href="#3-Define-Model" class="headerlink" title="3 Define Model"></a>3 Define Model</h2>Models in Keras are defined as a sequence of layers.While defining the first layer, we can define the input number with the <strong>input_dim</strong> argument.<br>In this example, we will use a fully-connected network structure with three layers.<br>Fully connected layers are defined using the <strong>Dense class</strong>. We can specify:</li><li><strong>the number of neurons</strong> in the layer as the first argument</li><li>the initialization method as the second argument as <strong>init</strong> </li><li>specify the activation function using the <strong>activation</strong> argument.<h2 id="4-Build-the-Model"><a href="#4-Build-the-Model" class="headerlink" title="4 Build the Model"></a>4 Build the Model</h2>define a model class. In this problem, we use a sequential model. So we use a <code>model = keras.sequential()</code> to instantiate the class. And then use the <code>.add</code> method to add layers in the model.<br>We want to add a layer into our model, so we use <code>keras.layers.Dense()</code> to be the parameter of <code>add</code>. The activation function must be in the string form like <code>activation=&#39;relu&#39;</code>.</li></ol><h2 id="5-Compile-the-Model"><a href="#5-Compile-the-Model" class="headerlink" title="5 Compile the Model"></a>5 Compile the Model</h2><p>When compiling, we must specify some additional properties required when training the network.We must specify the <strong>loss function</strong> to use to evaluate a set of weights, <strong>the optimizer</strong> used to search through different weights for the network and <strong>any optional metrics we would like to collect and report</strong> during training.</p><h2 id="6-Fit-the-model"><a href="#6-Fit-the-model" class="headerlink" title="6 Fit the model"></a>6 Fit the model</h2><p>use <code>model.fit()</code> method to define fit parameters like epochs and batch_size.</p><h2 id="7-Evaluate-the-model"><a href="#7-Evaluate-the-model" class="headerlink" title="7 Evaluate the model"></a>7 Evaluate the model</h2><p>use <code>model.evaluate</code> and a set of X and Y to calculate the model performance.</p><h2 id="8-Prediction"><a href="#8-Prediction" class="headerlink" title="8 Prediction"></a>8 Prediction</h2><p>use <code>model.fit</code> and a set of X to predict the predicted Y value.</p><h2 id="9-Related-material"><a href="#9-Related-material" class="headerlink" title="9 Related material"></a>9 Related material</h2><ol><li><a href="https://machinelearningmastery.com/" target="_blank" rel="noopener">https://machinelearningmastery.com/</a></li><li><a href="https://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">Keras中文文档</a></li><li><a href="https://github.com/keras-team/keras/tree/master/examples" target="_blank" rel="noopener">Keras Example</a><br>s-team/keras/tree/master/examples)</li></ol>]]></content>
+    <content type="html"><![CDATA[<p><a href="http://google.github.io/styleguide/" target="_blank" rel="noopener">Google Python styleguide</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;1-Steps&quot;&gt;&lt;a href=&quot;#1-Steps&quot; class=&quot;headerlink&quot; title=&quot;1 Steps&quot;&gt;&lt;/a&gt;1 Steps&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;Load Data&lt;/li&gt;
-&lt;li&gt;Define Model&lt;/li&gt;
-&lt;li&gt;Com
+        &lt;p&gt;&lt;a href=&quot;http://google.github.io/styleguide/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Google Python styleguide&lt;/a&gt;&lt;/p&gt;
+
       
     
     </summary>
     
-      <category term="Keras" scheme="https://yyb1995.github.io/categories/Keras/"/>
+      <category term="Python" scheme="https://yyb1995.github.io/categories/Python/"/>
     
     
-      <category term="深度学习" scheme="https://yyb1995.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux系统使用过程中遇到的一些问题</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Linux/Linux使用过程中的问题/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面"><a href="#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面" class="headerlink" title="1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面"></a>1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面</h2><p>这种情况可能是Nvidia显卡驱动安装出现了问题。解决方法：</p><ol><li><p>卸载原驱动：<code>sudo apt-get purge nvidia*</code></p></li><li><p>把显卡驱动加入PPA：<br><code>sudo add-apt-repository ppa:graphics-drivers</code> </p><p><code>sudo apt-get update</code></p></li><li><p>查找显卡驱动最新的版本号<br><code>sudo apt-cache search nvidia</code></p></li><li><p>采用apt-get命令在终端安装<br><code>sudo apt-get install nvidia-390 nvidia-settings nvidia-prime</code></p></li><li><p>使用<code>lsmod | grep nvidia</code>或<code>watch -n 1 nvidia-smi</code>查看是否安装成功-smi`查看是否安装成功</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot;&gt;&lt;a href=&quot;#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot; class=&quot;headerlink&quot; title=&quot;1 无法进入GUI界面，可以使用Ctrl+Alt
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://yyb1995.github.io/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="https://yyb1995.github.io/tags/Linux/"/>
+      <category term="Python" scheme="https://yyb1995.github.io/tags/Python/"/>
     
   </entry>
   
@@ -336,28 +288,33 @@
   </entry>
   
   <entry>
-    <title>最小二乘解与最小二乘估计</title>
-    <link href="https://yyb1995.github.io/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
-    <id>https://yyb1995.github.io/2019/07/09/MachineLearning/最小二乘解(Least-squares Minimization)/</id>
+    <title>latex导言区常用设置</title>
+    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E5%AF%BC%E8%A8%80%E5%8C%BA%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex导言区设置/</id>
     <published>2019-07-09T03:07:19.000Z</published>
     <updated>2019-07-09T03:07:19.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<pre><code class="latex">% Article setting% Article type\documentclass[12]{article}% Page margin\usepackage{geometry}%\geometry{a4paper,scale=0.8}\geometry{a4paper,left=2cm,right=2cm%,top=2cm,%bottom=2cm, includefoot,heightrounded}% set title\title{}\author{}\date{}% import package\usepackage{amsmath, amsfonts, bm}% \numberwithin{equation}{section} % Equation numbering by section\numberwithin{equation}{subsection} % Equation numbering by subsection% \numberwithin{equation}{subsubsection}% Chinese support\usepackage{xeCJK}\usepackage{fontspec} \setCJKmainfont[AutoFakeBold]{SimSun}\setCJKmonofont{SimSun}\setmainfont{Times New Roman}\renewcommand\contentsname{目录}\renewcommand\refname{参考文献}\renewcommand{\figurename}{图}\renewcommand{\tablename}{表}% Indent\usepackage{indentfirst}\setlength{\parindent}{2em}% Python code\usepackage{listings}\usepackage{color}\definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\lstset{frame=tb,    language=Python,    aboveskip=3mm,    belowskip=3mm,    showstringspaces=false,    columns=flexible,    basicstyle={\small\ttfamily},    numbers=none,    numberstyle=\tiny\color{gray},    keywordstyle=\color{blue},    commentstyle=\color{dkgreen},    stringstyle=\color{mauve},    breaklines=true,    breakatwhitespace=true,    tabsize=3}% Import image\usepackage{graphicx}\usepackage{subcaption}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,          urlcolor=blue,    citecolor=blue,}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,    urlcolor=blue,    citecolor=blue,}```    citecolor=blue,}</code></pre>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;a href=&quot;#最小二乘解与最小二乘估计资料&quot; class=&quot;headerlink&quot; title=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;/a&gt;最小二乘解与最小二乘估计资料&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https:/
+        &lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;% Article setting
+% Article type
+\documentclass[12]{article}
+
+% Page margin
+\usepackage{geometry}
+%\geometry{a4pape
       
     
     </summary>
     
-      <category term="Machine Learning" scheme="https://yyb1995.github.io/categories/Machine-Learning/"/>
+      <category term="Latex" scheme="https://yyb1995.github.io/categories/Latex/"/>
     
     
-      <category term="机器学习" scheme="https://yyb1995.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
     
   </entry>
   
@@ -390,36 +347,88 @@
   </entry>
   
   <entry>
-    <title>C语言中数组名作为参数进行函数传递</title>
-    <link href="https://yyb1995.github.io/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/"/>
-    <id>https://yyb1995.github.io/2019/07/09/CProgrammingLanguage/C语言中数组名作为参数进行函数传递/</id>
+    <title>Linux系统使用过程中遇到的一些问题</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Linux/Linux使用过程中的问题/</id>
     <published>2019-07-09T03:07:19.000Z</published>
     <updated>2019-07-09T03:07:19.000Z</updated>
     
-    <content type="html"><![CDATA[<p>在普通变量或下标变量作函数参数时，形参变量和实参变量是由编译系统分配的两个不同的内存单元。在函数调用时发生的值传送是把实参变量的值赋予形参变量。在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编译系统不为形参数组分配内存。那么，数据的传送是如何实现的呢?在我们曾介绍过，数组名就是数组的首地址。<strong><em>因此在数组名作函数参数时所进行的传送只是地址的传送，也就是说把实参数组的首地址赋予形参数组名。</em></strong>形参数组名取得该首地址之后，也就等于有了实在的数组。实际上是形参数组和实参数组为同一数组，共同拥有一段内存空间。<strong><em>因此当形参数组发生变化时，实参数组也随之变化。</em></strong><br><img src="http://c.biancheng.net/cpp/uploads/allimg/120129/343dfgdgd645ccvnbm.gif?_=5778318" alt="图片1"><br>上图说明了这种情形。图中设a为实参数组，类型为整型。a占有以2000为首地址的一块内存区。b为形参数组名。当发生函数调用时，进行地址传送，把实参数组a的首地址传送给形参数组名b，于是b也取得该地址2000。于是a，b两数组共同占有以2000为首地址的一段连续内存单元。从图中还可以看出a和b下标相同的元素实际上也占相同的两个内存单元（整型数组每个元素占二字节）。例如a[0]和b[0]都占用2000和2001单元，当然a[0]等于b[0]。类推则有a[i]等于b[i]。<br>多维数组也可以作为函数的参数。在函数定义时对形参数组可以指定每一维的长度，也可省去第一维的长度。因此，以下写法都是合法的：<br><code>int MA(int a[3][10]);</code>或<code>int MA(int a[][10]);</code></p><p>下面给出两个将数组传递进函数的例子：<br>ex1:</p><pre><code class="c">//求5名学生的平均成绩#include &lt;stdio.h&gt;float aver(float a[5])  //此处函数的定义中数组的元素个数可以省略，由传入的数组决定{    int i;    float av,s=a[0];    for(i=1;i&lt;5;i++)        s=s+a[i];    av=s/5;    return av;}int main(void){    float sco[5],av;    int i;    printf(&quot;\ninput 5 scores:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%f&quot;,&amp;sco[i]);    av=aver(sco);  //此处将数组传递进函数时使用的是数组名称，没有括号    printf(&quot;average score is %5.2f&quot;,av);    return 0;}</code></pre><p>ex2:</p><pre><code class="c">//将数组中小于0的元素置成0#include &lt;stdio.h&gt;void nzp(int a[8]){    int i;    printf(&quot;\nvalues of array are:\n&quot;);    for(i=0;i&lt;8;i++)    {        if(a[i]&lt;0)            a[i]=0;        printf(&quot;%d &quot;,a[i]);    }}int main(void){    int b[5],i;    printf(&quot;\ninput 5 numbers:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%d&quot;,&amp;b[i]);    printf(&quot;initial values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    nzp(b);  //将有5个元素的数组传递进一个有8个元素的数组的函数，编译通过    printf(&quot;\nlast values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    return 0;}</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面"><a href="#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面" class="headerlink" title="1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面"></a>1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面</h2><p>这种情况可能是Nvidia显卡驱动安装出现了问题。解决方法：</p><ol><li><p>卸载原驱动：<code>sudo apt-get purge nvidia*</code></p></li><li><p>把显卡驱动加入PPA：<br><code>sudo add-apt-repository ppa:graphics-drivers</code> </p><p><code>sudo apt-get update</code></p></li><li><p>查找显卡驱动最新的版本号<br><code>sudo apt-cache search nvidia</code></p></li><li><p>采用apt-get命令在终端安装<br><code>sudo apt-get install nvidia-390 nvidia-settings nvidia-prime</code></p></li><li><p>使用<code>lsmod | grep nvidia</code>或<code>watch -n 1 nvidia-smi</code>查看是否安装成功-smi`查看是否安装成功</p></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;在普通变量或下标变量作函数参数时，形参变量和实参变量是由编译系统分配的两个不同的内存单元。在函数调用时发生的值传送是把实参变量的值赋予形参变量。在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编
+        &lt;h2 id=&quot;1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot;&gt;&lt;a href=&quot;#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot; class=&quot;headerlink&quot; title=&quot;1 无法进入GUI界面，可以使用Ctrl+Alt
       
     
     </summary>
     
-      <category term="C语言" scheme="https://yyb1995.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
+      <category term="Linux" scheme="https://yyb1995.github.io/categories/Linux/"/>
     
     
-      <category term="编程语言" scheme="https://yyb1995.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+      <category term="Linux" scheme="https://yyb1995.github.io/tags/Linux/"/>
     
   </entry>
   
   <entry>
-    <title></title>
+    <title>谈谈深度学习中的 Batch_Size</title>
+    <link href="https://yyb1995.github.io/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/"/>
+    <id>https://yyb1995.github.io/2019/07/09/DeepLearning/深度学习中的batch size/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2020-02-28T08:21:28.938Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文转载自:<a href="http://blog.csdn.net/ycheng_sjtu/article/details/49804041#reply" target="_blank" rel="noopener">谈谈深度学习中的 Batch_Size</a></p></blockquote><p>Batch_Size（批尺寸）是机器学习中一个重要参数，涉及诸多矛盾，下面逐一展开。</p><h2 id="首先，为什么需要有-Batch-Size-这个参数？"><a href="#首先，为什么需要有-Batch-Size-这个参数？" class="headerlink" title="首先，为什么需要有 Batch_Size 这个参数？"></a>首先，为什么需要有 Batch_Size 这个参数？</h2><p>Batch 的选择，首先决定的是下降的方向。如果数据集比较小，完全可以采用<strong>全数据集 （ Full Batch Learning ）</strong>的形式，这样做<strong>至少</strong>有 2 个好处：其一，由全数据集确定的方向能够更好地代表样本总体，从而更准确地朝向极值所在的方向。其二，由于不同权重的梯度值差别巨大，因此选取一个全局的学习率很困难。 Full Batch Learning 可以使用 <strong>Rprop</strong> 只基于梯度符号并且针对性单独更新各权值。</p><p>对于更大的数据集，以上 2 个好处又变成了 2 个坏处：其一，随着数据集的海量增长和内存限制，一次性载入所有的数据进来变得越来越不可行。其二，以 Rprop 的方式迭代，会由于各个 Batch 之间的采样差异性，各次梯度修正值相互抵消，无法修正。这才有了后来 <strong>RMSProp</strong> 的妥协方案。</p><h2 id="既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？"><a href="#既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？" class="headerlink" title="既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？"></a>既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？</h2><p>所谓另一个极端，就是每次只训练一个样本，即 Batch_Size = 1。这就是<strong>在线学习（Online Learning）</strong>。线性神经元在均方误差代价函数的错误面是一个抛物面，横截面是椭圆。对于多层神经元、非线性网络，在局部依然近似是抛物面。使用在线学习，每次修正方向以各自样本的梯度方向修正，横冲直撞各自为政，<strong>难以达到收敛</strong>。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195814221" alt="这里写图片描述"> </p><h2 id="可不可以选择一个适中的-Batch-Size-值呢？"><a href="#可不可以选择一个适中的-Batch-Size-值呢？" class="headerlink" title="可不可以选择一个适中的 Batch_Size 值呢？"></a>可不可以选择一个适中的 Batch_Size 值呢？</h2><p>当然可以，这就是<strong>批梯度下降法（Mini-batches Learning）</strong>。因为如果数据集足够充分，那么用一半（<strong>甚至少得多</strong>）的数据训练算出来的梯度与用全部数据训练出来的梯度是<strong>几乎一样</strong>的。</p><h2 id="在合理范围内，增大-Batch-Size-有何好处？"><a href="#在合理范围内，增大-Batch-Size-有何好处？" class="headerlink" title="在合理范围内，增大 Batch_Size 有何好处？"></a>在合理范围内，增大 Batch_Size 有何好处？</h2><ul><li>内存利用率提高了，大矩阵乘法的并行化效率提高。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。</li><li>在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。</li></ul><h2 id="盲目增大-Batch-Size-有何坏处？"><a href="#盲目增大-Batch-Size-有何坏处？" class="headerlink" title="盲目增大 Batch_Size 有何坏处？"></a>盲目增大 Batch_Size 有何坏处？</h2><ul><li>内存利用率提高了，但是内存容量可能撑不住了。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。</li><li>Batch_Size 增大到一定程度，其确定的下降方向已经基本不再变化。</li></ul><h2 id="调节-Batch-Size-对训练效果影响到底如何？"><a href="#调节-Batch-Size-对训练效果影响到底如何？" class="headerlink" title="调节 Batch_Size 对训练效果影响到底如何？"></a>调节 Batch_Size 对训练效果影响到底如何？</h2><p>这里跑一个 LeNet 在 MNIST 数据集上的效果。MNIST 是一个手写体标准库，我使用的是 <strong>Theano</strong> 框架。这是一个 Python 的深度学习库。<a href="http://deeplearning.net/software/theano/install.html#install" target="_blank" rel="noopener">安装方便</a>（几行命令而已），调试简单（自带 Profile），GPU / CPU 通吃，<a href="http://deeplearning.net/tutorial/contents.html" target="_blank" rel="noopener">官方教程相当完备</a>，支持模块十分丰富（除了 CNNs，更是支持 RBM / DBN / LSTM / RBM-RNN / SdA / MLPs）。在其上层有 <a href="http://keras.io/" target="_blank" rel="noopener">Keras</a> 封装，支持 GRU / JZS1, JZS2, JZS3 等较新结构，支持 Adagrad / Adadelta / RMSprop / Adam 等优化算法。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195829489" alt="这里写图片描述"></p><p><img src="http://img.blog.csdn.net/20151112195843957" alt="这里写图片描述"> </p><p>运行结果如上图所示，其中绝对时间做了标幺化处理。运行结果与上文分析相印证：</p><ul><li>Batch_Size 太小，算法在 200 epoches 内不收敛。</li><li>随着 Batch_Size 增大，处理相同数据量的速度越快。</li><li>随着 Batch_Size 增大，达到相同精度所需要的 epoch 数量越来越多。</li><li>由于上述两种因素的矛盾， Batch_Size 增大到<strong>某个</strong>时候，达到<strong>时间上</strong>的最优。</li><li>由于最终收敛精度会陷入不同的局部极值，因此 Batch_Size 增大到<strong>某些</strong>时候，达到最终收敛<strong>精度上</strong>的最优。</li></ul><h2 id="关于batchsize和epoch的理解"><a href="#关于batchsize和epoch的理解" class="headerlink" title="关于batchsize和epoch的理解"></a>关于batchsize和epoch的理解</h2><p>batchsize指的是使超参数发生一次迭代输入的样本数，也就是完成一次反向传播、求导、参数更新过程所需要输入的样本数。epoch指完成将所有训练数据全部应用于参数更新的过程。在样本数据比较小时，batchsize可以取为训练样本数，这样完成一次epoch只需进行一次梯度下降和参数更新。将全部输入数据作为一个batch进行训练的方法称为<strong>批梯度下降法（Batch Gradient Descend）</strong>。与之相对应的是<strong>随机梯度下降法（Stochastic Gradient Descent）</strong>。这种梯度下降法每次只选取一个样本进行参数更新，因此完成一次epoch需要进行size(X)次迭代。这种方法梯度下降的方向一般不是最优的。将这两种方法折中的一种方法称为<strong>小批量梯度下降法（Mini-batch Gradient Descent）</strong>。这种方法每次将<strong>batchsize</strong>的数据用来训练网络，完成一次迭代。那么完成一次epoch需要进行的迭代次数为<code>np.ceil(size(x) / batchsize)</code>。在实际使用时，可以在一定范围内尽可能增大batchsize的值。当然，如果增大batch值，达到相同精度的epoch数会越来越多，因此需要在精度和运算速度这两方面来考虑选取的batchsize。方面来考虑选取的batchsize。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;本文转载自:&lt;a href=&quot;http://blog.csdn.net/ycheng_sjtu/article/details/49804041#reply&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;谈谈深度学习中的 Batc
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="https://yyb1995.github.io/categories/Deep-Learning/"/>
+    
+    
+      <category term="深度学习" scheme="https://yyb1995.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>最小二乘解与最小二乘估计</title>
+    <link href="https://yyb1995.github.io/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
+    <id>https://yyb1995.github.io/2019/07/09/MachineLearning/最小二乘解(Least-squares Minimization)/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;a href=&quot;#最小二乘解与最小二乘估计资料&quot; class=&quot;headerlink&quot; title=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;/a&gt;最小二乘解与最小二乘估计资料&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https:/
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="https://yyb1995.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="机器学习" scheme="https://yyb1995.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Matlab GUI变成</title>
     <link href="https://yyb1995.github.io/2019/07/09/Matlab/MATLAB%20GUI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
     <id>https://yyb1995.github.io/2019/07/09/Matlab/MATLAB GUI编程入门/</id>
     <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
+    <updated>2020-02-29T09:51:06.717Z</updated>
     
     <content type="html"><![CDATA[<h2 id="1-题外话"><a href="#1-题外话" class="headerlink" title="1 题外话"></a>1 题外话</h2><p>这学期刚好在学信息论，里面各种熵函数信道容量的计算十分繁杂，于是乎想编写一个有GUI界面的信息论计算器。由于MATLAB对于矩阵的运算十分方便，所以选择以MATLAB为基础进行程序编写和界面设计。</p><hr><h2 id="2-回调函数callback中常用函数"><a href="#2-回调函数callback中常用函数" class="headerlink" title="2 回调函数callback中常用函数"></a>2 回调函数callback中常用函数</h2><ol><li>get(hObject,’String’)</li></ol><ul><li>获得一个控件的字符串属性，常配合str2double函数使用，用于获得输入的数字以及判断输入的是否为数字</li><li>hObject相当于当前操作的控件的句柄，如果是在同一个GUI界面，可以使用<code>handles.Tags</code>，也就是 当前GUI的句柄名.要获得数据的控件标签名 来从其他控件获得数据。</li></ul><ol start="2"><li>set(hObject,’String’,’content’)<br>设置一个控件的字符串属性，常用于设置输入数字的设置</li><li>guidata(hObject,handles)保存前面对hObject和handles的设置，一般回传函数callback的最后一行都是这段代码，用来更新数据</li><li></li></ol><h1 id="常用对话框"><a href="#常用对话框" class="headerlink" title="常用对话框"></a>常用对话框</h1><p>tips:</p><ul><li>每个GUI窗口都有一个初始化函数，类似于<code>function simple_gui_OpeningFcn(hObject, eventdata, handles, varargin)</code>,这个初始化函数用于在创建这个GUI时创建一些参数以及在退出时返回一些参数。在这个函数中创建的参数可以被这个GUI里面的所有Object控件的回调函数调用。 </li><li><h1 id="fdsf"><a href="#fdsf" class="headerlink" title="fdsf "></a>fdsf </h1>常用控件</li></ul><ol><li>弹出菜单（Pop-up Menu）<br>在属性设置菜单（Inspector）中的’String’项可以对弹出菜单的项目进行设置，在’String’项第一行的内容将默认显示在弹出菜单中。在回调函数中，需要对弹出菜单中的每一项设置相应的代码，常用的语句是switch…case…end语句。常用的代码段：<pre><code class="matlab">string = get(hObject,&#39;String&#39;);value = get(hObject,&#39;Value&#39;);switch string{value}case &#39;A&#39; %列表第一项end</code></pre></li></ol><p>value = get(hObject,’Value’);<br>switch value<br>case 1  %1即为列表中的第一项<br>end</p><pre><code>=======================================创建新窗口的方法：1. 使用guide创建一个新窗口并对其中的控件进行设置，将其命名（假设为child.fig）2. 在触发显示新窗口的回调函数中加上如下语句：``` matlabrun(&#39;child&#39;);  %or open(&#39;child.fig&#39;);h = guihandles;  %h为新窗口的句柄变量，相当于原窗口的handles，可以使用如h.text1来操作新窗口的控件set(h.text1,&#39;String&#39;,&#39;Hello child&#39;);  %这是一个将新窗口中的text1控件显示的字符串设置成&#39;Hello child&#39;的例子</code></pre><p>======================================<br>在回调函数之间和UI之间传递数据的方法<br>1.setappdata(obj,name,val)</p><ul><li>obj为想要存储的数据所在的窗口的句柄变量，类似于handles，称为图形对象</li><li>name为存储该数据的变量名</li><li>val为数据的值<br>例如：<code>setappdata(f,&#39;todaysdate&#39;,val); %将句柄名为f的UI窗口中的数据val存放在名为todaysdate的变量中</code></li></ul><ol start="2"><li>val = getappdata(obj,name)<br>vals = getappdata(obj)</li></ol><ul><li>obj为想要取出的数据所在的窗口的句柄变量，类似于handles，它的值应该和对应的getappdata函数中的obj相同</li><li>name为存储该数据的变量名</li><li>注意左边需要设置一个val变量用于存放取出该数据的变量</li><li>vals为取出同一个图形对象中存放的所有共享数据</li></ul><p>=========================================<br>在同一个窗口中根据不同选择显示不同控件的方法<br>初始化时将要显示的控件的Visible属性选择为On，其他控件选择为Off，在每个按钮的回调函数中利用<code>set(handles.edit4,&#39;Visible&#39;,&#39;on&#39;)</code>等代码进行调整即可</p><p>=======================================<br>设置按下按钮或右上角弹出是否关闭的对话框的方法：<br>在按钮的回调函数或当前窗口的CloseRequestFcn函数中加上<br>selection = questdlg(‘Close the figure window?’,…<br>    ‘Confirmation’,…<br>    ‘Yes’,’No’,’Yes’);<br>switch selection,<br>    case ‘Yes’,<br>        delete(gcf);  %gcf为当前图像句柄<br>    case ‘No’<br>        return<br>end</p><p>============================================<br>matlab GUI中插入图片的方法<br>axes(handles.axes2);<br>imshow(‘jin.jpg’);</p><p>清除图片的方法<br>cla reset;</p><p>不显示坐标轴的方法：<br>set(handles.axes1,’visible’,’off’)<br>需要使用时改成on即可</p><p>=================================<br>控件大小通过更改position中的height和weight选项即可</p><p>换行可以使用sprintf(‘\n’)或 [char(10,13)’]实现</p><p>matlab两个浮点数或整数和浮点数比较应该用abs(a - b) &lt; eps，而不是a - b</p><p>==================================<br>调整当前窗口到屏幕中央<br><code>movegui( gcf, &#39;center&#39;)</code>。其他位置查阅movegui函数即可</p><p>===================================<br>matlab 显示矩阵<br>set(handles.uitable1, ‘Data’, comparison);</p><p>=================================<br>判断一个矩阵中所有元素是否等于0<br><code>any(abs(input2_2_temp(:) - 0 ) &gt; eps)</code></p><p>MATLAB解线性方程组<br>Ax = b<br>x = A\b</p><p>====================================<br>matlab中取出一个数组中某些特定元素<br><strong><em>a(a == 0) %取出a中所有等于0的元素，可接赋值语句，如a(a == 0) = 1;</em></strong></p><p>=================<br>MATLAB 函数句柄<br>格式：H = @(x)cos(x)<br>相当于H(x) = cos(x)</p><p>==================================<br>标记图像中的最大值</p><pre><code class="matlab">%first solutionclc;clear allx=0:0.01:2*pi;y=sin(x);p=find(y == max(y));plot(x,y,&#39;r&#39;,&#39;linewidth&#39;,2)grid ontext(x(p),y(p),&#39;o&#39;,&#39;color&#39;,&#39;g&#39;)axis([0 2*pi -1.4 1.4]);%second solutionclc;clear allx=0:0.01:2*pi;y=sin(x);p=find(y==max(y));plot(x,y,&#39;r&#39;,&#39;linewidth&#39;,2)grid onaxis([0 2*pi -1.4 1.4])text(x(p),y(p),[&#39;(&#39;,num2str(x(p)),&#39;,&#39;,num2str(y(p)),&#39;)&#39;],&#39;color&#39;,&#39;b&#39;);</code></pre><p>====================================<br>MATLAB GUI 设置每个控件的显示顺序<br>右键单击控件，有两个选项：Bring to front 和send<br> to back，可以设置控件图层顺序</p>]]></content>
     
@@ -431,6 +440,8 @@
       
     
     </summary>
+    
+      <category term="Matlab" scheme="https://yyb1995.github.io/categories/Matlab/"/>
     
     
   </entry>
@@ -493,29 +504,32 @@
   </entry>
   
   <entry>
-    <title>Python 迭代器(iterator) 生成器(generator)</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Python/Python%20%E8%BF%AD%E4%BB%A3%E5%99%A8(iterator)%20%E7%94%9F%E6%88%90%E5%99%A8(generator)/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/</id>
+    <title>getopt</title>
+    <link href="https://yyb1995.github.io/2019/07/09/PythonPackages/getopt/"/>
+    <id>https://yyb1995.github.io/2019/07/09/PythonPackages/getopt/</id>
     <published>2019-07-09T03:07:19.000Z</published>
     <updated>2019-07-09T03:07:19.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="可迭代对象-iterable"><a href="#可迭代对象-iterable" class="headerlink" title="可迭代对象(iterable)"></a>可迭代对象(iterable)</h2><ul><li><p>定义</p><p> iterable又称为可迭代对象。在Python中，如果一个对象（又称为container object）实现了<code>__iter__()</code>方法或者可以支持下标索引的<code>__getitem__()</code>方法，就称为一个可迭代对象。</p></li><li><p><code>__iter__()</code>方法</p><p> 调用一个可迭代对象的<code>__iter__()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。这个在下一章会提到。</p></li><li><p><code>iter()</code>方法</p><p> 调用一个可迭代对象的<code>iter()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。</p></li><li><p>判断方法<br>在Python中，我们常用到的集合数据类型都是iterable的。如列表(list)，元组(tuple)，字典(dict)，集合(set)，字符串(str)等。在程序中判断一个对象是否是iterable的方法为</p><pre><code class="python"># Method1: use isinstancefrom collections import Iterableisinstance([1, 2, 3], Iterable)# Method2: use for loopfor i in [1, 2, 3]:    print(i)</code></pre></li></ul><h2 id="迭代器-iterator"><a href="#迭代器-iterator" class="headerlink" title="迭代器(iterator)"></a>迭代器(iterator)</h2><ul><li><p>定义</p><p> 借用<a href="https://docs.python.org/dev/howto/functional.html#iterators" target="_blank" rel="noopener">Python文档</a>中对迭代器的定义，一个迭代器指的是一个包含着数据流的对象，它每次返回数据中的一个元素。一个可迭代对象本身也可以是迭代器，但是这样在迭代一次之后数据本身将无法使用，除非将迭代器重置。在Python中大部分迭代器和可迭代对象是分离的，这样就保证了能够重复产生迭代器。</p></li><li><p><code>__next__()</code>方法</p><p> 一个迭代器必须实现<code>__next__()</code>方法。在每次调用<strong>迭代器</strong>（注意，不是可迭代对象）的<code>__next__()</code>方法时顺序返回数据的一个元素。当遍历完数据后抛出<code>StopIteration</code>异常，表示迭代完成。这时迭代器也就完成了它的使命。</p></li><li><p><code>__iter__()</code>方法</p><p> 调用一个迭代器的<code>__iter__()</code>方法会返回迭代器对象本身，注意每次调用产生一个新的迭代器对象。</p></li><li><p><code>next()</code>方法</p><p> 在<code>next()</code>内传入一个迭代器，可以得到迭代器的下一个值。</p></li></ul><h2 id="生成器-generator"><a href="#生成器-generator" class="headerlink" title="生成器(generator)"></a>生成器(generator)</h2><ul><li><p>定义</p><p> 生成器可以看成是迭代器的简化版。生成器只需要定义一个函数，并将普通函数的<code>return</code>改为<code>yield</code>即可。</p></li></ul><ul><li><p>使用<br> 在使用生成器时，可以像一个普通的迭代器一样，使用<code>for in</code>或者<code>next()</code>方法获取其中的值。</p><pre><code class="python"> # Define a generator def range_like(n):     i = 0     while i &lt; n:         yield i         i += 1 # Create a generator object a = range_like(5) a.__next__() for i in range_like(n):     print(i)</code></pre></li></ul><h2 id="迭代器、生成器的关系"><a href="#迭代器、生成器的关系" class="headerlink" title="迭代器、生成器的关系"></a>迭代器、生成器的关系</h2><p>迭代器、生成器、可迭代对象的关系可用下图表示<br><img src="https://i.loli.net/2017/05/06/590d99e937114.png" alt></p><h2 id="for语句的执行顺序"><a href="#for语句的执行顺序" class="headerlink" title="for语句的执行顺序"></a>for语句的执行顺序</h2><p>在对一个iterable对象使用<code>for</code>语句时，实际上先调用了<code>iter()</code>方法返回一个iterator，然后再依次调用<code>__next__()</code>方法获得每一个值。当抛出<code>StopIteration</code>异常时意味着<code>for</code>语句的结束。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><p><a href="https://stackoverflow.com/questions/9884132/what-exactly-are-iterator-iterable-and-iteration" target="_blank" rel="noopener">What exactly are iterator, iterable and iteration</a></p></li><li><p><a href="https://docs.python.org/3/tutorial/classes.html#iterators" target="_blank" rel="noopener">9.8. Iterators</a></p></li><li><p><a href="https://www.jianshu.com/p/24876cf14a5c" target="_blank" rel="noopener">彻底理解Iterable, Iterator, generator</a></p></li><li><p><a href="https://blog.csdn.net/dawningblue/article/details/72629362" target="_blank" rel="noopener">Python中iteration(迭代)、iterator(迭代器)、generator(生成器)等相关概念的理解</a></p></li></ol>]]></content>
+    <content type="html"><![CDATA[<p>例子：</p><pre><code class="python">import sys, getoptdef main(argv):    print(str(argv))    inputfile = &#39;&#39;    outputfile = &#39;&#39;    try:        opts, args = getopt.getopt(argv, &#39;hi:o:&#39;, [&#39;help&#39;, &#39;ifile=&#39;, &#39;ofile=&#39;])    except getopt.GetoptError:        print(&#39;test.py -i &lt;inputfle&gt; -o &lt;outputfile&gt;&#39;)        sys.exit()    for opt, arg in opts:        if opt in [&#39;-h&#39;, &#39;--help&#39;]:            print(1)        elif opt in ([&#39;-i&#39;, &#39;--ifile&#39;]):            inputfile = arg        elif opt in ([&#39;-o&#39;, &#39;--ofile&#39;]):            outputfile = arg    print(&#39;input file is : &#39;, inputfile)    print(&#39;output file is : &#39;, outputfile)if __name__ == &#39;__main__&#39;:    main(sys.argv[1:])</code></pre><p><strong>核心函数</strong>：<code>options, args = getopt.getopt(args, shortopts, longopts=[])</code><br><strong>参数</strong>：</p><ul><li><p>shortopts：短格式参数串。shortopts 后的冒号(:)表示如果设置该选项，必须有附加的参数，不带冒号表示该选项没有附加参数如：”h f: v:”。h后面没有冒号，表示该选项没有附加参数，如用于输出命令用法f和v后面带有冒号，表示该选项有附加参数。无附加参数的示例为：<code>python test.py -h</code>。有附加参数的示例为：<code>python test.py -h content</code>。注意：加了冒号的参数的选项自带<code>-</code>，因此在获取opt时需要加上<code>-</code></p></li><li><p>longopts：长格式参数列表。longopts 后的等号(=)表示如果设置该选项，必须有附加的参数，否则就没有附加参数如：[“help”, “file=”, “version=”]。help 后面没有等号，表示该选项没有附加参数file 和 version 后面带冒号，表示如果设置该选项，必须有附加参数。无附加参数的示例为：<code>python test.py --help</code>。有附加参数的示例为：<code>python test.py --help content</code></p></li><li><p>返回值含义：options：元组列表，每个元组的形式为：(选项, 附加参数)，如：(‘-f’, ‘data.csv’)args：包含那些没有 ‘-‘ 或 ‘–’ 的参数列表</p></li></ul>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;可迭代对象-iterable&quot;&gt;&lt;a href=&quot;#可迭代对象-iterable&quot; class=&quot;headerlink&quot; title=&quot;可迭代对象(iterable)&quot;&gt;&lt;/a&gt;可迭代对象(iterable)&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;定义&lt;/p&gt;
-&lt;p&gt; 
+        &lt;p&gt;例子：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;import sys, getopt
+def main(argv):
+    print(str(argv))
+    inputfile = &amp;#39;&amp;#39;
+    outputfile = &amp;#3
       
     
     </summary>
     
-      <category term="Python" scheme="https://yyb1995.github.io/categories/Python/"/>
+      <category term="Python Packages" scheme="https://yyb1995.github.io/categories/Python-Packages/"/>
     
     
-      <category term="Python" scheme="https://yyb1995.github.io/tags/Python/"/>
+      <category term="getopt Python" scheme="https://yyb1995.github.io/tags/getopt-Python/"/>
     
   </entry>
   
