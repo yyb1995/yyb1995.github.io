@@ -40,31 +40,6 @@
   </entry>
   
   <entry>
-    <title>Pytorch常用tensor操作</title>
-    <link href="https://yyb1995.github.io/2019/10/18/Pytorch/Pytorch%E4%B8%AD%E5%B8%B8%E7%94%A8tensor%E6%93%8D%E4%BD%9C/"/>
-    <id>https://yyb1995.github.io/2019/10/18/Pytorch/Pytorch中常用tensor操作/</id>
-    <published>2019-10-18T07:14:38.000Z</published>
-    <updated>2019-10-18T07:14:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-torch-cat"><a href="#1-torch-cat" class="headerlink" title="1 torch.cat"></a>1 torch.cat</h2><p>cat指的是对多个Tensor在<strong>原有某一维度</strong>进行拼接，拼接的结果是Tensor的总维数不变，其中用于拼接的那一维等于各分量维数之和。示例：</p><pre><code class="python">x = torch.rand(2, 3)y = torch.rand(4, 3)z = torch.cat((x, y), 0)</code></pre><p>即x和y沿着axis=0的维度进行拼接，得到的结果是一个(6*3)的Tensor<br>此外，还有如下用法：</p><ol><li><code>torch.cat((x, x), 0)</code></li><li><code>torch.cat([torch.rand(3, 4), torch.rand(5, 4)], dim=0)</code> </li></ol><h2 id="2-torch-chunk"><a href="#2-torch-chunk" class="headerlink" title="2 torch.chunk"></a>2 torch.chunk</h2><p><code>torch.chunk(tensor, chunks, dim=0)</code><br>chunk可以看成cat的逆操作，即将一个矩阵沿着某一维分割开。chunks为分割的份数， dim为分割的维度。例子：</p><pre><code class="python">x = torch.zeros(2, 3, 4)y = torch.chunk(x, 3, 1)</code></pre><p>得到的y是一个tuple，每一个的维度为(2, 1, 4)<br>还可使用Tensor.chunks(chunks, dim=0)效果与上相同。</p><h2 id="3-torch-stack"><a href="#3-torch-stack" class="headerlink" title="3 torch.stack"></a>3 torch.stack</h2><p>stack指的是在<strong>新的维度上</strong>进行拼接，这个操作会增加维度。示例：</p><pre><code class="python">x = torch.ones(1, 3)y = torch.ones(1, 3)z1 = torch.stack((x, y), 0)z2 = torch.stack((x, y), 1)z3 = torch.stack((x, y), 2)</code></pre><p>输出维数规律：除拼接的维数外别的维数保持不变，拼接的维数等于输入个数之和。则上述三个输出的维数分别为：<br>z1:(2, 1, 3), z2:(1, 2, 3), z3:(1, 3, 2)。<br><strong>注意：</strong> torch.stack的输入tensor的维数必须一致，这样才能保证在能够在新的维度进行拼接操作。</p><h2 id="4-torch-transpose"><a href="#4-torch-transpose" class="headerlink" title="4 torch.transpose"></a>4 torch.transpose</h2><p>transpose指的是将Tensor的某两个维度进行交换。示例：</p><pre><code class="python">x = torch.zeros(2, 3)y = torch.transpose(x, 0, 1)</code></pre><h2 id="5-permute-amp-reshape"><a href="#5-permute-amp-reshape" class="headerlink" title="5 permute &amp; reshape"></a>5 permute &amp; reshape</h2><p>permute是适合于多维度的维数交换。使用方法：输入希望产生的维度即可。例子：</p><pre><code class="python">x = torch.zeros(2, 3, 4)y = x.permute(2, 1, 0)</code></pre><p>输出y的维度为:(4, 3, 2)</p><p>reshape和permute功能类似，不过reshape一般用于连续维度的改变，如</p><pre><code class="python">x = torch.zeros(2, 3, 4)y = x.reshape(2, 6, 2)</code></pre><p>如果用于reshape的维度不是连续的，会出现数据改变的情况。</p><h2 id="6-squeeze"><a href="#6-squeeze" class="headerlink" title="6 squeeze"></a>6 squeeze</h2><p>squeeze是将某一个维度为1的维去除。使用方法：x.squeeze()。<br>例子：</p><pre><code class="python">x = torch.zeros(3, 1, 2)y = x.squeeze(1)</code></pre><p>得到的y的维度为(3, 2)。如果选择的维数不为1，那么得到的结果的维数与原Tensor的维数一致</p><h2 id="7-unsqueeze"><a href="#7-unsqueeze" class="headerlink" title="7 unsqueeze"></a>7 unsqueeze</h2><p>unsqueeze是增加一个维度，维度位置为dim。使用方法：a.unsqueeze(dim)。<br>例子：</p><pre><code class="python">x = torch.zeros(3, 2)y = x.unsqueeze(2)</code></pre><p>得到的y的维数为：(3, 2, 1)<br>use repeat – this will copy each vector 28 times.</p><p>X = torch.randn(100, 700)<br>X = X.unsqueeze(2).repeat(1, 1, 28)</p><h2 id="8-torch-masked-fill"><a href="#8-torch-masked-fill" class="headerlink" title="8 torch.masked_fill"></a>8 torch.masked_fill</h2><p>masked_fill将一个tensor中为1的元素用指定的值填充。例如：</p><pre><code class="python">a = torch.ones(3, 3)</code></pre><h2 id="9-torch-view"><a href="#9-torch-view" class="headerlink" title="9 torch.view"></a>9 torch.view</h2><p>view将一个tensor变换维度，但其中的数值保持不变</p><h2 id="10-torch-bmm"><a href="#10-torch-bmm" class="headerlink" title="10 torch.bmm"></a>10 torch.bmm</h2><p>bmm即batch_matmul，作用是不考虑batch维度将两个矩阵相乘。</p><pre><code class="python">a = torch.ones(128, 4, 3)b = torch.ones(128, 3, 10)result = torch.bmm(a, b)print(result.shape)&gt;&gt;&gt; (128, 4, 10)</code></pre><h2 id="11-expand-amp-repeat"><a href="#11-expand-amp-repeat" class="headerlink" title="11 expand&amp;repeat"></a>11 expand&amp;repeat</h2><p>expand和repeat都用于扩展Tensor的维度。<strong>使用前提：原矩阵的维度和扩展后矩阵的维度一致。因此通常先进行squeeze(dim)或unsqueeze(dim)操作</strong>。expand的输入参数是扩展后Tensor的维度，repeat的输入参数是扩展后Tensor相对于原Tensor扩展的倍数。<strong>此外，注意expand仅限于对张量中维数为1的维度的扩展，否则会报类型不匹配错误。</strong> 例如：</p><pre><code class="python">a = torch.Tensor([1, 2, 3])# 最终维数为(3, 5)，相当于第一维不变，第二维扩展5次b = a.unsqueeze(1).expand(3, 5)# 在第一维扩展1次，在第二维扩展5次c = a.unsqueeze(1).repeat(1, 5)# output:tensor([[1., 1., 1., 1., 1.],        [2., 2., 2., 2., 2.],        [3., 3., 3., 3., 3.]])# RuntimeError: The expanded size of the tensor (6) must match the existing size (3) at non-singleton dimension 2.  Target sizes: [1, 4, 6].  Tensor sizes: [1, 2, 3]a.expand(1, 4, 6)</code></pre><p>expand不会复制数组内存，节省空间。repeat会复制所有数据</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-torch-cat&quot;&gt;&lt;a href=&quot;#1-torch-cat&quot; class=&quot;headerlink&quot; title=&quot;1 torch.cat&quot;&gt;&lt;/a&gt;1 torch.cat&lt;/h2&gt;&lt;p&gt;cat指的是对多个Tensor在&lt;strong&gt;原有某一维度&lt;/st
-      
-    
-    </summary>
-    
-      <category term="Pytorch" scheme="https://yyb1995.github.io/categories/Pytorch/"/>
-    
-    
-      <category term="Pytorch" scheme="https://yyb1995.github.io/tags/Pytorch/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Git常用命令</title>
     <link href="https://yyb1995.github.io/2019/10/18/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
     <id>https://yyb1995.github.io/2019/10/18/Git/Git常用命令/</id>
@@ -111,6 +86,31 @@
     
     
       <category term="numpy" scheme="https://yyb1995.github.io/tags/numpy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch常用tensor操作</title>
+    <link href="https://yyb1995.github.io/2019/10/18/Pytorch/Pytorch%E4%B8%AD%E5%B8%B8%E7%94%A8tensor%E6%93%8D%E4%BD%9C/"/>
+    <id>https://yyb1995.github.io/2019/10/18/Pytorch/Pytorch中常用tensor操作/</id>
+    <published>2019-10-18T07:14:38.000Z</published>
+    <updated>2019-10-18T07:14:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-torch-cat"><a href="#1-torch-cat" class="headerlink" title="1 torch.cat"></a>1 torch.cat</h2><p>cat指的是对多个Tensor在<strong>原有某一维度</strong>进行拼接，拼接的结果是Tensor的总维数不变，其中用于拼接的那一维等于各分量维数之和。示例：</p><pre><code class="python">x = torch.rand(2, 3)y = torch.rand(4, 3)z = torch.cat((x, y), 0)</code></pre><p>即x和y沿着axis=0的维度进行拼接，得到的结果是一个(6*3)的Tensor<br>此外，还有如下用法：</p><ol><li><code>torch.cat((x, x), 0)</code></li><li><code>torch.cat([torch.rand(3, 4), torch.rand(5, 4)], dim=0)</code> </li></ol><h2 id="2-torch-chunk"><a href="#2-torch-chunk" class="headerlink" title="2 torch.chunk"></a>2 torch.chunk</h2><p><code>torch.chunk(tensor, chunks, dim=0)</code><br>chunk可以看成cat的逆操作，即将一个矩阵沿着某一维分割开。chunks为分割的份数， dim为分割的维度。例子：</p><pre><code class="python">x = torch.zeros(2, 3, 4)y = torch.chunk(x, 3, 1)</code></pre><p>得到的y是一个tuple，每一个的维度为(2, 1, 4)<br>还可使用Tensor.chunks(chunks, dim=0)效果与上相同。</p><h2 id="3-torch-stack"><a href="#3-torch-stack" class="headerlink" title="3 torch.stack"></a>3 torch.stack</h2><p>stack指的是在<strong>新的维度上</strong>进行拼接，这个操作会增加维度。示例：</p><pre><code class="python">x = torch.ones(1, 3)y = torch.ones(1, 3)z1 = torch.stack((x, y), 0)z2 = torch.stack((x, y), 1)z3 = torch.stack((x, y), 2)</code></pre><p>输出维数规律：除拼接的维数外别的维数保持不变，拼接的维数等于输入个数之和。则上述三个输出的维数分别为：<br>z1:(2, 1, 3), z2:(1, 2, 3), z3:(1, 3, 2)。<br><strong>注意：</strong> torch.stack的输入tensor的维数必须一致，这样才能保证在能够在新的维度进行拼接操作。</p><h2 id="4-torch-transpose"><a href="#4-torch-transpose" class="headerlink" title="4 torch.transpose"></a>4 torch.transpose</h2><p>transpose指的是将Tensor的某两个维度进行交换。示例：</p><pre><code class="python">x = torch.zeros(2, 3)y = torch.transpose(x, 0, 1)</code></pre><h2 id="5-permute-amp-reshape"><a href="#5-permute-amp-reshape" class="headerlink" title="5 permute &amp; reshape"></a>5 permute &amp; reshape</h2><p>permute是适合于多维度的维数交换。使用方法：输入希望产生的维度即可。例子：</p><pre><code class="python">x = torch.zeros(2, 3, 4)y = x.permute(2, 1, 0)</code></pre><p>输出y的维度为:(4, 3, 2)</p><p>reshape和permute功能类似，不过reshape一般用于连续维度的改变，如</p><pre><code class="python">x = torch.zeros(2, 3, 4)y = x.reshape(2, 6, 2)</code></pre><p>如果用于reshape的维度不是连续的，会出现数据改变的情况。</p><h2 id="6-squeeze"><a href="#6-squeeze" class="headerlink" title="6 squeeze"></a>6 squeeze</h2><p>squeeze是将某一个维度为1的维去除。使用方法：x.squeeze()。<br>例子：</p><pre><code class="python">x = torch.zeros(3, 1, 2)y = x.squeeze(1)</code></pre><p>得到的y的维度为(3, 2)。如果选择的维数不为1，那么得到的结果的维数与原Tensor的维数一致</p><h2 id="7-unsqueeze"><a href="#7-unsqueeze" class="headerlink" title="7 unsqueeze"></a>7 unsqueeze</h2><p>unsqueeze是增加一个维度，维度位置为dim。使用方法：a.unsqueeze(dim)。<br>例子：</p><pre><code class="python">x = torch.zeros(3, 2)y = x.unsqueeze(2)</code></pre><p>得到的y的维数为：(3, 2, 1)<br>use repeat – this will copy each vector 28 times.</p><p>X = torch.randn(100, 700)<br>X = X.unsqueeze(2).repeat(1, 1, 28)</p><h2 id="8-torch-masked-fill"><a href="#8-torch-masked-fill" class="headerlink" title="8 torch.masked_fill"></a>8 torch.masked_fill</h2><p>masked_fill将一个tensor中为1的元素用指定的值填充。例如：</p><pre><code class="python">a = torch.ones(3, 3)</code></pre><h2 id="9-torch-view"><a href="#9-torch-view" class="headerlink" title="9 torch.view"></a>9 torch.view</h2><p>view将一个tensor变换维度，但其中的数值保持不变</p><h2 id="10-torch-bmm"><a href="#10-torch-bmm" class="headerlink" title="10 torch.bmm"></a>10 torch.bmm</h2><p>bmm即batch_matmul，作用是不考虑batch维度将两个矩阵相乘。</p><pre><code class="python">a = torch.ones(128, 4, 3)b = torch.ones(128, 3, 10)result = torch.bmm(a, b)print(result.shape)&gt;&gt;&gt; (128, 4, 10)</code></pre><h2 id="11-expand-amp-repeat"><a href="#11-expand-amp-repeat" class="headerlink" title="11 expand&amp;repeat"></a>11 expand&amp;repeat</h2><p>expand和repeat都用于扩展Tensor的维度。<strong>使用前提：原矩阵的维度和扩展后矩阵的维度一致。因此通常先进行squeeze(dim)或unsqueeze(dim)操作</strong>。expand的输入参数是扩展后Tensor的维度，repeat的输入参数是扩展后Tensor相对于原Tensor扩展的倍数。<strong>此外，注意expand仅限于对张量中维数为1的维度的扩展，否则会报类型不匹配错误。</strong> 例如：</p><pre><code class="python">a = torch.Tensor([1, 2, 3])# 最终维数为(3, 5)，相当于第一维不变，第二维扩展5次b = a.unsqueeze(1).expand(3, 5)# 在第一维扩展1次，在第二维扩展5次c = a.unsqueeze(1).repeat(1, 5)# output:tensor([[1., 1., 1., 1., 1.],        [2., 2., 2., 2., 2.],        [3., 3., 3., 3., 3.]])# RuntimeError: The expanded size of the tensor (6) must match the existing size (3) at non-singleton dimension 2.  Target sizes: [1, 4, 6].  Tensor sizes: [1, 2, 3]a.expand(1, 4, 6)</code></pre><p>expand不会复制数组内存，节省空间。repeat会复制所有数据</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-torch-cat&quot;&gt;&lt;a href=&quot;#1-torch-cat&quot; class=&quot;headerlink&quot; title=&quot;1 torch.cat&quot;&gt;&lt;/a&gt;1 torch.cat&lt;/h2&gt;&lt;p&gt;cat指的是对多个Tensor在&lt;strong&gt;原有某一维度&lt;/st
+      
+    
+    </summary>
+    
+      <category term="Pytorch" scheme="https://yyb1995.github.io/categories/Pytorch/"/>
+    
+    
+      <category term="Pytorch" scheme="https://yyb1995.github.io/tags/Pytorch/"/>
     
   </entry>
   
@@ -235,30 +235,53 @@
   </entry>
   
   <entry>
-    <title>$\LaTeX$一些坑</title>
-    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
-    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex一些坑/</id>
+    <title>正则表达式学习和查询网站</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Regex/常用查询网站/</id>
     <published>2019-07-09T03:07:19.000Z</published>
     <updated>2019-07-09T03:07:19.000Z</updated>
     
-    <content type="html"><![CDATA[<ol><li><code>\indent</code>后要跟空格</li><li><code>\gather</code>不要留空行</li><li><code>\gather</code>内嵌<code>\aligned</code>不能加<code>*</code></li><li>在使用<code>\mathbb</code>前需要导入包<code>\usepackage{amsfonts}</code></li><li>插入小、中、大括号的语句分别为：<pre><code class="latex">\left\{ ... \right\}\left[ ... \right]\left( ... \right)</code></pre></li><li>图片、算法的插入一般使用<code>!htb</code>控制位置。如果强制指定图片位置，可使用<code>H</code></li><li><strong>在编译$\LaTeX$前一定要先关闭用acrobat打开的pdf文档！</strong></li><li><strong>插入图片时图片名称不要带空格和点<code>.</code>！</strong>否则可能报<code>Cannot determine size of graphic in fig.png (no BoundingBox).</code></li><li>一个<code>gather</code>环境中加入多个<code>align</code>环境且需要纵向对齐时在每一个<code>align</code>后加上<code>\\</code></li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="正则表达式学习和查询网站"><a href="#正则表达式学习和查询网站" class="headerlink" title="正则表达式学习和查询网站"></a>正则表达式学习和查询网站</h2><ol><li><a href="https://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">正则表达式30分钟入门教程</a></li><li><a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" target="_blank" rel="noopener">正则表达式手册</a></li><li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference" target="_blank" rel="noopener">正则表达式快速参考</a></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;\indent&lt;/code&gt;后要跟空格&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\gather&lt;/code&gt;不要留空行&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\gather&lt;/code&gt;内嵌&lt;code&gt;\aligned&lt;/code&gt;不能加&lt;code&gt;*&lt;/code&gt;&lt;
+        &lt;h2 id=&quot;正则表达式学习和查询网站&quot;&gt;&lt;a href=&quot;#正则表达式学习和查询网站&quot; class=&quot;headerlink&quot; title=&quot;正则表达式学习和查询网站&quot;&gt;&lt;/a&gt;正则表达式学习和查询网站&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://deercha
       
     
     </summary>
     
-      <category term="Latex" scheme="https://yyb1995.github.io/categories/Latex/"/>
+      <category term="Regex" scheme="https://yyb1995.github.io/categories/Regex/"/>
     
     
-      <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
+      <category term="正则表达式" scheme="https://yyb1995.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux系统使用过程中遇到的一些问题</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Linux/Linux使用过程中的问题/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面"><a href="#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面" class="headerlink" title="1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面"></a>1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面</h2><p>这种情况可能是Nvidia显卡驱动安装出现了问题。解决方法：</p><ol><li><p>卸载原驱动：<code>sudo apt-get purge nvidia*</code></p></li><li><p>把显卡驱动加入PPA：<br><code>sudo add-apt-repository ppa:graphics-drivers</code> </p><p><code>sudo apt-get update</code></p></li><li><p>查找显卡驱动最新的版本号<br><code>sudo apt-cache search nvidia</code></p></li><li><p>采用apt-get命令在终端安装<br><code>sudo apt-get install nvidia-390 nvidia-settings nvidia-prime</code></p></li><li><p>使用<code>lsmod | grep nvidia</code>或<code>watch -n 1 nvidia-smi</code>查看是否安装成功-smi`查看是否安装成功</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot;&gt;&lt;a href=&quot;#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot; class=&quot;headerlink&quot; title=&quot;1 无法进入GUI界面，可以使用Ctrl+Alt
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://yyb1995.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://yyb1995.github.io/tags/Linux/"/>
     
   </entry>
   
@@ -290,25 +313,22 @@
   </entry>
   
   <entry>
-    <title>latex导言区常用设置</title>
-    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E5%AF%BC%E8%A8%80%E5%8C%BA%E8%AE%BE%E7%BD%AE/"/>
-    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex导言区设置/</id>
+    <title>Latex一些坑</title>
+    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
+    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex一些坑/</id>
     <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
+    <updated>2020-02-29T09:59:14.514Z</updated>
     
-    <content type="html"><![CDATA[<pre><code class="latex">% Article setting% Article type\documentclass[12]{article}% Page margin\usepackage{geometry}%\geometry{a4paper,scale=0.8}\geometry{a4paper,left=2cm,right=2cm%,top=2cm,%bottom=2cm, includefoot,heightrounded}% set title\title{}\author{}\date{}% import package\usepackage{amsmath, amsfonts, bm}% \numberwithin{equation}{section} % Equation numbering by section\numberwithin{equation}{subsection} % Equation numbering by subsection% \numberwithin{equation}{subsubsection}% Chinese support\usepackage{xeCJK}\usepackage{fontspec} \setCJKmainfont[AutoFakeBold]{SimSun}\setCJKmonofont{SimSun}\setmainfont{Times New Roman}\renewcommand\contentsname{目录}\renewcommand\refname{参考文献}\renewcommand{\figurename}{图}\renewcommand{\tablename}{表}% Indent\usepackage{indentfirst}\setlength{\parindent}{2em}% Python code\usepackage{listings}\usepackage{color}\definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\lstset{frame=tb,    language=Python,    aboveskip=3mm,    belowskip=3mm,    showstringspaces=false,    columns=flexible,    basicstyle={\small\ttfamily},    numbers=none,    numberstyle=\tiny\color{gray},    keywordstyle=\color{blue},    commentstyle=\color{dkgreen},    stringstyle=\color{mauve},    breaklines=true,    breakatwhitespace=true,    tabsize=3}% Import image\usepackage{graphicx}\usepackage{subcaption}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,          urlcolor=blue,    citecolor=blue,}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,    urlcolor=blue,    citecolor=blue,}```    citecolor=blue,}</code></pre>]]></content>
+    <content type="html"><![CDATA[<ol><li><code>\indent</code>后要跟空格</li><li><code>\gather</code>不要留空行</li><li><code>\gather</code>内嵌<code>\aligned</code>不能加<code>*</code></li><li>在使用<code>\mathbb</code>前需要导入包<code>\usepackage{amsfonts}</code></li><li>插入小、中、大括号的语句分别为：<pre><code class="latex">\left\{ ... \right\}\left[ ... \right]\left( ... \right)</code></pre></li><li>图片、算法的插入一般使用<code>!htb</code>控制位置。如果强制指定图片位置，可使用<code>H</code></li><li><strong>在编译$\LaTeX$前一定要先关闭用acrobat打开的pdf文档！</strong></li><li><strong>插入图片时图片名称不要带空格和点<code>.</code>！</strong>否则可能报<code>Cannot determine size of graphic in fig.png (no BoundingBox).</code></li><li>一个<code>gather</code>环境中加入多个<code>align</code>环境且需要纵向对齐时在每一个<code>align</code>后加上<code>\\</code></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;% Article setting
-% Article type
-\documentclass[12]{article}
-
-% Page margin
-\usepackage{geometry}
-%\geometry{a4pape
+        &lt;ol&gt;
+&lt;li&gt;&lt;code&gt;\indent&lt;/code&gt;后要跟空格&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\gather&lt;/code&gt;不要留空行&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\gather&lt;/code&gt;内嵌&lt;code&gt;\aligned&lt;/code&gt;不能加&lt;code&gt;*&lt;/code&gt;&lt;
       
     
     </summary>
@@ -317,85 +337,6 @@
     
     
       <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>$\LaTeX$常用代码段</title>
-    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
-    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex常用代码段/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-11-24T11:33:38.210Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-公式"><a href="#1-公式" class="headerlink" title="1 公式"></a>1 公式</h2><p><strong>一些小技巧：</strong></p><blockquote><ul><li>公式环境加<code>*</code>号会参与自动编号</li><li>公式环境可以嵌套。内层嵌套不能使用<code>*</code>号，且要&gt;加上<code>ed</code>。</li><li>最好不要留多余空行，否则可能报错。</li></ul></blockquote><ol><li><p>行内公式<br><code>$\a+b=c$</code></p></li><li><p>单行行间公式</p><pre><code class="latex">\begin{equation}X(i, j) = \begin{cases}0, \quad X(i, j)\text{缺失}\\1, \quad \text{其它}\end{cases}\end{equation}</code></pre></li><li><p>多行推导公式</p><pre><code class="latex">\begin{align*}f(x) &amp;= (x+a)(x+b) \\&amp;= x^2 + (a+b)x + ab\end{align*}</code></pre></li><li><p>多行对齐公式</p><pre><code class="latex"> \begin{gather*}     E(Y_t) = \mu \\     E\left(Y_{t}-\mu\right)^{2}=E\left(\epsilon_{t}+\theta \epsilon_{t-1}\right)^{2}=\left(1+\theta^{2}\right) \sigma^{2} \\     E\left(Y_{t}-\mu\right)\left(Y_{t-1}-\mu\right)=\theta \sigma^{2} \\    \end{gather*}</code></pre></li><li><p>多行条件公式</p><pre><code class="latex"></code></pre></li></ol><p>\begin{equation}<br>\begin{cases}<br>    123&amp;a=5\<br>    433434&amp;a=64554\<br>\end{cases}<br>\end{equation}</p><pre><code>6. gather内嵌套align```latexgather*内嵌套aligned：\begin{gather*}c=53223\begin{aligned}a&amp;=1\\&amp;=332\end{aligned}\end{gather*}</code></pre><ol start="7"><li>分段函数<br>```latex<br>smooth_{L_{1}}(x)=\begin{cases}</li><li>5x^{2}, &amp;\left |x \right |\leq 1 \cr \left |x \right|-0.5, &amp; otherwise<br>\end{cases}</li></ol><pre><code>## 2 图1. 一行一图```latex\begin{figure}  %图\centering  %插入的图片居中表示\includegraphics[width=\textwidth]{./figures/estimate.jpg}\renewcommand{\figurename}{Fig.}\renewcommand{\figurename}{图}\caption{不同数据缺失率下的数据补全结果}  %图片的名称\label{fig1}   %标签，用作引用\end{figure}</code></pre><ol start="2"><li><p>一行多图</p><pre><code class="latex">\usepackage{subcaption} \begin{figure}[H]     \begin{subfigure}{0.5\textwidth}     \includegraphics[width=\textwidth]{./figures/ar_1_acf.png}     \label{fig:3_classes}     \caption{}     \end{subfigure}     \begin{subfigure}{0.5\textwidth}     \includegraphics[width=\textwidth]{./figures/ar_1_pacf.png}     \label{fig:5_classes}     \caption{}     \end{subfigure}     \caption{ACF和PACF}   \end{figure}</code></pre></li></ol><h2 id="3-列表"><a href="#3-列表" class="headerlink" title="3 列表"></a>3 列表</h2><pre><code class="latex">% 有序列表\begin{enumerate}[(1)]% \begin{enumerate}[{[1]}]% \begin{enumerate}[(i)]\item 有编号的列表\item ...\end{enumerate}% 无序列表\begin{itemize}\item 无编号的列表\item ...\end{itemize}</code></pre><h2 id="4-表格"><a href="#4-表格" class="headerlink" title="4 表格"></a>4 表格</h2><ol><li><p>简单表格</p><pre><code class="latex"> \begin{table}[H] \centering \caption{预测误差分布}       \begin{tabular}{|c|c|c|c|c|} % 竖线表示是否在该列加竖线     \hline        &amp; 均值  &amp; 均值理论值 &amp;方差&amp;方差理论值\\       \hline       1步  &amp; 0.0103 &amp; 0 &amp; 0.9927 &amp; 1 \\       2步 &amp; 0.0141 &amp; 0 &amp; 1.2549 &amp; 1.25 \\     \hline \end{tabular}   \end{table}</code></pre></li><li><p>三行线表格</p><pre><code class="latex">\begin{table}[htp]     \centering     \caption{MA($\infty$)和GRU的最大可预测步数比较}     \label{Tab03}     % shorten cline length     \begin{tabular}{@{\extracolsep{12pt}}cccccccccc@{}}     \hline     \multirow{2}{*}{参数} &amp; \multicolumn{3}{c}{AR(1)} &amp; \multicolumn{3}{c}{AR(2)} &amp; \multicolumn{3}{c}{MA(2)} \\     \cline{2-4}  \cline{5-7} \cline{8-10}     &amp; 0.1 &amp; 0.5 &amp; 0.9 &amp; -0.1 &amp; -0.5 &amp; -0.7 &amp; -0.1 &amp; -0.2 &amp; -0.3 \\     \hline     MA($\infty$)&amp; 1 &amp; 3&amp; 19 &amp; 3 &amp; 6 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\     GRU&amp; 1 &amp; 3 &amp; 20 &amp; 3 &amp; 5 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\     \hline     \end{tabular}     \end{table}</code></pre></li><li><p>去掉表格标题</p><pre><code class="latex">% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}</code></pre></li><li><p>多行表格</p><pre><code class="latex">\begin{table}[htp] \centering \caption{不同条件下一些中间结果的动态范围} \label{cha_nonlinear} \begin{tabular}{@{\extracolsep{12pt}}cccccc@{}}     \hline     \multirow{2}{*}{序列编号} &amp; \multirow{2}{*}{条件}    &amp; \multicolumn{4}{c}{动态范围}\\     \cline{3-6}&amp; &amp; $\mathbf{A}_{enc}$  &amp; $X_{attn}$ &amp; $\mathbf{A}_{enc\_dec}$ &amp; $\hat{\mathbf{x}}_{pre}$\\     \hline     \multirow{4}{*}{1} &amp; 无线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\     &amp; 有线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\     &amp; 无线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4 \\     &amp; 有线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\     \hline \end{tabular}\end{table}</code></pre></li></ol><h2 id="5-调整页边距"><a href="#5-调整页边距" class="headerlink" title="5 调整页边距"></a>5 调整页边距</h2><pre><code class="latex">\usepackage{geometry}\geometry{a4paper,scale=0.8}\geometry{a4paper,left=2cm,right=2cm,top=1cm,bottom=1cm}</code></pre><h2 id="6-参考文献"><a href="#6-参考文献" class="headerlink" title="6 参考文献"></a>6 参考文献</h2><ol><li>一般参考文献<pre><code class="latex">\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}</code></pre></li></ol><p>% Place to the location of reference<br>\bibliographystyle{plain}<br>\bibliography{reference}</p><p>% Refer in the text<br>\cite{Wille1982}<br>% \citep{Wille1982}</p><pre><code>2. URL参考文献（无超链接）```latex\usepackage{url}@Misc{timmurphy.org,howpublished = {\url{http://timmurphy.org/2009/07/22/line-spacing-in-latex-documents/}},note = {Accessed April 4, 2010},title = {Line Spacing in LaTeX documents},author = {Murphy, Timothy I}}</code></pre><ol start="3"><li>超链接参考文献（可点击）<pre><code class="latex">\usepackage{hyperref}% 设置各种颜色\hypersetup{ colorlinks=true, % 使用颜色代替框 linkcolor=black, % 目录之类的颜色 filecolor=blue,   urlcolor=blue, % 引用url颜色 citecolor=blue, % 引用的颜色}@unpublished{Survey2014,title={Survey on the access tofinance of enterprises},author={Sophie Doove and Petra Gibcus andTon Kwaak and Lia Smit and Tommy Span},year=2014,note ={Accessed 16 June 2017.  \href{http://wwwe.ansa.it/documents/1415814222451\_Rapporto.pdf/}{http://wwwe.ansa.it/documents/1415814222451/_Rapporto.pdf/}},}</code></pre></li></ol><h2 id="7-页码"><a href="#7-页码" class="headerlink" title="7 页码"></a>7 页码</h2><pre><code class="latex">\thispagestyle{empty} % 在不需要设置页码的下面加\setcounter{page}{1} % 强制设置页码值</code></pre><h2 id="8-python代码"><a href="#8-python代码" class="headerlink" title="8 python代码"></a>8 python代码</h2><pre><code class="latex">\usepackage{listings}\usepackage{color}\definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\lstset{frame=tb,    language=Python,    aboveskip=3mm,    belowskip=3mm,    showstringspaces=false,    columns=flexible,    basicstyle={\small\ttfamily},    numbers=none,    numberstyle=\tiny\color{gray},    keywordstyle=\color{blue},    commentstyle=\color{dkgreen},    stringstyle=\color{mauve},    breaklines=true,    breakatwhitespace=true,    tabsize=3}\begin{lstlisting}print (&#39;Starting Iterations&#39;)for iter in range(n_iterations):for i in range(n):Users[i] = np.dot(np.dot(np.dot(np.linalg.inv(np.dot(np.dot(Items,np.diag(R[i])),Items.T) +lambda_ * np.eye(n_factors)),Items),np.diag(R[i])),A[i]).Tfor j in range(m):Items[:,j] = np.dot(np.dot(np.dot(np.linalg.inv(np.dot(np.dot(Users.T,np.diag(R[:,j])),Users) +lambda_ *np.eye(n_factors)),Users.T),np.diag(R[:,j])),A[:,j])#print (&#39;Error after solving for Item Matrix:%f&#39; % get_error(A, Users, Items, R))NMAE_List.append(get_error(A, Users, Items, R))print (&#39;%sth iteration is complete...&#39; % iter)print(&#39;Iteration finish&#39;)\end{lstlisting}```)\end{lstlisting}</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-公式&quot;&gt;&lt;a href=&quot;#1-公式&quot; class=&quot;headerlink&quot; title=&quot;1 公式&quot;&gt;&lt;/a&gt;1 公式&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;一些小技巧：&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;公式环境加&lt;code&gt;*
-      
-    
-    </summary>
-    
-      <category term="Latex" scheme="https://yyb1995.github.io/categories/Latex/"/>
-    
-    
-      <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux系统使用过程中遇到的一些问题</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Linux/Linux使用过程中的问题/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面"><a href="#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面" class="headerlink" title="1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面"></a>1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面</h2><p>这种情况可能是Nvidia显卡驱动安装出现了问题。解决方法：</p><ol><li><p>卸载原驱动：<code>sudo apt-get purge nvidia*</code></p></li><li><p>把显卡驱动加入PPA：<br><code>sudo add-apt-repository ppa:graphics-drivers</code> </p><p><code>sudo apt-get update</code></p></li><li><p>查找显卡驱动最新的版本号<br><code>sudo apt-cache search nvidia</code></p></li><li><p>采用apt-get命令在终端安装<br><code>sudo apt-get install nvidia-390 nvidia-settings nvidia-prime</code></p></li><li><p>使用<code>lsmod | grep nvidia</code>或<code>watch -n 1 nvidia-smi</code>查看是否安装成功-smi`查看是否安装成功</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot;&gt;&lt;a href=&quot;#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot; class=&quot;headerlink&quot; title=&quot;1 无法进入GUI界面，可以使用Ctrl+Alt
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://yyb1995.github.io/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="https://yyb1995.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>谈谈深度学习中的 Batch_Size</title>
-    <link href="https://yyb1995.github.io/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/"/>
-    <id>https://yyb1995.github.io/2019/07/09/DeepLearning/深度学习中的batch size/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2020-02-28T08:21:28.938Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>本文转载自:<a href="http://blog.csdn.net/ycheng_sjtu/article/details/49804041#reply" target="_blank" rel="noopener">谈谈深度学习中的 Batch_Size</a></p></blockquote><p>Batch_Size（批尺寸）是机器学习中一个重要参数，涉及诸多矛盾，下面逐一展开。</p><h2 id="首先，为什么需要有-Batch-Size-这个参数？"><a href="#首先，为什么需要有-Batch-Size-这个参数？" class="headerlink" title="首先，为什么需要有 Batch_Size 这个参数？"></a>首先，为什么需要有 Batch_Size 这个参数？</h2><p>Batch 的选择，首先决定的是下降的方向。如果数据集比较小，完全可以采用<strong>全数据集 （ Full Batch Learning ）</strong>的形式，这样做<strong>至少</strong>有 2 个好处：其一，由全数据集确定的方向能够更好地代表样本总体，从而更准确地朝向极值所在的方向。其二，由于不同权重的梯度值差别巨大，因此选取一个全局的学习率很困难。 Full Batch Learning 可以使用 <strong>Rprop</strong> 只基于梯度符号并且针对性单独更新各权值。</p><p>对于更大的数据集，以上 2 个好处又变成了 2 个坏处：其一，随着数据集的海量增长和内存限制，一次性载入所有的数据进来变得越来越不可行。其二，以 Rprop 的方式迭代，会由于各个 Batch 之间的采样差异性，各次梯度修正值相互抵消，无法修正。这才有了后来 <strong>RMSProp</strong> 的妥协方案。</p><h2 id="既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？"><a href="#既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？" class="headerlink" title="既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？"></a>既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？</h2><p>所谓另一个极端，就是每次只训练一个样本，即 Batch_Size = 1。这就是<strong>在线学习（Online Learning）</strong>。线性神经元在均方误差代价函数的错误面是一个抛物面，横截面是椭圆。对于多层神经元、非线性网络，在局部依然近似是抛物面。使用在线学习，每次修正方向以各自样本的梯度方向修正，横冲直撞各自为政，<strong>难以达到收敛</strong>。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195814221" alt="这里写图片描述"> </p><h2 id="可不可以选择一个适中的-Batch-Size-值呢？"><a href="#可不可以选择一个适中的-Batch-Size-值呢？" class="headerlink" title="可不可以选择一个适中的 Batch_Size 值呢？"></a>可不可以选择一个适中的 Batch_Size 值呢？</h2><p>当然可以，这就是<strong>批梯度下降法（Mini-batches Learning）</strong>。因为如果数据集足够充分，那么用一半（<strong>甚至少得多</strong>）的数据训练算出来的梯度与用全部数据训练出来的梯度是<strong>几乎一样</strong>的。</p><h2 id="在合理范围内，增大-Batch-Size-有何好处？"><a href="#在合理范围内，增大-Batch-Size-有何好处？" class="headerlink" title="在合理范围内，增大 Batch_Size 有何好处？"></a>在合理范围内，增大 Batch_Size 有何好处？</h2><ul><li>内存利用率提高了，大矩阵乘法的并行化效率提高。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。</li><li>在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。</li></ul><h2 id="盲目增大-Batch-Size-有何坏处？"><a href="#盲目增大-Batch-Size-有何坏处？" class="headerlink" title="盲目增大 Batch_Size 有何坏处？"></a>盲目增大 Batch_Size 有何坏处？</h2><ul><li>内存利用率提高了，但是内存容量可能撑不住了。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。</li><li>Batch_Size 增大到一定程度，其确定的下降方向已经基本不再变化。</li></ul><h2 id="调节-Batch-Size-对训练效果影响到底如何？"><a href="#调节-Batch-Size-对训练效果影响到底如何？" class="headerlink" title="调节 Batch_Size 对训练效果影响到底如何？"></a>调节 Batch_Size 对训练效果影响到底如何？</h2><p>这里跑一个 LeNet 在 MNIST 数据集上的效果。MNIST 是一个手写体标准库，我使用的是 <strong>Theano</strong> 框架。这是一个 Python 的深度学习库。<a href="http://deeplearning.net/software/theano/install.html#install" target="_blank" rel="noopener">安装方便</a>（几行命令而已），调试简单（自带 Profile），GPU / CPU 通吃，<a href="http://deeplearning.net/tutorial/contents.html" target="_blank" rel="noopener">官方教程相当完备</a>，支持模块十分丰富（除了 CNNs，更是支持 RBM / DBN / LSTM / RBM-RNN / SdA / MLPs）。在其上层有 <a href="http://keras.io/" target="_blank" rel="noopener">Keras</a> 封装，支持 GRU / JZS1, JZS2, JZS3 等较新结构，支持 Adagrad / Adadelta / RMSprop / Adam 等优化算法。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195829489" alt="这里写图片描述"></p><p><img src="http://img.blog.csdn.net/20151112195843957" alt="这里写图片描述"> </p><p>运行结果如上图所示，其中绝对时间做了标幺化处理。运行结果与上文分析相印证：</p><ul><li>Batch_Size 太小，算法在 200 epoches 内不收敛。</li><li>随着 Batch_Size 增大，处理相同数据量的速度越快。</li><li>随着 Batch_Size 增大，达到相同精度所需要的 epoch 数量越来越多。</li><li>由于上述两种因素的矛盾， Batch_Size 增大到<strong>某个</strong>时候，达到<strong>时间上</strong>的最优。</li><li>由于最终收敛精度会陷入不同的局部极值，因此 Batch_Size 增大到<strong>某些</strong>时候，达到最终收敛<strong>精度上</strong>的最优。</li></ul><h2 id="关于batchsize和epoch的理解"><a href="#关于batchsize和epoch的理解" class="headerlink" title="关于batchsize和epoch的理解"></a>关于batchsize和epoch的理解</h2><p>batchsize指的是使超参数发生一次迭代输入的样本数，也就是完成一次反向传播、求导、参数更新过程所需要输入的样本数。epoch指完成将所有训练数据全部应用于参数更新的过程。在样本数据比较小时，batchsize可以取为训练样本数，这样完成一次epoch只需进行一次梯度下降和参数更新。将全部输入数据作为一个batch进行训练的方法称为<strong>批梯度下降法（Batch Gradient Descend）</strong>。与之相对应的是<strong>随机梯度下降法（Stochastic Gradient Descent）</strong>。这种梯度下降法每次只选取一个样本进行参数更新，因此完成一次epoch需要进行size(X)次迭代。这种方法梯度下降的方向一般不是最优的。将这两种方法折中的一种方法称为<strong>小批量梯度下降法（Mini-batch Gradient Descent）</strong>。这种方法每次将<strong>batchsize</strong>的数据用来训练网络，完成一次迭代。那么完成一次epoch需要进行的迭代次数为<code>np.ceil(size(x) / batchsize)</code>。在实际使用时，可以在一定范围内尽可能增大batchsize的值。当然，如果增大batch值，达到相同精度的epoch数会越来越多，因此需要在精度和运算速度这两方面来考虑选取的batchsize。方面来考虑选取的batchsize。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;本文转载自:&lt;a href=&quot;http://blog.csdn.net/ycheng_sjtu/article/details/49804041#reply&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;谈谈深度学习中的 Batc
-      
-    
-    </summary>
-    
-      <category term="Deep Learning" scheme="https://yyb1995.github.io/categories/Deep-Learning/"/>
-    
-    
-      <category term="深度学习" scheme="https://yyb1995.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
@@ -422,6 +363,88 @@
     
     
       <category term="机器学习" scheme="https://yyb1995.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习参考资料</title>
+    <link href="https://yyb1995.github.io/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"/>
+    <id>https://yyb1995.github.io/2019/07/09/DeepLearning/深度学习参考资料/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>整理了一些与深度学习有关的资料如下</p><ol><li><p>lstm实现<br><a href="http://blog.csdn.net/mydear_11000/article/details/52414342###" target="_blank" rel="noopener">http://blog.csdn.net/mydear_11000/article/details/52414342###</a><br><a href="http://blog.csdn.net/u013082989/article/details/73693392" target="_blank" rel="noopener">http://blog.csdn.net/u013082989/article/details/73693392</a></p></li><li><p>RNN和LSTM基础<br><a href="http://blog.csdn.net/xingzhedai/article/details/53144126" target="_blank" rel="noopener">http://blog.csdn.net/xingzhedai/article/details/53144126</a><br><a href="https://www.jianshu.com/p/9dc9f41f0b29" target="_blank" rel="noopener">https://www.jianshu.com/p/9dc9f41f0b29</a><br><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</a><br><a href="https://www.zybuluo.com/hanbingtao/note/476663" target="_blank" rel="noopener">https://www.zybuluo.com/hanbingtao/note/476663</a></p></li><li><p>tensorflow 常用算子<br><a href="https://www.cnblogs.com/wuzhitj/p/6431381.html" target="_blank" rel="noopener">https://www.cnblogs.com/wuzhitj/p/6431381.html</a></p></li><li><p>DBN算法实现<br><a href="http://blog.csdn.net/zhanglu_wind/article/details/78949020" target="_blank" rel="noopener">http://blog.csdn.net/zhanglu_wind/article/details/78949020</a></p></li><li><p>数据分析必读书目<br><a href="http://www.cnblogs.com/charlotte77/p/5381681.html" target="_blank" rel="noopener">http://www.cnblogs.com/charlotte77/p/5381681.html</a></p></li><li><p>深度神经网络系列文章</p><ol><li><a href="https://www.zybuluo.com/hanbingtao/note/433855" target="_blank" rel="noopener">零基础入门深度学习(1) - 感知器</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/448086" target="_blank" rel="noopener">零基础入门深度学习(2) - 线性单元和梯度下降</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/476663" target="_blank" rel="noopener">零基础入门深度学习(3) - 神经网络和反向传播算法</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/485480" target="_blank" rel="noopener">零基础入门深度学习(4) - 卷积神经网络</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/541458" target="_blank" rel="noopener">零基础入门深度学习(5) - 循环神经网络</a></li><li><a href="https://zybuluo.com/hanbingtao/note/581764" target="_blank" rel="noopener">零基础入门深度学习(6) - 长短时记忆网络(LSTM)</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/626300" target="_blank" rel="noopener">零基础入门深度学习(7) - 递归神经网络</a></li></ol></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;整理了一些与深度学习有关的资料如下&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;lstm实现&lt;br&gt;&lt;a href=&quot;http://blog.csdn.net/mydear_11000/article/details/52414342###&quot; target=&quot;_blank&quot; rel=&quot;
+      
+    
+    </summary>
+    
+      <category term="Deep Learning" scheme="https://yyb1995.github.io/categories/Deep-Learning/"/>
+    
+    
+      <category term="深度学习" scheme="https://yyb1995.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python 迭代器(iterator) 生成器(generator)</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Python/Python%20%E8%BF%AD%E4%BB%A3%E5%99%A8(iterator)%20%E7%94%9F%E6%88%90%E5%99%A8(generator)/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="可迭代对象-iterable"><a href="#可迭代对象-iterable" class="headerlink" title="可迭代对象(iterable)"></a>可迭代对象(iterable)</h2><ul><li><p>定义</p><p> iterable又称为可迭代对象。在Python中，如果一个对象（又称为container object）实现了<code>__iter__()</code>方法或者可以支持下标索引的<code>__getitem__()</code>方法，就称为一个可迭代对象。</p></li><li><p><code>__iter__()</code>方法</p><p> 调用一个可迭代对象的<code>__iter__()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。这个在下一章会提到。</p></li><li><p><code>iter()</code>方法</p><p> 调用一个可迭代对象的<code>iter()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。</p></li><li><p>判断方法<br>在Python中，我们常用到的集合数据类型都是iterable的。如列表(list)，元组(tuple)，字典(dict)，集合(set)，字符串(str)等。在程序中判断一个对象是否是iterable的方法为</p><pre><code class="python"># Method1: use isinstancefrom collections import Iterableisinstance([1, 2, 3], Iterable)# Method2: use for loopfor i in [1, 2, 3]:    print(i)</code></pre></li></ul><h2 id="迭代器-iterator"><a href="#迭代器-iterator" class="headerlink" title="迭代器(iterator)"></a>迭代器(iterator)</h2><ul><li><p>定义</p><p> 借用<a href="https://docs.python.org/dev/howto/functional.html#iterators" target="_blank" rel="noopener">Python文档</a>中对迭代器的定义，一个迭代器指的是一个包含着数据流的对象，它每次返回数据中的一个元素。一个可迭代对象本身也可以是迭代器，但是这样在迭代一次之后数据本身将无法使用，除非将迭代器重置。在Python中大部分迭代器和可迭代对象是分离的，这样就保证了能够重复产生迭代器。</p></li><li><p><code>__next__()</code>方法</p><p> 一个迭代器必须实现<code>__next__()</code>方法。在每次调用<strong>迭代器</strong>（注意，不是可迭代对象）的<code>__next__()</code>方法时顺序返回数据的一个元素。当遍历完数据后抛出<code>StopIteration</code>异常，表示迭代完成。这时迭代器也就完成了它的使命。</p></li><li><p><code>__iter__()</code>方法</p><p> 调用一个迭代器的<code>__iter__()</code>方法会返回迭代器对象本身，注意每次调用产生一个新的迭代器对象。</p></li><li><p><code>next()</code>方法</p><p> 在<code>next()</code>内传入一个迭代器，可以得到迭代器的下一个值。</p></li></ul><h2 id="生成器-generator"><a href="#生成器-generator" class="headerlink" title="生成器(generator)"></a>生成器(generator)</h2><ul><li><p>定义</p><p> 生成器可以看成是迭代器的简化版。生成器只需要定义一个函数，并将普通函数的<code>return</code>改为<code>yield</code>即可。</p></li></ul><ul><li><p>使用<br> 在使用生成器时，可以像一个普通的迭代器一样，使用<code>for in</code>或者<code>next()</code>方法获取其中的值。</p><pre><code class="python"> # Define a generator def range_like(n):     i = 0     while i &lt; n:         yield i         i += 1 # Create a generator object a = range_like(5) a.__next__() for i in range_like(n):     print(i)</code></pre></li></ul><h2 id="迭代器、生成器的关系"><a href="#迭代器、生成器的关系" class="headerlink" title="迭代器、生成器的关系"></a>迭代器、生成器的关系</h2><p>迭代器、生成器、可迭代对象的关系可用下图表示<br><img src="https://i.loli.net/2017/05/06/590d99e937114.png" alt></p><h2 id="for语句的执行顺序"><a href="#for语句的执行顺序" class="headerlink" title="for语句的执行顺序"></a>for语句的执行顺序</h2><p>在对一个iterable对象使用<code>for</code>语句时，实际上先调用了<code>iter()</code>方法返回一个iterator，然后再依次调用<code>__next__()</code>方法获得每一个值。当抛出<code>StopIteration</code>异常时意味着<code>for</code>语句的结束。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><p><a href="https://stackoverflow.com/questions/9884132/what-exactly-are-iterator-iterable-and-iteration" target="_blank" rel="noopener">What exactly are iterator, iterable and iteration</a></p></li><li><p><a href="https://docs.python.org/3/tutorial/classes.html#iterators" target="_blank" rel="noopener">9.8. Iterators</a></p></li><li><p><a href="https://www.jianshu.com/p/24876cf14a5c" target="_blank" rel="noopener">彻底理解Iterable, Iterator, generator</a></p></li><li><p><a href="https://blog.csdn.net/dawningblue/article/details/72629362" target="_blank" rel="noopener">Python中iteration(迭代)、iterator(迭代器)、generator(生成器)等相关概念的理解</a></p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;可迭代对象-iterable&quot;&gt;&lt;a href=&quot;#可迭代对象-iterable&quot; class=&quot;headerlink&quot; title=&quot;可迭代对象(iterable)&quot;&gt;&lt;/a&gt;可迭代对象(iterable)&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;定义&lt;/p&gt;
+&lt;p&gt; 
+      
+    
+    </summary>
+    
+      <category term="Python" scheme="https://yyb1995.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://yyb1995.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LaTeX常用代码段</title>
+    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
+    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex常用代码段/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2020-02-29T09:59:00.590Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-公式"><a href="#1-公式" class="headerlink" title="1 公式"></a>1 公式</h2><p><strong>一些小技巧：</strong></p><blockquote><ul><li>公式环境加<code>*</code>号会参与自动编号</li><li>公式环境可以嵌套。内层嵌套不能使用<code>*</code>号，且要&gt;加上<code>ed</code>。</li><li>最好不要留多余空行，否则可能报错。</li></ul></blockquote><ol><li><p>行内公式<br><code>$\a+b=c$</code></p></li><li><p>单行行间公式</p><pre><code class="latex">\begin{equation}X(i, j) = \begin{cases}0, \quad X(i, j)\text{缺失}\\1, \quad \text{其它}\end{cases}\end{equation}</code></pre></li><li><p>多行推导公式</p><pre><code class="latex">\begin{align*}f(x) &amp;= (x+a)(x+b) \\&amp;= x^2 + (a+b)x + ab\end{align*}</code></pre></li><li><p>多行对齐公式</p><pre><code class="latex"> \begin{gather*}     E(Y_t) = \mu \\     E\left(Y_{t}-\mu\right)^{2}=E\left(\epsilon_{t}+\theta \epsilon_{t-1}\right)^{2}=\left(1+\theta^{2}\right) \sigma^{2} \\     E\left(Y_{t}-\mu\right)\left(Y_{t-1}-\mu\right)=\theta \sigma^{2} \\    \end{gather*}</code></pre></li><li><p>多行条件公式</p><pre><code class="latex"></code></pre></li></ol><p>\begin{equation}<br>\begin{cases}<br>    123&amp;a=5\<br>    433434&amp;a=64554\<br>\end{cases}<br>\end{equation}</p><pre><code>6. gather内嵌套align```latexgather*内嵌套aligned：\begin{gather*}c=53223\begin{aligned}a&amp;=1\\&amp;=332\end{aligned}\end{gather*}</code></pre><ol start="7"><li>分段函数<br>```latex<br>smooth_{L_{1}}(x)=\begin{cases}</li><li>5x^{2}, &amp;\left |x \right |\leq 1 \cr \left |x \right|-0.5, &amp; otherwise<br>\end{cases}</li></ol><pre><code>## 2 图1. 一行一图```latex\begin{figure}  %图\centering  %插入的图片居中表示\includegraphics[width=\textwidth]{./figures/estimate.jpg}\renewcommand{\figurename}{Fig.}\renewcommand{\figurename}{图}\caption{不同数据缺失率下的数据补全结果}  %图片的名称\label{fig1}   %标签，用作引用\end{figure}</code></pre><ol start="2"><li><p>一行多图</p><pre><code class="latex">\usepackage{subcaption} \begin{figure}[H]     \begin{subfigure}{0.5\textwidth}     \includegraphics[width=\textwidth]{./figures/ar_1_acf.png}     \label{fig:3_classes}     \caption{}     \end{subfigure}     \begin{subfigure}{0.5\textwidth}     \includegraphics[width=\textwidth]{./figures/ar_1_pacf.png}     \label{fig:5_classes}     \caption{}     \end{subfigure}     \caption{ACF和PACF}   \end{figure}</code></pre></li></ol><h2 id="3-列表"><a href="#3-列表" class="headerlink" title="3 列表"></a>3 列表</h2><pre><code class="latex">% 有序列表\begin{enumerate}[(1)]% \begin{enumerate}[{[1]}]% \begin{enumerate}[(i)]\item 有编号的列表\item ...\end{enumerate}% 无序列表\begin{itemize}\item 无编号的列表\item ...\end{itemize}</code></pre><h2 id="4-表格"><a href="#4-表格" class="headerlink" title="4 表格"></a>4 表格</h2><ol><li><p>简单表格</p><pre><code class="latex"> \begin{table}[H] \centering \caption{预测误差分布}       \begin{tabular}{|c|c|c|c|c|} % 竖线表示是否在该列加竖线     \hline        &amp; 均值  &amp; 均值理论值 &amp;方差&amp;方差理论值\\       \hline       1步  &amp; 0.0103 &amp; 0 &amp; 0.9927 &amp; 1 \\       2步 &amp; 0.0141 &amp; 0 &amp; 1.2549 &amp; 1.25 \\     \hline \end{tabular}   \end{table}</code></pre></li><li><p>三行线表格</p><pre><code class="latex">\begin{table}[htp]     \centering     \caption{MA($\infty$)和GRU的最大可预测步数比较}     \label{Tab03}     % shorten cline length     \begin{tabular}{@{\extracolsep{12pt}}cccccccccc@{}}     \hline     \multirow{2}{*}{参数} &amp; \multicolumn{3}{c}{AR(1)} &amp; \multicolumn{3}{c}{AR(2)} &amp; \multicolumn{3}{c}{MA(2)} \\     \cline{2-4}  \cline{5-7} \cline{8-10}     &amp; 0.1 &amp; 0.5 &amp; 0.9 &amp; -0.1 &amp; -0.5 &amp; -0.7 &amp; -0.1 &amp; -0.2 &amp; -0.3 \\     \hline     MA($\infty$)&amp; 1 &amp; 3&amp; 19 &amp; 3 &amp; 6 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\     GRU&amp; 1 &amp; 3 &amp; 20 &amp; 3 &amp; 5 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\     \hline     \end{tabular}     \end{table}</code></pre></li><li><p>去掉表格标题</p><pre><code class="latex">% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}</code></pre></li><li><p>多行表格</p><pre><code class="latex">\begin{table}[htp] \centering \caption{不同条件下一些中间结果的动态范围} \label{cha_nonlinear} \begin{tabular}{@{\extracolsep{12pt}}cccccc@{}}     \hline     \multirow{2}{*}{序列编号} &amp; \multirow{2}{*}{条件}    &amp; \multicolumn{4}{c}{动态范围}\\     \cline{3-6}&amp; &amp; $\mathbf{A}_{enc}$  &amp; $X_{attn}$ &amp; $\mathbf{A}_{enc\_dec}$ &amp; $\hat{\mathbf{x}}_{pre}$\\     \hline     \multirow{4}{*}{1} &amp; 无线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\     &amp; 有线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\     &amp; 无线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4 \\     &amp; 有线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\     \hline \end{tabular}\end{table}</code></pre></li></ol><h2 id="5-调整页边距"><a href="#5-调整页边距" class="headerlink" title="5 调整页边距"></a>5 调整页边距</h2><pre><code class="latex">\usepackage{geometry}\geometry{a4paper,scale=0.8}\geometry{a4paper,left=2cm,right=2cm,top=1cm,bottom=1cm}</code></pre><h2 id="6-参考文献"><a href="#6-参考文献" class="headerlink" title="6 参考文献"></a>6 参考文献</h2><ol><li>一般参考文献<pre><code class="latex">\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}</code></pre></li></ol><p>% Place to the location of reference<br>\bibliographystyle{plain}<br>\bibliography{reference}</p><p>% Refer in the text<br>\cite{Wille1982}<br>% \citep{Wille1982}</p><pre><code>2. URL参考文献（无超链接）```latex\usepackage{url}@Misc{timmurphy.org,howpublished = {\url{http://timmurphy.org/2009/07/22/line-spacing-in-latex-documents/}},note = {Accessed April 4, 2010},title = {Line Spacing in LaTeX documents},author = {Murphy, Timothy I}}</code></pre><ol start="3"><li>超链接参考文献（可点击）<pre><code class="latex">\usepackage{hyperref}% 设置各种颜色\hypersetup{ colorlinks=true, % 使用颜色代替框 linkcolor=black, % 目录之类的颜色 filecolor=blue,   urlcolor=blue, % 引用url颜色 citecolor=blue, % 引用的颜色}@unpublished{Survey2014,title={Survey on the access tofinance of enterprises},author={Sophie Doove and Petra Gibcus andTon Kwaak and Lia Smit and Tommy Span},year=2014,note ={Accessed 16 June 2017.  \href{http://wwwe.ansa.it/documents/1415814222451\_Rapporto.pdf/}{http://wwwe.ansa.it/documents/1415814222451/_Rapporto.pdf/}},}</code></pre></li></ol><h2 id="7-页码"><a href="#7-页码" class="headerlink" title="7 页码"></a>7 页码</h2><pre><code class="latex">\thispagestyle{empty} % 在不需要设置页码的下面加\setcounter{page}{1} % 强制设置页码值</code></pre><h2 id="8-python代码"><a href="#8-python代码" class="headerlink" title="8 python代码"></a>8 python代码</h2><pre><code class="latex">\usepackage{listings}\usepackage{color}\definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\lstset{frame=tb,    language=Python,    aboveskip=3mm,    belowskip=3mm,    showstringspaces=false,    columns=flexible,    basicstyle={\small\ttfamily},    numbers=none,    numberstyle=\tiny\color{gray},    keywordstyle=\color{blue},    commentstyle=\color{dkgreen},    stringstyle=\color{mauve},    breaklines=true,    breakatwhitespace=true,    tabsize=3}\begin{lstlisting}print (&#39;Starting Iterations&#39;)for iter in range(n_iterations):for i in range(n):Users[i] = np.dot(np.dot(np.dot(np.linalg.inv(np.dot(np.dot(Items,np.diag(R[i])),Items.T) +lambda_ * np.eye(n_factors)),Items),np.diag(R[i])),A[i]).Tfor j in range(m):Items[:,j] = np.dot(np.dot(np.dot(np.linalg.inv(np.dot(np.dot(Users.T,np.diag(R[:,j])),Users) +lambda_ *np.eye(n_factors)),Users.T),np.diag(R[:,j])),A[:,j])#print (&#39;Error after solving for Item Matrix:%f&#39; % get_error(A, Users, Items, R))NMAE_List.append(get_error(A, Users, Items, R))print (&#39;%sth iteration is complete...&#39; % iter)print(&#39;Iteration finish&#39;)\end{lstlisting}```)\end{lstlisting}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-公式&quot;&gt;&lt;a href=&quot;#1-公式&quot; class=&quot;headerlink&quot; title=&quot;1 公式&quot;&gt;&lt;/a&gt;1 公式&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;一些小技巧：&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;公式环境加&lt;code&gt;*
+      
+    
+    </summary>
+    
+      <category term="Latex" scheme="https://yyb1995.github.io/categories/Latex/"/>
+    
+    
+      <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
     
   </entry>
   
@@ -479,48 +502,20 @@
   </entry>
   
   <entry>
-    <title>Python 迭代器(iterator) 生成器(generator)</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Python/Python%20%E8%BF%AD%E4%BB%A3%E5%99%A8(iterator)%20%E7%94%9F%E6%88%90%E5%99%A8(generator)/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/</id>
+    <title>Google Python Style Guide</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Python/simpread-styleguide%20_%20Style%20guides%20for%20Google-originated%20open-source%20projects/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Python/simpread-styleguide _ Style guides for Google-originated open-source projects/</id>
     <published>2019-07-09T03:07:19.000Z</published>
     <updated>2019-07-09T03:07:19.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="可迭代对象-iterable"><a href="#可迭代对象-iterable" class="headerlink" title="可迭代对象(iterable)"></a>可迭代对象(iterable)</h2><ul><li><p>定义</p><p> iterable又称为可迭代对象。在Python中，如果一个对象（又称为container object）实现了<code>__iter__()</code>方法或者可以支持下标索引的<code>__getitem__()</code>方法，就称为一个可迭代对象。</p></li><li><p><code>__iter__()</code>方法</p><p> 调用一个可迭代对象的<code>__iter__()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。这个在下一章会提到。</p></li><li><p><code>iter()</code>方法</p><p> 调用一个可迭代对象的<code>iter()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。</p></li><li><p>判断方法<br>在Python中，我们常用到的集合数据类型都是iterable的。如列表(list)，元组(tuple)，字典(dict)，集合(set)，字符串(str)等。在程序中判断一个对象是否是iterable的方法为</p><pre><code class="python"># Method1: use isinstancefrom collections import Iterableisinstance([1, 2, 3], Iterable)# Method2: use for loopfor i in [1, 2, 3]:    print(i)</code></pre></li></ul><h2 id="迭代器-iterator"><a href="#迭代器-iterator" class="headerlink" title="迭代器(iterator)"></a>迭代器(iterator)</h2><ul><li><p>定义</p><p> 借用<a href="https://docs.python.org/dev/howto/functional.html#iterators" target="_blank" rel="noopener">Python文档</a>中对迭代器的定义，一个迭代器指的是一个包含着数据流的对象，它每次返回数据中的一个元素。一个可迭代对象本身也可以是迭代器，但是这样在迭代一次之后数据本身将无法使用，除非将迭代器重置。在Python中大部分迭代器和可迭代对象是分离的，这样就保证了能够重复产生迭代器。</p></li><li><p><code>__next__()</code>方法</p><p> 一个迭代器必须实现<code>__next__()</code>方法。在每次调用<strong>迭代器</strong>（注意，不是可迭代对象）的<code>__next__()</code>方法时顺序返回数据的一个元素。当遍历完数据后抛出<code>StopIteration</code>异常，表示迭代完成。这时迭代器也就完成了它的使命。</p></li><li><p><code>__iter__()</code>方法</p><p> 调用一个迭代器的<code>__iter__()</code>方法会返回迭代器对象本身，注意每次调用产生一个新的迭代器对象。</p></li><li><p><code>next()</code>方法</p><p> 在<code>next()</code>内传入一个迭代器，可以得到迭代器的下一个值。</p></li></ul><h2 id="生成器-generator"><a href="#生成器-generator" class="headerlink" title="生成器(generator)"></a>生成器(generator)</h2><ul><li><p>定义</p><p> 生成器可以看成是迭代器的简化版。生成器只需要定义一个函数，并将普通函数的<code>return</code>改为<code>yield</code>即可。</p></li></ul><ul><li><p>使用<br> 在使用生成器时，可以像一个普通的迭代器一样，使用<code>for in</code>或者<code>next()</code>方法获取其中的值。</p><pre><code class="python"> # Define a generator def range_like(n):     i = 0     while i &lt; n:         yield i         i += 1 # Create a generator object a = range_like(5) a.__next__() for i in range_like(n):     print(i)</code></pre></li></ul><h2 id="迭代器、生成器的关系"><a href="#迭代器、生成器的关系" class="headerlink" title="迭代器、生成器的关系"></a>迭代器、生成器的关系</h2><p>迭代器、生成器、可迭代对象的关系可用下图表示<br><img src="https://i.loli.net/2017/05/06/590d99e937114.png" alt></p><h2 id="for语句的执行顺序"><a href="#for语句的执行顺序" class="headerlink" title="for语句的执行顺序"></a>for语句的执行顺序</h2><p>在对一个iterable对象使用<code>for</code>语句时，实际上先调用了<code>iter()</code>方法返回一个iterator，然后再依次调用<code>__next__()</code>方法获得每一个值。当抛出<code>StopIteration</code>异常时意味着<code>for</code>语句的结束。</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol><li><p><a href="https://stackoverflow.com/questions/9884132/what-exactly-are-iterator-iterable-and-iteration" target="_blank" rel="noopener">What exactly are iterator, iterable and iteration</a></p></li><li><p><a href="https://docs.python.org/3/tutorial/classes.html#iterators" target="_blank" rel="noopener">9.8. Iterators</a></p></li><li><p><a href="https://www.jianshu.com/p/24876cf14a5c" target="_blank" rel="noopener">彻底理解Iterable, Iterator, generator</a></p></li><li><p><a href="https://blog.csdn.net/dawningblue/article/details/72629362" target="_blank" rel="noopener">Python中iteration(迭代)、iterator(迭代器)、generator(生成器)等相关概念的理解</a></p></li></ol>]]></content>
+    <content type="html"><![CDATA[<p><a href="http://google.github.io/styleguide/" target="_blank" rel="noopener">Google Python styleguide</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;可迭代对象-iterable&quot;&gt;&lt;a href=&quot;#可迭代对象-iterable&quot; class=&quot;headerlink&quot; title=&quot;可迭代对象(iterable)&quot;&gt;&lt;/a&gt;可迭代对象(iterable)&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;定义&lt;/p&gt;
-&lt;p&gt; 
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://yyb1995.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://yyb1995.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python常用文件及目录操作</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Python/Python%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Python/Python常用文件及目录操作/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-目录操作"><a href="#1-目录操作" class="headerlink" title="1 目录操作"></a>1 目录操作</h2><ol><li>遍历文件夹：<code>os.listdir()</code></li><li>得到当前工作目录：<code>os.getcwd()</code></li><li>新建文件夹：<code>os.makedirs()</code></li></ol><h2 id="2-删除相关"><a href="#2-删除相关" class="headerlink" title="2 删除相关"></a>2 删除相关</h2><ol><li>删除文件：<code>os.remove()</code></li><li>删除空文件夹：<code>os.removedirs()</code></li><li>删除空/非空文件夹：<code>shutil.rmtree()</code></li></ol><h2 id="3-检验相关"><a href="#3-检验相关" class="headerlink" title="3 检验相关"></a>3 检验相关</h2><ol><li>检验路径是否为文件：<code>os.path.isfile()</code></li><li>检验路径是否为文件夹：<code>os.path.isdir()</code></li><li>检验路径是否为快捷方式：<code>os.path.islink()</code></li><li>检验路径是否存在：<code>os.path.exists()</code></li></ol><h2 id="4-分离目录、文件相关"><a href="#4-分离目录、文件相关" class="headerlink" title="4 分离目录、文件相关"></a>4 分离目录、文件相关</h2><ol><li>分离路径的目录名和文件名：<code>os.path.split()</code></li><li>分离扩展名：<code>os.path.splitext()</code>。注意：分离出的扩展名带<code>.</code></li><li>分离扩展名2：<code>path.split(&#39;.&#39;)</code>。分离出的扩展名不带<code>.</code></li></ol><h2 id="5-重命名"><a href="#5-重命名" class="headerlink" title="5 重命名"></a>5 重命名</h2><ol><li>重命名文件/文件夹：<code>os.rename(old, new)</code></li></ol><h2 id="6-复制相关"><a href="#6-复制相关" class="headerlink" title="6 复制相关"></a>6 复制相关</h2><ol><li>复制文件：<code>shutil.copyfile(old, new)</code>。注意：old和new必须是文件</li><li>复制文件：<code>shutil.copy(old, new)</code>。注意：old必须是文件，new可以是文件/文件夹。如果是文件夹，执行的操作是复制文件到指定文件夹</li><li>复制文件夹：<code>shutil.copytree(olddir, newdir)</code>。注意：olddir和newdir都必须是文件夹，且newdir必须不存在</li></ol><h2 id="7-移动相关"><a href="#7-移动相关" class="headerlink" title="7 移动相关"></a>7 移动相关</h2><ol><li>移动文件/文件夹：<code>shutil.move(old, new)</code><br>件夹：<code>shutil.move(old, new)</code></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-目录操作&quot;&gt;&lt;a href=&quot;#1-目录操作&quot; class=&quot;headerlink&quot; title=&quot;1 目录操作&quot;&gt;&lt;/a&gt;1 目录操作&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;遍历文件夹：&lt;code&gt;os.listdir()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;得到当前工作目
+        &lt;p&gt;&lt;a href=&quot;http://google.github.io/styleguide/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Google Python styleguide&lt;/a&gt;&lt;/p&gt;
+
       
     
     </summary>
