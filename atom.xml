@@ -64,6 +64,56 @@
   </entry>
   
   <entry>
+    <title>Git常用命令</title>
+    <link href="https://yyb1995.github.io/2019/10/18/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+    <id>https://yyb1995.github.io/2019/10/18/Git/Git常用命令/</id>
+    <published>2019-10-18T07:14:38.000Z</published>
+    <updated>2019-10-18T07:14:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="提交一个工程到github"><a href="#提交一个工程到github" class="headerlink" title="提交一个工程到github"></a><a href="https://blog.csdn.net/codingEMIPark/article/details/78016588" target="_blank" rel="noopener">提交一个工程到github</a></h2><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul><li>git config –global user.name xxx</li><li>git config –global user.email <a href="mailto:xxx@xxx.com" target="_blank" rel="noopener">xxx@xxx.com</a></li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul><li><code>git init</code></li><li><code>git pull origin master</code></li><li><code>git push origin master</code></li><li><code>git add .</code></li><li><code>git add -A</code> 提交所有改变（包括删除）</li><li><code>git commit -m &#39;commit_content&#39;</code></li><li><code>git checkout filename</code></li><li><code>git clone xx</code></li><li><code>git clone xx --depth=1</code> 只拷贝最近一次的提交</li></ul><h2 id="在coding-net中添加项目的流程"><a href="#在coding-net中添加项目的流程" class="headerlink" title="在coding.net中添加项目的流程"></a>在coding.net中添加项目的流程</h2><pre><code>1. 将～/.ssh中的public key加入coding.net的设置中2. `git init`3. `git add .`4. `git commit -m &#39;content&#39;`5. `git remote add origin gitaddress`6. `git push origin master`</code></pre><h2 id="创建分支和转换的流程"><a href="#创建分支和转换的流程" class="headerlink" title="创建分支和转换的流程"></a>创建分支和转换的流程</h2><pre><code>1. 创建分支：`git branch &lt;name&gt;`2. 切换分支：`git checkout &lt;name&gt;`3. 创建加切换分支：`git checkout -b &lt;name&gt;`4. 删除本地分支：`git branch -d &lt;branch_name&gt;`</code></pre><h2 id="创建多个远程仓库并上传不同分支"><a href="#创建多个远程仓库并上传不同分支" class="headerlink" title="创建多个远程仓库并上传不同分支"></a>创建多个远程仓库并上传不同分支</h2><pre><code>1. 创建多个远程仓库：`git remote add &lt;name&gt; &lt;address&gt;`. 注意：远程仓库名不能于origin相同2. 上传不同分支到远程仓库： `git push &lt;remote_name&gt; &lt;local name&gt;`3. 删除远程仓库中的分支：`git push &lt;remote_name&gt; --delete &lt;branch_name&gt;`.注意，在github上删除master分支前要先到设置更改默认分支.</code></pre><h2 id="查看git的状态"><a href="#查看git的状态" class="headerlink" title="查看git的状态"></a>查看git的状态</h2><p><code>git status</code></p><h2 id="查看文件修改状态"><a href="#查看文件修改状态" class="headerlink" title="查看文件修改状态"></a>查看文件修改状态</h2><p><code>git diff (filename)</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;提交一个工程到github&quot;&gt;&lt;a href=&quot;#提交一个工程到github&quot; class=&quot;headerlink&quot; title=&quot;提交一个工程到github&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://blog.csdn.net/codingEMIPark/ar
+      
+    
+    </summary>
+    
+      <category term="Git" scheme="https://yyb1995.github.io/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="https://yyb1995.github.io/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>numpy</title>
+    <link href="https://yyb1995.github.io/2019/10/18/PythonPackages/numpy/"/>
+    <id>https://yyb1995.github.io/2019/10/18/PythonPackages/numpy/</id>
+    <published>2019-10-18T07:14:38.000Z</published>
+    <updated>2019-11-25T09:11:14.284Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="导入numpy"><a href="#导入numpy" class="headerlink" title="导入numpy"></a>导入numpy</h2><p>常用代码：<code>import numpy as np</code>或<code>from numpy import *</code>。建议使用第一种。使用第一种时要在numpy函数前加上<code>np.xxx</code>，如·<code>np.array</code></p><h2 id="矩阵的创建"><a href="#矩阵的创建" class="headerlink" title="矩阵的创建"></a>矩阵的创建</h2><p>常用代码:</p><ol><li>创建数组<br><code>np.array([[1,2,3]])</code>创建一个1*3的numpy数组</li><li>创建全1矩阵<br><code>np.ones([a,b])</code>创建一个a*b的矩阵，元素全为1</li></ol><p><strong><em>注意：np.ones和np.zeros的参数是一维向量，需要使用[]，而np.random.rand不需要使用[]</em></strong></p><ol start="3"><li>创建全0矩阵<br><code>np.zeros([a,b])</code>创建一个a*b的矩阵，元素全为0</li><li>创建对角矩阵<br><code>np.diag([a,b,c])</code>创建一个对角线元素为a,b,c的矩阵<br><code>np.diag([[a,b,c],[d,e,f],[g,h,i]])</code>创建一个1*3向量，元素为矩阵对角线元素</li></ol><h2 id="矩阵的运算"><a href="#矩阵的运算" class="headerlink" title="矩阵的运算"></a>矩阵的运算</h2><ol><li><p>计算向量间的欧氏距离</p><pre><code class="python">a1 = np.array([[1,2],[2,3]])a2 = np.array([[2,0],[2,1]])dist = np.linalg.norm(a1 - a2)print(dist)</code></pre></li><li><p>一维数组的转置<br><code>np.transpose([a])</code></p></li><li><p>矩阵的排序<br><code>np.sort(a, axis=-1, kind=&#39;quicksort&#39;, order=None)</code><br>返回排序好的矩阵，a为原矩阵，axis为排序方向，axis = 0为纵轴排序，axis = 1位横轴排序</p></li><li><p>垂直合并矩阵<br><code>np.vstack((a,b))</code><br>将a,b矩阵垂直合并</p></li><li><p>水平合并矩阵<br><code>np.hstack((a,b))</code><br>将a,b矩阵水平合并</p></li><li><p>按矩阵某行排序<br><code>data = data[:,data[2].argsort()]</code><br>按第3行从小到大排序</p></li><li><p>按矩阵某列排序<br><code>data = data[data[:,2].argsort()]</code><br>按第3列从小到大排序</p></li><li><p>矩阵的乘法<br><code>np.dot(a,b)</code></p></li><li><p>多矩阵乘法<br><code>np.linalg.multi_dot([a,b,c])</code></p></li><li><p>矩阵的加法<br><code>np.sum(a)</code><br><code>np.sum(a,axis = 0)  #每列相加</code><br><code>np.sum(a,axis = 1)  #每行相加</code><br>axis代表相加后消失的维数</p></li><li><p>矩阵的删除<br><code>np.delete(X,0,axis=0)</code><br>删除矩阵第一行</p></li><li><p>行向量转列向量<br><code>a.shape = (3,1)</code></p></li><li><p>矩阵的随机化<br><code>np.random.shuffle(matrix)</code><br>沿着第一维进行重新排列。如果是二维数据，那么就按行进行重新排列</p></li><li><p>去除nan值<br><code>x = x[~np.isnan(x)]</code><br><code>np.nanmean(np.array([1, 2, 3, np.nan])</code></p></li><li><p>统计矩阵不重复的行或列<br><code>unq, cnt = np.unique(a, return_counts=True, axis=0)</code><br><code>return counts</code>表示返回不重复行/列的数目，<code>axis=0</code>表示从行的方向统计。</p></li><li><p>矩阵的重叠<br>在numpy中，矩阵的重叠有两种： np.tile()和np.repeat()。np.tile()是将整个矩阵进行重叠，np.repeat()是将矩阵中的每个元素进行重叠。</p><pre><code class="python">a = np.array([[1, 2, 3], [4, 5, 6]])b = np.tile(a, (2, 1))c = np.repeat(a, 2, axis=0)&gt;&gt;&gt; barray([[1, 2, 3],   [2, 3, 4],   [1, 2, 3],   [2, 3, 4]])&gt;&gt;&gt; carray([[1, 2, 3],   [1, 2, 3],   [2, 3, 4],   [2, 3, 4]])</code></pre></li><li><p>使用元组索引数组<br>可以使用元组对数组进行索引，即<code>a[(2, 3)]</code>。如果是其他类型的，可以使用<code>tuple()</code>进行转换。</p></li></ol><h2 id="矩阵元素操作"><a href="#矩阵元素操作" class="headerlink" title="矩阵元素操作"></a>矩阵元素操作</h2><ol><li>找出所有等于某个值的所有元素的下标<pre><code class="python">a = np.random.randint(1, 10, 100)np.where(a == 2)np.argwhere(a == 2)</code></pre></li></ol><h2 id="数据的产生"><a href="#数据的产生" class="headerlink" title="数据的产生"></a>数据的产生</h2><ol><li>正态分布数据<br><code>numpy.random.normal(loc, scale, size)</code><br>loc：float<br> 此概率分布的均值（对应着整个分布的中心centre）<br>scale：float<br> 此概率分布的标准差（对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高）<br>size：int or tuple of ints<br> 输出的shape，默认为None，只输出一个值</li><li>随机分布数据<br><code>numpy.random.rand(a,b)</code>创建一个维数为a*b，数值在[0,1)的随机矩阵</li><li>标准正态分布数据中随机抽取<br><code>numpy.random.randn(a,b)</code>创建一个维数为a*b，数值取值为标准正态分布中随机取样本点</li><li>产生不重复随机数组<br><code>random.sample(a,b)</code>在a数组的范围内随机产生b个不重复的随机数</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;导入numpy&quot;&gt;&lt;a href=&quot;#导入numpy&quot; class=&quot;headerlink&quot; title=&quot;导入numpy&quot;&gt;&lt;/a&gt;导入numpy&lt;/h2&gt;&lt;p&gt;常用代码：&lt;code&gt;import numpy as np&lt;/code&gt;或&lt;code&gt;from nu
+      
+    
+    </summary>
+    
+      <category term="Python Packages" scheme="https://yyb1995.github.io/categories/Python-Packages/"/>
+    
+    
+      <category term="numpy" scheme="https://yyb1995.github.io/tags/numpy/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Pytorch常用tensor操作</title>
     <link href="https://yyb1995.github.io/2019/10/18/Pytorch/Pytorch%E4%B8%AD%E5%B8%B8%E7%94%A8tensor%E6%93%8D%E4%BD%9C/"/>
     <id>https://yyb1995.github.io/2019/10/18/Pytorch/Pytorch中常用tensor操作/</id>
@@ -110,56 +160,6 @@
     
     
       <category term="Python" scheme="https://yyb1995.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>numpy</title>
-    <link href="https://yyb1995.github.io/2019/10/18/PythonPackages/numpy/"/>
-    <id>https://yyb1995.github.io/2019/10/18/PythonPackages/numpy/</id>
-    <published>2019-10-18T07:14:38.000Z</published>
-    <updated>2019-11-25T09:11:14.284Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="导入numpy"><a href="#导入numpy" class="headerlink" title="导入numpy"></a>导入numpy</h2><p>常用代码：<code>import numpy as np</code>或<code>from numpy import *</code>。建议使用第一种。使用第一种时要在numpy函数前加上<code>np.xxx</code>，如·<code>np.array</code></p><h2 id="矩阵的创建"><a href="#矩阵的创建" class="headerlink" title="矩阵的创建"></a>矩阵的创建</h2><p>常用代码:</p><ol><li>创建数组<br><code>np.array([[1,2,3]])</code>创建一个1*3的numpy数组</li><li>创建全1矩阵<br><code>np.ones([a,b])</code>创建一个a*b的矩阵，元素全为1</li></ol><p><strong><em>注意：np.ones和np.zeros的参数是一维向量，需要使用[]，而np.random.rand不需要使用[]</em></strong></p><ol start="3"><li>创建全0矩阵<br><code>np.zeros([a,b])</code>创建一个a*b的矩阵，元素全为0</li><li>创建对角矩阵<br><code>np.diag([a,b,c])</code>创建一个对角线元素为a,b,c的矩阵<br><code>np.diag([[a,b,c],[d,e,f],[g,h,i]])</code>创建一个1*3向量，元素为矩阵对角线元素</li></ol><h2 id="矩阵的运算"><a href="#矩阵的运算" class="headerlink" title="矩阵的运算"></a>矩阵的运算</h2><ol><li><p>计算向量间的欧氏距离</p><pre><code class="python">a1 = np.array([[1,2],[2,3]])a2 = np.array([[2,0],[2,1]])dist = np.linalg.norm(a1 - a2)print(dist)</code></pre></li><li><p>一维数组的转置<br><code>np.transpose([a])</code></p></li><li><p>矩阵的排序<br><code>np.sort(a, axis=-1, kind=&#39;quicksort&#39;, order=None)</code><br>返回排序好的矩阵，a为原矩阵，axis为排序方向，axis = 0为纵轴排序，axis = 1位横轴排序</p></li><li><p>垂直合并矩阵<br><code>np.vstack((a,b))</code><br>将a,b矩阵垂直合并</p></li><li><p>水平合并矩阵<br><code>np.hstack((a,b))</code><br>将a,b矩阵水平合并</p></li><li><p>按矩阵某行排序<br><code>data = data[:,data[2].argsort()]</code><br>按第3行从小到大排序</p></li><li><p>按矩阵某列排序<br><code>data = data[data[:,2].argsort()]</code><br>按第3列从小到大排序</p></li><li><p>矩阵的乘法<br><code>np.dot(a,b)</code></p></li><li><p>多矩阵乘法<br><code>np.linalg.multi_dot([a,b,c])</code></p></li><li><p>矩阵的加法<br><code>np.sum(a)</code><br><code>np.sum(a,axis = 0)  #每列相加</code><br><code>np.sum(a,axis = 1)  #每行相加</code><br>axis代表相加后消失的维数</p></li><li><p>矩阵的删除<br><code>np.delete(X,0,axis=0)</code><br>删除矩阵第一行</p></li><li><p>行向量转列向量<br><code>a.shape = (3,1)</code></p></li><li><p>矩阵的随机化<br><code>np.random.shuffle(matrix)</code><br>沿着第一维进行重新排列。如果是二维数据，那么就按行进行重新排列</p></li><li><p>去除nan值<br><code>x = x[~np.isnan(x)]</code><br><code>np.nanmean(np.array([1, 2, 3, np.nan])</code></p></li><li><p>统计矩阵不重复的行或列<br><code>unq, cnt = np.unique(a, return_counts=True, axis=0)</code><br><code>return counts</code>表示返回不重复行/列的数目，<code>axis=0</code>表示从行的方向统计。</p></li><li><p>矩阵的重叠<br>在numpy中，矩阵的重叠有两种： np.tile()和np.repeat()。np.tile()是将整个矩阵进行重叠，np.repeat()是将矩阵中的每个元素进行重叠。</p><pre><code class="python">a = np.array([[1, 2, 3], [4, 5, 6]])b = np.tile(a, (2, 1))c = np.repeat(a, 2, axis=0)&gt;&gt;&gt; barray([[1, 2, 3],   [2, 3, 4],   [1, 2, 3],   [2, 3, 4]])&gt;&gt;&gt; carray([[1, 2, 3],   [1, 2, 3],   [2, 3, 4],   [2, 3, 4]])</code></pre></li><li><p>使用元组索引数组<br>可以使用元组对数组进行索引，即<code>a[(2, 3)]</code>。如果是其他类型的，可以使用<code>tuple()</code>进行转换。</p></li></ol><h2 id="矩阵元素操作"><a href="#矩阵元素操作" class="headerlink" title="矩阵元素操作"></a>矩阵元素操作</h2><ol><li>找出所有等于某个值的所有元素的下标<pre><code class="python">a = np.random.randint(1, 10, 100)np.where(a == 2)np.argwhere(a == 2)</code></pre></li></ol><h2 id="数据的产生"><a href="#数据的产生" class="headerlink" title="数据的产生"></a>数据的产生</h2><ol><li>正态分布数据<br><code>numpy.random.normal(loc, scale, size)</code><br>loc：float<br> 此概率分布的均值（对应着整个分布的中心centre）<br>scale：float<br> 此概率分布的标准差（对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高）<br>size：int or tuple of ints<br> 输出的shape，默认为None，只输出一个值</li><li>随机分布数据<br><code>numpy.random.rand(a,b)</code>创建一个维数为a*b，数值在[0,1)的随机矩阵</li><li>标准正态分布数据中随机抽取<br><code>numpy.random.randn(a,b)</code>创建一个维数为a*b，数值取值为标准正态分布中随机取样本点</li><li>产生不重复随机数组<br><code>random.sample(a,b)</code>在a数组的范围内随机产生b个不重复的随机数</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;导入numpy&quot;&gt;&lt;a href=&quot;#导入numpy&quot; class=&quot;headerlink&quot; title=&quot;导入numpy&quot;&gt;&lt;/a&gt;导入numpy&lt;/h2&gt;&lt;p&gt;常用代码：&lt;code&gt;import numpy as np&lt;/code&gt;或&lt;code&gt;from nu
-      
-    
-    </summary>
-    
-      <category term="Python Packages" scheme="https://yyb1995.github.io/categories/Python-Packages/"/>
-    
-    
-      <category term="numpy" scheme="https://yyb1995.github.io/tags/numpy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Git常用命令</title>
-    <link href="https://yyb1995.github.io/2019/10/18/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-    <id>https://yyb1995.github.io/2019/10/18/Git/Git常用命令/</id>
-    <published>2019-10-18T07:14:38.000Z</published>
-    <updated>2019-10-18T07:14:38.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="提交一个工程到github"><a href="#提交一个工程到github" class="headerlink" title="提交一个工程到github"></a><a href="https://blog.csdn.net/codingEMIPark/article/details/78016588" target="_blank" rel="noopener">提交一个工程到github</a></h2><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul><li>git config –global user.name xxx</li><li>git config –global user.email <a href="mailto:xxx@xxx.com" target="_blank" rel="noopener">xxx@xxx.com</a></li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul><li><code>git init</code></li><li><code>git pull origin master</code></li><li><code>git push origin master</code></li><li><code>git add .</code></li><li><code>git add -A</code> 提交所有改变（包括删除）</li><li><code>git commit -m &#39;commit_content&#39;</code></li><li><code>git checkout filename</code></li><li><code>git clone xx</code></li><li><code>git clone xx --depth=1</code> 只拷贝最近一次的提交</li></ul><h2 id="在coding-net中添加项目的流程"><a href="#在coding-net中添加项目的流程" class="headerlink" title="在coding.net中添加项目的流程"></a>在coding.net中添加项目的流程</h2><pre><code>1. 将～/.ssh中的public key加入coding.net的设置中2. `git init`3. `git add .`4. `git commit -m &#39;content&#39;`5. `git remote add origin gitaddress`6. `git push origin master`</code></pre><h2 id="创建分支和转换的流程"><a href="#创建分支和转换的流程" class="headerlink" title="创建分支和转换的流程"></a>创建分支和转换的流程</h2><pre><code>1. 创建分支：`git branch &lt;name&gt;`2. 切换分支：`git checkout &lt;name&gt;`3. 创建加切换分支：`git checkout -b &lt;name&gt;`4. 删除本地分支：`git branch -d &lt;branch_name&gt;`</code></pre><h2 id="创建多个远程仓库并上传不同分支"><a href="#创建多个远程仓库并上传不同分支" class="headerlink" title="创建多个远程仓库并上传不同分支"></a>创建多个远程仓库并上传不同分支</h2><pre><code>1. 创建多个远程仓库：`git remote add &lt;name&gt; &lt;address&gt;`. 注意：远程仓库名不能于origin相同2. 上传不同分支到远程仓库： `git push &lt;remote_name&gt; &lt;local name&gt;`3. 删除远程仓库中的分支：`git push &lt;remote_name&gt; --delete &lt;branch_name&gt;`.注意，在github上删除master分支前要先到设置更改默认分支.</code></pre><h2 id="查看git的状态"><a href="#查看git的状态" class="headerlink" title="查看git的状态"></a>查看git的状态</h2><p><code>git status</code></p><h2 id="查看文件修改状态"><a href="#查看文件修改状态" class="headerlink" title="查看文件修改状态"></a>查看文件修改状态</h2><p><code>git diff (filename)</code></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;提交一个工程到github&quot;&gt;&lt;a href=&quot;#提交一个工程到github&quot; class=&quot;headerlink&quot; title=&quot;提交一个工程到github&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://blog.csdn.net/codingEMIPark/ar
-      
-    
-    </summary>
-    
-      <category term="Git" scheme="https://yyb1995.github.io/categories/Git/"/>
-    
-    
-      <category term="Git" scheme="https://yyb1995.github.io/tags/Git/"/>
     
   </entry>
   
@@ -259,139 +259,6 @@
   </entry>
   
   <entry>
-    <title>正则表达式一些知识点</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Regex/常用正则表达式/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-括号的区别"><a href="#1-括号的区别" class="headerlink" title="1 括号的区别"></a>1 括号的区别</h2><ul><li><p>小括号()：匹配小括号内的字符串，可以是一个，也可以是多个，常跟“|”（或）符号搭配使用，是多选结构的。<strong>通俗的说小括号匹配的是具体的字符</strong><br>示例1：string name = “way2014”;  regex：(way|zgw)  result：结果是可以匹配出way的，因为是多选结构，小括号是匹配字符串的<br>示例2：string text = “123456789”;  regex：(0-9)　result：结果是什么都匹配不到的，它只匹配字符串”0-9”而不是匹配数字, [0-9]这个字符组才是匹配0-9的数字</p></li><li><p>中括号[]：匹配字符组内的字符，比如咱们常用的[0-9a-zA-Z.*?!]等，在[]内的字符都是字符，不是元字符，比如“0-9”、“a-z”这中间的“-”就是连接符号，表示范围的元字符，如果写成[-!?*(]这样的话，就是普通字符。<strong>通俗的说中括号匹配的是元字符</strong><br>示例1： string text = “1234567890”;  regex：[0-9]  result：结果是可以匹配出字符串text内的任意数字了，像上边的【或符号“|”在字符组内就是一个普通字符】<br>示例2：string text = “a|e|s|v”;  regex：[a|e|s]  result：结果就是匹配字符a、e、|三个字符，这个跟(a|e|s)有区别的，区别就是(a|e|s)匹配的是a、e、s三个字符的随意一个，三个中的任意一个，这是的|是元字符</p></li><li><p>大括号{}：匹配次数，匹配在它之前表达式匹配出来的元素出现的次数，{n}出现n次、{n,}匹配最少出现n次、{n,m}匹配最少出现n次，最多出现m次</p></li></ul><h2 id="2-替换一部分内容"><a href="#2-替换一部分内容" class="headerlink" title="2 替换一部分内容"></a>2 替换一部分内容</h2><p>在替换正则表达式内容时，有时需要保持一部分内容不变。具体做法是：将需要保留的部分用小括号括起来，在修改后的表达式中使用<code>$1</code>,<code>$2</code>…引用。<code>$0</code>表示整个匹配项。如：<br>把trim(ABC)替换成trim(replace(ABC,char(9),’    ‘)，正则表达式为：<br><code>trim\(([^).]*)\)</code>替换成<code>trim\(replace\($1,char\(9\),&#39;    &#39;\)</code><br>place($1,char(9),’    ‘)`</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-括号的区别&quot;&gt;&lt;a href=&quot;#1-括号的区别&quot; class=&quot;headerlink&quot; title=&quot;1 括号的区别&quot;&gt;&lt;/a&gt;1 括号的区别&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;小括号()：匹配小括号内的字符串，可以是一个，也可以是多个，常跟“|”（或）符号搭
-      
-    
-    </summary>
-    
-      <category term="Regex" scheme="https://yyb1995.github.io/categories/Regex/"/>
-    
-    
-      <category term="正则表达式" scheme="https://yyb1995.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux系统使用过程中遇到的一些问题</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Linux/Linux使用过程中的问题/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面"><a href="#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面" class="headerlink" title="1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面"></a>1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面</h2><p>这种情况可能是Nvidia显卡驱动安装出现了问题。解决方法：</p><ol><li><p>卸载原驱动：<code>sudo apt-get purge nvidia*</code></p></li><li><p>把显卡驱动加入PPA：<br><code>sudo add-apt-repository ppa:graphics-drivers</code> </p><p><code>sudo apt-get update</code></p></li><li><p>查找显卡驱动最新的版本号<br><code>sudo apt-cache search nvidia</code></p></li><li><p>采用apt-get命令在终端安装<br><code>sudo apt-get install nvidia-390 nvidia-settings nvidia-prime</code></p></li><li><p>使用<code>lsmod | grep nvidia</code>或<code>watch -n 1 nvidia-smi</code>查看是否安装成功-smi`查看是否安装成功</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot;&gt;&lt;a href=&quot;#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot; class=&quot;headerlink&quot; title=&quot;1 无法进入GUI界面，可以使用Ctrl+Alt
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://yyb1995.github.io/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="https://yyb1995.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Latex一些坑</title>
-    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
-    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex一些坑/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2020-02-29T09:59:14.514Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><code>\indent</code>后要跟空格</li><li><code>\gather</code>不要留空行</li><li><code>\gather</code>内嵌<code>\aligned</code>不能加<code>*</code></li><li>在使用<code>\mathbb</code>前需要导入包<code>\usepackage{amsfonts}</code></li><li>插入小、中、大括号的语句分别为：<pre><code class="latex">\left\{ ... \right\}\left[ ... \right]\left( ... \right)</code></pre></li><li>图片、算法的插入一般使用<code>!htb</code>控制位置。如果强制指定图片位置，可使用<code>H</code></li><li><strong>在编译$\LaTeX$前一定要先关闭用acrobat打开的pdf文档！</strong></li><li><strong>插入图片时图片名称不要带空格和点<code>.</code>！</strong>否则可能报<code>Cannot determine size of graphic in fig.png (no BoundingBox).</code></li><li>一个<code>gather</code>环境中加入多个<code>align</code>环境且需要纵向对齐时在每一个<code>align</code>后加上<code>\\</code></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;\indent&lt;/code&gt;后要跟空格&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\gather&lt;/code&gt;不要留空行&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\gather&lt;/code&gt;内嵌&lt;code&gt;\aligned&lt;/code&gt;不能加&lt;code&gt;*&lt;/code&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="Latex" scheme="https://yyb1995.github.io/categories/Latex/"/>
-    
-    
-      <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最小二乘解与最小二乘估计</title>
-    <link href="https://yyb1995.github.io/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
-    <id>https://yyb1995.github.io/2019/07/09/MachineLearning/最小二乘解(Least-squares Minimization)/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;a href=&quot;#最小二乘解与最小二乘估计资料&quot; class=&quot;headerlink&quot; title=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;/a&gt;最小二乘解与最小二乘估计资料&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https:/
-      
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="https://yyb1995.github.io/categories/Machine-Learning/"/>
-    
-    
-      <category term="机器学习" scheme="https://yyb1995.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>用Keras搭建第一个神经网络</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Keras/Build the First Neural Network/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-Steps"><a href="#1-Steps" class="headerlink" title="1 Steps"></a>1 Steps</h2><ol><li>Load Data</li><li>Define Model</li><li>Compile Model</li><li>Fit Model</li><li>Evaluate Model</li><li>Tie It All Together</li></ol><h2 id="2-Load-Data"><a href="#2-Load-Data" class="headerlink" title="2 Load Data"></a>2 Load Data</h2><ol><li>Define a certain random number seed. By doing so, you can get the same result to compare it with other model.<br>Method:<pre><code class="python">import numpy as npnp.random.seed(7)</code></pre>We use <a href="https://yun.baidu.com/s/1c24tweW#list/path=%2F" target="_blank" rel="noopener">pima-indians-diabetes.csv</a> as our dataset. To load the .csv data, we use <code>np.loadtxt</code> and split it into input and output section. <h2 id="3-Define-Model"><a href="#3-Define-Model" class="headerlink" title="3 Define Model"></a>3 Define Model</h2>Models in Keras are defined as a sequence of layers.While defining the first layer, we can define the input number with the <strong>input_dim</strong> argument.<br>In this example, we will use a fully-connected network structure with three layers.<br>Fully connected layers are defined using the <strong>Dense class</strong>. We can specify:</li><li><strong>the number of neurons</strong> in the layer as the first argument</li><li>the initialization method as the second argument as <strong>init</strong> </li><li>specify the activation function using the <strong>activation</strong> argument.<h2 id="4-Build-the-Model"><a href="#4-Build-the-Model" class="headerlink" title="4 Build the Model"></a>4 Build the Model</h2>define a model class. In this problem, we use a sequential model. So we use a <code>model = keras.sequential()</code> to instantiate the class. And then use the <code>.add</code> method to add layers in the model.<br>We want to add a layer into our model, so we use <code>keras.layers.Dense()</code> to be the parameter of <code>add</code>. The activation function must be in the string form like <code>activation=&#39;relu&#39;</code>.</li></ol><h2 id="5-Compile-the-Model"><a href="#5-Compile-the-Model" class="headerlink" title="5 Compile the Model"></a>5 Compile the Model</h2><p>When compiling, we must specify some additional properties required when training the network.We must specify the <strong>loss function</strong> to use to evaluate a set of weights, <strong>the optimizer</strong> used to search through different weights for the network and <strong>any optional metrics we would like to collect and report</strong> during training.</p><h2 id="6-Fit-the-model"><a href="#6-Fit-the-model" class="headerlink" title="6 Fit the model"></a>6 Fit the model</h2><p>use <code>model.fit()</code> method to define fit parameters like epochs and batch_size.</p><h2 id="7-Evaluate-the-model"><a href="#7-Evaluate-the-model" class="headerlink" title="7 Evaluate the model"></a>7 Evaluate the model</h2><p>use <code>model.evaluate</code> and a set of X and Y to calculate the model performance.</p><h2 id="8-Prediction"><a href="#8-Prediction" class="headerlink" title="8 Prediction"></a>8 Prediction</h2><p>use <code>model.fit</code> and a set of X to predict the predicted Y value.</p><h2 id="9-Related-material"><a href="#9-Related-material" class="headerlink" title="9 Related material"></a>9 Related material</h2><ol><li><a href="https://machinelearningmastery.com/" target="_blank" rel="noopener">https://machinelearningmastery.com/</a></li><li><a href="https://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">Keras中文文档</a></li><li><a href="https://github.com/keras-team/keras/tree/master/examples" target="_blank" rel="noopener">Keras Example</a><br>s-team/keras/tree/master/examples)</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-Steps&quot;&gt;&lt;a href=&quot;#1-Steps&quot; class=&quot;headerlink&quot; title=&quot;1 Steps&quot;&gt;&lt;/a&gt;1 Steps&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;Load Data&lt;/li&gt;
-&lt;li&gt;Define Model&lt;/li&gt;
-&lt;li&gt;Com
-      
-    
-    </summary>
-    
-      <category term="Keras" scheme="https://yyb1995.github.io/categories/Keras/"/>
-    
-    
-      <category term="深度学习" scheme="https://yyb1995.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Matlab GUI编程入门</title>
     <link href="https://yyb1995.github.io/2019/07/09/Matlab/MATLAB%20GUI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
     <id>https://yyb1995.github.io/2019/07/09/Matlab/MATLAB GUI编程入门/</id>
@@ -472,6 +339,37 @@
   </entry>
   
   <entry>
+    <title>Latex导言区常用设置</title>
+    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E5%AF%BC%E8%A8%80%E5%8C%BA%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex导言区设置/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2020-02-29T09:59:06.062Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code class="latex">% Article setting% Article type\documentclass[12]{article}% Page margin\usepackage{geometry}%\geometry{a4paper,scale=0.8}\geometry{a4paper,left=2cm,right=2cm%,top=2cm,%bottom=2cm, includefoot,heightrounded}% set title\title{}\author{}\date{}% import package\usepackage{amsmath, amsfonts, bm}% \numberwithin{equation}{section} % Equation numbering by section\numberwithin{equation}{subsection} % Equation numbering by subsection% \numberwithin{equation}{subsubsection}% Chinese support\usepackage{xeCJK}\usepackage{fontspec} \setCJKmainfont[AutoFakeBold]{SimSun}\setCJKmonofont{SimSun}\setmainfont{Times New Roman}\renewcommand\contentsname{目录}\renewcommand\refname{参考文献}\renewcommand{\figurename}{图}\renewcommand{\tablename}{表}% Indent\usepackage{indentfirst}\setlength{\parindent}{2em}% Python code\usepackage{listings}\usepackage{color}\definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\lstset{frame=tb,    language=Python,    aboveskip=3mm,    belowskip=3mm,    showstringspaces=false,    columns=flexible,    basicstyle={\small\ttfamily},    numbers=none,    numberstyle=\tiny\color{gray},    keywordstyle=\color{blue},    commentstyle=\color{dkgreen},    stringstyle=\color{mauve},    breaklines=true,    breakatwhitespace=true,    tabsize=3}% Import image\usepackage{graphicx}\usepackage{subcaption}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,          urlcolor=blue,    citecolor=blue,}% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}%Adjust line space\usepackage{setspace}\renewcommand{\baselinestretch}{1.4}% \setlength{\baselineskip}{20pt}% Adjust table height\usepackage{array}\renewcommand\arraystretch{1.5}% Insert algorithm\usepackage{algorithm, algorithmic} % Reference\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}\hypersetup{    colorlinks=true,    linkcolor=black,    filecolor=blue,    urlcolor=blue,    citecolor=blue,}```    citecolor=blue,}</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code class=&quot;latex&quot;&gt;% Article setting
+% Article type
+\documentclass[12]{article}
+
+% Page margin
+\usepackage{geometry}
+%\geometry{a4pape
+      
+    
+    </summary>
+    
+      <category term="Latex" scheme="https://yyb1995.github.io/categories/Latex/"/>
+    
+    
+      <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python 迭代器(iterator) 生成器(generator)</title>
     <link href="https://yyb1995.github.io/2019/07/09/Python/Python%20%E8%BF%AD%E4%BB%A3%E5%99%A8(iterator)%20%E7%94%9F%E6%88%90%E5%99%A8(generator)/"/>
     <id>https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/</id>
@@ -499,6 +397,36 @@
   </entry>
   
   <entry>
+    <title>argparse</title>
+    <link href="https://yyb1995.github.io/2019/07/09/PythonPackages/argparse/"/>
+    <id>https://yyb1995.github.io/2019/07/09/PythonPackages/argparse/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>argparse模块用于在运行python程序时加入命令行参数。其基本用法是：</p><ol><li><p>创建一个parser</p><p><code>parser = argparse.ArgumentParser()</code></p></li><li><p>添加一个命令行参数<br><code>parser.add_argument(&#39;-data&#39;, help=&#39;func_help&#39; required=True, type=int, choices=[1, 2, 3], nargs=&#39;?)</code><br>其中，nargs表示需要参数的个数，’?’表示0或1，’*’表示任意，’+’表示1或多</p></li><li><p>获取传入的参数变量</p><pre><code class="python">opt = parser.parse_args()data = opt.data</code></pre></li></ol><p><a href="https://blog.csdn.net/lis_12/article/details/54618868#%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0%E9%80%89%E9%A1%B9-addargument" target="_blank" rel="noopener">Reference</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;argparse模块用于在运行python程序时加入命令行参数。其基本用法是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;创建一个parser&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;parser = argparse.ArgumentParser()&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;
+      
+    
+    </summary>
+    
+      <category term="Python Packages" scheme="https://yyb1995.github.io/categories/Python-Packages/"/>
+    
+    
+      <category term="argparse Python" scheme="https://yyb1995.github.io/tags/argparse-Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Google Python Style Guide</title>
     <link href="https://yyb1995.github.io/2019/07/09/Python/simpread-styleguide%20_%20Style%20guides%20for%20Google-originated%20open-source%20projects/"/>
     <id>https://yyb1995.github.io/2019/07/09/Python/simpread-styleguide _ Style guides for Google-originated open-source projects/</id>
@@ -521,6 +449,89 @@
     
     
       <category term="Python" scheme="https://yyb1995.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>getopt</title>
+    <link href="https://yyb1995.github.io/2019/07/09/PythonPackages/getopt/"/>
+    <id>https://yyb1995.github.io/2019/07/09/PythonPackages/getopt/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>例子：</p><pre><code class="python">import sys, getoptdef main(argv):    print(str(argv))    inputfile = &#39;&#39;    outputfile = &#39;&#39;    try:        opts, args = getopt.getopt(argv, &#39;hi:o:&#39;, [&#39;help&#39;, &#39;ifile=&#39;, &#39;ofile=&#39;])    except getopt.GetoptError:        print(&#39;test.py -i &lt;inputfle&gt; -o &lt;outputfile&gt;&#39;)        sys.exit()    for opt, arg in opts:        if opt in [&#39;-h&#39;, &#39;--help&#39;]:            print(1)        elif opt in ([&#39;-i&#39;, &#39;--ifile&#39;]):            inputfile = arg        elif opt in ([&#39;-o&#39;, &#39;--ofile&#39;]):            outputfile = arg    print(&#39;input file is : &#39;, inputfile)    print(&#39;output file is : &#39;, outputfile)if __name__ == &#39;__main__&#39;:    main(sys.argv[1:])</code></pre><p><strong>核心函数</strong>：<code>options, args = getopt.getopt(args, shortopts, longopts=[])</code><br><strong>参数</strong>：</p><ul><li><p>shortopts：短格式参数串。shortopts 后的冒号(:)表示如果设置该选项，必须有附加的参数，不带冒号表示该选项没有附加参数如：”h f: v:”。h后面没有冒号，表示该选项没有附加参数，如用于输出命令用法f和v后面带有冒号，表示该选项有附加参数。无附加参数的示例为：<code>python test.py -h</code>。有附加参数的示例为：<code>python test.py -h content</code>。注意：加了冒号的参数的选项自带<code>-</code>，因此在获取opt时需要加上<code>-</code></p></li><li><p>longopts：长格式参数列表。longopts 后的等号(=)表示如果设置该选项，必须有附加的参数，否则就没有附加参数如：[“help”, “file=”, “version=”]。help 后面没有等号，表示该选项没有附加参数file 和 version 后面带冒号，表示如果设置该选项，必须有附加参数。无附加参数的示例为：<code>python test.py --help</code>。有附加参数的示例为：<code>python test.py --help content</code></p></li><li><p>返回值含义：options：元组列表，每个元组的形式为：(选项, 附加参数)，如：(‘-f’, ‘data.csv’)args：包含那些没有 ‘-‘ 或 ‘–’ 的参数列表</p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;例子：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;python&quot;&gt;import sys, getopt
+def main(argv):
+    print(str(argv))
+    inputfile = &amp;#39;&amp;#39;
+    outputfile = &amp;#3
+      
+    
+    </summary>
+    
+      <category term="Python Packages" scheme="https://yyb1995.github.io/categories/Python-Packages/"/>
+    
+    
+      <category term="getopt Python" scheme="https://yyb1995.github.io/tags/getopt-Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用Keras搭建第一个神经网络</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Keras/Build the First Neural Network/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-Steps"><a href="#1-Steps" class="headerlink" title="1 Steps"></a>1 Steps</h2><ol><li>Load Data</li><li>Define Model</li><li>Compile Model</li><li>Fit Model</li><li>Evaluate Model</li><li>Tie It All Together</li></ol><h2 id="2-Load-Data"><a href="#2-Load-Data" class="headerlink" title="2 Load Data"></a>2 Load Data</h2><ol><li>Define a certain random number seed. By doing so, you can get the same result to compare it with other model.<br>Method:<pre><code class="python">import numpy as npnp.random.seed(7)</code></pre>We use <a href="https://yun.baidu.com/s/1c24tweW#list/path=%2F" target="_blank" rel="noopener">pima-indians-diabetes.csv</a> as our dataset. To load the .csv data, we use <code>np.loadtxt</code> and split it into input and output section. <h2 id="3-Define-Model"><a href="#3-Define-Model" class="headerlink" title="3 Define Model"></a>3 Define Model</h2>Models in Keras are defined as a sequence of layers.While defining the first layer, we can define the input number with the <strong>input_dim</strong> argument.<br>In this example, we will use a fully-connected network structure with three layers.<br>Fully connected layers are defined using the <strong>Dense class</strong>. We can specify:</li><li><strong>the number of neurons</strong> in the layer as the first argument</li><li>the initialization method as the second argument as <strong>init</strong> </li><li>specify the activation function using the <strong>activation</strong> argument.<h2 id="4-Build-the-Model"><a href="#4-Build-the-Model" class="headerlink" title="4 Build the Model"></a>4 Build the Model</h2>define a model class. In this problem, we use a sequential model. So we use a <code>model = keras.sequential()</code> to instantiate the class. And then use the <code>.add</code> method to add layers in the model.<br>We want to add a layer into our model, so we use <code>keras.layers.Dense()</code> to be the parameter of <code>add</code>. The activation function must be in the string form like <code>activation=&#39;relu&#39;</code>.</li></ol><h2 id="5-Compile-the-Model"><a href="#5-Compile-the-Model" class="headerlink" title="5 Compile the Model"></a>5 Compile the Model</h2><p>When compiling, we must specify some additional properties required when training the network.We must specify the <strong>loss function</strong> to use to evaluate a set of weights, <strong>the optimizer</strong> used to search through different weights for the network and <strong>any optional metrics we would like to collect and report</strong> during training.</p><h2 id="6-Fit-the-model"><a href="#6-Fit-the-model" class="headerlink" title="6 Fit the model"></a>6 Fit the model</h2><p>use <code>model.fit()</code> method to define fit parameters like epochs and batch_size.</p><h2 id="7-Evaluate-the-model"><a href="#7-Evaluate-the-model" class="headerlink" title="7 Evaluate the model"></a>7 Evaluate the model</h2><p>use <code>model.evaluate</code> and a set of X and Y to calculate the model performance.</p><h2 id="8-Prediction"><a href="#8-Prediction" class="headerlink" title="8 Prediction"></a>8 Prediction</h2><p>use <code>model.fit</code> and a set of X to predict the predicted Y value.</p><h2 id="9-Related-material"><a href="#9-Related-material" class="headerlink" title="9 Related material"></a>9 Related material</h2><ol><li><a href="https://machinelearningmastery.com/" target="_blank" rel="noopener">https://machinelearningmastery.com/</a></li><li><a href="https://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">Keras中文文档</a></li><li><a href="https://github.com/keras-team/keras/tree/master/examples" target="_blank" rel="noopener">Keras Example</a><br>s-team/keras/tree/master/examples)</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-Steps&quot;&gt;&lt;a href=&quot;#1-Steps&quot; class=&quot;headerlink&quot; title=&quot;1 Steps&quot;&gt;&lt;/a&gt;1 Steps&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Load Data&lt;/li&gt;
+&lt;li&gt;Define Model&lt;/li&gt;
+&lt;li&gt;Com
+      
+    
+    </summary>
+    
+      <category term="Keras" scheme="https://yyb1995.github.io/categories/Keras/"/>
+    
+    
+      <category term="深度学习" scheme="https://yyb1995.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pandas</title>
+    <link href="https://yyb1995.github.io/2019/07/09/PythonPackages/pandas/"/>
+    <id>https://yyb1995.github.io/2019/07/09/PythonPackages/pandas/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2020-02-28T09:29:59.782Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-对于时间的处理"><a href="#1-对于时间的处理" class="headerlink" title="1 对于时间的处理"></a>1 对于时间的处理</h2><p>python中datetime模块非常好用，提供了日期格式和字符串格式相互转化的函数strftime/strptime</p><p>1、由日期格式转化为字符串格式的函数为: <code>datetime.datetime.strftime()</code></p><p>2、由字符串格式转化为日期格式的函数为: <code>datetime.datetime.strptime()</code></p><p>3、两个函数都涉及日期时间的格式化字符串，列举如下：</p><pre><code>%a 星期几的简写;如 星期三为Web %A 星期几的全称;如 星期三为Wednesday %b 月份的简写; 如4月份为Apr %B 月份的全称; 如4月份为April %c 标准的日期的时间串;（如： 04/07/10 10:43:39） %C 年份的后两位数字 %d 十进制表示的每月的第几天 %D 月/天/年 %e 在两字符域中，十进制表示的每月的第几天 %F 年-月-日 %g 年份的后两位数字，使用基于周的年 %G 年分，使用基于周的年 %h 简写的月份名 %H 24小时制的小时 %I 12小时制的小时 %j 十进制表示的每年的第几天 %m 十进制表示的月份 %M 十时制表示的分钟数 %n 新行符 %p 本地的AM或PM的等价显示 %r 12小时的时间 %R 显示小时和分钟：hh:mm %S 十进制的秒数 %t 水平制表符 %T 显示时分秒：hh:mm:ss %u 每周的第几天，星期一为第一天 （值从0到6，星期一为0） %U 第年的第几周，把星期日做为第一天（值从0到53） %V 每年的第几周，使用基于周的年 %w 十进制表示的星期几（值从0到6，星期天为0） %W 每年的第几周，把星期一做为第一天（值从0到53） %x 标准的日期串 %X 标准的时间串 %y 不带世纪的十进制年份（值从0到99） %Y 带世纪部分的十制年份 %z，%Z 时区名称，如果不能得到时区名称则返回空字符。 %% 百分号</code></pre><h2 id="2-入门及基本操作"><a href="#2-入门及基本操作" class="headerlink" title="2 入门及基本操作"></a>2 入门及基本操作</h2><ol><li><p>查看数据的头5行/后5行</p><pre><code>df.head()`df.tail()</code></pre></li><li><p>查看数据索引，数据的列名，数据的值</p><pre><code>df.indexdf.columnsdf.values</code></pre></li><li><p>对坐标轴进行排序<br><code>df.sort_index(axis=1, ascending=False)</code><br>注意：axis=1是以列名作为索引，也就是columns；axis=0是以行名作为索引，也就是index</p></li><li><p>对值进行排序<br><code>df.sort_values(by=&#39;B&#39;)</code></p></li><li><p>数据切片操作<br>df.loc  按照行、列名选取<br>df.iloc 按照行、列号选取<br>df.ix iloc和loc的结合</p></li></ol><pre><code>df.loc[&#39;20010101&#39;]  #选取行df.loc[:, [&#39;A&#39;]]  #选取列df.iloc[0]df.iloc[:, [0]]</code></pre><p><strong>注意</strong>:使用loc进行切片时，括号左右两边的值都包含，如<code>df.loc[&#39;A&#39;:&#39;B&#39;]</code>取出的行包括index为A和B的行。使用iloc进行切片时，括号右边的值不包含，如<code>df.iloc[:2]</code>取出的行为序号为0和1的行</p><ol start="6"><li><p>对残缺数据处理</p><pre><code>df.dropna()df.fillna()</code></pre><p>inplace参数：在原dataframe中进行修改</p></li><li><p>数据的读取：<br>读取txt文件：<br><code>df = pd.read_table(&#39;./data/bili.txt&#39;, sep=&#39;,&#39;)</code><br>查看各列类型：df.info()<br>调整列顺序：<br><code>df = df[[&#39;a&#39;, &#39;c&#39;, &#39;b&#39;]]</code><br>删除一列：<br><code>df.drop(axis=1, inplace=True)</code><br>查找某行某列的值</p><pre><code># df.loc[conditions, column name] = newvaluedf_full.loc[(df_full[&#39;date&#39;] == date_temp) &amp; (df_full[&#39;time&#39;] == time_temp), &#39;reqnum&#39;] = reqnum_temp`</code></pre></li></ol><pre><code></code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-对于时间的处理&quot;&gt;&lt;a href=&quot;#1-对于时间的处理&quot; class=&quot;headerlink&quot; title=&quot;1 对于时间的处理&quot;&gt;&lt;/a&gt;1 对于时间的处理&lt;/h2&gt;&lt;p&gt;python中datetime模块非常好用，提供了日期格式和字符串格式相互转化的函数
+      
+    
+    </summary>
+    
+      <category term="Python Packages" scheme="https://yyb1995.github.io/categories/Python-Packages/"/>
+    
+    
+      <category term="pandas" scheme="https://yyb1995.github.io/tags/pandas/"/>
     
   </entry>
   
