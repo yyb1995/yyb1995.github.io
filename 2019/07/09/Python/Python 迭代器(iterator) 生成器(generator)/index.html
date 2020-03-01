@@ -110,7 +110,7 @@
 			</div>
 			<div class="post-header-thumb-meta">
 				<time datetime="1562641639" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-07-09</time> | 
-				<time datetime="1562641639" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2019-07-09</time> | 
+				<time datetime="1583053864" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2020-03-01</time> | 
 				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Python/"> Python</a>
 				<div class="post-header-thumb-meta">
 					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:744字</span>
@@ -175,11 +175,11 @@
 <li><p>定义</p>
 <p> iterable又称为可迭代对象。在Python中，如果一个对象（又称为container object）实现了<code>__iter__()</code>方法或者可以支持下标索引的<code>__getitem__()</code>方法，就称为一个可迭代对象。</p>
 </li>
-<li><p><code>__iter__()</code>方法</p>
+<li><p><code>iterable.__iter__()</code>方法</p>
 <p> 调用一个可迭代对象的<code>__iter__()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。这个在下一章会提到。</p>
 </li>
-<li><p><code>iter()</code>方法</p>
-<p> 调用一个可迭代对象的<code>iter()</code>方法会返回一个当前可迭代对象的一个迭代器(iterator)。</p>
+<li><p><code>iter(iterable)</code>方法</p>
+<p> 把一个可迭代对象传入<code>iter()</code>会返回一个当前可迭代对象的一个迭代器(iterator)。</p>
 </li>
 <li><p>判断方法<br>在Python中，我们常用到的集合数据类型都是iterable的。如列表(list)，元组(tuple)，字典(dict)，集合(set)，字符串(str)等。在程序中判断一个对象是否是iterable的方法为</p>
 <pre><code class="python"># Method1: use isinstance
@@ -271,10 +271,10 @@ for i in [1, 2, 3]:
 		</div>
 		<div class="bottom-bar-items right">
             
-            <span class="bottom-bar-item"><a href="/2019/07/09/Others/常用颜色收集/"><i class="fa fa-arrow-left"></i></a></span>
+            <span class="bottom-bar-item"><a href="/2019/07/09/CProgrammingLanguage/C语言中数组名作为参数进行函数传递/"><i class="fa fa-arrow-left"></i></a></span>
             
             
-            <span class="bottom-bar-item"><a href="/2019/07/09/Python/Python常用文件及目录操作/"><i class="fa fa-arrow-right"></i></a></span>
+            <span class="bottom-bar-item"><a href="/2019/07/09/Python/simpread-styleguide _ Style guides for Google-originated open-source projects/"><i class="fa fa-arrow-right"></i></a></span>
             
 			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
 			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
@@ -440,7 +440,7 @@ for i in [1, 2, 3]:
                 
                 <li><a href="/2019/10/18/PythonPackages/numpy/">numpy</a></li>
                 
-                <li><a href="/2019/10/18/Python/Python技巧/">Python常见问题和技巧</a></li>
+                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
                 
             </div>
             
@@ -465,7 +465,7 @@ for i in [1, 2, 3]:
                     </div>
 
                     <div class="site-statistics">
-                        <p style="margin-top: 10px">总字数 51.4k</p>
+                        <p style="margin-top: 10px">总字数 49.9k</p>
                         
                         <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
                         <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>

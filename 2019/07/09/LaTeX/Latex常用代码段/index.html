@@ -102,7 +102,7 @@
 
 
 <div class="post-header-thumb">
-	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/3.jpg);"></div>
+	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/17.jpg);"></div>
 	<div class="post-header-thumb-cover">
 		<div class="post-header-thumb-container">
 			<div class="post-header-thumb-title">
@@ -110,7 +110,7 @@
 			</div>
 			<div class="post-header-thumb-meta">
 				<time datetime="1562641639" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-07-09</time> | 
-				<time datetime="1582970395" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2020-02-29</time> | 
+				<time datetime="1583068030" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2020-03-01</time> | 
 				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Latex/"> Latex</a>
 				<div class="post-header-thumb-meta">
 					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:1.2k字</span>
@@ -171,7 +171,7 @@
             
             
         </p>
-		<h2 id="1-公式"><a href="#1-公式" class="headerlink" title="1 公式"></a>1 公式</h2><p><strong>一些小技巧：</strong></p>
+		<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p><strong>一些小技巧：</strong></p>
 <blockquote>
 <ul>
 <li>公式环境加<code>*</code>号会参与自动编号</li>
@@ -204,53 +204,58 @@ f(x) &amp;= (x+a)(x+b) \\
 \end{gather*}</code></pre>
 </li>
 <li><p>多行条件公式</p>
-<pre><code class="latex"></code></pre>
+<pre><code class="latex">\begin{equation}
+\begin{cases}
+ 123&amp;a=5\\
+ 433434&amp;a=64554\\
+\end{cases}
+\end{equation}</code></pre>
 </li>
-</ol>
-<p>\begin{equation}<br>\begin{cases}<br>    123&amp;a=5\<br>    433434&amp;a=64554\<br>\end{cases}<br>\end{equation}</p>
-<pre><code>6. gather内嵌套align
-```latex
-gather*内嵌套aligned：
+<li><p>gather内嵌套align</p>
+<pre><code class="latex">gather*内嵌套aligned：
 \begin{gather*}
 c=53223
 \begin{aligned}
 a&amp;=1\\
 &amp;=332
 \end{aligned}
-\end{gather*}</code></pre><ol start="7">
-<li>分段函数<br>```latex<br>smooth_{L_{1}}(x)=\begin{cases}</li>
-<li>5x^{2}, &amp;\left |x \right |\leq 1 \cr \left |x \right|-0.5, &amp; otherwise<br>\end{cases}</li>
+\end{gather*}</code></pre>
+</li>
+<li><p>分段函数</p>
+</li>
 </ol>
-<pre><code>
-## 2 图
-1. 一行一图
-```latex
-\begin{figure}  %图
+<pre><code class="latex">smooth_{L_{1}}(x)=\begin{cases}
+0.5x^{2}, &amp;\left |x \right |\leq 1 \cr \left |x \right|-0.5, &amp; otherwise
+\end{cases}</code></pre>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><ol>
+<li>一行一图</li>
+</ol>
+<pre><code class="latex">\begin{figure}  %图
 \centering  %插入的图片居中表示
 \includegraphics[width=\textwidth]{./figures/estimate.jpg}
 \renewcommand{\figurename}{Fig.}\renewcommand{\figurename}{图}
 \caption{不同数据缺失率下的数据补全结果}  %图片的名称
 \label{fig1}   %标签，用作引用
-\end{figure}</code></pre><ol start="2">
-<li><p>一行多图</p>
+\end{figure}</code></pre>
+<ol>
+<li>一行多图</li>
+</ol>
 <pre><code class="latex">\usepackage{subcaption}
 
- \begin{figure}[H]
-     \begin{subfigure}{0.5\textwidth}
-     \includegraphics[width=\textwidth]{./figures/ar_1_acf.png}
-     \label{fig:3_classes}
-     \caption{}
-     \end{subfigure}
-     \begin{subfigure}{0.5\textwidth}
-     \includegraphics[width=\textwidth]{./figures/ar_1_pacf.png}
-     \label{fig:5_classes}
-     \caption{}
-     \end{subfigure}
-     \caption{ACF和PACF}
-   \end{figure}</code></pre>
-</li>
-</ol>
-<h2 id="3-列表"><a href="#3-列表" class="headerlink" title="3 列表"></a>3 列表</h2><pre><code class="latex">% 有序列表
+    \begin{figure}[H]
+        \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{./figures/ar_1_acf.png}
+        \label{fig:3_classes}
+        \caption{}
+        \end{subfigure}
+        \begin{subfigure}{0.5\textwidth}
+        \includegraphics[width=\textwidth]{./figures/ar_1_pacf.png}
+        \label{fig:5_classes}
+        \caption{}
+        \end{subfigure}
+        \caption{ACF和PACF}
+      \end{figure}</code></pre>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><pre><code class="latex">% 有序列表
 \begin{enumerate}[(1)]
 % \begin{enumerate}[{[1]}]
 % \begin{enumerate}[(i)]
@@ -263,109 +268,117 @@ a&amp;=1\\
 \item 无编号的列表
 \item ...
 \end{itemize}</code></pre>
-<h2 id="4-表格"><a href="#4-表格" class="headerlink" title="4 表格"></a>4 表格</h2><ol>
-<li><p>简单表格</p>
-<pre><code class="latex"> \begin{table}[H]
- \centering
- \caption{预测误差分布}  
-     \begin{tabular}{|c|c|c|c|c|} % 竖线表示是否在该列加竖线
-     \hline  
-      &amp; 均值  &amp; 均值理论值 &amp;方差&amp;方差理论值\\  
-     \hline  
-     1步  &amp; 0.0103 &amp; 0 &amp; 0.9927 &amp; 1 \\  
-     2步 &amp; 0.0141 &amp; 0 &amp; 1.2549 &amp; 1.25 \\
-     \hline
- \end{tabular}  
- \end{table}</code></pre>
-</li>
-<li><p>三行线表格</p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><ol>
+<li>简单表格</li>
+</ol>
+<pre><code class="latex">    \begin{table}[H]
+    \centering
+    \caption{预测误差分布}  
+        \begin{tabular}{|c|c|c|c|c|} % 竖线表示是否在该列加竖线
+        \hline  
+         &amp; 均值  &amp; 均值理论值 &amp;方差&amp;方差理论值\\  
+        \hline  
+        1步  &amp; 0.0103 &amp; 0 &amp; 0.9927 &amp; 1 \\  
+        2步 &amp; 0.0141 &amp; 0 &amp; 1.2549 &amp; 1.25 \\
+        \hline
+    \end{tabular}  
+    \end{table}</code></pre>
+<ol start="2">
+<li>三行线表格</li>
+</ol>
 <pre><code class="latex">\begin{table}[htp]
-     \centering
-     \caption{MA($\infty$)和GRU的最大可预测步数比较}
-     \label{Tab03}
-     % shorten cline length
-     \begin{tabular}{@{\extracolsep{12pt}}cccccccccc@{}}
-     \hline
-     \multirow{2}{*}{参数} &amp; \multicolumn{3}{c}{AR(1)} &amp; \multicolumn{3}{c}{AR(2)} &amp; \multicolumn{3}{c}{MA(2)} \\
-     \cline{2-4}  \cline{5-7} \cline{8-10}
-     &amp; 0.1 &amp; 0.5 &amp; 0.9 &amp; -0.1 &amp; -0.5 &amp; -0.7 &amp; -0.1 &amp; -0.2 &amp; -0.3 \\
-     \hline
-     MA($\infty$)&amp; 1 &amp; 3&amp; 19 &amp; 3 &amp; 6 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\
+        \centering
+        \caption{MA($\infty$)和GRU的最大可预测步数比较}
+        \label{Tab03}
+        % shorten cline length
+        \begin{tabular}{@{\extracolsep{12pt}}cccccccccc@{}}
+        \hline
+        \multirow{2}{*}{参数} &amp; \multicolumn{3}{c}{AR(1)} &amp; \multicolumn{3}{c}{AR(2)} &amp; \multicolumn{3}{c}{MA(2)} \\
+        \cline{2-4}  \cline{5-7} \cline{8-10}
+        &amp; 0.1 &amp; 0.5 &amp; 0.9 &amp; -0.1 &amp; -0.5 &amp; -0.7 &amp; -0.1 &amp; -0.2 &amp; -0.3 \\
+        \hline
+        MA($\infty$)&amp; 1 &amp; 3&amp; 19 &amp; 3 &amp; 6 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\
 
-     GRU&amp; 1 &amp; 3 &amp; 20 &amp; 3 &amp; 5 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\
-     \hline
-     \end{tabular}
-     \end{table}</code></pre>
-</li>
-<li><p>去掉表格标题</p>
+        GRU&amp; 1 &amp; 3 &amp; 20 &amp; 3 &amp; 5 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\
+        \hline
+        \end{tabular}
+        \end{table}</code></pre>
+<ol start="3">
+<li>去掉表格标题</li>
+</ol>
 <pre><code class="latex">% Delete : of image caption
 \usepackage{caption}
 \DeclareCaptionLabelSeparator{twospace}{\ ~}
 \captionsetup{labelsep=twospace}</code></pre>
-</li>
-<li><p>多行表格</p>
-<pre><code class="latex">\begin{table}[htp]
- \centering
- \caption{不同条件下一些中间结果的动态范围}
- \label{cha_nonlinear}
- \begin{tabular}{@{\extracolsep{12pt}}cccccc@{}}
-     \hline
-     \multirow{2}{*}{序列编号} &amp; \multirow{2}{*}{条件}    &amp; \multicolumn{4}{c}{动态范围}\\
-     \cline{3-6}&amp; &amp; $\mathbf{A}_{enc}$  &amp; $X_{attn}$ &amp; $\mathbf{A}_{enc\_dec}$ &amp; $\hat{\mathbf{x}}_{pre}$\\
-     \hline
-     \multirow{4}{*}{1} &amp; 无线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\
-     &amp; 有线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\
-     &amp; 无线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4 \\
-     &amp; 有线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\
-     \hline
- \end{tabular}
-\end{table}</code></pre>
-</li>
+<ol start="4">
+<li>多行表格</li>
 </ol>
-<h2 id="5-调整页边距"><a href="#5-调整页边距" class="headerlink" title="5 调整页边距"></a>5 调整页边距</h2><pre><code class="latex">\usepackage{geometry}
+<pre><code class="latex">\begin{table}[htp]
+    \centering
+    \caption{不同条件下一些中间结果的动态范围}
+    \label{cha_nonlinear}
+    \begin{tabular}{@{\extracolsep{12pt}}cccccc@{}}
+        \hline
+        \multirow{2}{*}{序列编号} &amp; \multirow{2}{*}{条件}    &amp; \multicolumn{4}{c}{动态范围}\\
+        \cline{3-6}&amp; &amp; $\mathbf{A}_{enc}$  &amp; $X_{attn}$ &amp; $\mathbf{A}_{enc\_dec}$ &amp; $\hat{\mathbf{x}}_{pre}$\\
+        \hline
+        \multirow{4}{*}{1} &amp; 无线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\
+        &amp; 有线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\
+        &amp; 无线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4 \\
+        &amp; 有线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\
+        \hline
+    \end{tabular}
+\end{table}</code></pre>
+<h2 id="调整页边距"><a href="#调整页边距" class="headerlink" title="调整页边距"></a>调整页边距</h2><pre><code class="latex">\usepackage{geometry}
 \geometry{a4paper,scale=0.8}
 \geometry{a4paper,left=2cm,right=2cm,top=1cm,bottom=1cm}</code></pre>
-<h2 id="6-参考文献"><a href="#6-参考文献" class="headerlink" title="6 参考文献"></a>6 参考文献</h2><ol>
-<li>一般参考文献<pre><code class="latex">\usepackage{cite}
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li>一般参考文献</li>
+</ol>
+<pre><code class="latex">\usepackage{cite}
 \usepackage{natbib}
 \usepackage{hyperref}
-</code></pre>
-</li>
+
+% Place to the location of reference
+\bibliographystyle{plain}
+\bibliography{reference}
+
+% Refer in the text
+\cite{Wille1982}
+% \citep{Wille1982}</code></pre>
+<ol start="2">
+<li>URL参考文献（无超链接）</li>
 </ol>
-<p>% Place to the location of reference<br>\bibliographystyle{plain}<br>\bibliography{reference}</p>
-<p>% Refer in the text<br>\cite{Wille1982}<br>% \citep{Wille1982}</p>
-<pre><code>
-2. URL参考文献（无超链接）
-```latex
-\usepackage{url}
+<pre><code class="latex">\usepackage{url}
 @Misc{timmurphy.org,
 howpublished = {\url{http://timmurphy.org/2009/07/22/line-spacing-in-latex-documents/}},
 note = {Accessed April 4, 2010},
 title = {Line Spacing in LaTeX documents},
 author = {Murphy, Timothy I}
-}</code></pre><ol start="3">
-<li>超链接参考文献（可点击）<pre><code class="latex">\usepackage{hyperref}
+}</code></pre>
+<ol start="3">
+<li>超链接参考文献（可点击）</li>
+</ol>
+<pre><code class="latex">\usepackage{hyperref}
 % 设置各种颜色
 \hypersetup{
- colorlinks=true, % 使用颜色代替框
- linkcolor=black, % 目录之类的颜色
- filecolor=blue,  
- urlcolor=blue, % 引用url颜色
- citecolor=blue, % 引用的颜色
+    colorlinks=true, % 使用颜色代替框
+    linkcolor=black, % 目录之类的颜色
+    filecolor=blue,  
+    urlcolor=blue, % 引用url颜色
+    citecolor=blue, % 引用的颜色
 }
 @unpublished{Survey2014,
-title={Survey on the access to
+  title={Survey on the access to
 finance of enterprises},
-author={Sophie Doove and Petra Gibcus and
+  author={Sophie Doove and Petra Gibcus and
 Ton Kwaak and Lia Smit and Tommy Span},
-year=2014,
-note ={Accessed 16 June 2017.  \href{http://wwwe.ansa.it/documents/1415814222451\_Rapporto.pdf/}{http://wwwe.ansa.it/documents/1415814222451/_Rapporto.pdf/}},
+  year=2014,
+  note ={Accessed 16 June 2017.  \href{http://wwwe.ansa.it/documents/1415814222451\_Rapporto.pdf/}{http://wwwe.ansa.it/documents/1415814222451/_Rapporto.pdf/}},
 }</code></pre>
-</li>
-</ol>
-<h2 id="7-页码"><a href="#7-页码" class="headerlink" title="7 页码"></a>7 页码</h2><pre><code class="latex">\thispagestyle{empty} % 在不需要设置页码的下面加
+<h2 id="页码"><a href="#页码" class="headerlink" title="页码"></a>页码</h2><pre><code class="latex">\thispagestyle{empty} % 在不需要设置页码的下面加
 \setcounter{page}{1} % 强制设置页码值</code></pre>
-<h2 id="8-python代码"><a href="#8-python代码" class="headerlink" title="8 python代码"></a>8 python代码</h2><pre><code class="latex">\usepackage{listings}
+<h2 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h2><pre><code class="latex">\usepackage{listings}
 \usepackage{color}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
@@ -405,7 +418,6 @@ NMAE_List.append(get_error(A, Users, Items, R))
 print (&#39;%sth iteration is complete...&#39; % iter)
 print(&#39;Iteration finish&#39;)
 \end{lstlisting}
-```)
 \end{lstlisting}</code></pre>
 
 		
@@ -439,10 +451,10 @@ print(&#39;Iteration finish&#39;)
 		</div>
 		<div class="bottom-bar-items right">
             
-            <span class="bottom-bar-item"><a href="/2019/07/09/Pytorch/Pytorch入门/"><i class="fa fa-arrow-left"></i></a></span>
+            <span class="bottom-bar-item"><a href="/2019/07/09/LaTeX/Latex一些坑/"><i class="fa fa-arrow-left"></i></a></span>
             
             
-            <span class="bottom-bar-item"><a href="/2019/07/09/LaTeX/Latex安装/"><i class="fa fa-arrow-right"></i></a></span>
+            <span class="bottom-bar-item"><a href="/2019/07/09/Others/常用颜色收集/"><i class="fa fa-arrow-right"></i></a></span>
             
 			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
 			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
@@ -475,10 +487,10 @@ print(&#39;Iteration finish&#39;)
 			<div class="post-list-item">
 				<div class="post-list-item-container">
 					<div class="item-label">
-						<div class="item-title"><a href="/2019/07/09/LaTeX/Latex一些坑/">Latex一些坑</a></div>
+						<div class="item-title"><a href="/2019/07/09/LaTeX/Latex安装/">Latex安装</a></div>
 						<div class="item-meta clearfix">
 							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
-							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+							<div class="item-meta-ico bg-ico-link" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
                             <div class="item-meta-cat">
                                 
                                 <a href="/categories/Latex/">Latex</a>
@@ -492,10 +504,10 @@ print(&#39;Iteration finish&#39;)
 			<div class="post-list-item">
 				<div class="post-list-item-container">
 					<div class="item-label">
-						<div class="item-title"><a href="/2019/07/09/LaTeX/Latex安装/">Latex安装</a></div>
+						<div class="item-title"><a href="/2019/07/09/LaTeX/Latex一些坑/">Latex一些坑</a></div>
 						<div class="item-meta clearfix">
 							<div class="item-meta-date" style="color: #5f5f5f;">2019-07-09</div>
-							<div class="item-meta-ico bg-ico-link" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+							<div class="item-meta-ico bg-ico-note" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
                             <div class="item-meta-cat">
                                 
                                 <a href="/categories/Latex/">Latex</a>
@@ -591,7 +603,7 @@ print(&#39;Iteration finish&#39;)
                 
                 <li><a href="/2019/10/18/PythonPackages/numpy/">numpy</a></li>
                 
-                <li><a href="/2019/10/18/Python/Python技巧/">Python常见问题和技巧</a></li>
+                <li><a href="/2019/10/18/Pytorch/Pytorch中常用tensor操作/">Pytorch常用tensor操作</a></li>
                 
             </div>
             
@@ -616,7 +628,7 @@ print(&#39;Iteration finish&#39;)
                     </div>
 
                     <div class="site-statistics">
-                        <p style="margin-top: 10px">总字数 51.4k</p>
+                        <p style="margin-top: 10px">总字数 49.9k</p>
                         
                         <p><span id="busuanzi_container_site_pv" style='display:none'>总访问量 <span id="busuanzi_value_site_pv"></span> 次</span></p>
                         <p><span id="busuanzi_container_site_uv" style='display:none'>总访客数 <span id="busuanzi_value_site_uv"></span> 人</span></p>
