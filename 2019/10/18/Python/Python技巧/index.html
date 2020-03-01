@@ -102,7 +102,7 @@
 
 
 <div class="post-header-thumb">
-	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/2.jpg);"></div>
+	<div class="post-header-thumb-op" style="background-image:url(/images/thumbs/12.jpg);"></div>
 	<div class="post-header-thumb-cover">
 		<div class="post-header-thumb-container">
 			<div class="post-header-thumb-title">
@@ -110,10 +110,10 @@
 			</div>
 			<div class="post-header-thumb-meta">
 				<time datetime="1571382878" itemprop="datePubilished"><i class="fa fa-calendar-o"></i> 发表于 2019-10-18</time> | 
-				<time datetime="1582970186" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2020-02-29</time> | 
+				<time datetime="1583034463" itemprop="dateUpdated"><i class="fa fa-calendar-check-o"></i> 更新于 2020-03-01</time> | 
 				<i class="fa fa-folder-o"></i> 分类于 <a href="/categories/Python/"> Python</a>
 				<div class="post-header-thumb-meta">
-					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:2.1k字</span>
+					<span class="post-count"><i class="fa fa-pencil-square-o"></i> 字数统计:2.2k字</span>
 					<span>|</span>
 					<span class="post-count"><i class="fa fa-clock-o"></i> 阅读时长:9 分钟</span>
 								<div class="post-header-thumb-meta">
@@ -157,7 +157,7 @@
 			
 
 			<div>
-				<span class="post-count">本文字数：2.1k 字</span>
+				<span class="post-count">本文字数：2.2k 字</span>
 				<span>|</span>
 				<span class="post-count">阅读时长 ≈ 9 min</span>
 			</div>
@@ -347,14 +347,14 @@ filter1.next()</code></pre>
 <h2 id="响应键盘终止"><a href="#响应键盘终止" class="headerlink" title="响应键盘终止"></a>响应键盘终止</h2><pre><code class="python">except KeyboardInterrupt:
     print(&#39;Interrupt&#39;)</code></pre>
 <h2 id="字符串不转义"><a href="#字符串不转义" class="headerlink" title="字符串不转义"></a>字符串不转义</h2><p>在使用正则表达式时，通常不希望表示转义字符，方法是在字符串前加上<code>r</code>，如<code>r&#39;[]\&#39;</code>。</p>
-<h2 id="heapq模块及其应用"><a href="#heapq模块及其应用" class="headerlink" title="heapq模块及其应用"></a>heapq模块及其应用</h2><p>Python中的heapq模块提供了基于堆的优先排序算法。堆可以看成完全二叉树，父节点的值永远比子节点小。常用的方法有</p>
+<h2 id="heapq模块及其应用"><a href="#heapq模块及其应用" class="headerlink" title="heapq模块及其应用"></a>heapq模块及其应用</h2><p>Python中的heapq模块提供了基于堆的优先排序算法。堆可以看成完全二叉树，父节点的值永远比子节点小。一般在把列表转化成堆后直接调用<code>heappush</code>和<code>heappop</code>方法即可。</p>
 <ol>
-<li><code>heappush</code>把元素放入堆</li>
-<li><code>heappop</code>返回堆中最小的元素</li>
-<li><code>heappushpop</code>把元素放入堆的同时返回最小的元素</li>
-<li><code>heapify</code>在线性时间内把一个列表转化为堆。注意，这个操作是把原列表直接转化为堆而不是创建一个新的堆</li>
-<li><code>nlargest</code>返回堆中最大的k个元素</li>
-<li><code>nsmallest</code>返回堆中最小的k个元素。<code>nlargest</code>和<code>nsmallest</code>通常用于在一个含有较多元素的列表中找出少数最值，<code>max()</code>和<code>min</code>通常用于找出最大/最小值，如果需要找的最值较多，推荐把列表进行排序后使用切片查找。</li>
+<li><code>heappush()</code>把元素放入堆</li>
+<li><code>heappop()</code>返回堆中最小的元素</li>
+<li><code>heappushpop()</code>把元素放入堆的同时返回最小的元素</li>
+<li><code>heapify()</code>在线性时间内把一个列表转化为堆。注意，这个操作是把原列表直接转化为堆而不是创建一个新的堆</li>
+<li><code>nlargest(n, list)</code>返回堆中最大的k个元素</li>
+<li><code>nsmallest(n, list)</code>返回堆中最小的k个元素。<code>nlargest</code>和<code>nsmallest</code>通常用于在一个含有较多元素的列表中找出少数最值，<code>max()</code>和<code>min</code>通常用于找出最大/最小值，如果需要找的最值较多，推荐把列表进行排序后使用切片查找。</li>
 <li><code>merge</code>用于将多个<code>iterable</code>对象进行归并排序。返回一个<code>generator</code>用于生成排序结果。<pre><code class="python">import heapq
 list1 = [1, 5, 9, 2, 4]
 dict1 = [{&#39;a&#39;: 2}, {&#39;a&#39;: 3}, {&#39;a&#39;: 8}]

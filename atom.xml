@@ -118,9 +118,9 @@
     <link href="https://yyb1995.github.io/2019/10/18/Python/Python%E6%8A%80%E5%B7%A7/"/>
     <id>https://yyb1995.github.io/2019/10/18/Python/Python技巧/</id>
     <published>2019-10-18T07:14:38.000Z</published>
-    <updated>2020-02-29T09:56:26.514Z</updated>
+    <updated>2020-03-01T03:47:43.766Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="模块修改后再次载入无变化"><a href="#模块修改后再次载入无变化" class="headerlink" title="模块修改后再次载入无变化"></a>模块修改后再次载入无变化</h2><pre><code class="python">import importlibimportlib.reload(PackageName)%load_ext autoreload%autoreload 2</code></pre><h2 id="python数据类型set"><a href="#python数据类型set" class="headerlink" title="python数据类型set"></a>python数据类型set</h2><p>set是一种无序集合。常见的方法有：</p><ol><li>创建集合<br><code>a = set(&#39;python&#39;)</code></li><li>向集合中传入一个元素并拆分<br><code>a.update(&#39;java&#39;)</code></li><li>删除集合中元素<br><code>a.remove(&#39;p&#39;)</code></li></ol><h2 id="利用列表生成字典"><a href="#利用列表生成字典" class="headerlink" title="利用列表生成字典"></a>利用列表生成字典</h2><pre><code class="python">a = [1, 2, 3]b = [4, 5, 6]dict1 = dict(zip(a, b))</code></pre><h2 id="初始化值类型的字典——defaultdict"><a href="#初始化值类型的字典——defaultdict" class="headerlink" title="初始化值类型的字典——defaultdict"></a>初始化值类型的字典——defaultdict</h2><p>在python中可以使用<code>collections</code>中的<code>defaultdict</code>对字典中的值类型进行初始化。在初始化<code>defaultdict</code>时，可以加上<code>int</code>，<code>list</code>等参数，表示值的默认类型。</p><h2 id="列表删除元素"><a href="#列表删除元素" class="headerlink" title="列表删除元素"></a>列表删除元素</h2><ol><li><code>a.remove(item)</code></li><li><code>del(a[index])</code></li><li><code>a.pop()</code></li></ol><h2 id="python-排序"><a href="#python-排序" class="headerlink" title="python 排序"></a>python 排序</h2><p><code>sorted([1, 2, 3, 5, 3])</code><br><code>[1, 2, 3, 6, 5].sort()</code></p><h2 id="python中的队列"><a href="#python中的队列" class="headerlink" title="python中的队列"></a>python中的队列</h2><pre><code>from collections import dequequeue = deque([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])queue.append(&#39;e&#39;)queue.popleft()</code></pre><h2 id="python数组按某列排序"><a href="#python数组按某列排序" class="headerlink" title="python数组按某列排序"></a>python数组按某列排序</h2><p><code>data[data[:,2].argsort()]</code><br>数组按第三列排序</p><h2 id="python-字典转变量"><a href="#python-字典转变量" class="headerlink" title="python 字典转变量"></a>python 字典转变量</h2><p><code>globals().update(dict)</code><br>例如： {foo: bar} -&gt; foo = bar</p><h2 id="Google注释规范"><a href="#Google注释规范" class="headerlink" title="Google注释规范"></a>Google注释规范</h2><pre><code class="python">def fetch_bigtable_rows(big_table, keys, other_silly_variable=None):    &quot;&quot;&quot;Fetches rows from a Bigtable.    Retrieves rows pertaining to the given keys from the Table instance    represented by big_table.  Silly things may happen if    other_silly_variable is not None.    Args:        big_table: An open Bigtable Table instance.        keys: A sequence of strings representing the key of each table row            to fetch.        other_silly_variable: Another optional variable, that has a much            longer name than the other args, and which does nothing.    Returns:        A dict mapping keys to the corresponding table row data        fetched. Each row is represented as a tuple of strings. For        example:        {&#39;Serak&#39;: (&#39;Rigel VII&#39;, &#39;Preparer&#39;),         &#39;Zim&#39;: (&#39;Irk&#39;, &#39;Invader&#39;),         &#39;Lrrr&#39;: (&#39;Omicron Persei 8&#39;, &#39;Emperor&#39;)}        If a key from the keys argument is missing from the dictionary,        then that row was not found in the table.    Raises:        IOError: An error occurred accessing the bigtable.Table object.    &quot;&quot;&quot;    pass</code></pre><p><strong>注意：</strong> 函数功能注释与参数说明之间应该空一行</p><h2 id="map、reduce和filter"><a href="#map、reduce和filter" class="headerlink" title="map、reduce和filter"></a>map、reduce和filter</h2><p>map用于将一个函数映射到后面给出的变量列表中，reduce用于将一个函数依次映射到后面的相邻变量中，filter用于筛选列表中符合某个函数条件的值</p><pre><code class="python">map(lambda x: x ** 2, range(1, 10))from functools import reducereduce(lambda x, y: x + y, range(1, 11))filter(lambda x: x % 2, range(1, 11))</code></pre><h2 id="号的使用"><a href="#号的使用" class="headerlink" title="*号的使用"></a>*号的使用</h2><ol><li>乘法符号</li><li>当*号用在函数定义时，作用是收集传入的参数，也就是把除<code>a=b</code>形式外的传入参数打包成一个元组，在函数中使用。**号作用相同，是把所有<code>a=b</code>形式的传入参数打包成字典，在函数中使用。</li><li>当*号用于函数调用时，作用是把以元组形式的参数集合展开并对应到各个参数位置上。</li></ol><pre><code class="python">def print(*param):    for item in param:        print(item)# Example 1def print_(a, b, c):    print(a)    print(b)    print(c)a = [&#39;ap&#39;, &#39;ba&#39;, &#39;or&#39;]print(*a)# Example 2def a():    return 1, 2, 3print(&#39;{} {} {}&#39;.format(*a()))# Example 3a = [1, 2, 3]b = [*a]print(b)</code></pre><h2 id="Python数组拷贝"><a href="#Python数组拷贝" class="headerlink" title="Python数组拷贝"></a>Python数组拷贝</h2><p>在进行Python的数组拷贝时，有时会用到切片操作。下面是一个例子：</p><pre><code class="python">dec_seq = torch.rand(3, 4, 5)dec_input = dec_seq[:, :-1]dec_output = dec_seq[:, 1:]</code></pre><p>实际上dec_input和dec_output只是对dec_seq的一个引用，并不是对对象的一个完整复制。当dec_seq的值改变时，dec_input和dec_output的值也会随之改变。因此，dec_input和dec_output更像是指向dec_seq一部分的指针。如果想对原数组进行完整的拷贝，应该使用copy模块中的copy和deepcopy。</p><ol><li>copy.copy 浅拷贝 只拷贝父对象，不会拷贝对象的内部的子对象。</li><li>copy.deepcopy 深拷贝 拷贝对象及其子对象<br>例子：<pre><code class="python">&gt;&gt;&gt; import copy&gt;&gt;&gt; a = [1,2,3,4,[&#39;a&#39;,&#39;b&#39;]]  #原始对象</code></pre></li></ol><blockquote><blockquote><blockquote><p>b = a  #赋值，传对象的引用</p></blockquote></blockquote></blockquote><blockquote><blockquote><blockquote><p>c = copy.copy(a)</p></blockquote></blockquote></blockquote><blockquote><blockquote><blockquote><p>d = copy.deepcopy(a)</p></blockquote></blockquote></blockquote><blockquote><blockquote><blockquote><p>a.append(5)<br>a[4].append(‘c’)</p></blockquote></blockquote></blockquote><blockquote><blockquote><blockquote><p>print ‘a=’,a<br>a= [1, 2, 3, 4, [‘a’, ‘b’, ‘c’], 5]<br>print ‘b=’,b<br>b= [1, 2, 3, 4, [‘a’, ‘b’, ‘c’], 5]<br>print ‘c=’,c<br>c= [1, 2, 3, 4, [‘a’, ‘b’, ‘c’]]<br>print ‘d=’,d<br>d= [1, 2, 3, 4, [‘a’, ‘b’]]</p><pre><code></code></pre></blockquote></blockquote></blockquote><h2 id="Python的异常处理机制"><a href="#Python的异常处理机制" class="headerlink" title="Python的异常处理机制"></a>Python的异常处理机制</h2><p>python有两种机制可以触发异常：</p><ol><li><p>try-except-else-finally<br>程序尝试执行try下的语句，如果触发异常就跳到相应的except语句，如果没有错误就跳到else语句。finally语句是无论是否发生错误都会执行。</p><pre><code class="python">try:&lt;语句&gt;        #尝试执行except &lt;异常类型1&gt;：&lt;语句&gt;        #如果在try部份引发了&#39;name&#39;异常except &lt;异常类型2&gt;，&lt;数据&gt;:&lt;语句&gt;        #如果引发了&#39;name&#39;异常，获得附加的数据else:&lt;语句&gt;        #正常执行finally:&lt;语句&gt;        #无论是否触发异常都执行的语句</code></pre></li><li><p>if-raise<br>程序尝试判断if语句下是否成立，如果成立，抛出raise下的error。</p><pre><code class="python">if expression: raise Exception</code></pre></li><li><p>自定义Error类型<br>需要自定义异常类型时，需要继承<code>Exception</code>类</p><pre><code class="python">class SomeCustomException(Exception): pass</code></pre></li><li><p>warnings模块<br>warnings.warn()函数用于生成警告信息。格式为：</p><pre><code class="python">if expression: warnings.warn(&#39;Warning message&#39;, WarningType)</code></pre><p>其中WarningType可以是Python模块中的warning，<a href="https://docs.python.org/3/library/warnings.html" target="_blank" rel="noopener">具体目录</a></p></li></ol><h2 id="Python-filter-函数"><a href="#Python-filter-函数" class="headerlink" title="Python filter()函数"></a>Python filter()函数</h2><p><code>filter(function, iterable)</code></p><p>filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。</p><p>该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。</p><p>使用方法：</p><pre><code class="python">filter1 = filter(lambda x: x &gt; 0, [-1, 0, 1, 5])filter1.next()</code></pre><h2 id="对于None的判断"><a href="#对于None的判断" class="headerlink" title="对于None的判断"></a>对于None的判断</h2><p>在 if判断中，None，False，空字符串，0，空列表，空字典，空元组都会被判断成False。因此在使用if not x判断是否为None时，需要排除其余可能的影响。因此，建议的判断方式为：if x is not None</p><h2 id="字符串join-方法"><a href="#字符串join-方法" class="headerlink" title="字符串join()方法"></a>字符串join()方法</h2><p>Python join()方法用于将序列中的元素以指定的字符连接生成一个新的字符串。str.join(sequence)即用str来连接sequence<br><code>a = &#39;&#39;.join(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;)</code></p><h2 id="响应键盘终止"><a href="#响应键盘终止" class="headerlink" title="响应键盘终止"></a>响应键盘终止</h2><pre><code class="python">except KeyboardInterrupt:    print(&#39;Interrupt&#39;)</code></pre><h2 id="字符串不转义"><a href="#字符串不转义" class="headerlink" title="字符串不转义"></a>字符串不转义</h2><p>在使用正则表达式时，通常不希望表示转义字符，方法是在字符串前加上<code>r</code>，如<code>r&#39;[]\&#39;</code>。</p><h2 id="heapq模块及其应用"><a href="#heapq模块及其应用" class="headerlink" title="heapq模块及其应用"></a>heapq模块及其应用</h2><p>Python中的heapq模块提供了基于堆的优先排序算法。堆可以看成完全二叉树，父节点的值永远比子节点小。常用的方法有</p><ol><li><code>heappush</code>把元素放入堆</li><li><code>heappop</code>返回堆中最小的元素</li><li><code>heappushpop</code>把元素放入堆的同时返回最小的元素</li><li><code>heapify</code>在线性时间内把一个列表转化为堆。注意，这个操作是把原列表直接转化为堆而不是创建一个新的堆</li><li><code>nlargest</code>返回堆中最大的k个元素</li><li><code>nsmallest</code>返回堆中最小的k个元素。<code>nlargest</code>和<code>nsmallest</code>通常用于在一个含有较多元素的列表中找出少数最值，<code>max()</code>和<code>min</code>通常用于找出最大/最小值，如果需要找的最值较多，推荐把列表进行排序后使用切片查找。</li><li><code>merge</code>用于将多个<code>iterable</code>对象进行归并排序。返回一个<code>generator</code>用于生成排序结果。<pre><code class="python">import heapqlist1 = [1, 5, 9, 2, 4]dict1 = [{&#39;a&#39;: 2}, {&#39;a&#39;: 3}, {&#39;a&#39;: 8}]heapq.nlargest(2, list1)heapq.nsmallest(4, list1)heapq.nlargest(2, dict1, key=lambda x: x[&#39;a&#39;])</code></pre></li></ol><h2 id="统计列表中各元素出现的次数"><a href="#统计列表中各元素出现的次数" class="headerlink" title="统计列表中各元素出现的次数"></a>统计列表中各元素出现的次数</h2><pre><code class="python">from Collections import Countera = [1, 2, 3, 2, 4, 2]counter = Counter(a)count_list = dict(counter)print(counter.most_common(3))</code></pre><h2 id="isinstance-方法"><a href="#isinstance-方法" class="headerlink" title="isinstance()方法"></a>isinstance()方法</h2><p>Python中<code>isinstance(object, classinfo)</code>方法用于判断一个对象是否是一个已知的类型，与<code>type()</code>类似。它们的区别在于</p><blockquote><p>type() 不会认为子类是一种父类类型，不考虑继承关系。</p><p>isinstance() 会认为子类是一种父类类型，考虑继承关系。</p><p>如果要判断两个类型是否相同推荐使用 isinstance()。</p></blockquote><p>对于classinfo的选择，可以是<br><code>int</code>，<code>float</code>，<code>bool</code>，<code>complex</code>，<code>str</code>，<code>list</code>，<code>dict</code>，<code>set</code>，<code>tuple</code>。</p><h2 id="global-和-nonlocal"><a href="#global-和-nonlocal" class="headerlink" title="global 和 nonlocal"></a>global 和 nonlocal</h2><p>global用于声明全局变量。如果在函数内部修改函数外的变量，需要在函数中声明全局变量。</p><pre><code class="python">foo = 0def bar():    global foo    foo += 1</code></pre><p>nonlocal用于声明在内层函数中使用的变量。</p><pre><code class="python">def foo1():    bar = 0    def foo2():        nonlocal bar        bar += 1        return bar    return foo2()</code></pre><h1 id="测试程序运行时间"><a href="#测试程序运行时间" class="headerlink" title="测试程序运行时间"></a>测试程序运行时间</h1><p>可以使用<code>time</code>或<code>timeit</code>模块测试程序的运行时间</p><pre><code class="python">def foo(param):    passimport timestart = time.time()foo()end = time.time()print(end - start)from timeit import timeitprint(timeit(&#39;foo(x)&#39;, setup=&#39;from __main__ import foo&#39;, globals={&#39;x&#39;: param}), number=1)</code></pre><h2 id="逻辑运算符运算顺序"><a href="#逻辑运算符运算顺序" class="headerlink" title="逻辑运算符运算顺序"></a>逻辑运算符运算顺序</h2><p>python中逻辑运算符包括<code>not</code>，<code>and</code>和<code>or</code>，其运算顺序为<code>not&gt;and&gt;or</code>。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="模块修改后再次载入无变化"><a href="#模块修改后再次载入无变化" class="headerlink" title="模块修改后再次载入无变化"></a>模块修改后再次载入无变化</h2><pre><code class="python">import importlibimportlib.reload(PackageName)%load_ext autoreload%autoreload 2</code></pre><h2 id="python数据类型set"><a href="#python数据类型set" class="headerlink" title="python数据类型set"></a>python数据类型set</h2><p>set是一种无序集合。常见的方法有：</p><ol><li>创建集合<br><code>a = set(&#39;python&#39;)</code></li><li>向集合中传入一个元素并拆分<br><code>a.update(&#39;java&#39;)</code></li><li>删除集合中元素<br><code>a.remove(&#39;p&#39;)</code></li></ol><h2 id="利用列表生成字典"><a href="#利用列表生成字典" class="headerlink" title="利用列表生成字典"></a>利用列表生成字典</h2><pre><code class="python">a = [1, 2, 3]b = [4, 5, 6]dict1 = dict(zip(a, b))</code></pre><h2 id="初始化值类型的字典——defaultdict"><a href="#初始化值类型的字典——defaultdict" class="headerlink" title="初始化值类型的字典——defaultdict"></a>初始化值类型的字典——defaultdict</h2><p>在python中可以使用<code>collections</code>中的<code>defaultdict</code>对字典中的值类型进行初始化。在初始化<code>defaultdict</code>时，可以加上<code>int</code>，<code>list</code>等参数，表示值的默认类型。</p><h2 id="列表删除元素"><a href="#列表删除元素" class="headerlink" title="列表删除元素"></a>列表删除元素</h2><ol><li><code>a.remove(item)</code></li><li><code>del(a[index])</code></li><li><code>a.pop()</code></li></ol><h2 id="python-排序"><a href="#python-排序" class="headerlink" title="python 排序"></a>python 排序</h2><p><code>sorted([1, 2, 3, 5, 3])</code><br><code>[1, 2, 3, 6, 5].sort()</code></p><h2 id="python中的队列"><a href="#python中的队列" class="headerlink" title="python中的队列"></a>python中的队列</h2><pre><code>from collections import dequequeue = deque([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;])queue.append(&#39;e&#39;)queue.popleft()</code></pre><h2 id="python数组按某列排序"><a href="#python数组按某列排序" class="headerlink" title="python数组按某列排序"></a>python数组按某列排序</h2><p><code>data[data[:,2].argsort()]</code><br>数组按第三列排序</p><h2 id="python-字典转变量"><a href="#python-字典转变量" class="headerlink" title="python 字典转变量"></a>python 字典转变量</h2><p><code>globals().update(dict)</code><br>例如： {foo: bar} -&gt; foo = bar</p><h2 id="Google注释规范"><a href="#Google注释规范" class="headerlink" title="Google注释规范"></a>Google注释规范</h2><pre><code class="python">def fetch_bigtable_rows(big_table, keys, other_silly_variable=None):    &quot;&quot;&quot;Fetches rows from a Bigtable.    Retrieves rows pertaining to the given keys from the Table instance    represented by big_table.  Silly things may happen if    other_silly_variable is not None.    Args:        big_table: An open Bigtable Table instance.        keys: A sequence of strings representing the key of each table row            to fetch.        other_silly_variable: Another optional variable, that has a much            longer name than the other args, and which does nothing.    Returns:        A dict mapping keys to the corresponding table row data        fetched. Each row is represented as a tuple of strings. For        example:        {&#39;Serak&#39;: (&#39;Rigel VII&#39;, &#39;Preparer&#39;),         &#39;Zim&#39;: (&#39;Irk&#39;, &#39;Invader&#39;),         &#39;Lrrr&#39;: (&#39;Omicron Persei 8&#39;, &#39;Emperor&#39;)}        If a key from the keys argument is missing from the dictionary,        then that row was not found in the table.    Raises:        IOError: An error occurred accessing the bigtable.Table object.    &quot;&quot;&quot;    pass</code></pre><p><strong>注意：</strong> 函数功能注释与参数说明之间应该空一行</p><h2 id="map、reduce和filter"><a href="#map、reduce和filter" class="headerlink" title="map、reduce和filter"></a>map、reduce和filter</h2><p>map用于将一个函数映射到后面给出的变量列表中，reduce用于将一个函数依次映射到后面的相邻变量中，filter用于筛选列表中符合某个函数条件的值</p><pre><code class="python">map(lambda x: x ** 2, range(1, 10))from functools import reducereduce(lambda x, y: x + y, range(1, 11))filter(lambda x: x % 2, range(1, 11))</code></pre><h2 id="号的使用"><a href="#号的使用" class="headerlink" title="*号的使用"></a>*号的使用</h2><ol><li>乘法符号</li><li>当*号用在函数定义时，作用是收集传入的参数，也就是把除<code>a=b</code>形式外的传入参数打包成一个元组，在函数中使用。**号作用相同，是把所有<code>a=b</code>形式的传入参数打包成字典，在函数中使用。</li><li>当*号用于函数调用时，作用是把以元组形式的参数集合展开并对应到各个参数位置上。</li></ol><pre><code class="python">def print(*param):    for item in param:        print(item)# Example 1def print_(a, b, c):    print(a)    print(b)    print(c)a = [&#39;ap&#39;, &#39;ba&#39;, &#39;or&#39;]print(*a)# Example 2def a():    return 1, 2, 3print(&#39;{} {} {}&#39;.format(*a()))# Example 3a = [1, 2, 3]b = [*a]print(b)</code></pre><h2 id="Python数组拷贝"><a href="#Python数组拷贝" class="headerlink" title="Python数组拷贝"></a>Python数组拷贝</h2><p>在进行Python的数组拷贝时，有时会用到切片操作。下面是一个例子：</p><pre><code class="python">dec_seq = torch.rand(3, 4, 5)dec_input = dec_seq[:, :-1]dec_output = dec_seq[:, 1:]</code></pre><p>实际上dec_input和dec_output只是对dec_seq的一个引用，并不是对对象的一个完整复制。当dec_seq的值改变时，dec_input和dec_output的值也会随之改变。因此，dec_input和dec_output更像是指向dec_seq一部分的指针。如果想对原数组进行完整的拷贝，应该使用copy模块中的copy和deepcopy。</p><ol><li>copy.copy 浅拷贝 只拷贝父对象，不会拷贝对象的内部的子对象。</li><li>copy.deepcopy 深拷贝 拷贝对象及其子对象<br>例子：<pre><code class="python">&gt;&gt;&gt; import copy&gt;&gt;&gt; a = [1,2,3,4,[&#39;a&#39;,&#39;b&#39;]]  #原始对象</code></pre></li></ol><blockquote><blockquote><blockquote><p>b = a  #赋值，传对象的引用</p></blockquote></blockquote></blockquote><blockquote><blockquote><blockquote><p>c = copy.copy(a)</p></blockquote></blockquote></blockquote><blockquote><blockquote><blockquote><p>d = copy.deepcopy(a)</p></blockquote></blockquote></blockquote><blockquote><blockquote><blockquote><p>a.append(5)<br>a[4].append(‘c’)</p></blockquote></blockquote></blockquote><blockquote><blockquote><blockquote><p>print ‘a=’,a<br>a= [1, 2, 3, 4, [‘a’, ‘b’, ‘c’], 5]<br>print ‘b=’,b<br>b= [1, 2, 3, 4, [‘a’, ‘b’, ‘c’], 5]<br>print ‘c=’,c<br>c= [1, 2, 3, 4, [‘a’, ‘b’, ‘c’]]<br>print ‘d=’,d<br>d= [1, 2, 3, 4, [‘a’, ‘b’]]</p><pre><code></code></pre></blockquote></blockquote></blockquote><h2 id="Python的异常处理机制"><a href="#Python的异常处理机制" class="headerlink" title="Python的异常处理机制"></a>Python的异常处理机制</h2><p>python有两种机制可以触发异常：</p><ol><li><p>try-except-else-finally<br>程序尝试执行try下的语句，如果触发异常就跳到相应的except语句，如果没有错误就跳到else语句。finally语句是无论是否发生错误都会执行。</p><pre><code class="python">try:&lt;语句&gt;        #尝试执行except &lt;异常类型1&gt;：&lt;语句&gt;        #如果在try部份引发了&#39;name&#39;异常except &lt;异常类型2&gt;，&lt;数据&gt;:&lt;语句&gt;        #如果引发了&#39;name&#39;异常，获得附加的数据else:&lt;语句&gt;        #正常执行finally:&lt;语句&gt;        #无论是否触发异常都执行的语句</code></pre></li><li><p>if-raise<br>程序尝试判断if语句下是否成立，如果成立，抛出raise下的error。</p><pre><code class="python">if expression: raise Exception</code></pre></li><li><p>自定义Error类型<br>需要自定义异常类型时，需要继承<code>Exception</code>类</p><pre><code class="python">class SomeCustomException(Exception): pass</code></pre></li><li><p>warnings模块<br>warnings.warn()函数用于生成警告信息。格式为：</p><pre><code class="python">if expression: warnings.warn(&#39;Warning message&#39;, WarningType)</code></pre><p>其中WarningType可以是Python模块中的warning，<a href="https://docs.python.org/3/library/warnings.html" target="_blank" rel="noopener">具体目录</a></p></li></ol><h2 id="Python-filter-函数"><a href="#Python-filter-函数" class="headerlink" title="Python filter()函数"></a>Python filter()函数</h2><p><code>filter(function, iterable)</code></p><p>filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。</p><p>该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。</p><p>使用方法：</p><pre><code class="python">filter1 = filter(lambda x: x &gt; 0, [-1, 0, 1, 5])filter1.next()</code></pre><h2 id="对于None的判断"><a href="#对于None的判断" class="headerlink" title="对于None的判断"></a>对于None的判断</h2><p>在 if判断中，None，False，空字符串，0，空列表，空字典，空元组都会被判断成False。因此在使用if not x判断是否为None时，需要排除其余可能的影响。因此，建议的判断方式为：if x is not None</p><h2 id="字符串join-方法"><a href="#字符串join-方法" class="headerlink" title="字符串join()方法"></a>字符串join()方法</h2><p>Python join()方法用于将序列中的元素以指定的字符连接生成一个新的字符串。str.join(sequence)即用str来连接sequence<br><code>a = &#39;&#39;.join(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;)</code></p><h2 id="响应键盘终止"><a href="#响应键盘终止" class="headerlink" title="响应键盘终止"></a>响应键盘终止</h2><pre><code class="python">except KeyboardInterrupt:    print(&#39;Interrupt&#39;)</code></pre><h2 id="字符串不转义"><a href="#字符串不转义" class="headerlink" title="字符串不转义"></a>字符串不转义</h2><p>在使用正则表达式时，通常不希望表示转义字符，方法是在字符串前加上<code>r</code>，如<code>r&#39;[]\&#39;</code>。</p><h2 id="heapq模块及其应用"><a href="#heapq模块及其应用" class="headerlink" title="heapq模块及其应用"></a>heapq模块及其应用</h2><p>Python中的heapq模块提供了基于堆的优先排序算法。堆可以看成完全二叉树，父节点的值永远比子节点小。一般在把列表转化成堆后直接调用<code>heappush</code>和<code>heappop</code>方法即可。</p><ol><li><code>heappush()</code>把元素放入堆</li><li><code>heappop()</code>返回堆中最小的元素</li><li><code>heappushpop()</code>把元素放入堆的同时返回最小的元素</li><li><code>heapify()</code>在线性时间内把一个列表转化为堆。注意，这个操作是把原列表直接转化为堆而不是创建一个新的堆</li><li><code>nlargest(n, list)</code>返回堆中最大的k个元素</li><li><code>nsmallest(n, list)</code>返回堆中最小的k个元素。<code>nlargest</code>和<code>nsmallest</code>通常用于在一个含有较多元素的列表中找出少数最值，<code>max()</code>和<code>min</code>通常用于找出最大/最小值，如果需要找的最值较多，推荐把列表进行排序后使用切片查找。</li><li><code>merge</code>用于将多个<code>iterable</code>对象进行归并排序。返回一个<code>generator</code>用于生成排序结果。<pre><code class="python">import heapqlist1 = [1, 5, 9, 2, 4]dict1 = [{&#39;a&#39;: 2}, {&#39;a&#39;: 3}, {&#39;a&#39;: 8}]heapq.nlargest(2, list1)heapq.nsmallest(4, list1)heapq.nlargest(2, dict1, key=lambda x: x[&#39;a&#39;])</code></pre></li></ol><h2 id="统计列表中各元素出现的次数"><a href="#统计列表中各元素出现的次数" class="headerlink" title="统计列表中各元素出现的次数"></a>统计列表中各元素出现的次数</h2><pre><code class="python">from Collections import Countera = [1, 2, 3, 2, 4, 2]counter = Counter(a)count_list = dict(counter)print(counter.most_common(3))</code></pre><h2 id="isinstance-方法"><a href="#isinstance-方法" class="headerlink" title="isinstance()方法"></a>isinstance()方法</h2><p>Python中<code>isinstance(object, classinfo)</code>方法用于判断一个对象是否是一个已知的类型，与<code>type()</code>类似。它们的区别在于</p><blockquote><p>type() 不会认为子类是一种父类类型，不考虑继承关系。</p><p>isinstance() 会认为子类是一种父类类型，考虑继承关系。</p><p>如果要判断两个类型是否相同推荐使用 isinstance()。</p></blockquote><p>对于classinfo的选择，可以是<br><code>int</code>，<code>float</code>，<code>bool</code>，<code>complex</code>，<code>str</code>，<code>list</code>，<code>dict</code>，<code>set</code>，<code>tuple</code>。</p><h2 id="global-和-nonlocal"><a href="#global-和-nonlocal" class="headerlink" title="global 和 nonlocal"></a>global 和 nonlocal</h2><p>global用于声明全局变量。如果在函数内部修改函数外的变量，需要在函数中声明全局变量。</p><pre><code class="python">foo = 0def bar():    global foo    foo += 1</code></pre><p>nonlocal用于声明在内层函数中使用的变量。</p><pre><code class="python">def foo1():    bar = 0    def foo2():        nonlocal bar        bar += 1        return bar    return foo2()</code></pre><h1 id="测试程序运行时间"><a href="#测试程序运行时间" class="headerlink" title="测试程序运行时间"></a>测试程序运行时间</h1><p>可以使用<code>time</code>或<code>timeit</code>模块测试程序的运行时间</p><pre><code class="python">def foo(param):    passimport timestart = time.time()foo()end = time.time()print(end - start)from timeit import timeitprint(timeit(&#39;foo(x)&#39;, setup=&#39;from __main__ import foo&#39;, globals={&#39;x&#39;: param}), number=1)</code></pre><h2 id="逻辑运算符运算顺序"><a href="#逻辑运算符运算顺序" class="headerlink" title="逻辑运算符运算顺序"></a>逻辑运算符运算顺序</h2><p>python中逻辑运算符包括<code>not</code>，<code>and</code>和<code>or</code>，其运算顺序为<code>not&gt;and&gt;or</code>。</p>]]></content>
     
     <summary type="html">
     
@@ -259,159 +259,28 @@
   </entry>
   
   <entry>
-    <title>Pip换源</title>
-    <link href="https://yyb1995.github.io/2019/07/09/PythonPackages/pip%E6%8D%A2%E6%BA%90/"/>
-    <id>https://yyb1995.github.io/2019/07/09/PythonPackages/pip换源/</id>
+    <title>Pytorch入门</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Pytorch/Pytorch%E5%85%A5%E9%97%A8/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Pytorch/Pytorch入门/</id>
     <published>2019-07-09T03:07:19.000Z</published>
     <updated>2019-07-09T03:07:19.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="临时"><a href="#临时" class="headerlink" title="临时"></a>临时</h2><p><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple packagename</code><br><a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/" target="_blank" rel="noopener">清华大学镜像站</a></p><h2 id="永久"><a href="#永久" class="headerlink" title="永久"></a>永久</h2><p>在<code>./user/pip/</code>下新建<code>pip.ini</code>，内容为：</p><pre><code class="[global]">index-url = https://pypi.tuna.tsinghua.edu.cn/simpletrusted-host = pypi.tuna.tsinghua.edu.cn```du.cn</code></pre>]]></content>
+    <content type="html"><![CDATA[<h2 id="1-Pytorch教程"><a href="#1-Pytorch教程" class="headerlink" title="1 Pytorch教程"></a>1 Pytorch教程</h2><ol><li><a href="http://pytorch.apachecn.org/cn/docs/0.3.0/" target="_blank" rel="noopener">Pytorch中文文档</a></li><li><a href="https://pytorch.org/docs/stable/index.html" target="_blank" rel="noopener">Pytorch英文文档</a></li><li><a href="http://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html" target="_blank" rel="noopener">英文版：http://pytorch.org/tutorials/beginner/deep_learning_60min_blitz.html</a></li><li><a href="https://www.jianshu.com/p/889dbc684622" target="_blank" rel="noopener">中文版：https://www.jianshu.com/p/889dbc684622</a></li><li><a href="https://zhuanlan.zhihu.com/p/28475866" target="_blank" rel="noopener">Pytorch github项目整理</a></li></ol><h2 id="2-Pytorch安装"><a href="#2-Pytorch安装" class="headerlink" title="2 Pytorch安装"></a>2 Pytorch安装</h2><ol><li>建议使用Anaconda安装。清华大学anaconda pytorch地址： <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/</a></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;临时&quot;&gt;&lt;a href=&quot;#临时&quot; class=&quot;headerlink&quot; title=&quot;临时&quot;&gt;&lt;/a&gt;临时&lt;/h2&gt;&lt;p&gt;&lt;code&gt;pip install -i https://pypi.tuna.tsinghua.edu.cn/simple packagen
+        &lt;h2 id=&quot;1-Pytorch教程&quot;&gt;&lt;a href=&quot;#1-Pytorch教程&quot; class=&quot;headerlink&quot; title=&quot;1 Pytorch教程&quot;&gt;&lt;/a&gt;1 Pytorch教程&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;http://pytorch.apac
       
     
     </summary>
     
-      <category term="Python Packages" scheme="https://yyb1995.github.io/categories/Python-Packages/"/>
+      <category term="Pytorch" scheme="https://yyb1995.github.io/categories/Pytorch/"/>
     
     
-      <category term="Pip" scheme="https://yyb1995.github.io/tags/Pip/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Linux系统使用过程中遇到的一些问题</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Linux/Linux使用过程中的问题/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面"><a href="#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面" class="headerlink" title="1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面"></a>1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面</h2><p>这种情况可能是Nvidia显卡驱动安装出现了问题。解决方法：</p><ol><li><p>卸载原驱动：<code>sudo apt-get purge nvidia*</code></p></li><li><p>把显卡驱动加入PPA：<br><code>sudo add-apt-repository ppa:graphics-drivers</code> </p><p><code>sudo apt-get update</code></p></li><li><p>查找显卡驱动最新的版本号<br><code>sudo apt-cache search nvidia</code></p></li><li><p>采用apt-get命令在终端安装<br><code>sudo apt-get install nvidia-390 nvidia-settings nvidia-prime</code></p></li><li><p>使用<code>lsmod | grep nvidia</code>或<code>watch -n 1 nvidia-smi</code>查看是否安装成功-smi`查看是否安装成功</p></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot;&gt;&lt;a href=&quot;#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot; class=&quot;headerlink&quot; title=&quot;1 无法进入GUI界面，可以使用Ctrl+Alt
-      
-    
-    </summary>
-    
-      <category term="Linux" scheme="https://yyb1995.github.io/categories/Linux/"/>
-    
-    
-      <category term="Linux" scheme="https://yyb1995.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Latex安装</title>
-    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E5%AE%89%E8%A3%85/"/>
-    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex安装/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-11-23T01:12:44.329Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/" target="_blank" rel="noopener">texlive离线安装</a></li><li><a href="http://texstudio.sourceforge.net/" target="_blank" rel="noopener">texstudio在线安装</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;texlive离线安装&lt;/a&gt;&lt;/li&gt;
-&lt;li
-      
-    
-    </summary>
-    
-      <category term="Latex" scheme="https://yyb1995.github.io/categories/Latex/"/>
-    
-    
-      <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Latex一些坑</title>
-    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
-    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex一些坑/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2020-02-29T09:59:14.514Z</updated>
-    
-    <content type="html"><![CDATA[<ol><li><code>\indent</code>后要跟空格</li><li><code>\gather</code>不要留空行</li><li><code>\gather</code>内嵌<code>\aligned</code>不能加<code>*</code></li><li>在使用<code>\mathbb</code>前需要导入包<code>\usepackage{amsfonts}</code></li><li>插入小、中、大括号的语句分别为：<pre><code class="latex">\left\{ ... \right\}\left[ ... \right]\left( ... \right)</code></pre></li><li>图片、算法的插入一般使用<code>!htb</code>控制位置。如果强制指定图片位置，可使用<code>H</code></li><li><strong>在编译$\LaTeX$前一定要先关闭用acrobat打开的pdf文档！</strong></li><li><strong>插入图片时图片名称不要带空格和点<code>.</code>！</strong>否则可能报<code>Cannot determine size of graphic in fig.png (no BoundingBox).</code></li><li>一个<code>gather</code>环境中加入多个<code>align</code>环境且需要纵向对齐时在每一个<code>align</code>后加上<code>\\</code></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;ol&gt;
-&lt;li&gt;&lt;code&gt;\indent&lt;/code&gt;后要跟空格&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\gather&lt;/code&gt;不要留空行&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;\gather&lt;/code&gt;内嵌&lt;code&gt;\aligned&lt;/code&gt;不能加&lt;code&gt;*&lt;/code&gt;&lt;
-      
-    
-    </summary>
-    
-      <category term="Latex" scheme="https://yyb1995.github.io/categories/Latex/"/>
-    
-    
-      <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>最小二乘解与最小二乘估计</title>
-    <link href="https://yyb1995.github.io/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
-    <id>https://yyb1995.github.io/2019/07/09/MachineLearning/最小二乘解(Least-squares Minimization)/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;a href=&quot;#最小二乘解与最小二乘估计资料&quot; class=&quot;headerlink&quot; title=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;/a&gt;最小二乘解与最小二乘估计资料&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;https:/
-      
-    
-    </summary>
-    
-      <category term="Machine Learning" scheme="https://yyb1995.github.io/categories/Machine-Learning/"/>
-    
-    
-      <category term="机器学习" scheme="https://yyb1995.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>谈谈深度学习中的 Batch_Size</title>
-    <link href="https://yyb1995.github.io/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/"/>
-    <id>https://yyb1995.github.io/2019/07/09/DeepLearning/深度学习中的batch size/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2020-02-28T08:21:28.938Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>本文转载自:<a href="http://blog.csdn.net/ycheng_sjtu/article/details/49804041#reply" target="_blank" rel="noopener">谈谈深度学习中的 Batch_Size</a></p></blockquote><p>Batch_Size（批尺寸）是机器学习中一个重要参数，涉及诸多矛盾，下面逐一展开。</p><h2 id="首先，为什么需要有-Batch-Size-这个参数？"><a href="#首先，为什么需要有-Batch-Size-这个参数？" class="headerlink" title="首先，为什么需要有 Batch_Size 这个参数？"></a>首先，为什么需要有 Batch_Size 这个参数？</h2><p>Batch 的选择，首先决定的是下降的方向。如果数据集比较小，完全可以采用<strong>全数据集 （ Full Batch Learning ）</strong>的形式，这样做<strong>至少</strong>有 2 个好处：其一，由全数据集确定的方向能够更好地代表样本总体，从而更准确地朝向极值所在的方向。其二，由于不同权重的梯度值差别巨大，因此选取一个全局的学习率很困难。 Full Batch Learning 可以使用 <strong>Rprop</strong> 只基于梯度符号并且针对性单独更新各权值。</p><p>对于更大的数据集，以上 2 个好处又变成了 2 个坏处：其一，随着数据集的海量增长和内存限制，一次性载入所有的数据进来变得越来越不可行。其二，以 Rprop 的方式迭代，会由于各个 Batch 之间的采样差异性，各次梯度修正值相互抵消，无法修正。这才有了后来 <strong>RMSProp</strong> 的妥协方案。</p><h2 id="既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？"><a href="#既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？" class="headerlink" title="既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？"></a>既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？</h2><p>所谓另一个极端，就是每次只训练一个样本，即 Batch_Size = 1。这就是<strong>在线学习（Online Learning）</strong>。线性神经元在均方误差代价函数的错误面是一个抛物面，横截面是椭圆。对于多层神经元、非线性网络，在局部依然近似是抛物面。使用在线学习，每次修正方向以各自样本的梯度方向修正，横冲直撞各自为政，<strong>难以达到收敛</strong>。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195814221" alt="这里写图片描述"> </p><h2 id="可不可以选择一个适中的-Batch-Size-值呢？"><a href="#可不可以选择一个适中的-Batch-Size-值呢？" class="headerlink" title="可不可以选择一个适中的 Batch_Size 值呢？"></a>可不可以选择一个适中的 Batch_Size 值呢？</h2><p>当然可以，这就是<strong>批梯度下降法（Mini-batches Learning）</strong>。因为如果数据集足够充分，那么用一半（<strong>甚至少得多</strong>）的数据训练算出来的梯度与用全部数据训练出来的梯度是<strong>几乎一样</strong>的。</p><h2 id="在合理范围内，增大-Batch-Size-有何好处？"><a href="#在合理范围内，增大-Batch-Size-有何好处？" class="headerlink" title="在合理范围内，增大 Batch_Size 有何好处？"></a>在合理范围内，增大 Batch_Size 有何好处？</h2><ul><li>内存利用率提高了，大矩阵乘法的并行化效率提高。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。</li><li>在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。</li></ul><h2 id="盲目增大-Batch-Size-有何坏处？"><a href="#盲目增大-Batch-Size-有何坏处？" class="headerlink" title="盲目增大 Batch_Size 有何坏处？"></a>盲目增大 Batch_Size 有何坏处？</h2><ul><li>内存利用率提高了，但是内存容量可能撑不住了。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。</li><li>Batch_Size 增大到一定程度，其确定的下降方向已经基本不再变化。</li></ul><h2 id="调节-Batch-Size-对训练效果影响到底如何？"><a href="#调节-Batch-Size-对训练效果影响到底如何？" class="headerlink" title="调节 Batch_Size 对训练效果影响到底如何？"></a>调节 Batch_Size 对训练效果影响到底如何？</h2><p>这里跑一个 LeNet 在 MNIST 数据集上的效果。MNIST 是一个手写体标准库，我使用的是 <strong>Theano</strong> 框架。这是一个 Python 的深度学习库。<a href="http://deeplearning.net/software/theano/install.html#install" target="_blank" rel="noopener">安装方便</a>（几行命令而已），调试简单（自带 Profile），GPU / CPU 通吃，<a href="http://deeplearning.net/tutorial/contents.html" target="_blank" rel="noopener">官方教程相当完备</a>，支持模块十分丰富（除了 CNNs，更是支持 RBM / DBN / LSTM / RBM-RNN / SdA / MLPs）。在其上层有 <a href="http://keras.io/" target="_blank" rel="noopener">Keras</a> 封装，支持 GRU / JZS1, JZS2, JZS3 等较新结构，支持 Adagrad / Adadelta / RMSprop / Adam 等优化算法。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195829489" alt="这里写图片描述"></p><p><img src="http://img.blog.csdn.net/20151112195843957" alt="这里写图片描述"> </p><p>运行结果如上图所示，其中绝对时间做了标幺化处理。运行结果与上文分析相印证：</p><ul><li>Batch_Size 太小，算法在 200 epoches 内不收敛。</li><li>随着 Batch_Size 增大，处理相同数据量的速度越快。</li><li>随着 Batch_Size 增大，达到相同精度所需要的 epoch 数量越来越多。</li><li>由于上述两种因素的矛盾， Batch_Size 增大到<strong>某个</strong>时候，达到<strong>时间上</strong>的最优。</li><li>由于最终收敛精度会陷入不同的局部极值，因此 Batch_Size 增大到<strong>某些</strong>时候，达到最终收敛<strong>精度上</strong>的最优。</li></ul><h2 id="关于batchsize和epoch的理解"><a href="#关于batchsize和epoch的理解" class="headerlink" title="关于batchsize和epoch的理解"></a>关于batchsize和epoch的理解</h2><p>batchsize指的是使超参数发生一次迭代输入的样本数，也就是完成一次反向传播、求导、参数更新过程所需要输入的样本数。epoch指完成将所有训练数据全部应用于参数更新的过程。在样本数据比较小时，batchsize可以取为训练样本数，这样完成一次epoch只需进行一次梯度下降和参数更新。将全部输入数据作为一个batch进行训练的方法称为<strong>批梯度下降法（Batch Gradient Descend）</strong>。与之相对应的是<strong>随机梯度下降法（Stochastic Gradient Descent）</strong>。这种梯度下降法每次只选取一个样本进行参数更新，因此完成一次epoch需要进行size(X)次迭代。这种方法梯度下降的方向一般不是最优的。将这两种方法折中的一种方法称为<strong>小批量梯度下降法（Mini-batch Gradient Descent）</strong>。这种方法每次将<strong>batchsize</strong>的数据用来训练网络，完成一次迭代。那么完成一次epoch需要进行的迭代次数为<code>np.ceil(size(x) / batchsize)</code>。在实际使用时，可以在一定范围内尽可能增大batchsize的值。当然，如果增大batch值，达到相同精度的epoch数会越来越多，因此需要在精度和运算速度这两方面来考虑选取的batchsize。方面来考虑选取的batchsize。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote&gt;
-&lt;p&gt;本文转载自:&lt;a href=&quot;http://blog.csdn.net/ycheng_sjtu/article/details/49804041#reply&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;谈谈深度学习中的 Batc
-      
-    
-    </summary>
-    
-      <category term="Deep Learning" scheme="https://yyb1995.github.io/categories/Deep-Learning/"/>
-    
-    
-      <category term="深度学习" scheme="https://yyb1995.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="Pytorch" scheme="https://yyb1995.github.io/tags/Pytorch/"/>
     
   </entry>
   
@@ -444,6 +313,190 @@
   </entry>
   
   <entry>
+    <title>Latex安装</title>
+    <link href="https://yyb1995.github.io/2019/07/09/LaTeX/Latex%E5%AE%89%E8%A3%85/"/>
+    <id>https://yyb1995.github.io/2019/07/09/LaTeX/Latex安装/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-11-23T01:12:44.329Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/" target="_blank" rel="noopener">texlive离线安装</a></li><li><a href="http://texstudio.sourceforge.net/" target="_blank" rel="noopener">texstudio在线安装</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;texlive离线安装&lt;/a&gt;&lt;/li&gt;
+&lt;li
+      
+    
+    </summary>
+    
+      <category term="Latex" scheme="https://yyb1995.github.io/categories/Latex/"/>
+    
+    
+      <category term="Latex" scheme="https://yyb1995.github.io/tags/Latex/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux系统使用过程中遇到的一些问题</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Linux/Linux使用过程中的问题/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面"><a href="#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面" class="headerlink" title="1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面"></a>1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面</h2><p>这种情况可能是Nvidia显卡驱动安装出现了问题。解决方法：</p><ol><li><p>卸载原驱动：<code>sudo apt-get purge nvidia*</code></p></li><li><p>把显卡驱动加入PPA：<br><code>sudo add-apt-repository ppa:graphics-drivers</code> </p><p><code>sudo apt-get update</code></p></li><li><p>查找显卡驱动最新的版本号<br><code>sudo apt-cache search nvidia</code></p></li><li><p>采用apt-get命令在终端安装<br><code>sudo apt-get install nvidia-390 nvidia-settings nvidia-prime</code></p></li><li><p>使用<code>lsmod | grep nvidia</code>或<code>watch -n 1 nvidia-smi</code>查看是否安装成功-smi`查看是否安装成功</p></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot;&gt;&lt;a href=&quot;#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面&quot; class=&quot;headerlink&quot; title=&quot;1 无法进入GUI界面，可以使用Ctrl+Alt
+      
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://yyb1995.github.io/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://yyb1995.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>联合体（Union）</title>
+    <link href="https://yyb1995.github.io/2019/07/09/CProgrammingLanguage/%E8%81%94%E5%90%88%E4%BD%93%EF%BC%88Union%EF%BC%89/"/>
+    <id>https://yyb1995.github.io/2019/07/09/CProgrammingLanguage/联合体（Union）/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>原文地址：<a href="http://c.biancheng.net/cpp/html/2932.html" target="_blank" rel="noopener">http://c.biancheng.net/cpp/html/2932.html</a></p><h2 id="1-共用体的简介"><a href="#1-共用体的简介" class="headerlink" title="1. 共用体的简介"></a>1. 共用体的简介</h2><p>在C语言中，还有另外一种和结构体非常类似的语法，叫做共用体（Union），它的定义格式为：</p><pre><code class="c">union 共用体名{    成员列表};</code></pre><p>结构体和共用体的区别在于：结构体的各个成员会占用不同的内存，互相之间没有影响；<strong><em>而共用体的所有成员占用同一段内存，所有成员的存储首地址相同。</em></strong>因此更改一个成员的值可能影响所有成员的值。结构体占用的内存大于等于所有成员占用的内存的总和（成员之间可能会存在缝隙），<strong><em>共用体占用的内存等于最长的成员占用的内存。</em></strong>共用体使用了内存覆盖技术，同一时刻只能保存一个成员的值，如果对新的成员赋值，就会把原来成员的值覆盖掉。<br>共用体也是一种自定义类型，可以通过它来创建变量，例如：</p><pre><code class="c">union data{    int n;    char ch;    double f;};union data a, b, c;</code></pre><p>上面是先定义共用体，再创建变量，也可以在定义共用体的同时创建变量：</p><pre><code class="c">union data{    int n;    char ch;    double f;} a, b, c;</code></pre><p>如果不再定义新的变量，也可以将共用体的名字省略：</p><pre><code class="c">union{    int n;    char ch;    double f;} a, b, c;</code></pre><p>共用体 data 中，成员 f 占用的内存最多，为 8 个字节，所以 data 类型的变量（也就是 a、b、c）也占用 8 个字节的内存，请看下面的演示：</p><pre><code class="c">#include &lt;stdio.h&gt;union data{    int n;  //int类型占用4个字节    char ch;  //char类型占用1个字节    short m;  //short类型占用2个字节};int main(){    union data a;    printf(&quot;%d, %d\n&quot;, sizeof(a), sizeof(union data) );    a.n = 0x40;    printf(&quot;%X, %c, %hX\n&quot;, a.n, a.ch, a.m);    a.ch = &#39;9&#39;;    printf(&quot;%X, %c, %hX\n&quot;, a.n, a.ch, a.m);    a.m = 0x2059;    printf(&quot;%X, %c, %hX\n&quot;, a.n, a.ch, a.m);    a.n = 0x3E25AD54;    printf(&quot;%X, %c, %hX\n&quot;, a.n, a.ch, a.m);    return 0;}</code></pre><p>运行结果：</p><blockquote><p>4, 4<br>40, @, 40  //‘@’是ASCII码等于0x40的字符<br>39, 9, 39  //0x39是’9’的ASCII码<br>2059, Y, 2059  //‘Y’是ASCII码等于0x59的字符<br>3E25AD54, T, AD54</p></blockquote><p>这段代码不但验证了共用体的长度，还说明共用体成员之间会相互影响，修改一个成员的值会影响其他成员。<br>要想理解上面的输出结果，弄清成员之间究竟是如何相互影响的，就得了解各个成员在内存中的分布。以上面的 data 为例，各个成员在内存中的分布如下：</p><p><img src="http://c.biancheng.net/cpp/uploads/allimg/160811/1-160Q1152HRM.jpg" alt></p><p>成员 n、ch、m 在内存中“对齐”到一头，对 ch 赋值修改的是前一个字节，对 m 赋值修改的是前两个字节，对 n 赋值修改的是全部字节。也就是说，ch、m 会影响到 n 的一部分数据，而 n 会影响到 ch、m 的全部数据。<br>上图是在绝大多数 PC机上的内存分布情况，如果是51单片机，情况就会有所不同：</p><p><img src="http://c.biancheng.net/cpp/uploads/allimg/160811/1-160Q116311LV.jpg" alt></p><p>为什么不同的机器会有不同的分布情况呢？这跟机器的存储模式有关。</p><h2 id="2-共用体的应用"><a href="#2-共用体的应用" class="headerlink" title="2. 共用体的应用"></a>2. 共用体的应用</h2><p>共用体在一般的编程中应用较少，在单片机中应用较多。对于PC机，经常使用到的一个实例是：现有一张关于学生信息和教师信息的表格。学生信息包括姓名、编号、性别、职业、分数，教师的信息包括姓名、编号、性别、职业、教学科目。请看下面的表格：</p><table><thead><tr><th align="center">Name</th><th align="center">Num</th><th align="center">Sex</th><th align="center">Profession</th><th align="center">Score / Course</th></tr></thead><tbody><tr><td align="center">HanXiaoXiao</td><td align="center">501</td><td align="center">f</td><td align="center">s</td><td align="center">89.5</td></tr><tr><td align="center">YanWeiMin</td><td align="center">1011</td><td align="center">m</td><td align="center">t</td><td align="center">math</td></tr><tr><td align="center">LiuZhenTao</td><td align="center">109</td><td align="center">f</td><td align="center">t</td><td align="center">English</td></tr><tr><td align="center">ZhaoFeiYan</td><td align="center">982</td><td align="center">m</td><td align="center">s</td><td align="center">95.0</td></tr></tbody></table><p>f 和 m 分别表示女性和男性，s表示学生，t表示教师。可以看出，学生和教师所包含的数据是不同的。现在要求把这些信息放在同一个表格中，并设计程序输入人员信息然后输出。<br>如果把每个人的信息都看作一个结构体变量的话，那么教师和学生的前4个成员变量是一样的，第 5个成员变量可能是score或者course。当第4个成员变量的值是 s 的时候，第 5 个成员变量就是score；当第4个成员变量的值是t的时候，第 5 个成员变量就是 course。<br>经过上面的分析，我们可以设计一个包含共用体的结构体，请看下面的代码：</p><pre><code class="c">#include &lt;stdio.h&gt;#include &lt;stdlib.h&gt;#define TOTAL 4  //人员总数struct{    char name[20];    int num;    char sex;    char profession;    union{        float score;        char course[20];    } sc;} bodys[TOTAL];int main(){    int i;    //输入人员信息    for(i=0; i&lt;TOTAL; i++){        printf(&quot;Input info: &quot;);        scanf(&quot;%s %d %c %c&quot;, bodys[i].name, &amp;(bodys[i].num), &amp;(bodys[i].sex), &amp;(bodys[i].profession));        if(bodys[i].profession == &#39;s&#39;){  //如果是学生            scanf(&quot;%f&quot;, &amp;bodys[i].sc.score);        }else{  //如果是老师            scanf(&quot;%s&quot;, bodys[i].sc.course);        }        fflush(stdin);    }    //输出人员信息    printf(&quot;\nName\t\tNum\tSex\tProfession\tScore / Course\n&quot;);    for(i=0; i&lt;TOTAL; i++){        if(bodys[i].profession == &#39;s&#39;){  //如果是学生            printf(&quot;%s\t%d\t%c\t%c\t\t%f\n&quot;, bodys[i].name, bodys[i].num, bodys[i].sex, bodys[i].profession, bodys[i].sc.score);        }else{  //如果是老师            printf(&quot;%s\t%d\t%c\t%c\t\t%s\n&quot;, bodys[i].name, bodys[i].num, bodys[i].sex, bodys[i].profession, bodys[i].sc.course);        }    }    return 0;}</code></pre><p>运行结果：</p><blockquote><p>Input info: HanXiaoXiao 501 f s 89.5<br>Input info: YanWeiMin 1011 m t math<br>Input info: LiuZhenTao 109 f t English<br>Input info: ZhaoFeiYan 982 m s 95.0</p></blockquote><blockquote><p>Name            Num     Sex     Profession      Score / Course<br>HanXiaoXiao     501     f       s               89.500000<br>YanWeiMin       1011    m       t               math<br>LiuZhenTao      109     f       t               English<br>ZhaoFeiYan      982     m       s               95.000000</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;原文地址：&lt;a href=&quot;http://c.biancheng.net/cpp/html/2932.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://c.biancheng.net/cpp/html/2932.html&lt;/a&gt;&lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="C语言" scheme="https://yyb1995.github.io/categories/C%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="编程语言" scheme="https://yyb1995.github.io/tags/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Matlab GUI编程入门</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Matlab/MATLAB%20GUI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Matlab/MATLAB GUI编程入门/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2020-02-29T10:01:07.884Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-题外话"><a href="#1-题外话" class="headerlink" title="1 题外话"></a>1 题外话</h2><p>这学期刚好在学信息论，里面各种熵函数信道容量的计算十分繁杂，于是乎想编写一个有GUI界面的信息论计算器。由于MATLAB对于矩阵的运算十分方便，所以选择以MATLAB为基础进行程序编写和界面设计。</p><hr><h2 id="2-回调函数callback中常用函数"><a href="#2-回调函数callback中常用函数" class="headerlink" title="2 回调函数callback中常用函数"></a>2 回调函数callback中常用函数</h2><ol><li>get(hObject,’String’)</li></ol><ul><li>获得一个控件的字符串属性，常配合str2double函数使用，用于获得输入的数字以及判断输入的是否为数字</li><li>hObject相当于当前操作的控件的句柄，如果是在同一个GUI界面，可以使用<code>handles.Tags</code>，也就是 当前GUI的句柄名.要获得数据的控件标签名 来从其他控件获得数据。</li></ul><ol start="2"><li>set(hObject,’String’,’content’)<br>设置一个控件的字符串属性，常用于设置输入数字的设置</li><li>guidata(hObject,handles)保存前面对hObject和handles的设置，一般回传函数callback的最后一行都是这段代码，用来更新数据</li><li></li></ol><h1 id="常用对话框"><a href="#常用对话框" class="headerlink" title="常用对话框"></a>常用对话框</h1><p>tips:</p><ul><li>每个GUI窗口都有一个初始化函数，类似于<code>function simple_gui_OpeningFcn(hObject, eventdata, handles, varargin)</code>,这个初始化函数用于在创建这个GUI时创建一些参数以及在退出时返回一些参数。在这个函数中创建的参数可以被这个GUI里面的所有Object控件的回调函数调用。 </li><li><h1 id="fdsf"><a href="#fdsf" class="headerlink" title="fdsf "></a>fdsf </h1>常用控件</li></ul><ol><li>弹出菜单（Pop-up Menu）<br>在属性设置菜单（Inspector）中的’String’项可以对弹出菜单的项目进行设置，在’String’项第一行的内容将默认显示在弹出菜单中。在回调函数中，需要对弹出菜单中的每一项设置相应的代码，常用的语句是switch…case…end语句。常用的代码段：<pre><code class="matlab">string = get(hObject,&#39;String&#39;);value = get(hObject,&#39;Value&#39;);switch string{value}case &#39;A&#39; %列表第一项end</code></pre></li></ol><p>value = get(hObject,’Value’);<br>switch value<br>case 1  %1即为列表中的第一项<br>end</p><pre><code>=======================================创建新窗口的方法：1. 使用guide创建一个新窗口并对其中的控件进行设置，将其命名（假设为child.fig）2. 在触发显示新窗口的回调函数中加上如下语句：``` matlabrun(&#39;child&#39;);  %or open(&#39;child.fig&#39;);h = guihandles;  %h为新窗口的句柄变量，相当于原窗口的handles，可以使用如h.text1来操作新窗口的控件set(h.text1,&#39;String&#39;,&#39;Hello child&#39;);  %这是一个将新窗口中的text1控件显示的字符串设置成&#39;Hello child&#39;的例子</code></pre><p>======================================<br>在回调函数之间和UI之间传递数据的方法<br>1.setappdata(obj,name,val)</p><ul><li>obj为想要存储的数据所在的窗口的句柄变量，类似于handles，称为图形对象</li><li>name为存储该数据的变量名</li><li>val为数据的值<br>例如：<code>setappdata(f,&#39;todaysdate&#39;,val); %将句柄名为f的UI窗口中的数据val存放在名为todaysdate的变量中</code></li></ul><ol start="2"><li>val = getappdata(obj,name)<br>vals = getappdata(obj)</li></ol><ul><li>obj为想要取出的数据所在的窗口的句柄变量，类似于handles，它的值应该和对应的getappdata函数中的obj相同</li><li>name为存储该数据的变量名</li><li>注意左边需要设置一个val变量用于存放取出该数据的变量</li><li>vals为取出同一个图形对象中存放的所有共享数据</li></ul><p>=========================================<br>在同一个窗口中根据不同选择显示不同控件的方法<br>初始化时将要显示的控件的Visible属性选择为On，其他控件选择为Off，在每个按钮的回调函数中利用<code>set(handles.edit4,&#39;Visible&#39;,&#39;on&#39;)</code>等代码进行调整即可</p><p>=======================================<br>设置按下按钮或右上角弹出是否关闭的对话框的方法：<br>在按钮的回调函数或当前窗口的CloseRequestFcn函数中加上<br>selection = questdlg(‘Close the figure window?’,…<br>    ‘Confirmation’,…<br>    ‘Yes’,’No’,’Yes’);<br>switch selection,<br>    case ‘Yes’,<br>        delete(gcf);  %gcf为当前图像句柄<br>    case ‘No’<br>        return<br>end</p><p>============================================<br>matlab GUI中插入图片的方法<br>axes(handles.axes2);<br>imshow(‘jin.jpg’);</p><p>清除图片的方法<br>cla reset;</p><p>不显示坐标轴的方法：<br>set(handles.axes1,’visible’,’off’)<br>需要使用时改成on即可</p><p>=================================<br>控件大小通过更改position中的height和weight选项即可</p><p>换行可以使用sprintf(‘\n’)或 [char(10,13)’]实现</p><p>matlab两个浮点数或整数和浮点数比较应该用abs(a - b) &lt; eps，而不是a - b</p><p>==================================<br>调整当前窗口到屏幕中央<br><code>movegui( gcf, &#39;center&#39;)</code>。其他位置查阅movegui函数即可</p><p>===================================<br>matlab 显示矩阵<br>set(handles.uitable1, ‘Data’, comparison);</p><p>=================================<br>判断一个矩阵中所有元素是否等于0<br><code>any(abs(input2_2_temp(:) - 0 ) &gt; eps)</code></p><p>MATLAB解线性方程组<br>Ax = b<br>x = A\b</p><p>====================================<br>matlab中取出一个数组中某些特定元素<br><strong><em>a(a == 0) %取出a中所有等于0的元素，可接赋值语句，如a(a == 0) = 1;</em></strong></p><p>=================<br>MATLAB 函数句柄<br>格式：H = @(x)cos(x)<br>相当于H(x) = cos(x)</p><p>==================================<br>标记图像中的最大值</p><pre><code class="matlab">%first solutionclc;clear allx=0:0.01:2*pi;y=sin(x);p=find(y == max(y));plot(x,y,&#39;r&#39;,&#39;linewidth&#39;,2)grid ontext(x(p),y(p),&#39;o&#39;,&#39;color&#39;,&#39;g&#39;)axis([0 2*pi -1.4 1.4]);%second solutionclc;clear allx=0:0.01:2*pi;y=sin(x);p=find(y==max(y));plot(x,y,&#39;r&#39;,&#39;linewidth&#39;,2)grid onaxis([0 2*pi -1.4 1.4])text(x(p),y(p),[&#39;(&#39;,num2str(x(p)),&#39;,&#39;,num2str(y(p)),&#39;)&#39;],&#39;color&#39;,&#39;b&#39;);</code></pre><p>====================================<br>MATLAB GUI 设置每个控件的显示顺序<br>右键单击控件，有两个选项：Bring to front 和send<br> to back，可以设置控件图层顺序</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-题外话&quot;&gt;&lt;a href=&quot;#1-题外话&quot; class=&quot;headerlink&quot; title=&quot;1 题外话&quot;&gt;&lt;/a&gt;1 题外话&lt;/h2&gt;&lt;p&gt;这学期刚好在学信息论，里面各种熵函数信道容量的计算十分繁杂，于是乎想编写一个有GUI界面的信息论计算器。由于MATL
+      
+    
+    </summary>
+    
+      <category term="Matlab" scheme="https://yyb1995.github.io/categories/Matlab/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>最小二乘解与最小二乘估计</title>
+    <link href="https://yyb1995.github.io/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
+    <id>https://yyb1995.github.io/2019/07/09/MachineLearning/最小二乘解(Least-squares Minimization)/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;a href=&quot;#最小二乘解与最小二乘估计资料&quot; class=&quot;headerlink&quot; title=&quot;最小二乘解与最小二乘估计资料&quot;&gt;&lt;/a&gt;最小二乘解与最小二乘估计资料&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;https:/
+      
+    
+    </summary>
+    
+      <category term="Machine Learning" scheme="https://yyb1995.github.io/categories/Machine-Learning/"/>
+    
+    
+      <category term="机器学习" scheme="https://yyb1995.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用Keras搭建第一个神经网络</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Keras/Build the First Neural Network/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2019-07-09T03:07:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-Steps"><a href="#1-Steps" class="headerlink" title="1 Steps"></a>1 Steps</h2><ol><li>Load Data</li><li>Define Model</li><li>Compile Model</li><li>Fit Model</li><li>Evaluate Model</li><li>Tie It All Together</li></ol><h2 id="2-Load-Data"><a href="#2-Load-Data" class="headerlink" title="2 Load Data"></a>2 Load Data</h2><ol><li>Define a certain random number seed. By doing so, you can get the same result to compare it with other model.<br>Method:<pre><code class="python">import numpy as npnp.random.seed(7)</code></pre>We use <a href="https://yun.baidu.com/s/1c24tweW#list/path=%2F" target="_blank" rel="noopener">pima-indians-diabetes.csv</a> as our dataset. To load the .csv data, we use <code>np.loadtxt</code> and split it into input and output section. <h2 id="3-Define-Model"><a href="#3-Define-Model" class="headerlink" title="3 Define Model"></a>3 Define Model</h2>Models in Keras are defined as a sequence of layers.While defining the first layer, we can define the input number with the <strong>input_dim</strong> argument.<br>In this example, we will use a fully-connected network structure with three layers.<br>Fully connected layers are defined using the <strong>Dense class</strong>. We can specify:</li><li><strong>the number of neurons</strong> in the layer as the first argument</li><li>the initialization method as the second argument as <strong>init</strong> </li><li>specify the activation function using the <strong>activation</strong> argument.<h2 id="4-Build-the-Model"><a href="#4-Build-the-Model" class="headerlink" title="4 Build the Model"></a>4 Build the Model</h2>define a model class. In this problem, we use a sequential model. So we use a <code>model = keras.sequential()</code> to instantiate the class. And then use the <code>.add</code> method to add layers in the model.<br>We want to add a layer into our model, so we use <code>keras.layers.Dense()</code> to be the parameter of <code>add</code>. The activation function must be in the string form like <code>activation=&#39;relu&#39;</code>.</li></ol><h2 id="5-Compile-the-Model"><a href="#5-Compile-the-Model" class="headerlink" title="5 Compile the Model"></a>5 Compile the Model</h2><p>When compiling, we must specify some additional properties required when training the network.We must specify the <strong>loss function</strong> to use to evaluate a set of weights, <strong>the optimizer</strong> used to search through different weights for the network and <strong>any optional metrics we would like to collect and report</strong> during training.</p><h2 id="6-Fit-the-model"><a href="#6-Fit-the-model" class="headerlink" title="6 Fit the model"></a>6 Fit the model</h2><p>use <code>model.fit()</code> method to define fit parameters like epochs and batch_size.</p><h2 id="7-Evaluate-the-model"><a href="#7-Evaluate-the-model" class="headerlink" title="7 Evaluate the model"></a>7 Evaluate the model</h2><p>use <code>model.evaluate</code> and a set of X and Y to calculate the model performance.</p><h2 id="8-Prediction"><a href="#8-Prediction" class="headerlink" title="8 Prediction"></a>8 Prediction</h2><p>use <code>model.fit</code> and a set of X to predict the predicted Y value.</p><h2 id="9-Related-material"><a href="#9-Related-material" class="headerlink" title="9 Related material"></a>9 Related material</h2><ol><li><a href="https://machinelearningmastery.com/" target="_blank" rel="noopener">https://machinelearningmastery.com/</a></li><li><a href="https://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">Keras中文文档</a></li><li><a href="https://github.com/keras-team/keras/tree/master/examples" target="_blank" rel="noopener">Keras Example</a><br>s-team/keras/tree/master/examples)</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;1-Steps&quot;&gt;&lt;a href=&quot;#1-Steps&quot; class=&quot;headerlink&quot; title=&quot;1 Steps&quot;&gt;&lt;/a&gt;1 Steps&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;Load Data&lt;/li&gt;
+&lt;li&gt;Define Model&lt;/li&gt;
+&lt;li&gt;Com
+      
+    
+    </summary>
+    
+      <category term="Keras" scheme="https://yyb1995.github.io/categories/Keras/"/>
+    
+    
+      <category term="深度学习" scheme="https://yyb1995.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>颜色收集</title>
+    <link href="https://yyb1995.github.io/2019/07/09/Others/%E5%B8%B8%E7%94%A8%E9%A2%9C%E8%89%B2%E6%94%B6%E9%9B%86/"/>
+    <id>https://yyb1995.github.io/2019/07/09/Others/常用颜色收集/</id>
+    <published>2019-07-09T03:07:19.000Z</published>
+    <updated>2020-02-29T09:57:18.920Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>#929292 grey#FFBBFF pink#BBFFBB green#BBFFFF blue#FFFFBB yellow#FF9999 red</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;#929292 grey
+#FFBBFF pink
+#BBFFBB green
+#BBFFFF blue
+#FFFFBB yellow
+#FF9999 red&lt;/code&gt;&lt;/pre&gt;
+      
+    
+    </summary>
+    
+      <category term="Others" scheme="https://yyb1995.github.io/categories/Others/"/>
+    
+    
+      <category term="Color" scheme="https://yyb1995.github.io/tags/Color/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Python 迭代器(iterator) 生成器(generator)</title>
     <link href="https://yyb1995.github.io/2019/07/09/Python/Python%20%E8%BF%AD%E4%BB%A3%E5%99%A8(iterator)%20%E7%94%9F%E6%88%90%E5%99%A8(generator)/"/>
     <id>https://yyb1995.github.io/2019/07/09/Python/Python 迭代器(iterator) 生成器(generator)/</id>
@@ -459,59 +512,6 @@
         &lt;h2 id=&quot;可迭代对象-iterable&quot;&gt;&lt;a href=&quot;#可迭代对象-iterable&quot; class=&quot;headerlink&quot; title=&quot;可迭代对象(iterable)&quot;&gt;&lt;/a&gt;可迭代对象(iterable)&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;定义&lt;/p&gt;
 &lt;p&gt; 
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://yyb1995.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://yyb1995.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python常用文件及目录操作</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Python/Python%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Python/Python常用文件及目录操作/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="1-目录操作"><a href="#1-目录操作" class="headerlink" title="1 目录操作"></a>1 目录操作</h2><ol><li>遍历文件夹：<code>os.listdir()</code></li><li>得到当前工作目录：<code>os.getcwd()</code></li><li>新建文件夹：<code>os.makedirs()</code></li></ol><h2 id="2-删除相关"><a href="#2-删除相关" class="headerlink" title="2 删除相关"></a>2 删除相关</h2><ol><li>删除文件：<code>os.remove()</code></li><li>删除空文件夹：<code>os.removedirs()</code></li><li>删除空/非空文件夹：<code>shutil.rmtree()</code></li></ol><h2 id="3-检验相关"><a href="#3-检验相关" class="headerlink" title="3 检验相关"></a>3 检验相关</h2><ol><li>检验路径是否为文件：<code>os.path.isfile()</code></li><li>检验路径是否为文件夹：<code>os.path.isdir()</code></li><li>检验路径是否为快捷方式：<code>os.path.islink()</code></li><li>检验路径是否存在：<code>os.path.exists()</code></li></ol><h2 id="4-分离目录、文件相关"><a href="#4-分离目录、文件相关" class="headerlink" title="4 分离目录、文件相关"></a>4 分离目录、文件相关</h2><ol><li>分离路径的目录名和文件名：<code>os.path.split()</code></li><li>分离扩展名：<code>os.path.splitext()</code>。注意：分离出的扩展名带<code>.</code></li><li>分离扩展名2：<code>path.split(&#39;.&#39;)</code>。分离出的扩展名不带<code>.</code></li></ol><h2 id="5-重命名"><a href="#5-重命名" class="headerlink" title="5 重命名"></a>5 重命名</h2><ol><li>重命名文件/文件夹：<code>os.rename(old, new)</code></li></ol><h2 id="6-复制相关"><a href="#6-复制相关" class="headerlink" title="6 复制相关"></a>6 复制相关</h2><ol><li>复制文件：<code>shutil.copyfile(old, new)</code>。注意：old和new必须是文件</li><li>复制文件：<code>shutil.copy(old, new)</code>。注意：old必须是文件，new可以是文件/文件夹。如果是文件夹，执行的操作是复制文件到指定文件夹</li><li>复制文件夹：<code>shutil.copytree(olddir, newdir)</code>。注意：olddir和newdir都必须是文件夹，且newdir必须不存在</li></ol><h2 id="7-移动相关"><a href="#7-移动相关" class="headerlink" title="7 移动相关"></a>7 移动相关</h2><ol><li>移动文件/文件夹：<code>shutil.move(old, new)</code><br>件夹：<code>shutil.move(old, new)</code></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;1-目录操作&quot;&gt;&lt;a href=&quot;#1-目录操作&quot; class=&quot;headerlink&quot; title=&quot;1 目录操作&quot;&gt;&lt;/a&gt;1 目录操作&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;遍历文件夹：&lt;code&gt;os.listdir()&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;得到当前工作目
-      
-    
-    </summary>
-    
-      <category term="Python" scheme="https://yyb1995.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://yyb1995.github.io/tags/Python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Google Python Style Guide</title>
-    <link href="https://yyb1995.github.io/2019/07/09/Python/simpread-styleguide%20_%20Style%20guides%20for%20Google-originated%20open-source%20projects/"/>
-    <id>https://yyb1995.github.io/2019/07/09/Python/simpread-styleguide _ Style guides for Google-originated open-source projects/</id>
-    <published>2019-07-09T03:07:19.000Z</published>
-    <updated>2019-07-09T03:07:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><a href="http://google.github.io/styleguide/" target="_blank" rel="noopener">Google Python styleguide</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;http://google.github.io/styleguide/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Google Python styleguide&lt;/a&gt;&lt;/p&gt;
-
       
     
     </summary>
