@@ -42,56 +42,6 @@
     
     
     <entry>
-      <title>Git常用命令</title>
-      <link href="/2019/10/18/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
-      <url>/2019/10/18/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
-      
-        <content type="html"><![CDATA[<h2 id="提交一个工程到github"><a href="#提交一个工程到github" class="headerlink" title="提交一个工程到github"></a><a href="https://blog.csdn.net/codingEMIPark/article/details/78016588" target="_blank" rel="noopener">提交一个工程到github</a></h2><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul><li>git config –global user.name xxx</li><li>git config –global user.email <a href="mailto:xxx@xxx.com" target="_blank" rel="noopener">xxx@xxx.com</a></li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul><li><code>git init</code></li><li><code>git pull origin master</code></li><li><code>git push origin master</code></li><li><code>git add .</code></li><li><code>git add -A</code> 提交所有改变（包括删除）</li><li><code>git commit -m &#39;commit_content&#39;</code></li><li><code>git checkout filename</code></li><li><code>git clone xx</code></li><li><code>git clone xx --depth=1</code> 只拷贝最近一次的提交</li></ul><h2 id="在coding-net中添加项目的流程"><a href="#在coding-net中添加项目的流程" class="headerlink" title="在coding.net中添加项目的流程"></a>在coding.net中添加项目的流程</h2><pre><code>1. 将～/.ssh中的public key加入coding.net的设置中2. `git init`3. `git add .`4. `git commit -m &#39;content&#39;`5. `git remote add origin gitaddress`6. `git push origin master`</code></pre><h2 id="创建分支和转换的流程"><a href="#创建分支和转换的流程" class="headerlink" title="创建分支和转换的流程"></a>创建分支和转换的流程</h2><pre><code>1. 创建分支：`git branch &lt;name&gt;`2. 切换分支：`git checkout &lt;name&gt;`3. 创建加切换分支：`git checkout -b &lt;name&gt;`4. 删除本地分支：`git branch -d &lt;branch_name&gt;`</code></pre><h2 id="创建多个远程仓库并上传不同分支"><a href="#创建多个远程仓库并上传不同分支" class="headerlink" title="创建多个远程仓库并上传不同分支"></a>创建多个远程仓库并上传不同分支</h2><pre><code>1. 创建多个远程仓库：`git remote add &lt;name&gt; &lt;address&gt;`. 注意：远程仓库名不能于origin相同2. 上传不同分支到远程仓库： `git push &lt;remote_name&gt; &lt;local name&gt;`3. 删除远程仓库中的分支：`git push &lt;remote_name&gt; --delete &lt;branch_name&gt;`.注意，在github上删除master分支前要先到设置更改默认分支.</code></pre><h2 id="查看git的状态"><a href="#查看git的状态" class="headerlink" title="查看git的状态"></a>查看git的状态</h2><p><code>git status</code></p><h2 id="查看文件修改状态"><a href="#查看文件修改状态" class="headerlink" title="查看文件修改状态"></a>查看文件修改状态</h2><p><code>git diff (filename)</code></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Git </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Git </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>numpy</title>
-      <link href="/2019/10/18/PythonPackages/numpy/"/>
-      <url>/2019/10/18/PythonPackages/numpy/</url>
-      
-        <content type="html"><![CDATA[<h2 id="导入numpy"><a href="#导入numpy" class="headerlink" title="导入numpy"></a>导入numpy</h2><p>常用代码：<code>import numpy as np</code>或<code>from numpy import *</code>。建议使用第一种。使用第一种时要在numpy函数前加上<code>np.xxx</code>，如·<code>np.array</code></p><h2 id="矩阵的创建"><a href="#矩阵的创建" class="headerlink" title="矩阵的创建"></a>矩阵的创建</h2><p>常用代码:</p><ol><li>创建数组<br><code>np.array([[1,2,3]])</code>创建一个1*3的numpy数组</li><li>创建全1矩阵<br><code>np.ones([a,b])</code>创建一个a*b的矩阵，元素全为1</li></ol><p><strong><em>注意：np.ones和np.zeros的参数是一维向量，需要使用[]，而np.random.rand不需要使用[]</em></strong></p><ol start="3"><li>创建全0矩阵<br><code>np.zeros([a,b])</code>创建一个a*b的矩阵，元素全为0</li><li>创建对角矩阵<br><code>np.diag([a,b,c])</code>创建一个对角线元素为a,b,c的矩阵<br><code>np.diag([[a,b,c],[d,e,f],[g,h,i]])</code>创建一个1*3向量，元素为矩阵对角线元素</li></ol><h2 id="矩阵的运算"><a href="#矩阵的运算" class="headerlink" title="矩阵的运算"></a>矩阵的运算</h2><ol><li><p>计算向量间的欧氏距离</p><pre><code class="python">a1 = np.array([[1,2],[2,3]])a2 = np.array([[2,0],[2,1]])dist = np.linalg.norm(a1 - a2)print(dist)</code></pre></li><li><p>一维数组的转置<br><code>np.transpose([a])</code></p></li><li><p>矩阵的排序<br><code>np.sort(a, axis=-1, kind=&#39;quicksort&#39;, order=None)</code><br>返回排序好的矩阵，a为原矩阵，axis为排序方向，axis = 0为纵轴排序，axis = 1位横轴排序</p></li><li><p>垂直合并矩阵<br><code>np.vstack((a,b))</code><br>将a,b矩阵垂直合并</p></li><li><p>水平合并矩阵<br><code>np.hstack((a,b))</code><br>将a,b矩阵水平合并</p></li><li><p>按矩阵某行排序<br><code>data = data[:,data[2].argsort()]</code><br>按第3行从小到大排序</p></li><li><p>按矩阵某列排序<br><code>data = data[data[:,2].argsort()]</code><br>按第3列从小到大排序</p></li><li><p>矩阵的乘法<br><code>np.dot(a,b)</code></p></li><li><p>多矩阵乘法<br><code>np.linalg.multi_dot([a,b,c])</code></p></li><li><p>矩阵的加法<br><code>np.sum(a)</code><br><code>np.sum(a,axis = 0)  #每列相加</code><br><code>np.sum(a,axis = 1)  #每行相加</code><br>axis代表相加后消失的维数</p></li><li><p>矩阵的删除<br><code>np.delete(X,0,axis=0)</code><br>删除矩阵第一行</p></li><li><p>行向量转列向量<br><code>a.shape = (3,1)</code></p></li><li><p>矩阵的随机化<br><code>np.random.shuffle(matrix)</code><br>沿着第一维进行重新排列。如果是二维数据，那么就按行进行重新排列</p></li><li><p>去除nan值<br><code>x = x[~np.isnan(x)]</code><br><code>np.nanmean(np.array([1, 2, 3, np.nan])</code></p></li><li><p>统计矩阵不重复的行或列<br><code>unq, cnt = np.unique(a, return_counts=True, axis=0)</code><br><code>return counts</code>表示返回不重复行/列的数目，<code>axis=0</code>表示从行的方向统计。</p></li><li><p>矩阵的重叠<br>在numpy中，矩阵的重叠有两种： np.tile()和np.repeat()。np.tile()是将整个矩阵进行重叠，np.repeat()是将矩阵中的每个元素进行重叠。</p><pre><code class="python">a = np.array([[1, 2, 3], [4, 5, 6]])b = np.tile(a, (2, 1))c = np.repeat(a, 2, axis=0)&gt;&gt;&gt; barray([[1, 2, 3],   [2, 3, 4],   [1, 2, 3],   [2, 3, 4]])&gt;&gt;&gt; carray([[1, 2, 3],   [1, 2, 3],   [2, 3, 4],   [2, 3, 4]])</code></pre></li><li><p>使用元组索引数组<br>可以使用元组对数组进行索引，即<code>a[(2, 3)]</code>。如果是其他类型的，可以使用<code>tuple()</code>进行转换。</p></li></ol><h2 id="矩阵元素操作"><a href="#矩阵元素操作" class="headerlink" title="矩阵元素操作"></a>矩阵元素操作</h2><ol><li>找出所有等于某个值的所有元素的下标<pre><code class="python">a = np.random.randint(1, 10, 100)np.where(a == 2)np.argwhere(a == 2)</code></pre></li></ol><h2 id="数据的产生"><a href="#数据的产生" class="headerlink" title="数据的产生"></a>数据的产生</h2><ol><li>正态分布数据<br><code>numpy.random.normal(loc, scale, size)</code><br>loc：float<br> 此概率分布的均值（对应着整个分布的中心centre）<br>scale：float<br> 此概率分布的标准差（对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高）<br>size：int or tuple of ints<br> 输出的shape，默认为None，只输出一个值</li><li>随机分布数据<br><code>numpy.random.rand(a,b)</code>创建一个维数为a*b，数值在[0,1)的随机矩阵</li><li>标准正态分布数据中随机抽取<br><code>numpy.random.randn(a,b)</code>创建一个维数为a*b，数值取值为标准正态分布中随机取样本点</li><li>产生不重复随机数组<br><code>random.sample(a,b)</code>在a数组的范围内随机产生b个不重复的随机数</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Python Packages </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> numpy </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Pytorch常用tensor操作</title>
       <link href="/2019/10/18/Pytorch/Pytorch%E4%B8%AD%E5%B8%B8%E7%94%A8tensor%E6%93%8D%E4%BD%9C/"/>
       <url>/2019/10/18/Pytorch/Pytorch%E4%B8%AD%E5%B8%B8%E7%94%A8tensor%E6%93%8D%E4%BD%9C/</url>
@@ -134,6 +84,56 @@
         <tags>
             
             <tag> Python </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>numpy</title>
+      <link href="/2019/10/18/PythonPackages/numpy/"/>
+      <url>/2019/10/18/PythonPackages/numpy/</url>
+      
+        <content type="html"><![CDATA[<h2 id="导入numpy"><a href="#导入numpy" class="headerlink" title="导入numpy"></a>导入numpy</h2><p>常用代码：<code>import numpy as np</code>或<code>from numpy import *</code>。建议使用第一种。使用第一种时要在numpy函数前加上<code>np.xxx</code>，如·<code>np.array</code></p><h2 id="矩阵的创建"><a href="#矩阵的创建" class="headerlink" title="矩阵的创建"></a>矩阵的创建</h2><p>常用代码:</p><ol><li>创建数组<br><code>np.array([[1,2,3]])</code>创建一个1*3的numpy数组</li><li>创建全1矩阵<br><code>np.ones([a,b])</code>创建一个a*b的矩阵，元素全为1</li></ol><p><strong><em>注意：np.ones和np.zeros的参数是一维向量，需要使用[]，而np.random.rand不需要使用[]</em></strong></p><ol start="3"><li>创建全0矩阵<br><code>np.zeros([a,b])</code>创建一个a*b的矩阵，元素全为0</li><li>创建对角矩阵<br><code>np.diag([a,b,c])</code>创建一个对角线元素为a,b,c的矩阵<br><code>np.diag([[a,b,c],[d,e,f],[g,h,i]])</code>创建一个1*3向量，元素为矩阵对角线元素</li></ol><h2 id="矩阵的运算"><a href="#矩阵的运算" class="headerlink" title="矩阵的运算"></a>矩阵的运算</h2><ol><li><p>计算向量间的欧氏距离</p><pre><code class="python">a1 = np.array([[1,2],[2,3]])a2 = np.array([[2,0],[2,1]])dist = np.linalg.norm(a1 - a2)print(dist)</code></pre></li><li><p>一维数组的转置<br><code>np.transpose([a])</code></p></li><li><p>矩阵的排序<br><code>np.sort(a, axis=-1, kind=&#39;quicksort&#39;, order=None)</code><br>返回排序好的矩阵，a为原矩阵，axis为排序方向，axis = 0为纵轴排序，axis = 1位横轴排序</p></li><li><p>垂直合并矩阵<br><code>np.vstack((a,b))</code><br>将a,b矩阵垂直合并</p></li><li><p>水平合并矩阵<br><code>np.hstack((a,b))</code><br>将a,b矩阵水平合并</p></li><li><p>按矩阵某行排序<br><code>data = data[:,data[2].argsort()]</code><br>按第3行从小到大排序</p></li><li><p>按矩阵某列排序<br><code>data = data[data[:,2].argsort()]</code><br>按第3列从小到大排序</p></li><li><p>矩阵的乘法<br><code>np.dot(a,b)</code></p></li><li><p>多矩阵乘法<br><code>np.linalg.multi_dot([a,b,c])</code></p></li><li><p>矩阵的加法<br><code>np.sum(a)</code><br><code>np.sum(a,axis = 0)  #每列相加</code><br><code>np.sum(a,axis = 1)  #每行相加</code><br>axis代表相加后消失的维数</p></li><li><p>矩阵的删除<br><code>np.delete(X,0,axis=0)</code><br>删除矩阵第一行</p></li><li><p>行向量转列向量<br><code>a.shape = (3,1)</code></p></li><li><p>矩阵的随机化<br><code>np.random.shuffle(matrix)</code><br>沿着第一维进行重新排列。如果是二维数据，那么就按行进行重新排列</p></li><li><p>去除nan值<br><code>x = x[~np.isnan(x)]</code><br><code>np.nanmean(np.array([1, 2, 3, np.nan])</code></p></li><li><p>统计矩阵不重复的行或列<br><code>unq, cnt = np.unique(a, return_counts=True, axis=0)</code><br><code>return counts</code>表示返回不重复行/列的数目，<code>axis=0</code>表示从行的方向统计。</p></li><li><p>矩阵的重叠<br>在numpy中，矩阵的重叠有两种： np.tile()和np.repeat()。np.tile()是将整个矩阵进行重叠，np.repeat()是将矩阵中的每个元素进行重叠。</p><pre><code class="python">a = np.array([[1, 2, 3], [4, 5, 6]])b = np.tile(a, (2, 1))c = np.repeat(a, 2, axis=0)&gt;&gt;&gt; barray([[1, 2, 3],   [2, 3, 4],   [1, 2, 3],   [2, 3, 4]])&gt;&gt;&gt; carray([[1, 2, 3],   [1, 2, 3],   [2, 3, 4],   [2, 3, 4]])</code></pre></li><li><p>使用元组索引数组<br>可以使用元组对数组进行索引，即<code>a[(2, 3)]</code>。如果是其他类型的，可以使用<code>tuple()</code>进行转换。</p></li></ol><h2 id="矩阵元素操作"><a href="#矩阵元素操作" class="headerlink" title="矩阵元素操作"></a>矩阵元素操作</h2><ol><li>找出所有等于某个值的所有元素的下标<pre><code class="python">a = np.random.randint(1, 10, 100)np.where(a == 2)np.argwhere(a == 2)</code></pre></li></ol><h2 id="数据的产生"><a href="#数据的产生" class="headerlink" title="数据的产生"></a>数据的产生</h2><ol><li>正态分布数据<br><code>numpy.random.normal(loc, scale, size)</code><br>loc：float<br> 此概率分布的均值（对应着整个分布的中心centre）<br>scale：float<br> 此概率分布的标准差（对应于分布的宽度，scale越大越矮胖，scale越小，越瘦高）<br>size：int or tuple of ints<br> 输出的shape，默认为None，只输出一个值</li><li>随机分布数据<br><code>numpy.random.rand(a,b)</code>创建一个维数为a*b，数值在[0,1)的随机矩阵</li><li>标准正态分布数据中随机抽取<br><code>numpy.random.randn(a,b)</code>创建一个维数为a*b，数值取值为标准正态分布中随机取样本点</li><li>产生不重复随机数组<br><code>random.sample(a,b)</code>在a数组的范围内随机产生b个不重复的随机数</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python Packages </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> numpy </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Git常用命令</title>
+      <link href="/2019/10/18/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"/>
+      <url>/2019/10/18/Git/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h2 id="提交一个工程到github"><a href="#提交一个工程到github" class="headerlink" title="提交一个工程到github"></a><a href="https://blog.csdn.net/codingEMIPark/article/details/78016588" target="_blank" rel="noopener">提交一个工程到github</a></h2><h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><ul><li>git config –global user.name xxx</li><li>git config –global user.email <a href="mailto:xxx@xxx.com" target="_blank" rel="noopener">xxx@xxx.com</a></li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul><li><code>git init</code></li><li><code>git pull origin master</code></li><li><code>git push origin master</code></li><li><code>git add .</code></li><li><code>git add -A</code> 提交所有改变（包括删除）</li><li><code>git commit -m &#39;commit_content&#39;</code></li><li><code>git checkout filename</code></li><li><code>git clone xx</code></li><li><code>git clone xx --depth=1</code> 只拷贝最近一次的提交</li></ul><h2 id="在coding-net中添加项目的流程"><a href="#在coding-net中添加项目的流程" class="headerlink" title="在coding.net中添加项目的流程"></a>在coding.net中添加项目的流程</h2><pre><code>1. 将～/.ssh中的public key加入coding.net的设置中2. `git init`3. `git add .`4. `git commit -m &#39;content&#39;`5. `git remote add origin gitaddress`6. `git push origin master`</code></pre><h2 id="创建分支和转换的流程"><a href="#创建分支和转换的流程" class="headerlink" title="创建分支和转换的流程"></a>创建分支和转换的流程</h2><pre><code>1. 创建分支：`git branch &lt;name&gt;`2. 切换分支：`git checkout &lt;name&gt;`3. 创建加切换分支：`git checkout -b &lt;name&gt;`4. 删除本地分支：`git branch -d &lt;branch_name&gt;`</code></pre><h2 id="创建多个远程仓库并上传不同分支"><a href="#创建多个远程仓库并上传不同分支" class="headerlink" title="创建多个远程仓库并上传不同分支"></a>创建多个远程仓库并上传不同分支</h2><pre><code>1. 创建多个远程仓库：`git remote add &lt;name&gt; &lt;address&gt;`. 注意：远程仓库名不能于origin相同2. 上传不同分支到远程仓库： `git push &lt;remote_name&gt; &lt;local name&gt;`3. 删除远程仓库中的分支：`git push &lt;remote_name&gt; --delete &lt;branch_name&gt;`.注意，在github上删除master分支前要先到设置更改默认分支.</code></pre><h2 id="查看git的状态"><a href="#查看git的状态" class="headerlink" title="查看git的状态"></a>查看git的状态</h2><p><code>git status</code></p><h2 id="查看文件修改状态"><a href="#查看文件修改状态" class="headerlink" title="查看文件修改状态"></a>查看文件修改状态</h2><p><code>git diff (filename)</code></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Git </tag>
             
         </tags>
       
@@ -224,23 +224,23 @@
     
     
     <entry>
-      <title>Pip换源</title>
-      <link href="/2019/07/09/PythonPackages/pip%E6%8D%A2%E6%BA%90/"/>
-      <url>/2019/07/09/PythonPackages/pip%E6%8D%A2%E6%BA%90/</url>
+      <title>正则表达式一些知识点</title>
+      <link href="/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+      <url>/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
       
-        <content type="html"><![CDATA[<h2 id="临时"><a href="#临时" class="headerlink" title="临时"></a>临时</h2><p><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple packagename</code><br><a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/" target="_blank" rel="noopener">清华大学镜像站</a></p><h2 id="永久"><a href="#永久" class="headerlink" title="永久"></a>永久</h2><p>在<code>./user/pip/</code>下新建<code>pip.ini</code>，内容为：</p><pre><code class="[global]">index-url = https://pypi.tuna.tsinghua.edu.cn/simpletrusted-host = pypi.tuna.tsinghua.edu.cn```du.cn</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-括号的区别"><a href="#1-括号的区别" class="headerlink" title="1 括号的区别"></a>1 括号的区别</h2><ul><li><p>小括号()：匹配小括号内的字符串，可以是一个，也可以是多个，常跟“|”（或）符号搭配使用，是多选结构的。<strong>通俗的说小括号匹配的是具体的字符</strong><br>示例1：string name = “way2014”;  regex：(way|zgw)  result：结果是可以匹配出way的，因为是多选结构，小括号是匹配字符串的<br>示例2：string text = “123456789”;  regex：(0-9)　result：结果是什么都匹配不到的，它只匹配字符串”0-9”而不是匹配数字, [0-9]这个字符组才是匹配0-9的数字</p></li><li><p>中括号[]：匹配字符组内的字符，比如咱们常用的[0-9a-zA-Z.*?!]等，在[]内的字符都是字符，不是元字符，比如“0-9”、“a-z”这中间的“-”就是连接符号，表示范围的元字符，如果写成[-!?*(]这样的话，就是普通字符。<strong>通俗的说中括号匹配的是元字符</strong><br>示例1： string text = “1234567890”;  regex：[0-9]  result：结果是可以匹配出字符串text内的任意数字了，像上边的【或符号“|”在字符组内就是一个普通字符】<br>示例2：string text = “a|e|s|v”;  regex：[a|e|s]  result：结果就是匹配字符a、e、|三个字符，这个跟(a|e|s)有区别的，区别就是(a|e|s)匹配的是a、e、s三个字符的随意一个，三个中的任意一个，这是的|是元字符</p></li><li><p>大括号{}：匹配次数，匹配在它之前表达式匹配出来的元素出现的次数，{n}出现n次、{n,}匹配最少出现n次、{n,m}匹配最少出现n次，最多出现m次</p></li></ul><h2 id="2-替换一部分内容"><a href="#2-替换一部分内容" class="headerlink" title="2 替换一部分内容"></a>2 替换一部分内容</h2><p>在替换正则表达式内容时，有时需要保持一部分内容不变。具体做法是：将需要保留的部分用小括号括起来，在修改后的表达式中使用<code>$1</code>,<code>$2</code>…引用。<code>$0</code>表示整个匹配项。如：<br>把trim(ABC)替换成trim(replace(ABC,char(9),’    ‘)，正则表达式为：<br><code>trim\(([^).]*)\)</code>替换成<code>trim\(replace\($1,char\(9\),&#39;    &#39;\)</code><br>place($1,char(9),’    ‘)`</p>]]></content>
       
       
       <categories>
           
-          <category> Python Packages </category>
+          <category> Regex </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Pip </tag>
+            <tag> 正则表达式 </tag>
             
         </tags>
       
@@ -249,23 +249,23 @@
     
     
     <entry>
-      <title>最小二乘解与最小二乘估计</title>
-      <link href="/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
-      <url>/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/</url>
+      <title>Linux系统使用过程中遇到的一些问题</title>
+      <link href="/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面"><a href="#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面" class="headerlink" title="1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面"></a>1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面</h2><p>这种情况可能是Nvidia显卡驱动安装出现了问题。解决方法：</p><ol><li><p>卸载原驱动：<code>sudo apt-get purge nvidia*</code></p></li><li><p>把显卡驱动加入PPA：<br><code>sudo add-apt-repository ppa:graphics-drivers</code> </p><p><code>sudo apt-get update</code></p></li><li><p>查找显卡驱动最新的版本号<br><code>sudo apt-cache search nvidia</code></p></li><li><p>采用apt-get命令在终端安装<br><code>sudo apt-get install nvidia-390 nvidia-settings nvidia-prime</code></p></li><li><p>使用<code>lsmod | grep nvidia</code>或<code>watch -n 1 nvidia-smi</code>查看是否安装成功-smi`查看是否安装成功</p></li></ol>]]></content>
       
       
       <categories>
           
-          <category> Machine Learning </category>
+          <category> Linux </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 机器学习 </tag>
+            <tag> Linux </tag>
             
         </tags>
       
@@ -299,25 +299,69 @@
     
     
     <entry>
-      <title>Latex常用代码段</title>
-      <link href="/2019/07/09/LaTeX/Latex%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
-      <url>/2019/07/09/LaTeX/Latex%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E6%AE%B5/</url>
+      <title>最小二乘解与最小二乘估计</title>
+      <link href="/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/"/>
+      <url>/2019/07/09/MachineLearning/%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E8%A7%A3(Least-squares%20Minimization)/</url>
       
-        <content type="html"><![CDATA[<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p><strong>一些小技巧：</strong></p><blockquote><ul><li>公式环境加<code>*</code>号会参与自动编号</li><li>公式环境可以嵌套。内层嵌套不能使用<code>*</code>号，且要&gt;加上<code>ed</code>。</li><li>最好不要留多余空行，否则可能报错。</li></ul></blockquote><ol><li><p>行内公式<br><code>$\a+b=c$</code></p></li><li><p>单行行间公式</p><pre><code class="latex">\begin{equation}X(i, j) = \begin{cases}0, \quad X(i, j)\text{缺失}\\1, \quad \text{其它}\end{cases}\end{equation}</code></pre></li><li><p>多行推导公式</p><pre><code class="latex">\begin{align*}f(x) &amp;= (x+a)(x+b) \\&amp;= x^2 + (a+b)x + ab\end{align*}</code></pre></li><li><p>多行对齐公式</p><pre><code class="latex"> \begin{gather*}     E(Y_t) = \mu \\     E\left(Y_{t}-\mu\right)^{2}=E\left(\epsilon_{t}+\theta \epsilon_{t-1}\right)^{2}=\left(1+\theta^{2}\right) \sigma^{2} \\     E\left(Y_{t}-\mu\right)\left(Y_{t-1}-\mu\right)=\theta \sigma^{2} \\    \end{gather*}</code></pre></li><li><p>多行条件公式</p><pre><code class="latex">\begin{equation}\begin{cases} 123&amp;a=5\\ 433434&amp;a=64554\\\end{cases}\end{equation}</code></pre></li><li><p>gather内嵌套align</p><pre><code class="latex">gather*内嵌套aligned：\begin{gather*}c=53223\begin{aligned}a&amp;=1\\&amp;=332\end{aligned}\end{gather*}</code></pre></li><li><p>分段函数</p></li></ol><pre><code class="latex">smooth_{L_{1}}(x)=\begin{cases}0.5x^{2}, &amp;\left |x \right |\leq 1 \cr \left |x \right|-0.5, &amp; otherwise\end{cases}</code></pre><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><ol><li>一行一图</li></ol><pre><code class="latex">\begin{figure}  %图\centering  %插入的图片居中表示\includegraphics[width=\textwidth]{./figures/estimate.jpg}\renewcommand{\figurename}{Fig.}\renewcommand{\figurename}{图}\caption{不同数据缺失率下的数据补全结果}  %图片的名称\label{fig1}   %标签，用作引用\end{figure}</code></pre><ol><li>一行多图</li></ol><pre><code class="latex">\usepackage{subcaption}    \begin{figure}[H]        \begin{subfigure}{0.5\textwidth}        \includegraphics[width=\textwidth]{./figures/ar_1_acf.png}        \label{fig:3_classes}        \caption{}        \end{subfigure}        \begin{subfigure}{0.5\textwidth}        \includegraphics[width=\textwidth]{./figures/ar_1_pacf.png}        \label{fig:5_classes}        \caption{}        \end{subfigure}        \caption{ACF和PACF}      \end{figure}</code></pre><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><pre><code class="latex">% 有序列表\begin{enumerate}[(1)]% \begin{enumerate}[{[1]}]% \begin{enumerate}[(i)]\item 有编号的列表\item ...\end{enumerate}% 无序列表\begin{itemize}\item 无编号的列表\item ...\end{itemize}</code></pre><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><ol><li>简单表格</li></ol><pre><code class="latex">    \begin{table}[H]    \centering    \caption{预测误差分布}          \begin{tabular}{|c|c|c|c|c|} % 竖线表示是否在该列加竖线        \hline           &amp; 均值  &amp; 均值理论值 &amp;方差&amp;方差理论值\\          \hline          1步  &amp; 0.0103 &amp; 0 &amp; 0.9927 &amp; 1 \\          2步 &amp; 0.0141 &amp; 0 &amp; 1.2549 &amp; 1.25 \\        \hline    \end{tabular}      \end{table}</code></pre><ol start="2"><li>三行线表格</li></ol><pre><code class="latex">\begin{table}[htp]        \centering        \caption{MA($\infty$)和GRU的最大可预测步数比较}        \label{Tab03}        % shorten cline length        \begin{tabular}{@{\extracolsep{12pt}}cccccccccc@{}}        \hline        \multirow{2}{*}{参数} &amp; \multicolumn{3}{c}{AR(1)} &amp; \multicolumn{3}{c}{AR(2)} &amp; \multicolumn{3}{c}{MA(2)} \\        \cline{2-4}  \cline{5-7} \cline{8-10}        &amp; 0.1 &amp; 0.5 &amp; 0.9 &amp; -0.1 &amp; -0.5 &amp; -0.7 &amp; -0.1 &amp; -0.2 &amp; -0.3 \\        \hline        MA($\infty$)&amp; 1 &amp; 3&amp; 19 &amp; 3 &amp; 6 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\        GRU&amp; 1 &amp; 3 &amp; 20 &amp; 3 &amp; 5 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\        \hline        \end{tabular}        \end{table}</code></pre><ol start="3"><li>去掉表格标题</li></ol><pre><code class="latex">% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}</code></pre><ol start="4"><li>多行表格</li></ol><pre><code class="latex">\begin{table}[htp]    \centering    \caption{不同条件下一些中间结果的动态范围}    \label{cha_nonlinear}    \begin{tabular}{@{\extracolsep{12pt}}cccccc@{}}        \hline        \multirow{2}{*}{序列编号} &amp; \multirow{2}{*}{条件}    &amp; \multicolumn{4}{c}{动态范围}\\        \cline{3-6}&amp; &amp; $\mathbf{A}_{enc}$  &amp; $X_{attn}$ &amp; $\mathbf{A}_{enc\_dec}$ &amp; $\hat{\mathbf{x}}_{pre}$\\        \hline        \multirow{4}{*}{1} &amp; 无线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\        &amp; 有线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\        &amp; 无线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4 \\        &amp; 有线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\        \hline    \end{tabular}\end{table}</code></pre><h2 id="调整页边距"><a href="#调整页边距" class="headerlink" title="调整页边距"></a>调整页边距</h2><pre><code class="latex">\usepackage{geometry}\geometry{a4paper,scale=0.8}\geometry{a4paper,left=2cm,right=2cm,top=1cm,bottom=1cm}</code></pre><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol><li>一般参考文献</li></ol><pre><code class="latex">\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}% Place to the location of reference\bibliographystyle{plain}\bibliography{reference}% Refer in the text\cite{Wille1982}% \citep{Wille1982}</code></pre><ol start="2"><li>URL参考文献（无超链接）</li></ol><pre><code class="latex">\usepackage{url}@Misc{timmurphy.org,howpublished = {\url{http://timmurphy.org/2009/07/22/line-spacing-in-latex-documents/}},note = {Accessed April 4, 2010},title = {Line Spacing in LaTeX documents},author = {Murphy, Timothy I}}</code></pre><ol start="3"><li>超链接参考文献（可点击）</li></ol><pre><code class="latex">\usepackage{hyperref}% 设置各种颜色\hypersetup{    colorlinks=true, % 使用颜色代替框    linkcolor=black, % 目录之类的颜色    filecolor=blue,      urlcolor=blue, % 引用url颜色    citecolor=blue, % 引用的颜色}@unpublished{Survey2014,  title={Survey on the access tofinance of enterprises},  author={Sophie Doove and Petra Gibcus andTon Kwaak and Lia Smit and Tommy Span},  year=2014,  note ={Accessed 16 June 2017.  \href{http://wwwe.ansa.it/documents/1415814222451\_Rapporto.pdf/}{http://wwwe.ansa.it/documents/1415814222451/_Rapporto.pdf/}},}</code></pre><h2 id="页码"><a href="#页码" class="headerlink" title="页码"></a>页码</h2><pre><code class="latex">\thispagestyle{empty} % 在不需要设置页码的下面加\setcounter{page}{1} % 强制设置页码值</code></pre><h2 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h2><pre><code class="latex">\usepackage{listings}\usepackage{color}\definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\lstset{frame=tb,    language=Python,    aboveskip=3mm,    belowskip=3mm,    showstringspaces=false,    columns=flexible,    basicstyle={\small\ttfamily},    numbers=none,    numberstyle=\tiny\color{gray},    keywordstyle=\color{blue},    commentstyle=\color{dkgreen},    stringstyle=\color{mauve},    breaklines=true,    breakatwhitespace=true,    tabsize=3}\begin{lstlisting}print (&#39;Starting Iterations&#39;)for iter in range(n_iterations):for i in range(n):Users[i] = np.dot(np.dot(np.dot(np.linalg.inv(np.dot(np.dot(Items,np.diag(R[i])),Items.T) +lambda_ * np.eye(n_factors)),Items),np.diag(R[i])),A[i]).Tfor j in range(m):Items[:,j] = np.dot(np.dot(np.dot(np.linalg.inv(np.dot(np.dot(Users.T,np.diag(R[:,j])),Users) +lambda_ *np.eye(n_factors)),Users.T),np.diag(R[:,j])),A[:,j])#print (&#39;Error after solving for Item Matrix:%f&#39; % get_error(A, Users, Items, R))NMAE_List.append(get_error(A, Users, Items, R))print (&#39;%sth iteration is complete...&#39; % iter)print(&#39;Iteration finish&#39;)\end{lstlisting}\end{lstlisting}</code></pre>]]></content>
+        <content type="html"><![CDATA[<h2 id="最小二乘解与最小二乘估计资料"><a href="#最小二乘解与最小二乘估计资料" class="headerlink" title="最小二乘解与最小二乘估计资料"></a>最小二乘解与最小二乘估计资料</h2><ol><li><a href="https://blog.csdn.net/kokerf/article/details/72437294" target="_blank" rel="noopener">最小二乘解</a></li><li><a href="https://www.qiujiawei.com/linear-algebra-15/" target="_blank" rel="noopener">最小二乘估计</a></li></ol>]]></content>
       
       
       <categories>
           
-          <category> Latex </category>
+          <category> Machine Learning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Latex </tag>
+            <tag> 机器学习 </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>用Keras搭建第一个神经网络</title>
+      <link href="/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/"/>
+      <url>/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-Steps"><a href="#1-Steps" class="headerlink" title="1 Steps"></a>1 Steps</h2><ol><li>Load Data</li><li>Define Model</li><li>Compile Model</li><li>Fit Model</li><li>Evaluate Model</li><li>Tie It All Together</li></ol><h2 id="2-Load-Data"><a href="#2-Load-Data" class="headerlink" title="2 Load Data"></a>2 Load Data</h2><ol><li>Define a certain random number seed. By doing so, you can get the same result to compare it with other model.<br>Method:<pre><code class="python">import numpy as npnp.random.seed(7)</code></pre>We use <a href="https://yun.baidu.com/s/1c24tweW#list/path=%2F" target="_blank" rel="noopener">pima-indians-diabetes.csv</a> as our dataset. To load the .csv data, we use <code>np.loadtxt</code> and split it into input and output section. <h2 id="3-Define-Model"><a href="#3-Define-Model" class="headerlink" title="3 Define Model"></a>3 Define Model</h2>Models in Keras are defined as a sequence of layers.While defining the first layer, we can define the input number with the <strong>input_dim</strong> argument.<br>In this example, we will use a fully-connected network structure with three layers.<br>Fully connected layers are defined using the <strong>Dense class</strong>. We can specify:</li><li><strong>the number of neurons</strong> in the layer as the first argument</li><li>the initialization method as the second argument as <strong>init</strong> </li><li>specify the activation function using the <strong>activation</strong> argument.<h2 id="4-Build-the-Model"><a href="#4-Build-the-Model" class="headerlink" title="4 Build the Model"></a>4 Build the Model</h2>define a model class. In this problem, we use a sequential model. So we use a <code>model = keras.sequential()</code> to instantiate the class. And then use the <code>.add</code> method to add layers in the model.<br>We want to add a layer into our model, so we use <code>keras.layers.Dense()</code> to be the parameter of <code>add</code>. The activation function must be in the string form like <code>activation=&#39;relu&#39;</code>.</li></ol><h2 id="5-Compile-the-Model"><a href="#5-Compile-the-Model" class="headerlink" title="5 Compile the Model"></a>5 Compile the Model</h2><p>When compiling, we must specify some additional properties required when training the network.We must specify the <strong>loss function</strong> to use to evaluate a set of weights, <strong>the optimizer</strong> used to search through different weights for the network and <strong>any optional metrics we would like to collect and report</strong> during training.</p><h2 id="6-Fit-the-model"><a href="#6-Fit-the-model" class="headerlink" title="6 Fit the model"></a>6 Fit the model</h2><p>use <code>model.fit()</code> method to define fit parameters like epochs and batch_size.</p><h2 id="7-Evaluate-the-model"><a href="#7-Evaluate-the-model" class="headerlink" title="7 Evaluate the model"></a>7 Evaluate the model</h2><p>use <code>model.evaluate</code> and a set of X and Y to calculate the model performance.</p><h2 id="8-Prediction"><a href="#8-Prediction" class="headerlink" title="8 Prediction"></a>8 Prediction</h2><p>use <code>model.fit</code> and a set of X to predict the predicted Y value.</p><h2 id="9-Related-material"><a href="#9-Related-material" class="headerlink" title="9 Related material"></a>9 Related material</h2><ol><li><a href="https://machinelearningmastery.com/" target="_blank" rel="noopener">https://machinelearningmastery.com/</a></li><li><a href="https://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">Keras中文文档</a></li><li><a href="https://github.com/keras-team/keras/tree/master/examples" target="_blank" rel="noopener">Keras Example</a><br>s-team/keras/tree/master/examples)</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Keras </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Matlab GUI编程入门</title>
+      <link href="/2019/07/09/Matlab/MATLAB%20GUI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
+      <url>/2019/07/09/Matlab/MATLAB%20GUI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-题外话"><a href="#1-题外话" class="headerlink" title="1 题外话"></a>1 题外话</h2><p>这学期刚好在学信息论，里面各种熵函数信道容量的计算十分繁杂，于是乎想编写一个有GUI界面的信息论计算器。由于MATLAB对于矩阵的运算十分方便，所以选择以MATLAB为基础进行程序编写和界面设计。</p><hr><h2 id="2-回调函数callback中常用函数"><a href="#2-回调函数callback中常用函数" class="headerlink" title="2 回调函数callback中常用函数"></a>2 回调函数callback中常用函数</h2><ol><li>get(hObject,’String’)</li></ol><ul><li>获得一个控件的字符串属性，常配合str2double函数使用，用于获得输入的数字以及判断输入的是否为数字</li><li>hObject相当于当前操作的控件的句柄，如果是在同一个GUI界面，可以使用<code>handles.Tags</code>，也就是 当前GUI的句柄名.要获得数据的控件标签名 来从其他控件获得数据。</li></ul><ol start="2"><li>set(hObject,’String’,’content’)<br>设置一个控件的字符串属性，常用于设置输入数字的设置</li><li>guidata(hObject,handles)保存前面对hObject和handles的设置，一般回传函数callback的最后一行都是这段代码，用来更新数据</li><li></li></ol><h1 id="常用对话框"><a href="#常用对话框" class="headerlink" title="常用对话框"></a>常用对话框</h1><p>tips:</p><ul><li>每个GUI窗口都有一个初始化函数，类似于<code>function simple_gui_OpeningFcn(hObject, eventdata, handles, varargin)</code>,这个初始化函数用于在创建这个GUI时创建一些参数以及在退出时返回一些参数。在这个函数中创建的参数可以被这个GUI里面的所有Object控件的回调函数调用。 </li><li><h1 id="fdsf"><a href="#fdsf" class="headerlink" title="fdsf "></a>fdsf </h1>常用控件</li></ul><ol><li>弹出菜单（Pop-up Menu）<br>在属性设置菜单（Inspector）中的’String’项可以对弹出菜单的项目进行设置，在’String’项第一行的内容将默认显示在弹出菜单中。在回调函数中，需要对弹出菜单中的每一项设置相应的代码，常用的语句是switch…case…end语句。常用的代码段：<pre><code class="matlab">string = get(hObject,&#39;String&#39;);value = get(hObject,&#39;Value&#39;);switch string{value}case &#39;A&#39; %列表第一项end</code></pre></li></ol><p>value = get(hObject,’Value’);<br>switch value<br>case 1  %1即为列表中的第一项<br>end</p><pre><code>=======================================创建新窗口的方法：1. 使用guide创建一个新窗口并对其中的控件进行设置，将其命名（假设为child.fig）2. 在触发显示新窗口的回调函数中加上如下语句：``` matlabrun(&#39;child&#39;);  %or open(&#39;child.fig&#39;);h = guihandles;  %h为新窗口的句柄变量，相当于原窗口的handles，可以使用如h.text1来操作新窗口的控件set(h.text1,&#39;String&#39;,&#39;Hello child&#39;);  %这是一个将新窗口中的text1控件显示的字符串设置成&#39;Hello child&#39;的例子</code></pre><p>======================================<br>在回调函数之间和UI之间传递数据的方法<br>1.setappdata(obj,name,val)</p><ul><li>obj为想要存储的数据所在的窗口的句柄变量，类似于handles，称为图形对象</li><li>name为存储该数据的变量名</li><li>val为数据的值<br>例如：<code>setappdata(f,&#39;todaysdate&#39;,val); %将句柄名为f的UI窗口中的数据val存放在名为todaysdate的变量中</code></li></ul><ol start="2"><li>val = getappdata(obj,name)<br>vals = getappdata(obj)</li></ol><ul><li>obj为想要取出的数据所在的窗口的句柄变量，类似于handles，它的值应该和对应的getappdata函数中的obj相同</li><li>name为存储该数据的变量名</li><li>注意左边需要设置一个val变量用于存放取出该数据的变量</li><li>vals为取出同一个图形对象中存放的所有共享数据</li></ul><p>=========================================<br>在同一个窗口中根据不同选择显示不同控件的方法<br>初始化时将要显示的控件的Visible属性选择为On，其他控件选择为Off，在每个按钮的回调函数中利用<code>set(handles.edit4,&#39;Visible&#39;,&#39;on&#39;)</code>等代码进行调整即可</p><p>=======================================<br>设置按下按钮或右上角弹出是否关闭的对话框的方法：<br>在按钮的回调函数或当前窗口的CloseRequestFcn函数中加上<br>selection = questdlg(‘Close the figure window?’,…<br>    ‘Confirmation’,…<br>    ‘Yes’,’No’,’Yes’);<br>switch selection,<br>    case ‘Yes’,<br>        delete(gcf);  %gcf为当前图像句柄<br>    case ‘No’<br>        return<br>end</p><p>============================================<br>matlab GUI中插入图片的方法<br>axes(handles.axes2);<br>imshow(‘jin.jpg’);</p><p>清除图片的方法<br>cla reset;</p><p>不显示坐标轴的方法：<br>set(handles.axes1,’visible’,’off’)<br>需要使用时改成on即可</p><p>=================================<br>控件大小通过更改position中的height和weight选项即可</p><p>换行可以使用sprintf(‘\n’)或 [char(10,13)’]实现</p><p>matlab两个浮点数或整数和浮点数比较应该用abs(a - b) &lt; eps，而不是a - b</p><p>==================================<br>调整当前窗口到屏幕中央<br><code>movegui( gcf, &#39;center&#39;)</code>。其他位置查阅movegui函数即可</p><p>===================================<br>matlab 显示矩阵<br>set(handles.uitable1, ‘Data’, comparison);</p><p>=================================<br>判断一个矩阵中所有元素是否等于0<br><code>any(abs(input2_2_temp(:) - 0 ) &gt; eps)</code></p><p>MATLAB解线性方程组<br>Ax = b<br>x = A\b</p><p>====================================<br>matlab中取出一个数组中某些特定元素<br><strong><em>a(a == 0) %取出a中所有等于0的元素，可接赋值语句，如a(a == 0) = 1;</em></strong></p><p>=================<br>MATLAB 函数句柄<br>格式：H = @(x)cos(x)<br>相当于H(x) = cos(x)</p><p>==================================<br>标记图像中的最大值</p><pre><code class="matlab">%first solutionclc;clear allx=0:0.01:2*pi;y=sin(x);p=find(y == max(y));plot(x,y,&#39;r&#39;,&#39;linewidth&#39;,2)grid ontext(x(p),y(p),&#39;o&#39;,&#39;color&#39;,&#39;g&#39;)axis([0 2*pi -1.4 1.4]);%second solutionclc;clear allx=0:0.01:2*pi;y=sin(x);p=find(y==max(y));plot(x,y,&#39;r&#39;,&#39;linewidth&#39;,2)grid onaxis([0 2*pi -1.4 1.4])text(x(p),y(p),[&#39;(&#39;,num2str(x(p)),&#39;,&#39;,num2str(y(p)),&#39;)&#39;],&#39;color&#39;,&#39;b&#39;);</code></pre><p>====================================<br>MATLAB GUI 设置每个控件的显示顺序<br>右键单击控件，有两个选项：Bring to front 和send<br> to back，可以设置控件图层顺序</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Matlab </category>
+          
+      </categories>
+      
       
     </entry>
     
@@ -349,50 +393,6 @@
     
     
     <entry>
-      <title>最大似然估计</title>
-      <link href="/2019/07/09/DeepLearning/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"/>
-      <url>/2019/07/09/DeepLearning/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/</url>
-      
-        <content type="html"><![CDATA[<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>有时候，直接估计条件概率密度函数很难，因此将概率密度估计问题转化为参数估计问题，极大似然法就是一种参数估计问题。</p><h2 id="重要前提"><a href="#重要前提" class="headerlink" title="重要前提"></a>重要前提</h2><p>训练样本的分布能代表样本的<strong>真实分布</strong>。每个样本集中的样本都是所谓独立同分布的随机变量 (iid条件)，且有充分的训练样本。</p><h2 id="基本内容"><a href="#基本内容" class="headerlink" title="基本内容"></a>基本内容</h2><p>极大似然估计的基本内容是：利用已知的样本结果，反推最有可能导致这样结果的参数值。似然函数指联合概率密度函数关于每个样本以及需要估计的参数的函数。一般形式为：<br>$$L(\theta) = f(x_{1}, x_{2}, … ,x_{n};\theta)$$</p><h2 id="一般步骤"><a href="#一般步骤" class="headerlink" title="一般步骤"></a>一般步骤</h2><p>求最大似然估计量的一般步骤：</p><ol><li>由总体分布导出样本的联合概率函数（或联合密度）；</li><li>把样本联合概率函数的自变量看成是已知常数，而把θθ看做是自变量，得到似然函数$L(\theta)$;</li><li>求似然函数的最大值（常常取对数，然后求驻点）；</li><li>用样本值带入得到参数的最大似然估计</li></ol><p>最大似然估计的特点：</p><ol><li>比其他估计方法更加简单；</li><li>收敛性：无偏或者渐近无偏，当样本数目增加时，收敛性质会更好；</li><li>如果假设的类条件概率模型正确，则通常能获得较好的结果。但如果假设模型出现偏差，将导致非常差的估计结果。</li></ol><h2 id="最大似然估计-MLE-和最小二乘法估计-LSE-的区别"><a href="#最大似然估计-MLE-和最小二乘法估计-LSE-的区别" class="headerlink" title="最大似然估计(MLE)和最小二乘法估计(LSE)的区别"></a>最大似然估计(MLE)和最小二乘法估计(LSE)的区别</h2><p>最小二乘法估计的目的是让估计量最好地拟合样本数据，也就是让估计值与样本值之差的平方和最小<br>$$Q = \sum_{i=1}^{n}(Y_{i} - \hat{Y}_{i})^{2}$$</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.csdn.net/zengxiantao1994/article/details/72787849" target="_blank" rel="noopener">极大似然估计详解</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Machine Learning </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 机器学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Matlab GUI编程入门</title>
-      <link href="/2019/07/09/Matlab/MATLAB%20GUI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/"/>
-      <url>/2019/07/09/Matlab/MATLAB%20GUI%E7%BC%96%E7%A8%8B%E5%85%A5%E9%97%A8/</url>
-      
-        <content type="html"><![CDATA[<h2 id="1-题外话"><a href="#1-题外话" class="headerlink" title="1 题外话"></a>1 题外话</h2><p>这学期刚好在学信息论，里面各种熵函数信道容量的计算十分繁杂，于是乎想编写一个有GUI界面的信息论计算器。由于MATLAB对于矩阵的运算十分方便，所以选择以MATLAB为基础进行程序编写和界面设计。</p><hr><h2 id="2-回调函数callback中常用函数"><a href="#2-回调函数callback中常用函数" class="headerlink" title="2 回调函数callback中常用函数"></a>2 回调函数callback中常用函数</h2><ol><li>get(hObject,’String’)</li></ol><ul><li>获得一个控件的字符串属性，常配合str2double函数使用，用于获得输入的数字以及判断输入的是否为数字</li><li>hObject相当于当前操作的控件的句柄，如果是在同一个GUI界面，可以使用<code>handles.Tags</code>，也就是 当前GUI的句柄名.要获得数据的控件标签名 来从其他控件获得数据。</li></ul><ol start="2"><li>set(hObject,’String’,’content’)<br>设置一个控件的字符串属性，常用于设置输入数字的设置</li><li>guidata(hObject,handles)保存前面对hObject和handles的设置，一般回传函数callback的最后一行都是这段代码，用来更新数据</li><li></li></ol><h1 id="常用对话框"><a href="#常用对话框" class="headerlink" title="常用对话框"></a>常用对话框</h1><p>tips:</p><ul><li>每个GUI窗口都有一个初始化函数，类似于<code>function simple_gui_OpeningFcn(hObject, eventdata, handles, varargin)</code>,这个初始化函数用于在创建这个GUI时创建一些参数以及在退出时返回一些参数。在这个函数中创建的参数可以被这个GUI里面的所有Object控件的回调函数调用。 </li><li><h1 id="fdsf"><a href="#fdsf" class="headerlink" title="fdsf "></a>fdsf </h1>常用控件</li></ul><ol><li>弹出菜单（Pop-up Menu）<br>在属性设置菜单（Inspector）中的’String’项可以对弹出菜单的项目进行设置，在’String’项第一行的内容将默认显示在弹出菜单中。在回调函数中，需要对弹出菜单中的每一项设置相应的代码，常用的语句是switch…case…end语句。常用的代码段：<pre><code class="matlab">string = get(hObject,&#39;String&#39;);value = get(hObject,&#39;Value&#39;);switch string{value}case &#39;A&#39; %列表第一项end</code></pre></li></ol><p>value = get(hObject,’Value’);<br>switch value<br>case 1  %1即为列表中的第一项<br>end</p><pre><code>=======================================创建新窗口的方法：1. 使用guide创建一个新窗口并对其中的控件进行设置，将其命名（假设为child.fig）2. 在触发显示新窗口的回调函数中加上如下语句：``` matlabrun(&#39;child&#39;);  %or open(&#39;child.fig&#39;);h = guihandles;  %h为新窗口的句柄变量，相当于原窗口的handles，可以使用如h.text1来操作新窗口的控件set(h.text1,&#39;String&#39;,&#39;Hello child&#39;);  %这是一个将新窗口中的text1控件显示的字符串设置成&#39;Hello child&#39;的例子</code></pre><p>======================================<br>在回调函数之间和UI之间传递数据的方法<br>1.setappdata(obj,name,val)</p><ul><li>obj为想要存储的数据所在的窗口的句柄变量，类似于handles，称为图形对象</li><li>name为存储该数据的变量名</li><li>val为数据的值<br>例如：<code>setappdata(f,&#39;todaysdate&#39;,val); %将句柄名为f的UI窗口中的数据val存放在名为todaysdate的变量中</code></li></ul><ol start="2"><li>val = getappdata(obj,name)<br>vals = getappdata(obj)</li></ol><ul><li>obj为想要取出的数据所在的窗口的句柄变量，类似于handles，它的值应该和对应的getappdata函数中的obj相同</li><li>name为存储该数据的变量名</li><li>注意左边需要设置一个val变量用于存放取出该数据的变量</li><li>vals为取出同一个图形对象中存放的所有共享数据</li></ul><p>=========================================<br>在同一个窗口中根据不同选择显示不同控件的方法<br>初始化时将要显示的控件的Visible属性选择为On，其他控件选择为Off，在每个按钮的回调函数中利用<code>set(handles.edit4,&#39;Visible&#39;,&#39;on&#39;)</code>等代码进行调整即可</p><p>=======================================<br>设置按下按钮或右上角弹出是否关闭的对话框的方法：<br>在按钮的回调函数或当前窗口的CloseRequestFcn函数中加上<br>selection = questdlg(‘Close the figure window?’,…<br>    ‘Confirmation’,…<br>    ‘Yes’,’No’,’Yes’);<br>switch selection,<br>    case ‘Yes’,<br>        delete(gcf);  %gcf为当前图像句柄<br>    case ‘No’<br>        return<br>end</p><p>============================================<br>matlab GUI中插入图片的方法<br>axes(handles.axes2);<br>imshow(‘jin.jpg’);</p><p>清除图片的方法<br>cla reset;</p><p>不显示坐标轴的方法：<br>set(handles.axes1,’visible’,’off’)<br>需要使用时改成on即可</p><p>=================================<br>控件大小通过更改position中的height和weight选项即可</p><p>换行可以使用sprintf(‘\n’)或 [char(10,13)’]实现</p><p>matlab两个浮点数或整数和浮点数比较应该用abs(a - b) &lt; eps，而不是a - b</p><p>==================================<br>调整当前窗口到屏幕中央<br><code>movegui( gcf, &#39;center&#39;)</code>。其他位置查阅movegui函数即可</p><p>===================================<br>matlab 显示矩阵<br>set(handles.uitable1, ‘Data’, comparison);</p><p>=================================<br>判断一个矩阵中所有元素是否等于0<br><code>any(abs(input2_2_temp(:) - 0 ) &gt; eps)</code></p><p>MATLAB解线性方程组<br>Ax = b<br>x = A\b</p><p>====================================<br>matlab中取出一个数组中某些特定元素<br><strong><em>a(a == 0) %取出a中所有等于0的元素，可接赋值语句，如a(a == 0) = 1;</em></strong></p><p>=================<br>MATLAB 函数句柄<br>格式：H = @(x)cos(x)<br>相当于H(x) = cos(x)</p><p>==================================<br>标记图像中的最大值</p><pre><code class="matlab">%first solutionclc;clear allx=0:0.01:2*pi;y=sin(x);p=find(y == max(y));plot(x,y,&#39;r&#39;,&#39;linewidth&#39;,2)grid ontext(x(p),y(p),&#39;o&#39;,&#39;color&#39;,&#39;g&#39;)axis([0 2*pi -1.4 1.4]);%second solutionclc;clear allx=0:0.01:2*pi;y=sin(x);p=find(y==max(y));plot(x,y,&#39;r&#39;,&#39;linewidth&#39;,2)grid onaxis([0 2*pi -1.4 1.4])text(x(p),y(p),[&#39;(&#39;,num2str(x(p)),&#39;,&#39;,num2str(y(p)),&#39;)&#39;],&#39;color&#39;,&#39;b&#39;);</code></pre><p>====================================<br>MATLAB GUI 设置每个控件的显示顺序<br>右键单击控件，有两个选项：Bring to front 和send<br> to back，可以设置控件图层顺序</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Matlab </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Python常用文件及目录操作</title>
       <link href="/2019/07/09/Python/Python%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/"/>
       <url>/2019/07/09/Python/Python%E5%B8%B8%E7%94%A8%E6%96%87%E4%BB%B6%E5%8F%8A%E7%9B%AE%E5%BD%95%E6%93%8D%E4%BD%9C/</url>
@@ -410,31 +410,6 @@
         <tags>
             
             <tag> Python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>C语言中数组名作为参数进行函数传递</title>
-      <link href="/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/"/>
-      <url>/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/</url>
-      
-        <content type="html"><![CDATA[<p>在普通变量或下标变量作函数参数时，形参变量和实参变量是由编译系统分配的两个不同的内存单元。在函数调用时发生的值传送是把实参变量的值赋予形参变量。在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编译系统不为形参数组分配内存。那么，数据的传送是如何实现的呢?在我们曾介绍过，数组名就是数组的首地址。<strong><em>因此在数组名作函数参数时所进行的传送只是地址的传送，也就是说把实参数组的首地址赋予形参数组名。</em></strong>形参数组名取得该首地址之后，也就等于有了实在的数组。实际上是形参数组和实参数组为同一数组，共同拥有一段内存空间。<strong><em>因此当形参数组发生变化时，实参数组也随之变化。</em></strong><br><img src="http://c.biancheng.net/cpp/uploads/allimg/120129/343dfgdgd645ccvnbm.gif?_=5778318" alt="图片1"><br>上图说明了这种情形。图中设a为实参数组，类型为整型。a占有以2000为首地址的一块内存区。b为形参数组名。当发生函数调用时，进行地址传送，把实参数组a的首地址传送给形参数组名b，于是b也取得该地址2000。于是a，b两数组共同占有以2000为首地址的一段连续内存单元。从图中还可以看出a和b下标相同的元素实际上也占相同的两个内存单元（整型数组每个元素占二字节）。例如a[0]和b[0]都占用2000和2001单元，当然a[0]等于b[0]。类推则有a[i]等于b[i]。<br>多维数组也可以作为函数的参数。在函数定义时对形参数组可以指定每一维的长度，也可省去第一维的长度。因此，以下写法都是合法的：<br><code>int MA(int a[3][10]);</code>或<code>int MA(int a[][10]);</code></p><p>下面给出两个将数组传递进函数的例子：<br>ex1:</p><pre><code class="c">//求5名学生的平均成绩#include &lt;stdio.h&gt;float aver(float a[5])  //此处函数的定义中数组的元素个数可以省略，由传入的数组决定{    int i;    float av,s=a[0];    for(i=1;i&lt;5;i++)        s=s+a[i];    av=s/5;    return av;}int main(void){    float sco[5],av;    int i;    printf(&quot;\ninput 5 scores:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%f&quot;,&amp;sco[i]);    av=aver(sco);  //此处将数组传递进函数时使用的是数组名称，没有括号    printf(&quot;average score is %5.2f&quot;,av);    return 0;}</code></pre><p>ex2:</p><pre><code class="c">//将数组中小于0的元素置成0#include &lt;stdio.h&gt;void nzp(int a[8]){    int i;    printf(&quot;\nvalues of array are:\n&quot;);    for(i=0;i&lt;8;i++)    {        if(a[i]&lt;0)            a[i]=0;        printf(&quot;%d &quot;,a[i]);    }}int main(void){    int b[5],i;    printf(&quot;\ninput 5 numbers:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%d&quot;,&amp;b[i]);    printf(&quot;initial values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    nzp(b);  //将有5个元素的数组传递进一个有8个元素的数组的函数，编译通过    printf(&quot;\nlast values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    return 0;}</code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> C语言 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 编程语言 </tag>
             
         </tags>
       
@@ -493,31 +468,6 @@
     
     
     <entry>
-      <title>getopt</title>
-      <link href="/2019/07/09/PythonPackages/getopt/"/>
-      <url>/2019/07/09/PythonPackages/getopt/</url>
-      
-        <content type="html"><![CDATA[<p>例子：</p><pre><code class="python">import sys, getoptdef main(argv):    print(str(argv))    inputfile = &#39;&#39;    outputfile = &#39;&#39;    try:        opts, args = getopt.getopt(argv, &#39;hi:o:&#39;, [&#39;help&#39;, &#39;ifile=&#39;, &#39;ofile=&#39;])    except getopt.GetoptError:        print(&#39;test.py -i &lt;inputfle&gt; -o &lt;outputfile&gt;&#39;)        sys.exit()    for opt, arg in opts:        if opt in [&#39;-h&#39;, &#39;--help&#39;]:            print(1)        elif opt in ([&#39;-i&#39;, &#39;--ifile&#39;]):            inputfile = arg        elif opt in ([&#39;-o&#39;, &#39;--ofile&#39;]):            outputfile = arg    print(&#39;input file is : &#39;, inputfile)    print(&#39;output file is : &#39;, outputfile)if __name__ == &#39;__main__&#39;:    main(sys.argv[1:])</code></pre><p><strong>核心函数</strong>：<code>options, args = getopt.getopt(args, shortopts, longopts=[])</code><br><strong>参数</strong>：</p><ul><li><p>shortopts：短格式参数串。shortopts 后的冒号(:)表示如果设置该选项，必须有附加的参数，不带冒号表示该选项没有附加参数如：”h f: v:”。h后面没有冒号，表示该选项没有附加参数，如用于输出命令用法f和v后面带有冒号，表示该选项有附加参数。无附加参数的示例为：<code>python test.py -h</code>。有附加参数的示例为：<code>python test.py -h content</code>。注意：加了冒号的参数的选项自带<code>-</code>，因此在获取opt时需要加上<code>-</code></p></li><li><p>longopts：长格式参数列表。longopts 后的等号(=)表示如果设置该选项，必须有附加的参数，否则就没有附加参数如：[“help”, “file=”, “version=”]。help 后面没有等号，表示该选项没有附加参数file 和 version 后面带冒号，表示如果设置该选项，必须有附加参数。无附加参数的示例为：<code>python test.py --help</code>。有附加参数的示例为：<code>python test.py --help content</code></p></li><li><p>返回值含义：options：元组列表，每个元组的形式为：(选项, 附加参数)，如：(‘-f’, ‘data.csv’)args：包含那些没有 ‘-‘ 或 ‘–’ 的参数列表</p></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Python Packages </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> getopt Python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>argparse</title>
       <link href="/2019/07/09/PythonPackages/argparse/"/>
       <url>/2019/07/09/PythonPackages/argparse/</url>
@@ -543,23 +493,23 @@
     
     
     <entry>
-      <title>有哪些适合新手练手的Java项目</title>
-      <link href="/2019/07/09/Java/%E9%80%82%E5%90%88%E7%BB%83%E6%89%8B%E7%9A%84Java%E9%A1%B9%E7%9B%AE/"/>
-      <url>/2019/07/09/Java/%E9%80%82%E5%90%88%E7%BB%83%E6%89%8B%E7%9A%84Java%E9%A1%B9%E7%9B%AE/</url>
+      <title>getopt</title>
+      <link href="/2019/07/09/PythonPackages/getopt/"/>
+      <url>/2019/07/09/PythonPackages/getopt/</url>
       
-        <content type="html"><![CDATA[<p>Java作为一门古老的语言，已有20年左右的历史，这在发展日新月异的技术圈可以说是一个神话。虽然不少人曾抱怨Java语言就像老太太的裹脚布，又臭又长，有时写了500行都不能表达程序员的意图。但从市场上的招聘现状看，Java工程师依然有着其他语言不可取代的竞争优势。</p><p>看到了这里，恭喜正式开始进入主题：适合新手练手的Java项目？<br>源码下载（实例一）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/2358272909446144.htm" target="_blank" rel="noopener">jsp开发完整的博研图书馆后台管理系统，不使用框架开发的，太完美了</a></p><p>源码下载（实例二）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//download.csdn.net/detail/defonds/7123499" target="_blank" rel="noopener">javaWeb图书馆管理系统源码mysql版本</a></p><p>源码下载（实例三）<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=https%3A//github.com/uboger/LibraryManager" target="_blank" rel="noopener">GitHub - uboger/LibraryManager: JAVA GUI 图书馆管理系统</a></p><p>源码下载（实例四）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/1993977042701312.htm" target="_blank" rel="noopener">java swing开发企业人事管理系统源代码下载</a></p><p>源码下载（实例一）：<a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/2813720957340672.htm" target="_blank" rel="noopener">java swing开发网络聊天室群聊系统,基于java多线程socket编程</a></p><p>源码下载（实例二）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/2476196100705280.htm" target="_blank" rel="noopener">java swing开发大猫聊天室源码，简单易懂，适合java swing初学者</a></p><p>源码下载（实例三）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/2681158015126528.htm" target="_blank" rel="noopener">java websocket开发简单聊天室系统，实现群聊与一对一单人聊天案例</a></p><p>源码下载（实例四）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/2920853761723392.htm" target="_blank" rel="noopener">jsp开发简单聊天室demo-分享</a></p><p>源码下载（一）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//download.csdn.net/detail/w364483790/598859" target="_blank" rel="noopener">java通讯录实现了添加删除和查找功能</a></p><p>源码下载（二）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//download.csdn.net/detail/laudukang/8341541" target="_blank" rel="noopener">JAVA版通讯录管理系统课程设计源码</a></p><p>源码下载（三）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//download.csdn.net/detail/k4duizhang/2572237" target="_blank" rel="noopener">Java Swing界面.完美设计通讯录..有需要的下</a></p><p><img src="https://upload-images.jianshu.io/upload_images/2692013-938a72554c06b156.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt></p><p>源码下载（一）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//download.csdn.net/detail/csyrooney/1692151" target="_blank" rel="noopener">JAVA坦克大战+源代码（适合初学者）</a></p><p>源码下载（二）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=https%3A//github.com/wangzhengyi/TankWar" target="_blank" rel="noopener">GitHub - wangzhengyi/TankWar: 用J2SE写的一个坦克大战小游戏，巩固一下java基础</a></p><p><img src="https://upload-images.jianshu.io/upload_images/2692013-4472d559df9e9023.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt></p><p>源码下载（一）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//download.csdn.net/detail/kavilee11/4079842" target="_blank" rel="noopener">俄罗斯方块 JAVA版</a></p><p>源码下载（二）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=https%3A//github.com/FieldSoft-HelloClyde/Tetris-Swing" target="_blank" rel="noopener">GitHub - FieldSoft-HelloClyde/Tetris-Swing: Swing编写的俄罗斯方块</a></p><p>源码下载（三）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/2855443151621120.htm" target="_blank" rel="noopener">java swing开发的俄罗斯方块游戏，包含完整代码+详细注释</a></p><p><img src="https://upload-images.jianshu.io/upload_images/2692013-6de10bf9fef4cd2c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt></p><p>源码下载（一）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//blog.csdn.net/cnlht/article/details/8176130" target="_blank" rel="noopener">Java实践（十一）——五子棋</a></p><p>源码下载（二）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/2937407256464384.htm" target="_blank" rel="noopener">java swing开发的五子棋小游戏源码</a></p><p>源码下载（三）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/1550463383030784.htm" target="_blank" rel="noopener">java swing开发单机版五子棋源代码下载</a></p><p>源码下载（四）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//download.csdn.net/detail/longyin415/2267863" target="_blank" rel="noopener">Java五子棋算法和代码</a></p><p><img src="https://upload-images.jianshu.io/upload_images/2692013-1f1fb3de4ebafef7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt></p><p>源码下载（一）：<a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//blog.csdn.net/cnlht/article/details/8205733" target="_blank" rel="noopener">Java实践（十二）——中国象棋</a></p><p><img src="https://upload-images.jianshu.io/upload_images/2692013-6cfa3470adfa6472.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/600" alt></p><p>源码下载（实例一）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//download.csdn.net/detail/java_cxrs/1005980" target="_blank" rel="noopener">JAVA贪吃蛇源代码</a></p><p>源码下载（实例二）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/2255780075867136.htm" target="_blank" rel="noopener">java swing编写的3个小游戏程序源码，俄罗斯方块，贪吃蛇和坦克大战</a></p><p>源码下载（实例三）：<br><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//www.zuidaima.com/share/1737620634422272.htm" target="_blank" rel="noopener">java贪吃蛇源代码</a></p><p><a href="https://link.jianshu.com/?t=https://link.zhihu.com/?target=http%3A//blog.csdn.net/yaerfeng/article/details/23254623" target="_blank" rel="noopener">java贪吃蛇源代码</a><br>.net/yaerfeng/article/details/23254623)</p>]]></content>
+        <content type="html"><![CDATA[<p>例子：</p><pre><code class="python">import sys, getoptdef main(argv):    print(str(argv))    inputfile = &#39;&#39;    outputfile = &#39;&#39;    try:        opts, args = getopt.getopt(argv, &#39;hi:o:&#39;, [&#39;help&#39;, &#39;ifile=&#39;, &#39;ofile=&#39;])    except getopt.GetoptError:        print(&#39;test.py -i &lt;inputfle&gt; -o &lt;outputfile&gt;&#39;)        sys.exit()    for opt, arg in opts:        if opt in [&#39;-h&#39;, &#39;--help&#39;]:            print(1)        elif opt in ([&#39;-i&#39;, &#39;--ifile&#39;]):            inputfile = arg        elif opt in ([&#39;-o&#39;, &#39;--ofile&#39;]):            outputfile = arg    print(&#39;input file is : &#39;, inputfile)    print(&#39;output file is : &#39;, outputfile)if __name__ == &#39;__main__&#39;:    main(sys.argv[1:])</code></pre><p><strong>核心函数</strong>：<code>options, args = getopt.getopt(args, shortopts, longopts=[])</code><br><strong>参数</strong>：</p><ul><li><p>shortopts：短格式参数串。shortopts 后的冒号(:)表示如果设置该选项，必须有附加的参数，不带冒号表示该选项没有附加参数如：”h f: v:”。h后面没有冒号，表示该选项没有附加参数，如用于输出命令用法f和v后面带有冒号，表示该选项有附加参数。无附加参数的示例为：<code>python test.py -h</code>。有附加参数的示例为：<code>python test.py -h content</code>。注意：加了冒号的参数的选项自带<code>-</code>，因此在获取opt时需要加上<code>-</code></p></li><li><p>longopts：长格式参数列表。longopts 后的等号(=)表示如果设置该选项，必须有附加的参数，否则就没有附加参数如：[“help”, “file=”, “version=”]。help 后面没有等号，表示该选项没有附加参数file 和 version 后面带冒号，表示如果设置该选项，必须有附加参数。无附加参数的示例为：<code>python test.py --help</code>。有附加参数的示例为：<code>python test.py --help content</code></p></li><li><p>返回值含义：options：元组列表，每个元组的形式为：(选项, 附加参数)，如：(‘-f’, ‘data.csv’)args：包含那些没有 ‘-‘ 或 ‘–’ 的参数列表</p></li></ul>]]></content>
       
       
       <categories>
           
-          <category> Java </category>
+          <category> Python Packages </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Java </tag>
+            <tag> getopt Python </tag>
             
         </tags>
       
@@ -593,106 +543,6 @@
     
     
     <entry>
-      <title>深度学习参考资料</title>
-      <link href="/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"/>
-      <url>/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/</url>
-      
-        <content type="html"><![CDATA[<p>整理了一些与深度学习有关的资料如下</p><ol><li><p>lstm实现<br><a href="http://blog.csdn.net/mydear_11000/article/details/52414342###" target="_blank" rel="noopener">http://blog.csdn.net/mydear_11000/article/details/52414342###</a><br><a href="http://blog.csdn.net/u013082989/article/details/73693392" target="_blank" rel="noopener">http://blog.csdn.net/u013082989/article/details/73693392</a></p></li><li><p>RNN和LSTM基础<br><a href="http://blog.csdn.net/xingzhedai/article/details/53144126" target="_blank" rel="noopener">http://blog.csdn.net/xingzhedai/article/details/53144126</a><br><a href="https://www.jianshu.com/p/9dc9f41f0b29" target="_blank" rel="noopener">https://www.jianshu.com/p/9dc9f41f0b29</a><br><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</a><br><a href="https://www.zybuluo.com/hanbingtao/note/476663" target="_blank" rel="noopener">https://www.zybuluo.com/hanbingtao/note/476663</a></p></li><li><p>tensorflow 常用算子<br><a href="https://www.cnblogs.com/wuzhitj/p/6431381.html" target="_blank" rel="noopener">https://www.cnblogs.com/wuzhitj/p/6431381.html</a></p></li><li><p>DBN算法实现<br><a href="http://blog.csdn.net/zhanglu_wind/article/details/78949020" target="_blank" rel="noopener">http://blog.csdn.net/zhanglu_wind/article/details/78949020</a></p></li><li><p>数据分析必读书目<br><a href="http://www.cnblogs.com/charlotte77/p/5381681.html" target="_blank" rel="noopener">http://www.cnblogs.com/charlotte77/p/5381681.html</a></p></li><li><p>深度神经网络系列文章</p><ol><li><a href="https://www.zybuluo.com/hanbingtao/note/433855" target="_blank" rel="noopener">零基础入门深度学习(1) - 感知器</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/448086" target="_blank" rel="noopener">零基础入门深度学习(2) - 线性单元和梯度下降</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/476663" target="_blank" rel="noopener">零基础入门深度学习(3) - 神经网络和反向传播算法</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/485480" target="_blank" rel="noopener">零基础入门深度学习(4) - 卷积神经网络</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/541458" target="_blank" rel="noopener">零基础入门深度学习(5) - 循环神经网络</a></li><li><a href="https://zybuluo.com/hanbingtao/note/581764" target="_blank" rel="noopener">零基础入门深度学习(6) - 长短时记忆网络(LSTM)</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/626300" target="_blank" rel="noopener">零基础入门深度学习(7) - 递归神经网络</a></li></ol></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Deep Learning </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 深度学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>谈谈深度学习中的 Batch_Size</title>
-      <link href="/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/"/>
-      <url>/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>本文转载自:<a href="http://blog.csdn.net/ycheng_sjtu/article/details/49804041#reply" target="_blank" rel="noopener">谈谈深度学习中的 Batch_Size</a></p></blockquote><p>Batch_Size（批尺寸）是机器学习中一个重要参数，涉及诸多矛盾，下面逐一展开。</p><h2 id="首先，为什么需要有-Batch-Size-这个参数？"><a href="#首先，为什么需要有-Batch-Size-这个参数？" class="headerlink" title="首先，为什么需要有 Batch_Size 这个参数？"></a>首先，为什么需要有 Batch_Size 这个参数？</h2><p>Batch 的选择，首先决定的是下降的方向。如果数据集比较小，完全可以采用<strong>全数据集 （ Full Batch Learning ）</strong>的形式，这样做<strong>至少</strong>有 2 个好处：其一，由全数据集确定的方向能够更好地代表样本总体，从而更准确地朝向极值所在的方向。其二，由于不同权重的梯度值差别巨大，因此选取一个全局的学习率很困难。 Full Batch Learning 可以使用 <strong>Rprop</strong> 只基于梯度符号并且针对性单独更新各权值。</p><p>对于更大的数据集，以上 2 个好处又变成了 2 个坏处：其一，随着数据集的海量增长和内存限制，一次性载入所有的数据进来变得越来越不可行。其二，以 Rprop 的方式迭代，会由于各个 Batch 之间的采样差异性，各次梯度修正值相互抵消，无法修正。这才有了后来 <strong>RMSProp</strong> 的妥协方案。</p><h2 id="既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？"><a href="#既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？" class="headerlink" title="既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？"></a>既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？</h2><p>所谓另一个极端，就是每次只训练一个样本，即 Batch_Size = 1。这就是<strong>在线学习（Online Learning）</strong>。线性神经元在均方误差代价函数的错误面是一个抛物面，横截面是椭圆。对于多层神经元、非线性网络，在局部依然近似是抛物面。使用在线学习，每次修正方向以各自样本的梯度方向修正，横冲直撞各自为政，<strong>难以达到收敛</strong>。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195814221" alt="这里写图片描述"> </p><h2 id="可不可以选择一个适中的-Batch-Size-值呢？"><a href="#可不可以选择一个适中的-Batch-Size-值呢？" class="headerlink" title="可不可以选择一个适中的 Batch_Size 值呢？"></a>可不可以选择一个适中的 Batch_Size 值呢？</h2><p>当然可以，这就是<strong>批梯度下降法（Mini-batches Learning）</strong>。因为如果数据集足够充分，那么用一半（<strong>甚至少得多</strong>）的数据训练算出来的梯度与用全部数据训练出来的梯度是<strong>几乎一样</strong>的。</p><h2 id="在合理范围内，增大-Batch-Size-有何好处？"><a href="#在合理范围内，增大-Batch-Size-有何好处？" class="headerlink" title="在合理范围内，增大 Batch_Size 有何好处？"></a>在合理范围内，增大 Batch_Size 有何好处？</h2><ul><li>内存利用率提高了，大矩阵乘法的并行化效率提高。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。</li><li>在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。</li></ul><h2 id="盲目增大-Batch-Size-有何坏处？"><a href="#盲目增大-Batch-Size-有何坏处？" class="headerlink" title="盲目增大 Batch_Size 有何坏处？"></a>盲目增大 Batch_Size 有何坏处？</h2><ul><li>内存利用率提高了，但是内存容量可能撑不住了。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。</li><li>Batch_Size 增大到一定程度，其确定的下降方向已经基本不再变化。</li></ul><h2 id="调节-Batch-Size-对训练效果影响到底如何？"><a href="#调节-Batch-Size-对训练效果影响到底如何？" class="headerlink" title="调节 Batch_Size 对训练效果影响到底如何？"></a>调节 Batch_Size 对训练效果影响到底如何？</h2><p>这里跑一个 LeNet 在 MNIST 数据集上的效果。MNIST 是一个手写体标准库，我使用的是 <strong>Theano</strong> 框架。这是一个 Python 的深度学习库。<a href="http://deeplearning.net/software/theano/install.html#install" target="_blank" rel="noopener">安装方便</a>（几行命令而已），调试简单（自带 Profile），GPU / CPU 通吃，<a href="http://deeplearning.net/tutorial/contents.html" target="_blank" rel="noopener">官方教程相当完备</a>，支持模块十分丰富（除了 CNNs，更是支持 RBM / DBN / LSTM / RBM-RNN / SdA / MLPs）。在其上层有 <a href="http://keras.io/" target="_blank" rel="noopener">Keras</a> 封装，支持 GRU / JZS1, JZS2, JZS3 等较新结构，支持 Adagrad / Adadelta / RMSprop / Adam 等优化算法。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195829489" alt="这里写图片描述"></p><p><img src="http://img.blog.csdn.net/20151112195843957" alt="这里写图片描述"> </p><p>运行结果如上图所示，其中绝对时间做了标幺化处理。运行结果与上文分析相印证：</p><ul><li>Batch_Size 太小，算法在 200 epoches 内不收敛。</li><li>随着 Batch_Size 增大，处理相同数据量的速度越快。</li><li>随着 Batch_Size 增大，达到相同精度所需要的 epoch 数量越来越多。</li><li>由于上述两种因素的矛盾， Batch_Size 增大到<strong>某个</strong>时候，达到<strong>时间上</strong>的最优。</li><li>由于最终收敛精度会陷入不同的局部极值，因此 Batch_Size 增大到<strong>某些</strong>时候，达到最终收敛<strong>精度上</strong>的最优。</li></ul><h2 id="关于batchsize和epoch的理解"><a href="#关于batchsize和epoch的理解" class="headerlink" title="关于batchsize和epoch的理解"></a>关于batchsize和epoch的理解</h2><p>batchsize指的是使超参数发生一次迭代输入的样本数，也就是完成一次反向传播、求导、参数更新过程所需要输入的样本数。epoch指完成将所有训练数据全部应用于参数更新的过程。在样本数据比较小时，batchsize可以取为训练样本数，这样完成一次epoch只需进行一次梯度下降和参数更新。将全部输入数据作为一个batch进行训练的方法称为<strong>批梯度下降法（Batch Gradient Descend）</strong>。与之相对应的是<strong>随机梯度下降法（Stochastic Gradient Descent）</strong>。这种梯度下降法每次只选取一个样本进行参数更新，因此完成一次epoch需要进行size(X)次迭代。这种方法梯度下降的方向一般不是最优的。将这两种方法折中的一种方法称为<strong>小批量梯度下降法（Mini-batch Gradient Descent）</strong>。这种方法每次将<strong>batchsize</strong>的数据用来训练网络，完成一次迭代。那么完成一次epoch需要进行的迭代次数为<code>np.ceil(size(x) / batchsize)</code>。在实际使用时，可以在一定范围内尽可能增大batchsize的值。当然，如果增大batch值，达到相同精度的epoch数会越来越多，因此需要在精度和运算速度这两方面来考虑选取的batchsize。方面来考虑选取的batchsize。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Deep Learning </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 深度学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>正则表达式学习和查询网站</title>
-      <link href="/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99/"/>
-      <url>/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99/</url>
-      
-        <content type="html"><![CDATA[<h2 id="正则表达式学习和查询网站"><a href="#正则表达式学习和查询网站" class="headerlink" title="正则表达式学习和查询网站"></a>正则表达式学习和查询网站</h2><ol><li><a href="https://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">正则表达式30分钟入门教程</a></li><li><a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" target="_blank" rel="noopener">正则表达式手册</a></li><li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference" target="_blank" rel="noopener">正则表达式快速参考</a></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Regex </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 正则表达式 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>用Keras搭建第一个神经网络</title>
-      <link href="/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/"/>
-      <url>/2019/07/09/Keras/Build%20the%20First%20Neural%20Network/</url>
-      
-        <content type="html"><![CDATA[<h2 id="1-Steps"><a href="#1-Steps" class="headerlink" title="1 Steps"></a>1 Steps</h2><ol><li>Load Data</li><li>Define Model</li><li>Compile Model</li><li>Fit Model</li><li>Evaluate Model</li><li>Tie It All Together</li></ol><h2 id="2-Load-Data"><a href="#2-Load-Data" class="headerlink" title="2 Load Data"></a>2 Load Data</h2><ol><li>Define a certain random number seed. By doing so, you can get the same result to compare it with other model.<br>Method:<pre><code class="python">import numpy as npnp.random.seed(7)</code></pre>We use <a href="https://yun.baidu.com/s/1c24tweW#list/path=%2F" target="_blank" rel="noopener">pima-indians-diabetes.csv</a> as our dataset. To load the .csv data, we use <code>np.loadtxt</code> and split it into input and output section. <h2 id="3-Define-Model"><a href="#3-Define-Model" class="headerlink" title="3 Define Model"></a>3 Define Model</h2>Models in Keras are defined as a sequence of layers.While defining the first layer, we can define the input number with the <strong>input_dim</strong> argument.<br>In this example, we will use a fully-connected network structure with three layers.<br>Fully connected layers are defined using the <strong>Dense class</strong>. We can specify:</li><li><strong>the number of neurons</strong> in the layer as the first argument</li><li>the initialization method as the second argument as <strong>init</strong> </li><li>specify the activation function using the <strong>activation</strong> argument.<h2 id="4-Build-the-Model"><a href="#4-Build-the-Model" class="headerlink" title="4 Build the Model"></a>4 Build the Model</h2>define a model class. In this problem, we use a sequential model. So we use a <code>model = keras.sequential()</code> to instantiate the class. And then use the <code>.add</code> method to add layers in the model.<br>We want to add a layer into our model, so we use <code>keras.layers.Dense()</code> to be the parameter of <code>add</code>. The activation function must be in the string form like <code>activation=&#39;relu&#39;</code>.</li></ol><h2 id="5-Compile-the-Model"><a href="#5-Compile-the-Model" class="headerlink" title="5 Compile the Model"></a>5 Compile the Model</h2><p>When compiling, we must specify some additional properties required when training the network.We must specify the <strong>loss function</strong> to use to evaluate a set of weights, <strong>the optimizer</strong> used to search through different weights for the network and <strong>any optional metrics we would like to collect and report</strong> during training.</p><h2 id="6-Fit-the-model"><a href="#6-Fit-the-model" class="headerlink" title="6 Fit the model"></a>6 Fit the model</h2><p>use <code>model.fit()</code> method to define fit parameters like epochs and batch_size.</p><h2 id="7-Evaluate-the-model"><a href="#7-Evaluate-the-model" class="headerlink" title="7 Evaluate the model"></a>7 Evaluate the model</h2><p>use <code>model.evaluate</code> and a set of X and Y to calculate the model performance.</p><h2 id="8-Prediction"><a href="#8-Prediction" class="headerlink" title="8 Prediction"></a>8 Prediction</h2><p>use <code>model.fit</code> and a set of X to predict the predicted Y value.</p><h2 id="9-Related-material"><a href="#9-Related-material" class="headerlink" title="9 Related material"></a>9 Related material</h2><ol><li><a href="https://machinelearningmastery.com/" target="_blank" rel="noopener">https://machinelearningmastery.com/</a></li><li><a href="https://keras-cn.readthedocs.io/en/latest/" target="_blank" rel="noopener">Keras中文文档</a></li><li><a href="https://github.com/keras-team/keras/tree/master/examples" target="_blank" rel="noopener">Keras Example</a><br>s-team/keras/tree/master/examples)</li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Keras </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 深度学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Latex导言区常用设置</title>
       <link href="/2019/07/09/LaTeX/Latex%E5%AF%BC%E8%A8%80%E5%8C%BA%E8%AE%BE%E7%BD%AE/"/>
       <url>/2019/07/09/LaTeX/Latex%E5%AF%BC%E8%A8%80%E5%8C%BA%E8%AE%BE%E7%BD%AE/</url>
@@ -710,6 +560,106 @@
         <tags>
             
             <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>C语言中数组名作为参数进行函数传递</title>
+      <link href="/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/"/>
+      <url>/2019/07/09/CProgrammingLanguage/C%E8%AF%AD%E8%A8%80%E4%B8%AD%E6%95%B0%E7%BB%84%E5%90%8D%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E8%BF%9B%E8%A1%8C%E5%87%BD%E6%95%B0%E4%BC%A0%E9%80%92/</url>
+      
+        <content type="html"><![CDATA[<p>在普通变量或下标变量作函数参数时，形参变量和实参变量是由编译系统分配的两个不同的内存单元。在函数调用时发生的值传送是把实参变量的值赋予形参变量。在用数组名作函数参数时，不是进行值的传送，即不是把实参数组的每一个元素的值都赋予形参数组的各个元素。因为实际上形参数组并不存在，编译系统不为形参数组分配内存。那么，数据的传送是如何实现的呢?在我们曾介绍过，数组名就是数组的首地址。<strong><em>因此在数组名作函数参数时所进行的传送只是地址的传送，也就是说把实参数组的首地址赋予形参数组名。</em></strong>形参数组名取得该首地址之后，也就等于有了实在的数组。实际上是形参数组和实参数组为同一数组，共同拥有一段内存空间。<strong><em>因此当形参数组发生变化时，实参数组也随之变化。</em></strong><br><img src="http://c.biancheng.net/cpp/uploads/allimg/120129/343dfgdgd645ccvnbm.gif?_=5778318" alt="图片1"><br>上图说明了这种情形。图中设a为实参数组，类型为整型。a占有以2000为首地址的一块内存区。b为形参数组名。当发生函数调用时，进行地址传送，把实参数组a的首地址传送给形参数组名b，于是b也取得该地址2000。于是a，b两数组共同占有以2000为首地址的一段连续内存单元。从图中还可以看出a和b下标相同的元素实际上也占相同的两个内存单元（整型数组每个元素占二字节）。例如a[0]和b[0]都占用2000和2001单元，当然a[0]等于b[0]。类推则有a[i]等于b[i]。<br>多维数组也可以作为函数的参数。在函数定义时对形参数组可以指定每一维的长度，也可省去第一维的长度。因此，以下写法都是合法的：<br><code>int MA(int a[3][10]);</code>或<code>int MA(int a[][10]);</code></p><p>下面给出两个将数组传递进函数的例子：<br>ex1:</p><pre><code class="c">//求5名学生的平均成绩#include &lt;stdio.h&gt;float aver(float a[5])  //此处函数的定义中数组的元素个数可以省略，由传入的数组决定{    int i;    float av,s=a[0];    for(i=1;i&lt;5;i++)        s=s+a[i];    av=s/5;    return av;}int main(void){    float sco[5],av;    int i;    printf(&quot;\ninput 5 scores:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%f&quot;,&amp;sco[i]);    av=aver(sco);  //此处将数组传递进函数时使用的是数组名称，没有括号    printf(&quot;average score is %5.2f&quot;,av);    return 0;}</code></pre><p>ex2:</p><pre><code class="c">//将数组中小于0的元素置成0#include &lt;stdio.h&gt;void nzp(int a[8]){    int i;    printf(&quot;\nvalues of array are:\n&quot;);    for(i=0;i&lt;8;i++)    {        if(a[i]&lt;0)            a[i]=0;        printf(&quot;%d &quot;,a[i]);    }}int main(void){    int b[5],i;    printf(&quot;\ninput 5 numbers:\n&quot;);    for(i=0;i&lt;5;i++)        scanf(&quot;%d&quot;,&amp;b[i]);    printf(&quot;initial values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    nzp(b);  //将有5个元素的数组传递进一个有8个元素的数组的函数，编译通过    printf(&quot;\nlast values of array b are:\n&quot;);    for(i=0;i&lt;5;i++)        printf(&quot;%d &quot;,b[i]);    return 0;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> C语言 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编程语言 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Latex常用代码段</title>
+      <link href="/2019/07/09/LaTeX/Latex%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E6%AE%B5/"/>
+      <url>/2019/07/09/LaTeX/Latex%E5%B8%B8%E7%94%A8%E4%BB%A3%E7%A0%81%E6%AE%B5/</url>
+      
+        <content type="html"><![CDATA[<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p><strong>一些小技巧：</strong></p><blockquote><ul><li>公式环境加<code>*</code>号会参与自动编号</li><li>公式环境可以嵌套。内层嵌套不能使用<code>*</code>号，且要&gt;加上<code>ed</code>。</li><li>最好不要留多余空行，否则可能报错。</li></ul></blockquote><ol><li><p>行内公式<br><code>$\a+b=c$</code></p></li><li><p>单行行间公式</p><pre><code class="latex">\begin{equation}X(i, j) = \begin{cases}0, \quad X(i, j)\text{缺失}\\1, \quad \text{其它}\end{cases}\end{equation}</code></pre></li><li><p>多行推导公式</p><pre><code class="latex">\begin{align*}f(x) &amp;= (x+a)(x+b) \\&amp;= x^2 + (a+b)x + ab\end{align*}</code></pre></li><li><p>多行对齐公式</p><pre><code class="latex"> \begin{gather*}     E(Y_t) = \mu \\     E\left(Y_{t}-\mu\right)^{2}=E\left(\epsilon_{t}+\theta \epsilon_{t-1}\right)^{2}=\left(1+\theta^{2}\right) \sigma^{2} \\     E\left(Y_{t}-\mu\right)\left(Y_{t-1}-\mu\right)=\theta \sigma^{2} \\    \end{gather*}</code></pre></li><li><p>多行条件公式</p><pre><code class="latex">\begin{equation}\begin{cases} 123&amp;a=5\\ 433434&amp;a=64554\\\end{cases}\end{equation}</code></pre></li><li><p>gather内嵌套align</p><pre><code class="latex">gather*内嵌套aligned：\begin{gather*}c=53223\begin{aligned}a&amp;=1\\&amp;=332\end{aligned}\end{gather*}</code></pre></li><li><p>分段函数</p></li></ol><pre><code class="latex">smooth_{L_{1}}(x)=\begin{cases}0.5x^{2}, &amp;\left |x \right |\leq 1 \cr \left |x \right|-0.5, &amp; otherwise\end{cases}</code></pre><h2 id="图"><a href="#图" class="headerlink" title="图"></a>图</h2><ol><li>一行一图</li></ol><pre><code class="latex">\begin{figure}  %图\centering  %插入的图片居中表示\includegraphics[width=\textwidth]{./figures/estimate.jpg}\renewcommand{\figurename}{Fig.}\renewcommand{\figurename}{图}\caption{不同数据缺失率下的数据补全结果}  %图片的名称\label{fig1}   %标签，用作引用\end{figure}</code></pre><ol><li>一行多图</li></ol><pre><code class="latex">\usepackage{subcaption}    \begin{figure}[H]        \begin{subfigure}{0.5\textwidth}        \includegraphics[width=\textwidth]{./figures/ar_1_acf.png}        \label{fig:3_classes}        \caption{}        \end{subfigure}        \begin{subfigure}{0.5\textwidth}        \includegraphics[width=\textwidth]{./figures/ar_1_pacf.png}        \label{fig:5_classes}        \caption{}        \end{subfigure}        \caption{ACF和PACF}      \end{figure}</code></pre><h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><pre><code class="latex">% 有序列表\begin{enumerate}[(1)]% \begin{enumerate}[{[1]}]% \begin{enumerate}[(i)]\item 有编号的列表\item ...\end{enumerate}% 无序列表\begin{itemize}\item 无编号的列表\item ...\end{itemize}</code></pre><h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><ol><li>简单表格</li></ol><pre><code class="latex">    \begin{table}[H]    \centering    \caption{预测误差分布}          \begin{tabular}{|c|c|c|c|c|} % 竖线表示是否在该列加竖线        \hline           &amp; 均值  &amp; 均值理论值 &amp;方差&amp;方差理论值\\          \hline          1步  &amp; 0.0103 &amp; 0 &amp; 0.9927 &amp; 1 \\          2步 &amp; 0.0141 &amp; 0 &amp; 1.2549 &amp; 1.25 \\        \hline    \end{tabular}      \end{table}</code></pre><ol start="2"><li>三行线表格</li></ol><pre><code class="latex">\begin{table}[htp]        \centering        \caption{MA($\infty$)和GRU的最大可预测步数比较}        \label{Tab03}        % shorten cline length        \begin{tabular}{@{\extracolsep{12pt}}cccccccccc@{}}        \hline        \multirow{2}{*}{参数} &amp; \multicolumn{3}{c}{AR(1)} &amp; \multicolumn{3}{c}{AR(2)} &amp; \multicolumn{3}{c}{MA(2)} \\        \cline{2-4}  \cline{5-7} \cline{8-10}        &amp; 0.1 &amp; 0.5 &amp; 0.9 &amp; -0.1 &amp; -0.5 &amp; -0.7 &amp; -0.1 &amp; -0.2 &amp; -0.3 \\        \hline        MA($\infty$)&amp; 1 &amp; 3&amp; 19 &amp; 3 &amp; 6 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\        GRU&amp; 1 &amp; 3 &amp; 20 &amp; 3 &amp; 5 &amp; 11 &amp; 2 &amp; 2 &amp; 2\\        \hline        \end{tabular}        \end{table}</code></pre><ol start="3"><li>去掉表格标题</li></ol><pre><code class="latex">% Delete : of image caption\usepackage{caption}\DeclareCaptionLabelSeparator{twospace}{\ ~}\captionsetup{labelsep=twospace}</code></pre><ol start="4"><li>多行表格</li></ol><pre><code class="latex">\begin{table}[htp]    \centering    \caption{不同条件下一些中间结果的动态范围}    \label{cha_nonlinear}    \begin{tabular}{@{\extracolsep{12pt}}cccccc@{}}        \hline        \multirow{2}{*}{序列编号} &amp; \multirow{2}{*}{条件}    &amp; \multicolumn{4}{c}{动态范围}\\        \cline{3-6}&amp; &amp; $\mathbf{A}_{enc}$  &amp; $X_{attn}$ &amp; $\mathbf{A}_{enc\_dec}$ &amp; $\hat{\mathbf{x}}_{pre}$\\        \hline        \multirow{4}{*}{1} &amp; 无线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\        &amp; 有线性投影，无位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\        &amp; 无线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4 \\        &amp; 有线性投影，有位置编码 &amp; 1  &amp; 2 &amp; 3 &amp; 4\\        \hline    \end{tabular}\end{table}</code></pre><h2 id="调整页边距"><a href="#调整页边距" class="headerlink" title="调整页边距"></a>调整页边距</h2><pre><code class="latex">\usepackage{geometry}\geometry{a4paper,scale=0.8}\geometry{a4paper,left=2cm,right=2cm,top=1cm,bottom=1cm}</code></pre><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol><li>一般参考文献</li></ol><pre><code class="latex">\usepackage{cite}\usepackage{natbib}\usepackage{hyperref}% Place to the location of reference\bibliographystyle{plain}\bibliography{reference}% Refer in the text\cite{Wille1982}% \citep{Wille1982}</code></pre><ol start="2"><li>URL参考文献（无超链接）</li></ol><pre><code class="latex">\usepackage{url}@Misc{timmurphy.org,howpublished = {\url{http://timmurphy.org/2009/07/22/line-spacing-in-latex-documents/}},note = {Accessed April 4, 2010},title = {Line Spacing in LaTeX documents},author = {Murphy, Timothy I}}</code></pre><ol start="3"><li>超链接参考文献（可点击）</li></ol><pre><code class="latex">\usepackage{hyperref}% 设置各种颜色\hypersetup{    colorlinks=true, % 使用颜色代替框    linkcolor=black, % 目录之类的颜色    filecolor=blue,      urlcolor=blue, % 引用url颜色    citecolor=blue, % 引用的颜色}@unpublished{Survey2014,  title={Survey on the access tofinance of enterprises},  author={Sophie Doove and Petra Gibcus andTon Kwaak and Lia Smit and Tommy Span},  year=2014,  note ={Accessed 16 June 2017.  \href{http://wwwe.ansa.it/documents/1415814222451\_Rapporto.pdf/}{http://wwwe.ansa.it/documents/1415814222451/_Rapporto.pdf/}},}</code></pre><h2 id="页码"><a href="#页码" class="headerlink" title="页码"></a>页码</h2><pre><code class="latex">\thispagestyle{empty} % 在不需要设置页码的下面加\setcounter{page}{1} % 强制设置页码值</code></pre><h2 id="python代码"><a href="#python代码" class="headerlink" title="python代码"></a>python代码</h2><pre><code class="latex">\usepackage{listings}\usepackage{color}\definecolor{dkgreen}{rgb}{0,0.6,0}\definecolor{gray}{rgb}{0.5,0.5,0.5}\definecolor{mauve}{rgb}{0.58,0,0.82}\lstset{frame=tb,    language=Python,    aboveskip=3mm,    belowskip=3mm,    showstringspaces=false,    columns=flexible,    basicstyle={\small\ttfamily},    numbers=none,    numberstyle=\tiny\color{gray},    keywordstyle=\color{blue},    commentstyle=\color{dkgreen},    stringstyle=\color{mauve},    breaklines=true,    breakatwhitespace=true,    tabsize=3}\begin{lstlisting}print (&#39;Starting Iterations&#39;)for iter in range(n_iterations):for i in range(n):Users[i] = np.dot(np.dot(np.dot(np.linalg.inv(np.dot(np.dot(Items,np.diag(R[i])),Items.T) +lambda_ * np.eye(n_factors)),Items),np.diag(R[i])),A[i]).Tfor j in range(m):Items[:,j] = np.dot(np.dot(np.dot(np.linalg.inv(np.dot(np.dot(Users.T,np.diag(R[:,j])),Users) +lambda_ *np.eye(n_factors)),Users.T),np.diag(R[:,j])),A[:,j])#print (&#39;Error after solving for Item Matrix:%f&#39; % get_error(A, Users, Items, R))NMAE_List.append(get_error(A, Users, Items, R))print (&#39;%sth iteration is complete...&#39; % iter)print(&#39;Iteration finish&#39;)\end{lstlisting}\end{lstlisting}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Latex </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Latex </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Pip换源</title>
+      <link href="/2019/07/09/PythonPackages/pip%E6%8D%A2%E6%BA%90/"/>
+      <url>/2019/07/09/PythonPackages/pip%E6%8D%A2%E6%BA%90/</url>
+      
+        <content type="html"><![CDATA[<h2 id="临时"><a href="#临时" class="headerlink" title="临时"></a>临时</h2><p><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple packagename</code><br><a href="https://mirrors.tuna.tsinghua.edu.cn/help/pypi/" target="_blank" rel="noopener">清华大学镜像站</a></p><h2 id="永久"><a href="#永久" class="headerlink" title="永久"></a>永久</h2><p>在<code>./user/pip/</code>下新建<code>pip.ini</code>，内容为：</p><pre><code class="[global]">index-url = https://pypi.tuna.tsinghua.edu.cn/simpletrusted-host = pypi.tuna.tsinghua.edu.cn```du.cn</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python Packages </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Pip </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>最大似然估计</title>
+      <link href="/2019/07/09/DeepLearning/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/"/>
+      <url>/2019/07/09/DeepLearning/%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>有时候，直接估计条件概率密度函数很难，因此将概率密度估计问题转化为参数估计问题，极大似然法就是一种参数估计问题。</p><h2 id="重要前提"><a href="#重要前提" class="headerlink" title="重要前提"></a>重要前提</h2><p>训练样本的分布能代表样本的<strong>真实分布</strong>。每个样本集中的样本都是所谓独立同分布的随机变量 (iid条件)，且有充分的训练样本。</p><h2 id="基本内容"><a href="#基本内容" class="headerlink" title="基本内容"></a>基本内容</h2><p>极大似然估计的基本内容是：利用已知的样本结果，反推最有可能导致这样结果的参数值。似然函数指联合概率密度函数关于每个样本以及需要估计的参数的函数。一般形式为：<br>$$L(\theta) = f(x_{1}, x_{2}, … ,x_{n};\theta)$$</p><h2 id="一般步骤"><a href="#一般步骤" class="headerlink" title="一般步骤"></a>一般步骤</h2><p>求最大似然估计量的一般步骤：</p><ol><li>由总体分布导出样本的联合概率函数（或联合密度）；</li><li>把样本联合概率函数的自变量看成是已知常数，而把θθ看做是自变量，得到似然函数$L(\theta)$;</li><li>求似然函数的最大值（常常取对数，然后求驻点）；</li><li>用样本值带入得到参数的最大似然估计</li></ol><p>最大似然估计的特点：</p><ol><li>比其他估计方法更加简单；</li><li>收敛性：无偏或者渐近无偏，当样本数目增加时，收敛性质会更好；</li><li>如果假设的类条件概率模型正确，则通常能获得较好的结果。但如果假设模型出现偏差，将导致非常差的估计结果。</li></ol><h2 id="最大似然估计-MLE-和最小二乘法估计-LSE-的区别"><a href="#最大似然估计-MLE-和最小二乘法估计-LSE-的区别" class="headerlink" title="最大似然估计(MLE)和最小二乘法估计(LSE)的区别"></a>最大似然估计(MLE)和最小二乘法估计(LSE)的区别</h2><p>最小二乘法估计的目的是让估计量最好地拟合样本数据，也就是让估计值与样本值之差的平方和最小<br>$$Q = \sum_{i=1}^{n}(Y_{i} - \hat{Y}_{i})^{2}$$</p><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://blog.csdn.net/zengxiantao1994/article/details/72787849" target="_blank" rel="noopener">极大似然估计详解</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Machine Learning </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
             
         </tags>
       
@@ -743,11 +693,36 @@
     
     
     <entry>
-      <title>正则表达式一些知识点</title>
-      <link href="/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
-      <url>/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+      <title>Pytorch使用过程中遇到的问题</title>
+      <link href="/2019/07/09/Pytorch/Pytorch%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+      <url>/2019/07/09/Pytorch/Pytorch%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-括号的区别"><a href="#1-括号的区别" class="headerlink" title="1 括号的区别"></a>1 括号的区别</h2><ul><li><p>小括号()：匹配小括号内的字符串，可以是一个，也可以是多个，常跟“|”（或）符号搭配使用，是多选结构的。<strong>通俗的说小括号匹配的是具体的字符</strong><br>示例1：string name = “way2014”;  regex：(way|zgw)  result：结果是可以匹配出way的，因为是多选结构，小括号是匹配字符串的<br>示例2：string text = “123456789”;  regex：(0-9)　result：结果是什么都匹配不到的，它只匹配字符串”0-9”而不是匹配数字, [0-9]这个字符组才是匹配0-9的数字</p></li><li><p>中括号[]：匹配字符组内的字符，比如咱们常用的[0-9a-zA-Z.*?!]等，在[]内的字符都是字符，不是元字符，比如“0-9”、“a-z”这中间的“-”就是连接符号，表示范围的元字符，如果写成[-!?*(]这样的话，就是普通字符。<strong>通俗的说中括号匹配的是元字符</strong><br>示例1： string text = “1234567890”;  regex：[0-9]  result：结果是可以匹配出字符串text内的任意数字了，像上边的【或符号“|”在字符组内就是一个普通字符】<br>示例2：string text = “a|e|s|v”;  regex：[a|e|s]  result：结果就是匹配字符a、e、|三个字符，这个跟(a|e|s)有区别的，区别就是(a|e|s)匹配的是a、e、s三个字符的随意一个，三个中的任意一个，这是的|是元字符</p></li><li><p>大括号{}：匹配次数，匹配在它之前表达式匹配出来的元素出现的次数，{n}出现n次、{n,}匹配最少出现n次、{n,m}匹配最少出现n次，最多出现m次</p></li></ul><h2 id="2-替换一部分内容"><a href="#2-替换一部分内容" class="headerlink" title="2 替换一部分内容"></a>2 替换一部分内容</h2><p>在替换正则表达式内容时，有时需要保持一部分内容不变。具体做法是：将需要保留的部分用小括号括起来，在修改后的表达式中使用<code>$1</code>,<code>$2</code>…引用。<code>$0</code>表示整个匹配项。如：<br>把trim(ABC)替换成trim(replace(ABC,char(9),’    ‘)，正则表达式为：<br><code>trim\(([^).]*)\)</code>替换成<code>trim\(replace\($1,char\(9\),&#39;    &#39;\)</code><br>place($1,char(9),’    ‘)`</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="1-tensor-to-device-和module-to-device"><a href="#1-tensor-to-device-和module-to-device" class="headerlink" title="1 tensor.to(device)和module.to(device)"></a>1 <code>tensor.to(device)</code>和<code>module.to(device)</code></h2><p><code>tensor.to(device)</code>不是inplace operation。因此在给一个tensor指定device时需要用：<code>tensor1 = tensor1.to(device)</code>。而<code>Module.to(device)</code>是inplace operation，因此直接使用<code>Module.to(device)</code>即可。</p><h2 id="2-Numpy和Tensor的数据转换"><a href="#2-Numpy和Tensor的数据转换" class="headerlink" title="2 Numpy和Tensor的数据转换"></a>2 Numpy和Tensor的数据转换</h2><p>在将Numpy的数据转化为Tensor时，需要注意一个问题。Numpy中默认浮点类型是<code>np.float64</code>，Pytorch中默认浮点类型是<code>torch.float32</code>。直接使用<code>torch.tensor(array)</code>得到的会是<code>torch.double</code>类型的数据。如果想得到<code>torch.float</code>类型的数据，需要对Numpy数据进行类型转换：<code>array = array.astype(np.float32)</code></p><h2 id="3-‘bool-value-of-Tensor-with-more-than-one-value-is-ambiguous’"><a href="#3-‘bool-value-of-Tensor-with-more-than-one-value-is-ambiguous’" class="headerlink" title="3 ‘bool value of Tensor with more than one value is ambiguous’"></a>3 ‘bool value of Tensor with more than one value is ambiguous’</h2><p>这种情况可能是损失函数声明时没有加括号。即应该是<code>loss_function=nn.MSELoss()</code>而不是<code>loss_function=nn.MSELoss</code></p><h2 id="4-Dataloader的数据格式"><a href="#4-Dataloader的数据格式" class="headerlink" title="4 Dataloader的数据格式"></a>4 Dataloader的数据格式</h2><p>在使用Dataloader导入训练数据时，会使用<code>for batch in dataloader</code>，<code>batch</code>实际上是一个包含所有data的列表。即使只有一组数据，也必须使用<code>batch[0]</code>对数据进行提取。</p><h2 id="5-在训练过程中loss不下降"><a href="#5-在训练过程中loss不下降" class="headerlink" title="5 在训练过程中loss不下降"></a>5 在训练过程中loss不下降</h2><p>一种可能原因是在计算<code>loss = torch.nn.functional.mseloss(output, real)</code>时，output和real的维数不完全一致。</p><h2 id="6-matplotlib和pytorch同时导入报错"><a href="#6-matplotlib和pytorch同时导入报错" class="headerlink" title="6 matplotlib和pytorch同时导入报错"></a>6 matplotlib和pytorch同时导入报错</h2><p>在同时导入matplotlib和pytorch.optim时报错：<code>Process finished with exit code -1073740791 (0xC0000409)</code>。解决方法：先导入pytorch再导入matplotlib，如下：</p><pre><code class="python">import torch.optim as optimport matplotlib.pyplot as plt</code></pre><h2 id="7-Pytorch显存不足"><a href="#7-Pytorch显存不足" class="headerlink" title="7 Pytorch显存不足"></a>7 Pytorch显存不足</h2><p>在使用Pytorch时，有时可能遇到显存不足的问题。即<code>RuntimeError: CUDA out of memory. Tried to allocate 11.88 MiB (GPU 0; 6.00 GiB total capacity; 4.52 GiB already allocated; 11.60 MiB free; 758.50 KiB cached)</code>。出现这种问题的原因可能是在保存结果时将过大的张量保存在GPU中，导致GPU存储空间不足。解决方法：检查所有存储在GPU中的张量，将其中一些较大的用<code>tensor.to(&#39;cpu&#39;)</code>转到内存中储存。</p><p>。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Pytorch </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Pytorch </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>正则表达式学习和查询网站</title>
+      <link href="/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99/"/>
+      <url>/2019/07/09/Regex/%E5%B8%B8%E7%94%A8%E6%9F%A5%E8%AF%A2%E7%BD%91%E7%AB%99/</url>
+      
+        <content type="html"><![CDATA[<h2 id="正则表达式学习和查询网站"><a href="#正则表达式学习和查询网站" class="headerlink" title="正则表达式学习和查询网站"></a>正则表达式学习和查询网站</h2><ol><li><a href="https://deerchao.net/tutorials/regex/regex.htm" target="_blank" rel="noopener">正则表达式30分钟入门教程</a></li><li><a href="http://tool.oschina.net/uploads/apidocs/jquery/regexp.html" target="_blank" rel="noopener">正则表达式手册</a></li><li><a href="https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/regular-expression-language-quick-reference" target="_blank" rel="noopener">正则表达式快速参考</a></li></ol>]]></content>
       
       
       <categories>
@@ -768,23 +743,23 @@
     
     
     <entry>
-      <title>Pytorch使用过程中遇到的问题</title>
-      <link href="/2019/07/09/Pytorch/Pytorch%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-      <url>/2019/07/09/Pytorch/Pytorch%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <title>Latex安装</title>
+      <link href="/2019/07/09/LaTeX/Latex%E5%AE%89%E8%A3%85/"/>
+      <url>/2019/07/09/LaTeX/Latex%E5%AE%89%E8%A3%85/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-tensor-to-device-和module-to-device"><a href="#1-tensor-to-device-和module-to-device" class="headerlink" title="1 tensor.to(device)和module.to(device)"></a>1 <code>tensor.to(device)</code>和<code>module.to(device)</code></h2><p><code>tensor.to(device)</code>不是inplace operation。因此在给一个tensor指定device时需要用：<code>tensor1 = tensor1.to(device)</code>。而<code>Module.to(device)</code>是inplace operation，因此直接使用<code>Module.to(device)</code>即可。</p><h2 id="2-Numpy和Tensor的数据转换"><a href="#2-Numpy和Tensor的数据转换" class="headerlink" title="2 Numpy和Tensor的数据转换"></a>2 Numpy和Tensor的数据转换</h2><p>在将Numpy的数据转化为Tensor时，需要注意一个问题。Numpy中默认浮点类型是<code>np.float64</code>，Pytorch中默认浮点类型是<code>torch.float32</code>。直接使用<code>torch.tensor(array)</code>得到的会是<code>torch.double</code>类型的数据。如果想得到<code>torch.float</code>类型的数据，需要对Numpy数据进行类型转换：<code>array = array.astype(np.float32)</code></p><h2 id="3-‘bool-value-of-Tensor-with-more-than-one-value-is-ambiguous’"><a href="#3-‘bool-value-of-Tensor-with-more-than-one-value-is-ambiguous’" class="headerlink" title="3 ‘bool value of Tensor with more than one value is ambiguous’"></a>3 ‘bool value of Tensor with more than one value is ambiguous’</h2><p>这种情况可能是损失函数声明时没有加括号。即应该是<code>loss_function=nn.MSELoss()</code>而不是<code>loss_function=nn.MSELoss</code></p><h2 id="4-Dataloader的数据格式"><a href="#4-Dataloader的数据格式" class="headerlink" title="4 Dataloader的数据格式"></a>4 Dataloader的数据格式</h2><p>在使用Dataloader导入训练数据时，会使用<code>for batch in dataloader</code>，<code>batch</code>实际上是一个包含所有data的列表。即使只有一组数据，也必须使用<code>batch[0]</code>对数据进行提取。</p><h2 id="5-在训练过程中loss不下降"><a href="#5-在训练过程中loss不下降" class="headerlink" title="5 在训练过程中loss不下降"></a>5 在训练过程中loss不下降</h2><p>一种可能原因是在计算<code>loss = torch.nn.functional.mseloss(output, real)</code>时，output和real的维数不完全一致。</p><h2 id="6-matplotlib和pytorch同时导入报错"><a href="#6-matplotlib和pytorch同时导入报错" class="headerlink" title="6 matplotlib和pytorch同时导入报错"></a>6 matplotlib和pytorch同时导入报错</h2><p>在同时导入matplotlib和pytorch.optim时报错：<code>Process finished with exit code -1073740791 (0xC0000409)</code>。解决方法：先导入pytorch再导入matplotlib，如下：</p><pre><code class="python">import torch.optim as optimport matplotlib.pyplot as plt</code></pre><h2 id="7-Pytorch显存不足"><a href="#7-Pytorch显存不足" class="headerlink" title="7 Pytorch显存不足"></a>7 Pytorch显存不足</h2><p>在使用Pytorch时，有时可能遇到显存不足的问题。即<code>RuntimeError: CUDA out of memory. Tried to allocate 11.88 MiB (GPU 0; 6.00 GiB total capacity; 4.52 GiB already allocated; 11.60 MiB free; 758.50 KiB cached)</code>。出现这种问题的原因可能是在保存结果时将过大的张量保存在GPU中，导致GPU存储空间不足。解决方法：检查所有存储在GPU中的张量，将其中一些较大的用<code>tensor.to(&#39;cpu&#39;)</code>转到内存中储存。</p><p>。</p>]]></content>
+        <content type="html"><![CDATA[<ol><li><a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/" target="_blank" rel="noopener">texlive离线安装</a></li><li><a href="http://texstudio.sourceforge.net/" target="_blank" rel="noopener">texstudio在线安装</a></li></ol>]]></content>
       
       
       <categories>
           
-          <category> Pytorch </category>
+          <category> Latex </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Pytorch </tag>
+            <tag> Latex </tag>
             
         </tags>
       
@@ -818,23 +793,23 @@
     
     
     <entry>
-      <title>Linux系统使用过程中遇到的一些问题</title>
-      <link href="/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/"/>
-      <url>/2019/07/09/Linux/Linux%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+      <title>谈谈深度学习中的 Batch_Size</title>
+      <link href="/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/"/>
+      <url>/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84batch%20size/</url>
       
-        <content type="html"><![CDATA[<h2 id="1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面"><a href="#1-无法进入GUI界面，可以使用Ctrl-Alt-F4进入命令行界面" class="headerlink" title="1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面"></a>1 无法进入GUI界面，可以使用Ctrl+Alt+F4进入命令行界面</h2><p>这种情况可能是Nvidia显卡驱动安装出现了问题。解决方法：</p><ol><li><p>卸载原驱动：<code>sudo apt-get purge nvidia*</code></p></li><li><p>把显卡驱动加入PPA：<br><code>sudo add-apt-repository ppa:graphics-drivers</code> </p><p><code>sudo apt-get update</code></p></li><li><p>查找显卡驱动最新的版本号<br><code>sudo apt-cache search nvidia</code></p></li><li><p>采用apt-get命令在终端安装<br><code>sudo apt-get install nvidia-390 nvidia-settings nvidia-prime</code></p></li><li><p>使用<code>lsmod | grep nvidia</code>或<code>watch -n 1 nvidia-smi</code>查看是否安装成功-smi`查看是否安装成功</p></li></ol>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>本文转载自:<a href="http://blog.csdn.net/ycheng_sjtu/article/details/49804041#reply" target="_blank" rel="noopener">谈谈深度学习中的 Batch_Size</a></p></blockquote><p>Batch_Size（批尺寸）是机器学习中一个重要参数，涉及诸多矛盾，下面逐一展开。</p><h2 id="首先，为什么需要有-Batch-Size-这个参数？"><a href="#首先，为什么需要有-Batch-Size-这个参数？" class="headerlink" title="首先，为什么需要有 Batch_Size 这个参数？"></a>首先，为什么需要有 Batch_Size 这个参数？</h2><p>Batch 的选择，首先决定的是下降的方向。如果数据集比较小，完全可以采用<strong>全数据集 （ Full Batch Learning ）</strong>的形式，这样做<strong>至少</strong>有 2 个好处：其一，由全数据集确定的方向能够更好地代表样本总体，从而更准确地朝向极值所在的方向。其二，由于不同权重的梯度值差别巨大，因此选取一个全局的学习率很困难。 Full Batch Learning 可以使用 <strong>Rprop</strong> 只基于梯度符号并且针对性单独更新各权值。</p><p>对于更大的数据集，以上 2 个好处又变成了 2 个坏处：其一，随着数据集的海量增长和内存限制，一次性载入所有的数据进来变得越来越不可行。其二，以 Rprop 的方式迭代，会由于各个 Batch 之间的采样差异性，各次梯度修正值相互抵消，无法修正。这才有了后来 <strong>RMSProp</strong> 的妥协方案。</p><h2 id="既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？"><a href="#既然-Full-Batch-Learning-并不适用大数据集，那么走向另一个极端怎么样？" class="headerlink" title="既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？"></a>既然 Full Batch Learning 并不适用大数据集，那么走向另一个极端怎么样？</h2><p>所谓另一个极端，就是每次只训练一个样本，即 Batch_Size = 1。这就是<strong>在线学习（Online Learning）</strong>。线性神经元在均方误差代价函数的错误面是一个抛物面，横截面是椭圆。对于多层神经元、非线性网络，在局部依然近似是抛物面。使用在线学习，每次修正方向以各自样本的梯度方向修正，横冲直撞各自为政，<strong>难以达到收敛</strong>。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195814221" alt="这里写图片描述"> </p><h2 id="可不可以选择一个适中的-Batch-Size-值呢？"><a href="#可不可以选择一个适中的-Batch-Size-值呢？" class="headerlink" title="可不可以选择一个适中的 Batch_Size 值呢？"></a>可不可以选择一个适中的 Batch_Size 值呢？</h2><p>当然可以，这就是<strong>批梯度下降法（Mini-batches Learning）</strong>。因为如果数据集足够充分，那么用一半（<strong>甚至少得多</strong>）的数据训练算出来的梯度与用全部数据训练出来的梯度是<strong>几乎一样</strong>的。</p><h2 id="在合理范围内，增大-Batch-Size-有何好处？"><a href="#在合理范围内，增大-Batch-Size-有何好处？" class="headerlink" title="在合理范围内，增大 Batch_Size 有何好处？"></a>在合理范围内，增大 Batch_Size 有何好处？</h2><ul><li>内存利用率提高了，大矩阵乘法的并行化效率提高。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，对于相同数据量的处理速度进一步加快。</li><li>在一定范围内，一般来说 Batch_Size 越大，其确定的下降方向越准，引起训练震荡越小。</li></ul><h2 id="盲目增大-Batch-Size-有何坏处？"><a href="#盲目增大-Batch-Size-有何坏处？" class="headerlink" title="盲目增大 Batch_Size 有何坏处？"></a>盲目增大 Batch_Size 有何坏处？</h2><ul><li>内存利用率提高了，但是内存容量可能撑不住了。</li><li>跑完一次 epoch（全数据集）所需的迭代次数减少，要想达到相同的精度，其所花费的时间大大增加了，从而对参数的修正也就显得更加缓慢。</li><li>Batch_Size 增大到一定程度，其确定的下降方向已经基本不再变化。</li></ul><h2 id="调节-Batch-Size-对训练效果影响到底如何？"><a href="#调节-Batch-Size-对训练效果影响到底如何？" class="headerlink" title="调节 Batch_Size 对训练效果影响到底如何？"></a>调节 Batch_Size 对训练效果影响到底如何？</h2><p>这里跑一个 LeNet 在 MNIST 数据集上的效果。MNIST 是一个手写体标准库，我使用的是 <strong>Theano</strong> 框架。这是一个 Python 的深度学习库。<a href="http://deeplearning.net/software/theano/install.html#install" target="_blank" rel="noopener">安装方便</a>（几行命令而已），调试简单（自带 Profile），GPU / CPU 通吃，<a href="http://deeplearning.net/tutorial/contents.html" target="_blank" rel="noopener">官方教程相当完备</a>，支持模块十分丰富（除了 CNNs，更是支持 RBM / DBN / LSTM / RBM-RNN / SdA / MLPs）。在其上层有 <a href="http://keras.io/" target="_blank" rel="noopener">Keras</a> 封装，支持 GRU / JZS1, JZS2, JZS3 等较新结构，支持 Adagrad / Adadelta / RMSprop / Adam 等优化算法。<strong>如图所示</strong>：</p><p><img src="http://img.blog.csdn.net/20151112195829489" alt="这里写图片描述"></p><p><img src="http://img.blog.csdn.net/20151112195843957" alt="这里写图片描述"> </p><p>运行结果如上图所示，其中绝对时间做了标幺化处理。运行结果与上文分析相印证：</p><ul><li>Batch_Size 太小，算法在 200 epoches 内不收敛。</li><li>随着 Batch_Size 增大，处理相同数据量的速度越快。</li><li>随着 Batch_Size 增大，达到相同精度所需要的 epoch 数量越来越多。</li><li>由于上述两种因素的矛盾， Batch_Size 增大到<strong>某个</strong>时候，达到<strong>时间上</strong>的最优。</li><li>由于最终收敛精度会陷入不同的局部极值，因此 Batch_Size 增大到<strong>某些</strong>时候，达到最终收敛<strong>精度上</strong>的最优。</li></ul><h2 id="关于batchsize和epoch的理解"><a href="#关于batchsize和epoch的理解" class="headerlink" title="关于batchsize和epoch的理解"></a>关于batchsize和epoch的理解</h2><p>batchsize指的是使超参数发生一次迭代输入的样本数，也就是完成一次反向传播、求导、参数更新过程所需要输入的样本数。epoch指完成将所有训练数据全部应用于参数更新的过程。在样本数据比较小时，batchsize可以取为训练样本数，这样完成一次epoch只需进行一次梯度下降和参数更新。将全部输入数据作为一个batch进行训练的方法称为<strong>批梯度下降法（Batch Gradient Descend）</strong>。与之相对应的是<strong>随机梯度下降法（Stochastic Gradient Descent）</strong>。这种梯度下降法每次只选取一个样本进行参数更新，因此完成一次epoch需要进行size(X)次迭代。这种方法梯度下降的方向一般不是最优的。将这两种方法折中的一种方法称为<strong>小批量梯度下降法（Mini-batch Gradient Descent）</strong>。这种方法每次将<strong>batchsize</strong>的数据用来训练网络，完成一次迭代。那么完成一次epoch需要进行的迭代次数为<code>np.ceil(size(x) / batchsize)</code>。在实际使用时，可以在一定范围内尽可能增大batchsize的值。当然，如果增大batch值，达到相同精度的epoch数会越来越多，因此需要在精度和运算速度这两方面来考虑选取的batchsize。方面来考虑选取的batchsize。</p>]]></content>
       
       
       <categories>
           
-          <category> Linux </category>
+          <category> Deep Learning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Linux </tag>
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -918,23 +893,23 @@
     
     
     <entry>
-      <title>Latex安装</title>
-      <link href="/2019/07/09/LaTeX/Latex%E5%AE%89%E8%A3%85/"/>
-      <url>/2019/07/09/LaTeX/Latex%E5%AE%89%E8%A3%85/</url>
+      <title>深度学习参考资料</title>
+      <link href="/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"/>
+      <url>/2019/07/09/DeepLearning/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/</url>
       
-        <content type="html"><![CDATA[<ol><li><a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/" target="_blank" rel="noopener">texlive离线安装</a></li><li><a href="http://texstudio.sourceforge.net/" target="_blank" rel="noopener">texstudio在线安装</a></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>整理了一些与深度学习有关的资料如下</p><ol><li><p>lstm实现<br><a href="http://blog.csdn.net/mydear_11000/article/details/52414342###" target="_blank" rel="noopener">http://blog.csdn.net/mydear_11000/article/details/52414342###</a><br><a href="http://blog.csdn.net/u013082989/article/details/73693392" target="_blank" rel="noopener">http://blog.csdn.net/u013082989/article/details/73693392</a></p></li><li><p>RNN和LSTM基础<br><a href="http://blog.csdn.net/xingzhedai/article/details/53144126" target="_blank" rel="noopener">http://blog.csdn.net/xingzhedai/article/details/53144126</a><br><a href="https://www.jianshu.com/p/9dc9f41f0b29" target="_blank" rel="noopener">https://www.jianshu.com/p/9dc9f41f0b29</a><br><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</a><br><a href="https://www.zybuluo.com/hanbingtao/note/476663" target="_blank" rel="noopener">https://www.zybuluo.com/hanbingtao/note/476663</a></p></li><li><p>tensorflow 常用算子<br><a href="https://www.cnblogs.com/wuzhitj/p/6431381.html" target="_blank" rel="noopener">https://www.cnblogs.com/wuzhitj/p/6431381.html</a></p></li><li><p>DBN算法实现<br><a href="http://blog.csdn.net/zhanglu_wind/article/details/78949020" target="_blank" rel="noopener">http://blog.csdn.net/zhanglu_wind/article/details/78949020</a></p></li><li><p>数据分析必读书目<br><a href="http://www.cnblogs.com/charlotte77/p/5381681.html" target="_blank" rel="noopener">http://www.cnblogs.com/charlotte77/p/5381681.html</a></p></li><li><p>深度神经网络系列文章</p><ol><li><a href="https://www.zybuluo.com/hanbingtao/note/433855" target="_blank" rel="noopener">零基础入门深度学习(1) - 感知器</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/448086" target="_blank" rel="noopener">零基础入门深度学习(2) - 线性单元和梯度下降</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/476663" target="_blank" rel="noopener">零基础入门深度学习(3) - 神经网络和反向传播算法</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/485480" target="_blank" rel="noopener">零基础入门深度学习(4) - 卷积神经网络</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/541458" target="_blank" rel="noopener">零基础入门深度学习(5) - 循环神经网络</a></li><li><a href="https://zybuluo.com/hanbingtao/note/581764" target="_blank" rel="noopener">零基础入门深度学习(6) - 长短时记忆网络(LSTM)</a></li><li><a href="https://www.zybuluo.com/hanbingtao/note/626300" target="_blank" rel="noopener">零基础入门深度学习(7) - 递归神经网络</a></li></ol></li></ol>]]></content>
       
       
       <categories>
           
-          <category> Latex </category>
+          <category> Deep Learning </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Latex </tag>
+            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -993,16 +968,16 @@
     
     
     <entry>
-      <title>受限玻尔兹曼机（RBM）&amp;深度信念网络（DBN）</title>
-      <link href="/2019/07/09/DeepLearning/DBN/%E5%8F%97%E9%99%90%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E6%9C%BA%EF%BC%88RBM%EF%BC%89&amp;%E6%B7%B1%E5%BA%A6%E4%BF%A1%E5%BF%B5%E7%BD%91%E7%BB%9C%EF%BC%88DBN%EF%BC%89/"/>
-      <url>/2019/07/09/DeepLearning/DBN/%E5%8F%97%E9%99%90%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E6%9C%BA%EF%BC%88RBM%EF%BC%89&amp;%E6%B7%B1%E5%BA%A6%E4%BF%A1%E5%BF%B5%E7%BD%91%E7%BB%9C%EF%BC%88DBN%EF%BC%89/</url>
+      <title>NLP新的发展方向</title>
+      <link href="/2019/07/09/DeepLearning/NLP/NLP%E5%8F%91%E5%B1%95%E6%96%B0%E6%96%B9%E5%90%91/"/>
+      <url>/2019/07/09/DeepLearning/NLP/NLP%E5%8F%91%E5%B1%95%E6%96%B0%E6%96%B9%E5%90%91/</url>
       
-        <content type="html"><![CDATA[<h1 id="1-原理"><a href="#1-原理" class="headerlink" title="1 原理"></a>1 原理</h1><ul><li><a href="[url](http://blog.csdn.net/Losteng/article/details/51001247)">深度信念网络(Deep Belief Network)</a></li><li><a href="https://blog.csdn.net/mytestmy/article/details/9150213/" target="_blank" rel="noopener">深度学习读书笔记之RBM（限制波尔兹曼机）</a></li></ul><h1 id="2-实现"><a href="#2-实现" class="headerlink" title="2 实现"></a>2 实现</h1><ul><li><p><a href="https://github.com/albertbup/deep-belief-network" target="_blank" rel="noopener">scikit-learn</a></p></li><li><p><a href="http://blog.csdn.net/m0_37924639/article/details/78962912" target="_blank" rel="noopener">Tensorflow</a></p><p><a href="https://github.com/yyb1995/dbn_traffic_prediction_pytorch" target="_blank" rel="noopener">Pytorch</a><br>ion_pytorch)</p></li></ul>]]></content>
+        <content type="html"><![CDATA[<p>将一些比较新的关于NLP发展方向的博客和文章收集如下</p><ol><li><a href="https://zhuanlan.zhihu.com/p/49271699" target="_blank" rel="noopener">从Word Embedding到Bert模型—自然语言处理中的预训练技术发展史</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247493520&idx=1&sn=2b04c009ef75291ef3d19e8fe673aa36&chksm=96ea3810a19db10621e7a661974c796e8adeffc31625a769f8db1d87ba803cd58a30d40ad7ce&scene=21#wechat_redirect" target="_blank" rel="noopener">NLP的巨人肩膀上</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247493731&idx=1&sn=51206e4ca3983548436d889590ab5347&chksm=96ea37e3a19dbef5b6db3143eb9df822915126d3d8f61fe73ddb9f8fa329d568ec79a662acb1&mpshare=1&scene=23&srcid=12177Ua04Q6MGcDDUf5HSrL0#rd" target="_blank" rel="noopener">NLP的巨人肩膀下</a></li><li><a href="https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html" target="_blank" rel="noopener">https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html</a></li><li><a href="https://zhuanlan.zhihu.com/p/54743941" target="_blank" rel="noopener">放弃幻想，全面拥抱Transformer：自然语言处理三大特征抽取器（CNN/RNN/TF）比较</a></li><li><a href="https://mp.weixin.qq.com/s/TM5poGwSGi5C9szO13GYxg" target="_blank" rel="noopener">NLP中的attention机制</a></li><li><a href="https://zhuanlan.zhihu.com/p/49271699" target="_blank" rel="noopener">从Word Embedding到Bert模型—自然语言处理中的预训练技术发展史</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247497461&idx=1&sn=2821912a51749ef50a46007249fec26a&chksm=96ea2975a19da0633f3286750088a22c78987628666a6cd2d42d1fbee74f9c189e073d111dc2&mpshare=1&scene=23&srcid=#rd" target="_blank" rel="noopener">ICLR 2019最佳论文 | ON-LSTM：用有序神经元表达层次结构</a></li><li><a href="https://zhuanlan.zhihu.com/p/68446772" target="_blank" rel="noopener">Bert时代的创新（应用篇）：Bert在NLP各领域的应用进展</a></li><li><a href="https://zhuanlan.zhihu.com/p/70257427" target="_blank" rel="noopener">XLNet:运行机制及和Bert的异同比较</a></li><li><a href="https://xueqiu.com/7788828530/136260361" target="_blank" rel="noopener">15篇论文全面概览BERT压缩方法</a></li></ol>]]></content>
       
       
       <categories>
           
-          <category> RBM </category>
+          <category> NLP </category>
           
       </categories>
       
@@ -1018,16 +993,16 @@
     
     
     <entry>
-      <title>NLP新的发展方向</title>
-      <link href="/2019/07/09/DeepLearning/NLP/NLP%E5%8F%91%E5%B1%95%E6%96%B0%E6%96%B9%E5%90%91/"/>
-      <url>/2019/07/09/DeepLearning/NLP/NLP%E5%8F%91%E5%B1%95%E6%96%B0%E6%96%B9%E5%90%91/</url>
+      <title>受限玻尔兹曼机（RBM）&amp;深度信念网络（DBN）</title>
+      <link href="/2019/07/09/DeepLearning/DBN/%E5%8F%97%E9%99%90%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E6%9C%BA%EF%BC%88RBM%EF%BC%89&amp;%E6%B7%B1%E5%BA%A6%E4%BF%A1%E5%BF%B5%E7%BD%91%E7%BB%9C%EF%BC%88DBN%EF%BC%89/"/>
+      <url>/2019/07/09/DeepLearning/DBN/%E5%8F%97%E9%99%90%E7%8E%BB%E5%B0%94%E5%85%B9%E6%9B%BC%E6%9C%BA%EF%BC%88RBM%EF%BC%89&amp;%E6%B7%B1%E5%BA%A6%E4%BF%A1%E5%BF%B5%E7%BD%91%E7%BB%9C%EF%BC%88DBN%EF%BC%89/</url>
       
-        <content type="html"><![CDATA[<p>将一些比较新的关于NLP发展方向的博客和文章收集如下</p><ol><li><a href="https://zhuanlan.zhihu.com/p/49271699" target="_blank" rel="noopener">从Word Embedding到Bert模型—自然语言处理中的预训练技术发展史</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247493520&idx=1&sn=2b04c009ef75291ef3d19e8fe673aa36&chksm=96ea3810a19db10621e7a661974c796e8adeffc31625a769f8db1d87ba803cd58a30d40ad7ce&scene=21#wechat_redirect" target="_blank" rel="noopener">NLP的巨人肩膀上</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247493731&idx=1&sn=51206e4ca3983548436d889590ab5347&chksm=96ea37e3a19dbef5b6db3143eb9df822915126d3d8f61fe73ddb9f8fa329d568ec79a662acb1&mpshare=1&scene=23&srcid=12177Ua04Q6MGcDDUf5HSrL0#rd" target="_blank" rel="noopener">NLP的巨人肩膀下</a></li><li><a href="https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html" target="_blank" rel="noopener">https://lilianweng.github.io/lil-log/2018/06/24/attention-attention.html</a></li><li><a href="https://zhuanlan.zhihu.com/p/54743941" target="_blank" rel="noopener">放弃幻想，全面拥抱Transformer：自然语言处理三大特征抽取器（CNN/RNN/TF）比较</a></li><li><a href="https://mp.weixin.qq.com/s/TM5poGwSGi5C9szO13GYxg" target="_blank" rel="noopener">NLP中的attention机制</a></li><li><a href="https://zhuanlan.zhihu.com/p/49271699" target="_blank" rel="noopener">从Word Embedding到Bert模型—自然语言处理中的预训练技术发展史</a></li><li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTc4ODE0Mw==&mid=2247497461&idx=1&sn=2821912a51749ef50a46007249fec26a&chksm=96ea2975a19da0633f3286750088a22c78987628666a6cd2d42d1fbee74f9c189e073d111dc2&mpshare=1&scene=23&srcid=#rd" target="_blank" rel="noopener">ICLR 2019最佳论文 | ON-LSTM：用有序神经元表达层次结构</a></li><li><a href="https://zhuanlan.zhihu.com/p/68446772" target="_blank" rel="noopener">Bert时代的创新（应用篇）：Bert在NLP各领域的应用进展</a></li><li><a href="https://zhuanlan.zhihu.com/p/70257427" target="_blank" rel="noopener">XLNet:运行机制及和Bert的异同比较</a></li><li><a href="https://xueqiu.com/7788828530/136260361" target="_blank" rel="noopener">15篇论文全面概览BERT压缩方法</a></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="1-原理"><a href="#1-原理" class="headerlink" title="1 原理"></a>1 原理</h1><ul><li><a href="[url](http://blog.csdn.net/Losteng/article/details/51001247)">深度信念网络(Deep Belief Network)</a></li><li><a href="https://blog.csdn.net/mytestmy/article/details/9150213/" target="_blank" rel="noopener">深度学习读书笔记之RBM（限制波尔兹曼机）</a></li></ul><h1 id="2-实现"><a href="#2-实现" class="headerlink" title="2 实现"></a>2 实现</h1><ul><li><p><a href="https://github.com/albertbup/deep-belief-network" target="_blank" rel="noopener">scikit-learn</a></p></li><li><p><a href="http://blog.csdn.net/m0_37924639/article/details/78962912" target="_blank" rel="noopener">Tensorflow</a></p><p><a href="https://github.com/yyb1995/dbn_traffic_prediction_pytorch" target="_blank" rel="noopener">Pytorch</a><br>ion_pytorch)</p></li></ul>]]></content>
       
       
       <categories>
           
-          <category> NLP </category>
+          <category> RBM </category>
           
       </categories>
       
@@ -1168,6 +1143,31 @@
     
     
     <entry>
+      <title>数据可视化Seaborn从零开始学习教程（一） 风格选择</title>
+      <link href="/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%20%E9%A3%8E%E6%A0%BC%E9%80%89%E6%8B%A9/"/>
+      <url>/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%20%E9%A3%8E%E6%A0%BC%E9%80%89%E6%8B%A9/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>本文转载自<a href="https://segmentfault.com/a/1190000014915873" target="_blank" rel="noopener">数据可视化Seaborn从零开始学习教程（一） 风格选择</a></p></blockquote><blockquote><p>最近在做几个项目的数据分析，每次用到<code>seaborn</code>进行可视化绘图的时候总是忘记具体操作。虽然<code>seaborn</code>的官方网站已经详细的介绍了使用方法，但是毕竟是英文，而且查找不是很方便。因此博主想从零开始将<code>seaborn</code>学习一遍，做一个总结，也希望供大家使用参考。</p></blockquote><h2 id="Seaborn-简介"><a href="#Seaborn-简介" class="headerlink" title="Seaborn 简介"></a>Seaborn 简介</h2><p><code>seaborn</code>同<code>matplotlib</code>一样，也是 Python 进行数据可视化分析的重要第三方包。但<code>seaborn</code>是在 <code>matplotlib</code>的基础上进行了更高级的 API 封装，使得作图更加容易，图形更加漂亮。</p><p>博主并不认为<code>seaborn</code>可以替代<code>matplotlib</code>。虽然<code>seaborn</code>可以满足大部分情况下的数据分析需求，但是针对一些特殊情况，还是需要用到<code>matplotlib</code>的。换句话说，<code>matplotlib</code>更加灵活，可定制化，而<code>seaborn</code>像是更高级的封装，使用方便快捷。</p><p>应该把<code>seaborn</code>视为<code>matplotlib</code>的补充，而不是替代物。</p><h2 id="Seaborn-学习内容"><a href="#Seaborn-学习内容" class="headerlink" title="Seaborn 学习内容"></a>Seaborn 学习内容</h2><p><code>seaborn</code>的学习内容主要包含以下几个部分：</p><ol><li><p><strong>风格管理</strong></p><ul><li>绘图风格设置</li><li>颜色风格设置</li></ul></li><li><p><strong>绘图方法</strong></p><ul><li>数据集的分布可视化</li><li>分类数据可视化</li><li>线性关系可视化</li></ul></li><li><p><strong>结构网格</strong></p><ul><li>数据识别网格绘图</li></ul></li></ol><p>本次将主要介绍风格管理的使用。</p><h2 id="风格管理-绘图风格设置"><a href="#风格管理-绘图风格设置" class="headerlink" title="风格管理 - 绘图风格设置"></a>风格管理 - 绘图风格设置</h2><p>除了各种绘图方式外，图形的美观程度可能是我们最关心的了。将它放到第一部分，因为风格设置是一些通用性的操作，对于各种绘图方法都适用。</p><p>让我们先看一个例子。</p><pre><code>%matplotlib inlineimport numpy as npimport matplotlib as mplimport matplotlib.pyplot as pltimport seaborn as snsnp.random.seed(sum(map(ord, &quot;aesthetics&quot;)))</code></pre><p>我们定义了一个简单的方程来绘制一些偏置的正弦波，用来帮助我们查看不同的图画风格是什么样子的。</p><pre><code>def sinplot(flip=1):    x = np.linspace(0, 14, 100)    for i in range(1, 7):        plt.plot(x, np.sin(x + i * .5) * (7 - i) * flip)</code></pre><p><code>matplotlib</code>默认参数下绘制结果是这样的：</p><pre><code>sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKnO?w=493&h=338" alt></p><p>转换为<code>seaborn</code>默认绘图，可以简单的用<code>set()</code>方法。</p><pre><code>sns.set()sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKnT?w=486&h=330" alt></p><p><code>Seaborn</code> 将 <code>matplotlib</code> 的参数划分为两个独立的组合。第一组是设置绘图的外观风格的，第二组主要将绘图的各种元素按比例缩放的，以至可以嵌入到不同的背景环境中。</p><p>操控这些参数的接口主要有两对方法：</p><ul><li>控制风格：<code>axes_style()</code>, <code>set_style()</code></li><li>缩放绘图：<code>plotting_context()</code>, <code>set_context()</code></li></ul><p>每对方法中的第一个方法（<code>axes_style()</code>, <code>plotting_context()</code>）会返回一组字典参数，而第二个方法（<code>set_style()</code>, <code>set_context()</code>）会设置 matplotlib 的默认参数。</p><h3 id="Seaborn-的五种绘图风格"><a href="#Seaborn-的五种绘图风格" class="headerlink" title="Seaborn 的五种绘图风格"></a>Seaborn 的五种绘图风格</h3><p>有五种<code>seaborn</code>的风格，它们分别是：<strong>darkgrid</strong>, <strong>whitegrid</strong>, <strong>dark</strong>, <strong>white</strong>, <strong>ticks</strong>。它们各自适合不同的应用和个人喜好。默认的主题是 <strong>darkgrid</strong>。</p><pre><code>sns.set_style(&quot;whitegrid&quot;)data = np.random.normal(size=(20, 6)) + np.arange(6) / 2sns.boxplot(data=data);</code></pre><p><img src="https://segmentfault.com/img/bVbaKpk?w=486&h=321" alt></p><pre><code>sns.set_style(&quot;dark&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKpw?w=484&h=327" alt></p><pre><code>sns.set_style(&quot;white&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKpA?w=481&h=321" alt></p><pre><code>sns.set_style(&quot;ticks&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKpG?w=491&h=341" alt></p><h3 id="移除轴脊柱"><a href="#移除轴脊柱" class="headerlink" title="移除轴脊柱"></a>移除轴脊柱</h3><p><strong>white</strong> 和 <strong>ticks</strong> 两个风格都能够移除顶部和右侧的不必要的轴脊柱。通过<code>matplotlib</code>参数是做不到这一点的，但是你可以使用<code>seaborn</code>的<code>despine()</code>方法来移除它们：</p><pre><code>sinplot()sns.despine()</code></pre><p><img src="https://segmentfault.com/img/bVbaKpO?w=495&h=347" alt></p><p>一些绘图也可以针对数据将轴脊柱进行偏置，当然也是通过调用<code>despine()</code>方法来完成。而当刻度没有完全覆盖整个轴的范围时，<code>trim</code>参数可以用来限制已有脊柱的范围。</p><pre><code>f, ax = plt.subplots()sns.violinplot(data=data)sns.despine(offset=10, trim=True);</code></pre><p><img src="https://segmentfault.com/img/bVbaKpS?w=493&h=354" alt></p><p>你也可以通过<code>despine()</code>控制哪个脊柱将被移除。</p><pre><code>sns.set_style(&quot;whitegrid&quot;)sns.boxplot(data=data, palette=&quot;deep&quot;)sns.despine(left=True)</code></pre><p><img src="https://segmentfault.com/img/bVbaKqi?w=491&h=333" alt></p><h3 id="临时设置绘图风格"><a href="#临时设置绘图风格" class="headerlink" title="临时设置绘图风格"></a>临时设置绘图风格</h3><p>虽然来回切换风格很容易，但是你也可以在一个<code>with</code>语句中使用<code>axes_style()</code>方法来临时的设置绘图参数。这也允许你用不同风格的轴来绘图：</p><pre><code>with sns.axes_style(&quot;darkgrid&quot;):    plt.subplot(211)    sinplot()plt.subplot(212)sinplot(-1)</code></pre><p><img src="https://segmentfault.com/img/bVbaKqB?w=482&h=329" alt></p><h3 id="覆盖-seaborn-风格元素"><a href="#覆盖-seaborn-风格元素" class="headerlink" title="覆盖 seaborn 风格元素"></a>覆盖 seaborn 风格元素</h3><p>如果你想定制化<code>seaborn</code>风格，你可以将一个字典参数传递给<code>axes_style()</code>和<code>set_style()</code>的参数<code>rc</code>。而且你只能通过这个方法来覆盖风格定义中的部分参数。</p><p>如果你想要看看这些参数都是些什么，可以调用这个方法，且无参数，这将会返回下面的设置：</p><pre><code>sns.axes_style(){&#39;axes.axisbelow&#39;: True, &#39;axes.edgecolor&#39;: &#39;.8&#39;, &#39;axes.facecolor&#39;: &#39;white&#39;, &#39;axes.grid&#39;: True, &#39;axes.labelcolor&#39;: &#39;.15&#39;, &#39;axes.linewidth&#39;: 1.0, &#39;figure.facecolor&#39;: &#39;white&#39;, &#39;font.family&#39;: [u&#39;sans-serif&#39;], &#39;font.sans-serif&#39;: [u&#39;Arial&#39;,  u&#39;DejaVu Sans&#39;,  u&#39;Liberation Sans&#39;,  u&#39;Bitstream Vera Sans&#39;,  u&#39;sans-serif&#39;], &#39;grid.color&#39;: &#39;.8&#39;, &#39;grid.linestyle&#39;: u&#39;-&#39;, &#39;image.cmap&#39;: u&#39;rocket&#39;, &#39;legend.frameon&#39;: False, &#39;legend.numpoints&#39;: 1, &#39;legend.scatterpoints&#39;: 1, &#39;lines.solid_capstyle&#39;: u&#39;round&#39;, &#39;text.color&#39;: &#39;.15&#39;, &#39;xtick.color&#39;: &#39;.15&#39;, &#39;xtick.direction&#39;: u&#39;out&#39;, &#39;xtick.major.size&#39;: 0.0, &#39;xtick.minor.size&#39;: 0.0, &#39;ytick.color&#39;: &#39;.15&#39;, &#39;ytick.direction&#39;: u&#39;out&#39;, &#39;ytick.major.size&#39;: 0.0, &#39;ytick.minor.size&#39;: 0.0}</code></pre><p>然后，你可以设置这些参数的不同版本了。</p><pre><code>sns.set_style(&quot;darkgrid&quot;, {&quot;axes.facecolor&quot;: &quot;.9&quot;})sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKqJ?w=489&h=332" alt></p><h3 id="绘图元素比例"><a href="#绘图元素比例" class="headerlink" title="绘图元素比例"></a>绘图元素比例</h3><p>有一套的参数可以控制绘图元素的比例。<br>首先，让我们通过<code>set()</code>重置默认的参数：</p><pre><code>sns.set()</code></pre><p>有四个预置的环境，按大小从小到大排列分别为：<strong>paper</strong>, <strong>notebook</strong>, <strong>talk</strong>, <strong>poster</strong>。其中，<strong>notebook</strong> 是默认的。</p><pre><code>sns.set_context(&quot;paper&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKq8?w=476&h=319" alt></p><pre><code>sns.set_context(&quot;talk&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKrb?w=491&h=326" alt></p><pre><code>sns.set_context(&quot;poster&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKrt?w=529&h=339" alt></p><p>你可以通过使用这些名字中的一个调用<code>set_context()</code>来设置参数，并且你可以通过提供一个字典参数值来覆盖参数。当改变环境时，你也可以独立的去缩放字体元素的大小。</p><pre><code>sns.set_context(&quot;notebook&quot;, font_scale=1.5, rc={&quot;lines.linewidth&quot;: 2.5})sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKrz?w=515&h=334" alt></p><p>同样的，你可以通过嵌入<code>with</code>语句临时的控制绘图的比例。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>介绍了 Seaborn 的 5 中绘图风格</p><ul><li>移除轴脊柱</li><li>临时设置绘图风格</li><li>覆盖 Seaborn 风格元素</li><li>绘图元素比例缩放</li></ul><p>下一节将会介绍颜色风格的使用。</p><hr><p>关注微信公众号 <strong>Python 数据科学</strong>，获取 <code>120G</code> 人工智能 学习资料。</p><p><img src="https://segmentfault.com/img/bV7oO9?w=344&h=344" alt></p><p><img src="https://segmentfault.com/img/bV93KE?w=572&h=367" alt></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Python Packages </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> seaborn </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据可视化Seaborn从零开始学习教程（三） 数据分布可视化篇</title>
       <link href="/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89%20%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E5%8F%AF%E8%A7%86%E5%8C%96%E7%AF%87/"/>
       <url>/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%89%EF%BC%89%20%E6%95%B0%E6%8D%AE%E5%88%86%E5%B8%83%E5%8F%AF%E8%A7%86%E5%8C%96%E7%AF%87/</url>
@@ -1218,31 +1218,6 @@
     
     
     <entry>
-      <title>数据可视化Seaborn从零开始学习教程（一） 风格选择</title>
-      <link href="/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%20%E9%A3%8E%E6%A0%BC%E9%80%89%E6%8B%A9/"/>
-      <url>/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%B8%80%EF%BC%89%20%E9%A3%8E%E6%A0%BC%E9%80%89%E6%8B%A9/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>本文转载自<a href="https://segmentfault.com/a/1190000014915873" target="_blank" rel="noopener">数据可视化Seaborn从零开始学习教程（一） 风格选择</a></p></blockquote><blockquote><p>最近在做几个项目的数据分析，每次用到<code>seaborn</code>进行可视化绘图的时候总是忘记具体操作。虽然<code>seaborn</code>的官方网站已经详细的介绍了使用方法，但是毕竟是英文，而且查找不是很方便。因此博主想从零开始将<code>seaborn</code>学习一遍，做一个总结，也希望供大家使用参考。</p></blockquote><h2 id="Seaborn-简介"><a href="#Seaborn-简介" class="headerlink" title="Seaborn 简介"></a>Seaborn 简介</h2><p><code>seaborn</code>同<code>matplotlib</code>一样，也是 Python 进行数据可视化分析的重要第三方包。但<code>seaborn</code>是在 <code>matplotlib</code>的基础上进行了更高级的 API 封装，使得作图更加容易，图形更加漂亮。</p><p>博主并不认为<code>seaborn</code>可以替代<code>matplotlib</code>。虽然<code>seaborn</code>可以满足大部分情况下的数据分析需求，但是针对一些特殊情况，还是需要用到<code>matplotlib</code>的。换句话说，<code>matplotlib</code>更加灵活，可定制化，而<code>seaborn</code>像是更高级的封装，使用方便快捷。</p><p>应该把<code>seaborn</code>视为<code>matplotlib</code>的补充，而不是替代物。</p><h2 id="Seaborn-学习内容"><a href="#Seaborn-学习内容" class="headerlink" title="Seaborn 学习内容"></a>Seaborn 学习内容</h2><p><code>seaborn</code>的学习内容主要包含以下几个部分：</p><ol><li><p><strong>风格管理</strong></p><ul><li>绘图风格设置</li><li>颜色风格设置</li></ul></li><li><p><strong>绘图方法</strong></p><ul><li>数据集的分布可视化</li><li>分类数据可视化</li><li>线性关系可视化</li></ul></li><li><p><strong>结构网格</strong></p><ul><li>数据识别网格绘图</li></ul></li></ol><p>本次将主要介绍风格管理的使用。</p><h2 id="风格管理-绘图风格设置"><a href="#风格管理-绘图风格设置" class="headerlink" title="风格管理 - 绘图风格设置"></a>风格管理 - 绘图风格设置</h2><p>除了各种绘图方式外，图形的美观程度可能是我们最关心的了。将它放到第一部分，因为风格设置是一些通用性的操作，对于各种绘图方法都适用。</p><p>让我们先看一个例子。</p><pre><code>%matplotlib inlineimport numpy as npimport matplotlib as mplimport matplotlib.pyplot as pltimport seaborn as snsnp.random.seed(sum(map(ord, &quot;aesthetics&quot;)))</code></pre><p>我们定义了一个简单的方程来绘制一些偏置的正弦波，用来帮助我们查看不同的图画风格是什么样子的。</p><pre><code>def sinplot(flip=1):    x = np.linspace(0, 14, 100)    for i in range(1, 7):        plt.plot(x, np.sin(x + i * .5) * (7 - i) * flip)</code></pre><p><code>matplotlib</code>默认参数下绘制结果是这样的：</p><pre><code>sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKnO?w=493&h=338" alt></p><p>转换为<code>seaborn</code>默认绘图，可以简单的用<code>set()</code>方法。</p><pre><code>sns.set()sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKnT?w=486&h=330" alt></p><p><code>Seaborn</code> 将 <code>matplotlib</code> 的参数划分为两个独立的组合。第一组是设置绘图的外观风格的，第二组主要将绘图的各种元素按比例缩放的，以至可以嵌入到不同的背景环境中。</p><p>操控这些参数的接口主要有两对方法：</p><ul><li>控制风格：<code>axes_style()</code>, <code>set_style()</code></li><li>缩放绘图：<code>plotting_context()</code>, <code>set_context()</code></li></ul><p>每对方法中的第一个方法（<code>axes_style()</code>, <code>plotting_context()</code>）会返回一组字典参数，而第二个方法（<code>set_style()</code>, <code>set_context()</code>）会设置 matplotlib 的默认参数。</p><h3 id="Seaborn-的五种绘图风格"><a href="#Seaborn-的五种绘图风格" class="headerlink" title="Seaborn 的五种绘图风格"></a>Seaborn 的五种绘图风格</h3><p>有五种<code>seaborn</code>的风格，它们分别是：<strong>darkgrid</strong>, <strong>whitegrid</strong>, <strong>dark</strong>, <strong>white</strong>, <strong>ticks</strong>。它们各自适合不同的应用和个人喜好。默认的主题是 <strong>darkgrid</strong>。</p><pre><code>sns.set_style(&quot;whitegrid&quot;)data = np.random.normal(size=(20, 6)) + np.arange(6) / 2sns.boxplot(data=data);</code></pre><p><img src="https://segmentfault.com/img/bVbaKpk?w=486&h=321" alt></p><pre><code>sns.set_style(&quot;dark&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKpw?w=484&h=327" alt></p><pre><code>sns.set_style(&quot;white&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKpA?w=481&h=321" alt></p><pre><code>sns.set_style(&quot;ticks&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKpG?w=491&h=341" alt></p><h3 id="移除轴脊柱"><a href="#移除轴脊柱" class="headerlink" title="移除轴脊柱"></a>移除轴脊柱</h3><p><strong>white</strong> 和 <strong>ticks</strong> 两个风格都能够移除顶部和右侧的不必要的轴脊柱。通过<code>matplotlib</code>参数是做不到这一点的，但是你可以使用<code>seaborn</code>的<code>despine()</code>方法来移除它们：</p><pre><code>sinplot()sns.despine()</code></pre><p><img src="https://segmentfault.com/img/bVbaKpO?w=495&h=347" alt></p><p>一些绘图也可以针对数据将轴脊柱进行偏置，当然也是通过调用<code>despine()</code>方法来完成。而当刻度没有完全覆盖整个轴的范围时，<code>trim</code>参数可以用来限制已有脊柱的范围。</p><pre><code>f, ax = plt.subplots()sns.violinplot(data=data)sns.despine(offset=10, trim=True);</code></pre><p><img src="https://segmentfault.com/img/bVbaKpS?w=493&h=354" alt></p><p>你也可以通过<code>despine()</code>控制哪个脊柱将被移除。</p><pre><code>sns.set_style(&quot;whitegrid&quot;)sns.boxplot(data=data, palette=&quot;deep&quot;)sns.despine(left=True)</code></pre><p><img src="https://segmentfault.com/img/bVbaKqi?w=491&h=333" alt></p><h3 id="临时设置绘图风格"><a href="#临时设置绘图风格" class="headerlink" title="临时设置绘图风格"></a>临时设置绘图风格</h3><p>虽然来回切换风格很容易，但是你也可以在一个<code>with</code>语句中使用<code>axes_style()</code>方法来临时的设置绘图参数。这也允许你用不同风格的轴来绘图：</p><pre><code>with sns.axes_style(&quot;darkgrid&quot;):    plt.subplot(211)    sinplot()plt.subplot(212)sinplot(-1)</code></pre><p><img src="https://segmentfault.com/img/bVbaKqB?w=482&h=329" alt></p><h3 id="覆盖-seaborn-风格元素"><a href="#覆盖-seaborn-风格元素" class="headerlink" title="覆盖 seaborn 风格元素"></a>覆盖 seaborn 风格元素</h3><p>如果你想定制化<code>seaborn</code>风格，你可以将一个字典参数传递给<code>axes_style()</code>和<code>set_style()</code>的参数<code>rc</code>。而且你只能通过这个方法来覆盖风格定义中的部分参数。</p><p>如果你想要看看这些参数都是些什么，可以调用这个方法，且无参数，这将会返回下面的设置：</p><pre><code>sns.axes_style(){&#39;axes.axisbelow&#39;: True, &#39;axes.edgecolor&#39;: &#39;.8&#39;, &#39;axes.facecolor&#39;: &#39;white&#39;, &#39;axes.grid&#39;: True, &#39;axes.labelcolor&#39;: &#39;.15&#39;, &#39;axes.linewidth&#39;: 1.0, &#39;figure.facecolor&#39;: &#39;white&#39;, &#39;font.family&#39;: [u&#39;sans-serif&#39;], &#39;font.sans-serif&#39;: [u&#39;Arial&#39;,  u&#39;DejaVu Sans&#39;,  u&#39;Liberation Sans&#39;,  u&#39;Bitstream Vera Sans&#39;,  u&#39;sans-serif&#39;], &#39;grid.color&#39;: &#39;.8&#39;, &#39;grid.linestyle&#39;: u&#39;-&#39;, &#39;image.cmap&#39;: u&#39;rocket&#39;, &#39;legend.frameon&#39;: False, &#39;legend.numpoints&#39;: 1, &#39;legend.scatterpoints&#39;: 1, &#39;lines.solid_capstyle&#39;: u&#39;round&#39;, &#39;text.color&#39;: &#39;.15&#39;, &#39;xtick.color&#39;: &#39;.15&#39;, &#39;xtick.direction&#39;: u&#39;out&#39;, &#39;xtick.major.size&#39;: 0.0, &#39;xtick.minor.size&#39;: 0.0, &#39;ytick.color&#39;: &#39;.15&#39;, &#39;ytick.direction&#39;: u&#39;out&#39;, &#39;ytick.major.size&#39;: 0.0, &#39;ytick.minor.size&#39;: 0.0}</code></pre><p>然后，你可以设置这些参数的不同版本了。</p><pre><code>sns.set_style(&quot;darkgrid&quot;, {&quot;axes.facecolor&quot;: &quot;.9&quot;})sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKqJ?w=489&h=332" alt></p><h3 id="绘图元素比例"><a href="#绘图元素比例" class="headerlink" title="绘图元素比例"></a>绘图元素比例</h3><p>有一套的参数可以控制绘图元素的比例。<br>首先，让我们通过<code>set()</code>重置默认的参数：</p><pre><code>sns.set()</code></pre><p>有四个预置的环境，按大小从小到大排列分别为：<strong>paper</strong>, <strong>notebook</strong>, <strong>talk</strong>, <strong>poster</strong>。其中，<strong>notebook</strong> 是默认的。</p><pre><code>sns.set_context(&quot;paper&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKq8?w=476&h=319" alt></p><pre><code>sns.set_context(&quot;talk&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKrb?w=491&h=326" alt></p><pre><code>sns.set_context(&quot;poster&quot;)sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKrt?w=529&h=339" alt></p><p>你可以通过使用这些名字中的一个调用<code>set_context()</code>来设置参数，并且你可以通过提供一个字典参数值来覆盖参数。当改变环境时，你也可以独立的去缩放字体元素的大小。</p><pre><code>sns.set_context(&quot;notebook&quot;, font_scale=1.5, rc={&quot;lines.linewidth&quot;: 2.5})sinplot()</code></pre><p><img src="https://segmentfault.com/img/bVbaKrz?w=515&h=334" alt></p><p>同样的，你可以通过嵌入<code>with</code>语句临时的控制绘图的比例。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>介绍了 Seaborn 的 5 中绘图风格</p><ul><li>移除轴脊柱</li><li>临时设置绘图风格</li><li>覆盖 Seaborn 风格元素</li><li>绘图元素比例缩放</li></ul><p>下一节将会介绍颜色风格的使用。</p><hr><p>关注微信公众号 <strong>Python 数据科学</strong>，获取 <code>120G</code> 人工智能 学习资料。</p><p><img src="https://segmentfault.com/img/bV7oO9?w=344&h=344" alt></p><p><img src="https://segmentfault.com/img/bV93KE?w=572&h=367" alt></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Python Packages </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> seaborn </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>数据可视化Seaborn从零开始学习教程（二） 颜色调控篇</title>
       <link href="/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%20%E9%A2%9C%E8%89%B2%E8%B0%83%E6%8E%A7%E7%AF%87/"/>
       <url>/2019/07/09/PythonPackages/seaborn/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%20Seaborn%20%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E6%95%99%E7%A8%8B%EF%BC%88%E4%BA%8C%EF%BC%89%20%E9%A2%9C%E8%89%B2%E8%B0%83%E6%8E%A7%E7%AF%87/</url>
@@ -1260,31 +1235,6 @@
         <tags>
             
             <tag> seaborn </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>长短期记忆网络</title>
-      <link href="/2019/07/09/DeepLearning/RNN/LSTM/LSTM/"/>
-      <url>/2019/07/09/DeepLearning/RNN/LSTM/LSTM/</url>
-      
-        <content type="html"><![CDATA[<h2 id="1-LSTM原理"><a href="#1-LSTM原理" class="headerlink" title="1 LSTM原理"></a>1 LSTM原理</h2><ol><li><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">English version：Understanding LSTM Networks</a></li><li><a href="https://www.jianshu.com/p/4b4701beba92" target="_blank" rel="noopener">中文版：如何简单的理解LSTM——其实没有那么复杂</a></li><li><a href="https://zybuluo.com/hanbingtao/note/581764" target="_blank" rel="noopener">作业部落</a></li><li><a href="https://medium.com/mlreview/understanding-lstm-and-its-diagrams-37e2f46f1714" target="_blank" rel="noopener">好看的图</a></li></ol><h2 id="2-LSTM基础应用"><a href="#2-LSTM基础应用" class="headerlink" title="2 LSTM基础应用"></a>2 LSTM基础应用</h2><ol><li><a href="https://yq.aliyun.com/articles/202939" target="_blank" rel="noopener">LSTM在MNIST数据集中的运用</a></li></ol><h2 id="3-LSTM实战"><a href="#3-LSTM实战" class="headerlink" title="3 LSTM实战"></a>3 LSTM实战</h2><ol><li><a href="https://blog.csdn.net/mylove0414/article/details/56969181" target="_blank" rel="noopener"># Tensorflow实例：利用LSTM预测股票每日最高价（二）</a></li><li><a href="https://blog.csdn.net/flying_sfeng/article/details/78852816" target="_blank" rel="noopener">使用tensorflow的lstm网络进行时间序列预测</a></li><li><a href="https://machinelearningmastery.com/time-series-forecasting-long-short-term-memory-network-python/" target="_blank" rel="noopener">基于单变量的LSTM时间序列预测</a></li><li><a href="https://yq.aliyun.com/articles/174270" target="_blank" rel="noopener">基于多变量的LSTM时间序列预测</a></li><li><a href="https://machinelearningmastery.com/multi-step-time-series-forecasting-long-short-term-memory-networks-python/" target="_blank" rel="noopener">基于LSTM的多步预测</a></li><li><a href="https://www.jianshu.com/p/5d6d5aac4dbd" target="_blank" rel="noopener">实用LSTM时间预测例子</a></li><li><a href="https://yq.aliyun.com/articles/68463" target="_blank" rel="noopener">多层LSTM网络：教你打造股市晴雨表——通过LSTM神经网络预测股市</a></li><li><a href="https://machinelearningmastery.com/understanding-stateful-lstm-recurrent-neural-networks-python-keras/" target="_blank" rel="noopener">LSTM英文句子预测问题</a></li><li><a href="http://www.willfleury.com/machine-learning/forecasting/lstm/2017/09/01/short-term-forceasting-lstm.html" target="_blank" rel="noopener">lstm时间序列预测程序</a></li></ol><h2 id="4-LSTM相关问题理解"><a href="#4-LSTM相关问题理解" class="headerlink" title="4 LSTM相关问题理解"></a>4 LSTM相关问题理解</h2><ol><li><p><a href="https://stackoverflow.com/questions/37901047/what-is-num-units-in-tensorflow-basiclstmcell#comment83076885_37901047" target="_blank" rel="noopener">tensorflow中LSTM模型的n_hidden含义</a></p></li><li><p>LSTM stateful相关理解</p><ol><li><a href="http://philipperemy.github.io/keras-stateful-lstm/" target="_blank" rel="noopener">Stateful LSTM in Keras</a></li><li><a href="https://machinelearningmastery.com/understanding-stateful-lstm-recurrent-neural-networks-python-keras/" target="_blank" rel="noopener">Understanding Stateful LSTM Recurrent Neural Networks in Python with Keras</a><blockquote><p>The LSTM networks are stateful. They should be able to learn the whole alphabet sequence, but by default the Keras implementation resets the network state after each training batch.</p></blockquote></li><li><a href="https://stackoverflow.com/questions/43882796/when-does-keras-reset-an-lstm-state" target="_blank" rel="noopener">https://stackoverflow.com/questions/43882796/when-does-keras-reset-an-lstm-state</a></li><li><a href="https://ahstat.github.io/RNN-Keras-time-series/" target="_blank" rel="noopener">https://ahstat.github.io/RNN-Keras-time-series/</a></li><li><a href="https://zhuanlan.zhihu.com/p/34495801#comment-465502125" target="_blank" rel="noopener">Keras之stateful LSTM全面解析+实例测试</a></li></ol></li><li><p><a href="https://blog.csdn.net/yyb19951015/article/details/79740869" target="_blank" rel="noopener">LSTM输入层理解</a></p></li></ol><h2 id="5-LSTM论文及资料"><a href="#5-LSTM论文及资料" class="headerlink" title="5 LSTM论文及资料"></a>5 LSTM论文及资料</h2><p><a href="http://suanfazu.com/t/rnn-lstm/13587" target="_blank" rel="noopener">rnn和lstm资源收集</a><br>om/t/rnn-lstm/13587)</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> LSTM </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 深度学习 </tag>
             
         </tags>
       
@@ -1318,11 +1268,36 @@
     
     
     <entry>
-      <title>TimeDistributedDense()层</title>
-      <link href="/2019/07/09/DeepLearning/RNN/LSTM/TimeDistributedDense()%E5%B1%82/"/>
-      <url>/2019/07/09/DeepLearning/RNN/LSTM/TimeDistributedDense()%E5%B1%82/</url>
+      <title>Sequence to Sequence(s2s)</title>
+      <link href="/2019/07/09/DeepLearning/RNN/Seq2Seq/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"/>
+      <url>/2019/07/09/DeepLearning/RNN/Seq2Seq/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/</url>
       
-        <content type="html"><![CDATA[<ol><li><a href="https://github.com/keras-team/keras/issues/2405" target="_blank" rel="noopener">https://github.com/keras-team/keras/issues/2405</a></li><li><a href="https://github.com/CanePunma/Stock_Price_Prediction_With_RNNs/issues/1" target="_blank" rel="noopener">https://github.com/CanePunma/Stock_Price_Prediction_With_RNNs/issues/1</a></li><li><a href="https://stackoverflow.com/questions/42398645/timedistributed-vs-timedistributeddense-keras" target="_blank" rel="noopener">https://stackoverflow.com/questions/42398645/timedistributed-vs-timedistributeddense-keras</a></li><li><a href="https://stackoverflow.com/questions/44611006/timedistributeddense-vs-dense-in-keras-same-number-of-parameters" target="_blank" rel="noopener">https://stackoverflow.com/questions/44611006/timedistributeddense-vs-dense-in-keras-same-number-of-parameters</a></li><li><a href="https://stackoverflow.com/questions/45631235/importerror-cannot-import-name-timedistributeddense-in-keras" target="_blank" rel="noopener">https://stackoverflow.com/questions/45631235/importerror-cannot-import-name-timedistributeddense-in-keras</a></li><li><a href="https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu" target="_blank" rel="noopener">https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu</a></li><li><a href="https://stackoverflow.com/questions/49661708/keras-lstm-multiple-input-multiple-output" target="_blank" rel="noopener">https://stackoverflow.com/questions/49661708/keras-lstm-multiple-input-multiple-output</a></li><li><a href="https://blog.csdn.net/oQiCheng1234567/article/details/73051251" target="_blank" rel="noopener">https://blog.csdn.net/oQiCheng1234567/article/details/73051251</a></li><li><a href="https://github.com/keras-team/keras/issues/1029" target="_blank" rel="noopener">https://github.com/keras-team/keras/issues/1029</a></li></ol><p>keras/issues/1029)</p>]]></content>
+        <content type="html"><![CDATA[<h2 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h2><ol><li><a href="https://arxiv.org/pdf/1409.3215.pdf" target="_blank" rel="noopener">Sequence to Sequence Learning with Neural Networks</a></li><li><a href="https://arxiv.org/pdf/1406.1078.pdf" target="_blank" rel="noopener">Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation</a></li><li><a href="https://arxiv.org/pdf/1409.0473.pdf" target="_blank" rel="noopener">Neural Machine Translation By Jointly Learning To Align and Translate</a></li></ol><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol><li><a href="https://blog.csdn.net/Jerr__y/article/details/53749693" target="_blank" rel="noopener">seq2seq学习笔记</a></li><li><a href="http://jacoxu.com/encoder_decoder/" target="_blank" rel="noopener">漫谈四种神经网络序列解码模型</a></li></ol><h2 id="实践应用"><a href="#实践应用" class="headerlink" title="实践应用"></a>实践应用</h2><ol><li><a href="https://blog.csdn.net/tensorflowshizhan/article/details/69230070" target="_blank" rel="noopener">TensorFlow文本摘要生成 - 基于注意力的序列到序列模型</a></li><li><a href="https://machinelearningmastery.com/develop-encoder-decoder-model-sequence-sequence-prediction-keras/" target="_blank" rel="noopener">How to Develop an Encoder-Decoder Model for Sequence-to-Sequence Prediction in Keras</a></li><li><a href="https://machinelearningmastery.com/define-encoder-decoder-sequence-sequence-model-neural-machine-translation-keras/" target="_blank" rel="noopener">How to Define an Encoder-Decoder Sequence-to-Sequence Model for Neural Machine Translation in Keras</a></li><li><a href="https://zhuanlan.zhihu.com/p/27608348" target="_blank" rel="noopener">知乎sequence_to_sequence项目</a></li></ol><h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><ol><li><a href="https://mp.weixin.qq.com/s/TM5poGwSGi5C9szO13GYxg" target="_blank" rel="noopener"><strong>一文解读NLP中的注意力机制</strong></a></li><li><a href="https://blog.csdn.net/malefactor/article/details/50550211" target="_blank" rel="noopener">自然语言处理中的Attention Model：是什么及为什么</a></li><li><a href="https://www.jianshu.com/p/ed058614b73d?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation" target="_blank" rel="noopener">NLP中的Attention Model</a></li><li><a href="http://www.cnblogs.com/robert-dlut/p/8638283.html" target="_blank" rel="noopener">自然语言处理中的自注意力机制(Self-attention Mechanism)</a></li></ol><h2 id="Attention-is-all-you-need"><a href="#Attention-is-all-you-need" class="headerlink" title="Attention is all you need"></a>Attention is all you need</h2><ol><li><p><strong><a href="http://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">详细图解attention is all you need</a></strong></p></li><li><p><strong><a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html" target="_blank" rel="noopener">详细解释加pytorch实现</a></strong></p></li><li><p><a href="http://mlexplained.com/2017/12/29/attention-is-all-you-need-explained/" target="_blank" rel="noopener">另一份详细解释</a></p></li><li><p><a href="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/" target="_blank" rel="noopener">attention is all you need解读</a></p></li><li><p><a href="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/" target="_blank" rel="noopener">The Transformer – Attention is all you need.</a></p></li><li><p><a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html" target="_blank" rel="noopener">pytorch实现</a></p></li><li><p><a href="https://juejin.im/post/5b9f1af0e51d450e425eb32d" target="_blank" rel="noopener">中文资料加pytorch实现</a></p></li><li><p><a href="https://github.com/tensorflow/models/tree/master/official/transformer/model" target="_blank" rel="noopener">Google官方tensorflow实现</a></p></li><li><p><a href="https://segmentfault.com/a/1190000015575985" target="_blank" rel="noopener">中文资料</a></p></li><li><p><a href="https://www.cnblogs.com/guoyaohua/p/transformer.html" target="_blank" rel="noopener">Transformer各层图示</a></p></li></ol><p>ua/p/transformer.html)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> sequence to sequence </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 深度学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>长短期记忆网络</title>
+      <link href="/2019/07/09/DeepLearning/RNN/LSTM/LSTM/"/>
+      <url>/2019/07/09/DeepLearning/RNN/LSTM/LSTM/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-LSTM原理"><a href="#1-LSTM原理" class="headerlink" title="1 LSTM原理"></a>1 LSTM原理</h2><ol><li><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="noopener">English version：Understanding LSTM Networks</a></li><li><a href="https://www.jianshu.com/p/4b4701beba92" target="_blank" rel="noopener">中文版：如何简单的理解LSTM——其实没有那么复杂</a></li><li><a href="https://zybuluo.com/hanbingtao/note/581764" target="_blank" rel="noopener">作业部落</a></li><li><a href="https://medium.com/mlreview/understanding-lstm-and-its-diagrams-37e2f46f1714" target="_blank" rel="noopener">好看的图</a></li></ol><h2 id="2-LSTM基础应用"><a href="#2-LSTM基础应用" class="headerlink" title="2 LSTM基础应用"></a>2 LSTM基础应用</h2><ol><li><a href="https://yq.aliyun.com/articles/202939" target="_blank" rel="noopener">LSTM在MNIST数据集中的运用</a></li></ol><h2 id="3-LSTM实战"><a href="#3-LSTM实战" class="headerlink" title="3 LSTM实战"></a>3 LSTM实战</h2><ol><li><a href="https://blog.csdn.net/mylove0414/article/details/56969181" target="_blank" rel="noopener"># Tensorflow实例：利用LSTM预测股票每日最高价（二）</a></li><li><a href="https://blog.csdn.net/flying_sfeng/article/details/78852816" target="_blank" rel="noopener">使用tensorflow的lstm网络进行时间序列预测</a></li><li><a href="https://machinelearningmastery.com/time-series-forecasting-long-short-term-memory-network-python/" target="_blank" rel="noopener">基于单变量的LSTM时间序列预测</a></li><li><a href="https://yq.aliyun.com/articles/174270" target="_blank" rel="noopener">基于多变量的LSTM时间序列预测</a></li><li><a href="https://machinelearningmastery.com/multi-step-time-series-forecasting-long-short-term-memory-networks-python/" target="_blank" rel="noopener">基于LSTM的多步预测</a></li><li><a href="https://www.jianshu.com/p/5d6d5aac4dbd" target="_blank" rel="noopener">实用LSTM时间预测例子</a></li><li><a href="https://yq.aliyun.com/articles/68463" target="_blank" rel="noopener">多层LSTM网络：教你打造股市晴雨表——通过LSTM神经网络预测股市</a></li><li><a href="https://machinelearningmastery.com/understanding-stateful-lstm-recurrent-neural-networks-python-keras/" target="_blank" rel="noopener">LSTM英文句子预测问题</a></li><li><a href="http://www.willfleury.com/machine-learning/forecasting/lstm/2017/09/01/short-term-forceasting-lstm.html" target="_blank" rel="noopener">lstm时间序列预测程序</a></li></ol><h2 id="4-LSTM相关问题理解"><a href="#4-LSTM相关问题理解" class="headerlink" title="4 LSTM相关问题理解"></a>4 LSTM相关问题理解</h2><ol><li><p><a href="https://stackoverflow.com/questions/37901047/what-is-num-units-in-tensorflow-basiclstmcell#comment83076885_37901047" target="_blank" rel="noopener">tensorflow中LSTM模型的n_hidden含义</a></p></li><li><p>LSTM stateful相关理解</p><ol><li><a href="http://philipperemy.github.io/keras-stateful-lstm/" target="_blank" rel="noopener">Stateful LSTM in Keras</a></li><li><a href="https://machinelearningmastery.com/understanding-stateful-lstm-recurrent-neural-networks-python-keras/" target="_blank" rel="noopener">Understanding Stateful LSTM Recurrent Neural Networks in Python with Keras</a><blockquote><p>The LSTM networks are stateful. They should be able to learn the whole alphabet sequence, but by default the Keras implementation resets the network state after each training batch.</p></blockquote></li><li><a href="https://stackoverflow.com/questions/43882796/when-does-keras-reset-an-lstm-state" target="_blank" rel="noopener">https://stackoverflow.com/questions/43882796/when-does-keras-reset-an-lstm-state</a></li><li><a href="https://ahstat.github.io/RNN-Keras-time-series/" target="_blank" rel="noopener">https://ahstat.github.io/RNN-Keras-time-series/</a></li><li><a href="https://zhuanlan.zhihu.com/p/34495801#comment-465502125" target="_blank" rel="noopener">Keras之stateful LSTM全面解析+实例测试</a></li></ol></li><li><p><a href="https://blog.csdn.net/yyb19951015/article/details/79740869" target="_blank" rel="noopener">LSTM输入层理解</a></p></li></ol><h2 id="5-LSTM论文及资料"><a href="#5-LSTM论文及资料" class="headerlink" title="5 LSTM论文及资料"></a>5 LSTM论文及资料</h2><p><a href="http://suanfazu.com/t/rnn-lstm/13587" target="_blank" rel="noopener">rnn和lstm资源收集</a><br>om/t/rnn-lstm/13587)</p>]]></content>
       
       
       <categories>
@@ -1343,16 +1318,16 @@
     
     
     <entry>
-      <title>Sequence to Sequence(s2s)</title>
-      <link href="/2019/07/09/DeepLearning/RNN/Seq2Seq/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/"/>
-      <url>/2019/07/09/DeepLearning/RNN/Seq2Seq/%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99/</url>
+      <title>TimeDistributedDense()层</title>
+      <link href="/2019/07/09/DeepLearning/RNN/LSTM/TimeDistributedDense()%E5%B1%82/"/>
+      <url>/2019/07/09/DeepLearning/RNN/LSTM/TimeDistributedDense()%E5%B1%82/</url>
       
-        <content type="html"><![CDATA[<h2 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h2><ol><li><a href="https://arxiv.org/pdf/1409.3215.pdf" target="_blank" rel="noopener">Sequence to Sequence Learning with Neural Networks</a></li><li><a href="https://arxiv.org/pdf/1406.1078.pdf" target="_blank" rel="noopener">Learning Phrase Representations using RNN Encoder–Decoder for Statistical Machine Translation</a></li><li><a href="https://arxiv.org/pdf/1409.0473.pdf" target="_blank" rel="noopener">Neural Machine Translation By Jointly Learning To Align and Translate</a></li></ol><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><ol><li><a href="https://blog.csdn.net/Jerr__y/article/details/53749693" target="_blank" rel="noopener">seq2seq学习笔记</a></li><li><a href="http://jacoxu.com/encoder_decoder/" target="_blank" rel="noopener">漫谈四种神经网络序列解码模型</a></li></ol><h2 id="实践应用"><a href="#实践应用" class="headerlink" title="实践应用"></a>实践应用</h2><ol><li><a href="https://blog.csdn.net/tensorflowshizhan/article/details/69230070" target="_blank" rel="noopener">TensorFlow文本摘要生成 - 基于注意力的序列到序列模型</a></li><li><a href="https://machinelearningmastery.com/develop-encoder-decoder-model-sequence-sequence-prediction-keras/" target="_blank" rel="noopener">How to Develop an Encoder-Decoder Model for Sequence-to-Sequence Prediction in Keras</a></li><li><a href="https://machinelearningmastery.com/define-encoder-decoder-sequence-sequence-model-neural-machine-translation-keras/" target="_blank" rel="noopener">How to Define an Encoder-Decoder Sequence-to-Sequence Model for Neural Machine Translation in Keras</a></li><li><a href="https://zhuanlan.zhihu.com/p/27608348" target="_blank" rel="noopener">知乎sequence_to_sequence项目</a></li></ol><h2 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h2><ol><li><a href="https://mp.weixin.qq.com/s/TM5poGwSGi5C9szO13GYxg" target="_blank" rel="noopener"><strong>一文解读NLP中的注意力机制</strong></a></li><li><a href="https://blog.csdn.net/malefactor/article/details/50550211" target="_blank" rel="noopener">自然语言处理中的Attention Model：是什么及为什么</a></li><li><a href="https://www.jianshu.com/p/ed058614b73d?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation" target="_blank" rel="noopener">NLP中的Attention Model</a></li><li><a href="http://www.cnblogs.com/robert-dlut/p/8638283.html" target="_blank" rel="noopener">自然语言处理中的自注意力机制(Self-attention Mechanism)</a></li></ol><h2 id="Attention-is-all-you-need"><a href="#Attention-is-all-you-need" class="headerlink" title="Attention is all you need"></a>Attention is all you need</h2><ol><li><p><strong><a href="http://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">详细图解attention is all you need</a></strong></p></li><li><p><strong><a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html" target="_blank" rel="noopener">详细解释加pytorch实现</a></strong></p></li><li><p><a href="http://mlexplained.com/2017/12/29/attention-is-all-you-need-explained/" target="_blank" rel="noopener">另一份详细解释</a></p></li><li><p><a href="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/" target="_blank" rel="noopener">attention is all you need解读</a></p></li><li><p><a href="https://mchromiak.github.io/articles/2017/Sep/12/Transformer-Attention-is-all-you-need/" target="_blank" rel="noopener">The Transformer – Attention is all you need.</a></p></li><li><p><a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html" target="_blank" rel="noopener">pytorch实现</a></p></li><li><p><a href="https://juejin.im/post/5b9f1af0e51d450e425eb32d" target="_blank" rel="noopener">中文资料加pytorch实现</a></p></li><li><p><a href="https://github.com/tensorflow/models/tree/master/official/transformer/model" target="_blank" rel="noopener">Google官方tensorflow实现</a></p></li><li><p><a href="https://segmentfault.com/a/1190000015575985" target="_blank" rel="noopener">中文资料</a></p></li><li><p><a href="https://www.cnblogs.com/guoyaohua/p/transformer.html" target="_blank" rel="noopener">Transformer各层图示</a></p></li></ol><p>ua/p/transformer.html)</p>]]></content>
+        <content type="html"><![CDATA[<ol><li><a href="https://github.com/keras-team/keras/issues/2405" target="_blank" rel="noopener">https://github.com/keras-team/keras/issues/2405</a></li><li><a href="https://github.com/CanePunma/Stock_Price_Prediction_With_RNNs/issues/1" target="_blank" rel="noopener">https://github.com/CanePunma/Stock_Price_Prediction_With_RNNs/issues/1</a></li><li><a href="https://stackoverflow.com/questions/42398645/timedistributed-vs-timedistributeddense-keras" target="_blank" rel="noopener">https://stackoverflow.com/questions/42398645/timedistributed-vs-timedistributeddense-keras</a></li><li><a href="https://stackoverflow.com/questions/44611006/timedistributeddense-vs-dense-in-keras-same-number-of-parameters" target="_blank" rel="noopener">https://stackoverflow.com/questions/44611006/timedistributeddense-vs-dense-in-keras-same-number-of-parameters</a></li><li><a href="https://stackoverflow.com/questions/45631235/importerror-cannot-import-name-timedistributeddense-in-keras" target="_blank" rel="noopener">https://stackoverflow.com/questions/45631235/importerror-cannot-import-name-timedistributeddense-in-keras</a></li><li><a href="https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu" target="_blank" rel="noopener">https://stackoverflow.com/questions/41947039/keras-rnn-with-lstm-cells-for-predicting-multiple-output-time-series-based-on-mu</a></li><li><a href="https://stackoverflow.com/questions/49661708/keras-lstm-multiple-input-multiple-output" target="_blank" rel="noopener">https://stackoverflow.com/questions/49661708/keras-lstm-multiple-input-multiple-output</a></li><li><a href="https://blog.csdn.net/oQiCheng1234567/article/details/73051251" target="_blank" rel="noopener">https://blog.csdn.net/oQiCheng1234567/article/details/73051251</a></li><li><a href="https://github.com/keras-team/keras/issues/1029" target="_blank" rel="noopener">https://github.com/keras-team/keras/issues/1029</a></li></ol><p>keras/issues/1029)</p>]]></content>
       
       
       <categories>
           
-          <category> sequence to sequence </category>
+          <category> LSTM </category>
           
       </categories>
       
